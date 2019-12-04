@@ -1,0 +1,16 @@
+
+# the .DS_Store files everywhere
+.DS_Store
+
+# the media directory
+/media
+
+# the favicon directory
+/favicon
+
+# the download directory
+/download
+
+# the CMS ( i.e. WordPress ) folder
+/cms
+
