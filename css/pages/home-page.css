@@ -1,0 +1,35 @@
+/*
+ *	Home Page
+ */
+
+/* -- Project List Section -- */
+.project-list-section .project-list .project-list-item {}
+
+.project-list-section .project-list .project-item-container {
+	padding-right: var(--space-min);
+	padding-bottom: var(--space-min);
+}
+
+.project-list-section .project-list .project-item {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	min-height: 200px;
+	padding-bottom: 150%;
+}
+
+.project-list-section .project-list .project-item .card {
+	width: calc( var(--space-100) * 4 );
+	height: calc( var(--space-100) * 4 );
+	position: absolute;
+	z-index: 2;
+}
+
+@media( min-width: 640px )  {}
+@media( min-width: 1040px ) {
+	.project-list-section .project-list .project-item .card {
+		width: calc( var(--space-100) * 2.5 );
+		height: calc( var(--space-100) * 2.5 );
+	}
+}
+@media( min-width: 1480px ) {}

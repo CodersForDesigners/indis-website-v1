@@ -16,17 +16,78 @@
 
 
 <!-- Sample Page Content -->
-<section class="intro-section">
+<section class="sample-section">
 	<div class="container">
 		<div class="row">
-			<div class="columns small-12 space-half-top-bottom">
-				<div class="h2">Welcome.</div>
-				<div class="h3">You are at the source.</div>
+			<div class="columns small-12 space-50-top-bottom">
 			</div>
 		</div>
 	</div>
 </section>
 <!-- END: Sample Page Content -->
+
+
+<!-- Intro Section -->
+<section class="intro-section">
+	<div class="container">
+		<div class="row">
+			<div class="columns small-12 space-50-top-bottom">
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Intro Section -->
+
+<!-- Project List Section -->
+<section class="project-list-section">
+	<div class="container">
+		<div class="project-list row space-50-top-bottom">
+			<div class="project-item-container columns small-12 medium-6 large-4">
+				<div class="project-item fill-neutral-2">
+					<div class="card fill-dark">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates reiciendis soluta culpa omnis, neque ex delectus corporis obcaecati. Modi voluptate unde perferendis a corrupti vitae doloribus, omnis labore fuga ab?
+					</div>
+				</div>
+			</div>
+			<div class="project-item-container columns small-12 medium-6 large-4">
+				<div class="project-item fill-neutral-2">
+					<div class="card fill-dark">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates reiciendis soluta culpa omnis, neque ex delectus corporis obcaecati. Modi voluptate unde perferendis a corrupti vitae doloribus, omnis labore fuga ab?
+					</div>
+				</div>
+			</div>
+			<div class="project-item-container columns small-12 medium-6 large-4">
+				<div class="project-item fill-neutral-2">
+					<div class="card fill-dark">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates reiciendis soluta culpa omnis, neque ex delectus corporis obcaecati. Modi voluptate unde perferendis a corrupti vitae doloribus, omnis labore fuga ab?
+					</div>
+				</div>
+			</div>
+			<div class="project-item-container columns small-12 medium-6 large-4">
+				<div class="project-item fill-neutral-2">
+					<div class="card fill-dark">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates reiciendis soluta culpa omnis, neque ex delectus corporis obcaecati. Modi voluptate unde perferendis a corrupti vitae doloribus, omnis labore fuga ab?
+					</div>
+				</div>
+			</div>
+			<div class="project-item-container columns small-12 medium-6 large-4">
+				<div class="project-item fill-neutral-2">
+					<div class="card fill-dark">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates reiciendis soluta culpa omnis, neque ex delectus corporis obcaecati. Modi voluptate unde perferendis a corrupti vitae doloribus, omnis labore fuga ab?
+					</div>
+				</div>
+			</div>
+			<div class="project-item-container columns small-12 medium-6 large-4">
+				<div class="project-item fill-neutral-2">
+					<div class="card fill-dark">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates reiciendis soluta culpa omnis, neque ex delectus corporis obcaecati. Modi voluptate unde perferendis a corrupti vitae doloribus, omnis labore fuga ab?
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Project List Section -->
 
 
 
