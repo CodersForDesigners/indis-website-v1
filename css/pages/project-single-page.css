@@ -2,33 +2,6 @@
  * Project Single
  */
 
-/* -- Navigation Section -- */
-.navigation-section {
-	position: absolute;
-	z-index: 10;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: auto;
-}
-
-@media( min-width: 640px )  {}
-@media( min-width: 1040px ) {
-	.navigation-section {
-		color: var(--light);
-	}
-
-	.navigation-section .navigation {
-		margin-top: var(--space-25);
-	}
-
-	.navigation-section .navigation .link {
-		margin-left: var(--space-25);
-	}
-}
-@media( min-width: 1480px ) {}
-
-
 /* -- Cover Section -- */
 
 .cover-section .cover-image-container {
@@ -38,6 +11,7 @@
 }
 
 .cover-section .cover-image-container .cover-image {
+	position: relative;
 	padding-bottom: 80%;
 	background-size: cover;
 	background-size: auto 100%;
@@ -76,6 +50,13 @@
 
 .cover-section .cover-image-strip .cover-image {
 	padding-bottom: 66.66667%;
+}
+
+.cover-section .cover-image-container.image-5 .icon-button {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	right: 0;
 }
 
 @media( min-width: 640px )  {
@@ -153,6 +134,12 @@
 
 	.cover-section .cover-image-container.image-5 .cover-image {
 		padding-bottom: 150%;
+	}
+
+	.cover-section .cover-image-container.image-5 .icon-button {
+		top: 0;
+		left: 0;
+		right: auto;
 	}
 }
 	

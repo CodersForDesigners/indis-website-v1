@@ -799,3 +799,33 @@ select { cursor: pointer; }
 
 
 
+/*
+ *
+ *	Icon Button
+ *
+ */
+
+.icon-button {
+	width: var(--space-100);
+	height: var(--space-100);
+	font-size: 0;
+	line-height: 0;
+	background-color: var(--light);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 28px;
+}
+
+@media( min-width: 1040px ) {
+	.icon-button {
+		width: var(--space-50);
+		height: var(--space-50);
+		background-size: 24px;
+	}
+}
+
+@media( min-width: 1480px ) {
+	.icon-button {
+		background-size: 32px;
+	}
+}

@@ -25,26 +25,6 @@ require_once __DIR__ . '/../inc/above.php';
 </section>
 <!-- END: Sample Section -->
 
-
-<!-- Navigation Section -->
-<section class="navigation-section space-25-top">
-	<div class="container">
-		<div class="row">
-			<div class="navigation columns small-12 text-right space-50-right">
-				<a href="/" class="link h6 strong text-uppercase inline space-min-top-bottom">Projects</a>
-				<a href="/" class="link h6 strong text-uppercase inline space-min-top-bottom">Floorplans</a>
-				<a href="/" class="link h6 strong text-uppercase inline space-min-top-bottom">Location</a>
-				<a href="/" class="link h6 strong text-uppercase inline space-min-top-bottom">Masterplan</a>
-				<a href="/" class="link h6 strong text-uppercase inline space-min-top-bottom">Amenities</a>
-				<a href="/" class="link h6 strong text-uppercase inline space-min-top-bottom">Updates</a>
-				<a href="/" class="link h6 strong text-uppercase inline space-min-top-bottom">+91-99860-99860</a>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- END: Navigation Section -->
-
-
 <!-- Cover Section -->
 <section class="cover-section space-25-top space-100-bottom">
 	<div class="container">
@@ -65,7 +45,7 @@ require_once __DIR__ . '/../inc/above.php';
 					<div class="cover-image-container image-4 columns small-12 large-4"><div class="cover-image fill-neutral-2 cursor-pointer" tabindex="-1" style="background-image: url('../media/project-cover/4.jpg<?php echo $ver ?>');"></div></div>
 				</div>
 			</div>
-			<div class="cover-image-container image-5 columns small-12 medium-6 large-4"><div class="cover-image portrait fill-neutral-2 cursor-pointer" tabindex="-1" style="background-image: url('../media/project-cover/5.jpg<?php echo $ver ?>');"></div></div>
+			<div class="cover-image-container image-5 columns small-12 medium-6 large-4"><div class="cover-image portrait fill-neutral-2 cursor-pointer" tabindex="-1" style="background-image: url('../media/project-cover/5.jpg<?php echo $ver ?>');"><div class="icon-button zoom" style="background-image: url('../media/icon/icon-zoom.svg<?php echo $ver ?>');"></div></div></div>
 		</div>
 	</div>
 </section>

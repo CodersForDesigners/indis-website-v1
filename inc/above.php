@@ -50,3 +50,27 @@ http_response_code( 200 );
 
 		<!-- Page Content -->
 		<div id="page-content">
+
+			<!-- Navigation Section -->
+			<section class="navigation-section space-25-top">
+				<div class="navigation-toggle-button row show-for-medium text-right">
+					<div class="container">
+						<a href="/" class="icon-button menu inline" tabindex="-1" style="background-image: url('../media/icon/icon-menu.svg<?php echo $ver ?>');"></a>
+					</div>
+				</div>
+				<div class="navigation row">
+					<div class="container">
+						<div class="columns small-12 text-right space-50-right">
+							<div class="link h4 strong text-uppercase show-for-medium ">Menu</div>
+							<a href="/" class="link h6 strong text-uppercase space-min-top-bottom">Projects</a>
+							<a href="/" class="link h6 strong text-uppercase space-min-top-bottom">Floorplans</a>
+							<a href="/" class="link h6 strong text-uppercase space-min-top-bottom">Location</a>
+							<a href="/" class="link h6 strong text-uppercase space-min-top-bottom">Masterplan</a>
+							<a href="/" class="link h6 strong text-uppercase space-min-top-bottom">Amenities</a>
+							<a href="/" class="link h6 strong text-uppercase space-min-top-bottom">Updates</a>
+							<a href="/" class="link h6 strong text-uppercase space-min-top-bottom">+91-99860-99860</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- END: Navigation Section -->
