@@ -43,7 +43,7 @@
 						<div class="location label">Kukatpally</div>
 						<hr class="dash">
 						<div class="type h6 strong space-25-top">2 & 3 BHK Apartments</div>
-						<div class="price h5 condensed">50Lakhs to 1.3Cr</div>
+						<div class="price h5 condensed space-min-top">50Lakhs to 1.3Cr</div>
 					</div>
 				</a>
 			</div>
@@ -54,7 +54,7 @@
 						<div class="location label">Appa Junction</div>
 						<hr class="dash">
 						<div class="type h6 strong space-25-top">2 & 3 BHK Apartments</div>
-						<div class="price h5 condensed">80Lakhs to 1.5Cr</div>
+						<div class="price h5 condensed space-min-top">80Lakhs to 1.5Cr</div>
 					</div>
 				</a>
 			</div>
@@ -65,7 +65,7 @@
 						<div class="location label">Bolarum</div>
 						<hr class="dash">
 						<div class="type h6 strong space-25-top">2 & 3 BHK Apartments</div>
-						<div class="price h5 condensed">40Lakhs to 80Lakhs</div>
+						<div class="price h5 condensed space-min-top">40Lakhs to 80Lakhs</div>
 					</div>
 				</a>
 			</div>
@@ -76,7 +76,7 @@
 						<div class="location label">Kondapur</div>
 						<hr class="dash">
 						<div class="type h6 strong space-25-top">2 & 3 BHK Apartments</div>
-						<div class="price h5 condensed">40Lakhs to 80Lakhs</div>
+						<div class="price h5 condensed space-min-top">40Lakhs to 80Lakhs</div>
 					</div>
 				</a>
 			</div>
@@ -86,7 +86,93 @@
 <!-- END: Project List Section -->
 
 
-
+<!-- Carousel: Offers -->
+<div class="carousel indis-carousel">
+	<div class="carousel-list">
+		<div class="carousel-list-item">
+			<div class="carousel-title h2 strong">
+				<span class="text-red-2">offers</span> <br>and best <br>sellers
+			</div>
+		</div>
+		<div class="carousel-list-item">
+			<div class="card-index text-neutral-2">
+				<div class="count h3 inline-bottom">01</div>
+				<div class="total label strong text-uppercase inline-bottom">14</div>
+			</div>
+			<div class="carousel-card fill-neutral-2">
+				<div class="info space-25">
+					<div class="title h4 strong">1600sft 3BHK.</div>
+					<div class="price h5 condensed">Starting at 80 Lakhs</div>
+					<div class="time label strong space-min-top"><span class="text-uppercase">Valid For :</span> 2 days, 11 hrs, 33 mins</div>
+				</div>
+			</div>
+			<div class="carousel-action button">Enquire Now</div>
+		</div>
+		<div class="carousel-list-item">
+			<div class="card-index text-neutral-2">
+				<div class="count h3 inline-bottom">02</div>
+				<div class="total label strong text-uppercase inline-bottom">14</div>
+			</div>
+			<div class="carousel-card fill-neutral-2">
+				<div class="info space-25">
+					<div class="title h4 strong">New Tower Launch.</div>
+					<div class="price h5 condensed">Starting at 1.2Cr</div>
+					<div class="time label strong space-min-top"><span class="text-uppercase">Valid For :</span> 2 days, 11 hrs, 33 mins</div>
+				</div>
+			</div>
+			<div class="carousel-action button">Enquire Now</div>
+		</div>
+		<div class="carousel-list-item">
+			<div class="card-index text-neutral-2">
+				<div class="count h3 inline-bottom">03</div>
+				<div class="total label strong text-uppercase inline-bottom">14</div>
+			</div>
+			<div class="carousel-card fill-neutral-2">
+				<div class="info space-25">
+					<div class="title h4 strong">Pay 20% now, 80% on possession.</div>
+					<div class="price h5 condensed">Starting at 45Lakhs</div>
+					<div class="time label strong space-min-top"><span class="text-uppercase">Valid For :</span> 2 days, 11 hrs, 33 mins</div>
+				</div>
+			</div>
+			<div class="carousel-action button">Enquire Now</div>
+		</div>
+		<div class="carousel-list-item">
+			<div class="card-index text-neutral-2">
+				<div class="count h3 inline-bottom">04</div>
+				<div class="total label strong text-uppercase inline-bottom">14</div>
+			</div>
+			<div class="carousel-card fill-neutral-2">
+				<div class="info space-25">
+					<div class="title h4 strong">1930sft 3BHK, Pool View Units.</div>
+					<div class="price h5 condensed">Starting at 1.0 Cr</div>
+					<div class="time label strong space-min-top"><span class="text-uppercase">Valid For :</span> 2 days, 11 hrs, 33 mins</div>
+				</div>
+			</div>
+			<div class="carousel-action button">Enquire Now</div>
+		</div>
+		<div class="carousel-list-item">
+			<div class="card-index text-neutral-2">
+				<div class="count h3 inline-bottom">05</div>
+				<div class="total label strong text-uppercase inline-bottom">14</div>
+			</div>
+			<div class="carousel-card fill-neutral-2">
+				<div class="info space-25">
+					<div class="title h4 strong">Ready to move-in 2BHK. Only 5 left.</div>
+					<div class="price h5 condensed">Starting at 40Lakhs</div>
+					<div class="time label strong space-min-top"><span class="text-uppercase">Valid For :</span> 2 days, 11 hrs, 33 mins</div>
+				</div>
+			</div>
+			<div class="carousel-action button">Enquire Now</div>
+		</div>
+	</div>
+	<!-- <div class="container"> -->
+		<!-- <div class="carousel-controls scroll-controls"> -->
+			<!-- <div class="scroll-button scroll-left prev"><button class="button"></button></div> -->
+			<!-- <div class="scroll-button scroll-right next"><button class="button"></button></div> -->
+		<!-- </div> -->
+	<!-- </div> -->
+</div>
+<!-- END: Carousel: Offers -->
 
 
 <?php require_once __DIR__ . '/../inc/below.php'; ?>

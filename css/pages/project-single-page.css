@@ -2,6 +2,10 @@
  * Project Single
  */
 
+@media( min-width: 640px )  {}
+@media( min-width: 1040px ) {}
+@media( min-width: 1480px ) {}
+
 /* -- Cover Section -- */
 
 .cover-section .cover-image-container {
@@ -97,7 +101,7 @@
 		padding-left: 0;
 		padding-top: var(--space-25);
 		right: 0;
-		bottom: 0;
+		bottom: calc(var(--space-50) * -1);
 		background-color: var(--light)
 	}
 
@@ -127,7 +131,7 @@
 		position: absolute;
 		z-index: 3;
 		right: 0;
-		bottom: 0;
+		bottom: calc(var(--space-50) * -1);
 		padding-left: var(--space-25);
 		transform: translateY(100%);
 	}
@@ -148,3 +152,22 @@
 		width: 120px;
 	}
 }
+
+
+/* -- Intro Section -- */
+
+.intro-section {}
+
+.intro-section .project-logo {
+	max-width: calc( var(--space-100) * 3 );
+	max-height: calc( var(--space-100) * 3 );
+}
+
+@media( min-width: 640px )  {}
+@media( min-width: 1040px ) {
+	.intro-section .project-logo {
+		max-width: calc( var(--space-100) * 2 );
+		max-height: calc( var(--space-100) * 2 );
+	}
+}
+@media( min-width: 1480px ) {}

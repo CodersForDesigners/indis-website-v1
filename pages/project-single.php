@@ -26,7 +26,7 @@ require_once __DIR__ . '/../inc/above.php';
 <!-- END: Sample Section -->
 
 <!-- Cover Section -->
-<section class="cover-section space-25-top space-100-bottom">
+<section class="cover-section space-25-top space-50-bottom">
 	<div class="container">
 		<div class="row">
 			<div class="cover-image-container image-1 columns small-12 large-12"><div class="cover-image fill-neutral-2" style="background-image: url('../media/project-cover/1.jpg<?php echo $ver ?>');"></div></div>
@@ -53,10 +53,21 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- Intro Section -->
-<section class="intro-section fill-neutral-1" style="height: 2000px;">
+<section class="intro-section">
 	<div class="container">
 		<div class="row">
-			<div class="columns small-12">
+			<div class="columns small-12 medium-10 large-6 large-offset-1">
+				<div class="project-logo space-25-bottom"><img class="block" src="../media/project-logo/pbel-city.png<?php echo $ver ?>"></div>
+				<div class="title h2 strong text-lowercase space-25-bottom">Your commute to Hitec City or Financial district is <span class="text-red-2">just a 15 to 17 minute drive</span> on the Nehru Outer Ring Road.</div>
+				<div class="description text-neutral-2 space-25-bottom">Body Copy if required. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
+				<div class="points row space-50-bottom">
+					<div class="point h5 condensed columns small-12 medium-6 space-min-bottom"><span class="inline-middle space-min-right"><img src="https://via.placeholder.com/32"></span>1208sft to 1979sft</div>
+					<div class="point h5 condensed columns small-12 medium-6 space-min-bottom"><span class="inline-middle space-min-right"><img src="https://via.placeholder.com/32"></span>Ready to move-in</div>
+					<div class="point h5 condensed columns small-12 medium-6 space-min-bottom"><span class="inline-middle space-min-right"><img src="https://via.placeholder.com/32"></span>1800+ Families Live Here</div>
+					<div class="point h5 condensed columns small-12 medium-6 space-min-bottom"><span class="inline-middle space-min-right"><img src="https://via.placeholder.com/32"></span>Near the Airport</div>
+					<div class="point h5 condensed columns small-12 medium-6 space-min-bottom"><span class="inline-middle space-min-right"><img src="https://via.placeholder.com/32"></span>Swimming Pool</div>
+					<div class="point h5 condensed columns small-12 medium-6 space-min-bottom"><span class="inline-middle space-min-right"><img src="https://via.placeholder.com/32"></span>Fully Equiped Gymnasium</div>
+				</div>
 			</div>
 		</div>
 	</div>
