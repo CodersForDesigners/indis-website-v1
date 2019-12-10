@@ -173,4 +173,22 @@ require_once __DIR__ . '/../inc/above.php';
 <!-- END: Location Section -->
 
 
+<!-- Download Brochure -->
+<section class="download-brochure">
+	<div class="container">
+		<div class="row">
+			<div class="brochure-mockup columns small-12 medium-5 large-6 inline-middle">
+				<img class="block" src="../media/mockup-download-brochure.png<?php echo $ver ?>">
+			</div>
+			<div class="brochure-action fill-light columns small-10 small-offset-1 medium-7 medium-offset-0 large-6 inline-middle">
+				<div class="download-title h3 text-lowercase strong space-25-bottom">If you're in a hurry, <br>just <span class="text-red-2">download the <span class="text-uppercase">PDF</span> brochure</span></div>
+				<button class="button">Download Now</button>
+				<div class="courier-description p text-neutral-2 space-min-top">Or, if you'd like a copy of the physical brochure couriered to your location. <br><a href="" class="text-red-2">Click Here</a></div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Download Brochure -->
+
+
 <?php require_once __DIR__ . '/../inc/below.php'; ?>
