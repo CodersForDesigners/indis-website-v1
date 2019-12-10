@@ -55,7 +55,7 @@ http_response_code( 200 );
 			<section class="navigation-section space-25-top">
 				<div class="navigation-toggle-button row show-for-medium text-right">
 					<div class="container">
-						<a href="/" class="icon-button menu inline" tabindex="-1" style="background-image: url('../media/icon/icon-menu.svg<?php echo $ver ?>');"></a>
+						<a href="" class="icon-button menu inline" tabindex="-1" style="background-image: url('../media/icon/icon-menu.svg<?php echo $ver ?>');"></a>
 					</div>
 				</div>
 				<div class="navigation row">

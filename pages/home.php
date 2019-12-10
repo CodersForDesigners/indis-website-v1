@@ -32,8 +32,11 @@
 	<div class="container">
 		<div class="project-list row">
 			<div class="project-item-container columns small-12 medium-6 large-4">
-				<div class="list-title space-50-top-bottom">
-					<div class="h2 strong text-lowercase">Find an <span class="text-red-2">Indis</span> home near you</div>
+				<div class="project-list-intro space-25-left">
+					<div class="logo"><img class="block" src="../media/indis-logo-dark.svg<?php echo $ver ?>"></div>
+					<div class="list-title space-50-top-bottom">
+						<div class="h2 strong text-lowercase">Find an <span class="text-red-2">Indis</span> home near you</div>
+					</div>
 				</div>
 			</div>
 			<div class="project-item-container columns small-12 medium-6 large-4">
@@ -106,7 +109,7 @@
 					<div class="time label strong space-min-top"><span class="text-uppercase">Valid For :</span> 2 days, 11 hrs, 33 mins</div>
 				</div>
 			</div>
-			<div class="carousel-action button">Enquire Now</div>
+			<a href="" class="carousel-action button">Enquire Now</a>
 		</div>
 		<div class="carousel-list-item">
 			<div class="card-index text-neutral-2">
@@ -120,7 +123,7 @@
 					<div class="time label strong space-min-top"><span class="text-uppercase">Valid For :</span> 2 days, 11 hrs, 33 mins</div>
 				</div>
 			</div>
-			<div class="carousel-action button">Enquire Now</div>
+			<a href="" class="carousel-action button">Enquire Now</a>
 		</div>
 		<div class="carousel-list-item">
 			<div class="card-index text-neutral-2">
@@ -134,7 +137,7 @@
 					<div class="time label strong space-min-top"><span class="text-uppercase">Valid For :</span> 2 days, 11 hrs, 33 mins</div>
 				</div>
 			</div>
-			<div class="carousel-action button">Enquire Now</div>
+			<a href="" class="carousel-action button">Enquire Now</a>
 		</div>
 		<div class="carousel-list-item">
 			<div class="card-index text-neutral-2">
@@ -148,7 +151,7 @@
 					<div class="time label strong space-min-top"><span class="text-uppercase">Valid For :</span> 2 days, 11 hrs, 33 mins</div>
 				</div>
 			</div>
-			<div class="carousel-action button">Enquire Now</div>
+			<a href="" class="carousel-action button">Enquire Now</a>
 		</div>
 		<div class="carousel-list-item">
 			<div class="card-index text-neutral-2">
@@ -162,15 +165,15 @@
 					<div class="time label strong space-min-top"><span class="text-uppercase">Valid For :</span> 2 days, 11 hrs, 33 mins</div>
 				</div>
 			</div>
-			<div class="carousel-action button">Enquire Now</div>
+			<a href="" class="carousel-action button">Enquire Now</a>
 		</div>
 	</div>
-	<!-- <div class="container"> -->
-		<!-- <div class="carousel-controls scroll-controls"> -->
-			<!-- <div class="scroll-button scroll-left prev"><button class="button"></button></div> -->
-			<!-- <div class="scroll-button scroll-right next"><button class="button"></button></div> -->
-		<!-- </div> -->
-	<!-- </div> -->
+	<div class="carousel-controls clearfix">
+		<div class="container">
+			<div class="prev float-left"><button class="button fill-light"><img class="block" src="../media/icon/icon-left-triangle-dark.svg<?php echo $ver ?>"></button></div>
+			<div class="next float-right"><button class="button fill-light"><img class="block" src="../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>"></button></div>
+		</div>
+	</div>
 </div>
 <!-- END: Carousel: Offers -->
 

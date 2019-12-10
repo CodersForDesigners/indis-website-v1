@@ -5,6 +5,11 @@
 /* -- Project List Section -- */
 .project-list-section .project-list .project-list-item {}
 
+.project-list-section .project-list .project-list-intro .logo {
+	width: 75px;
+	padding: var(--space-min) 0;
+}
+
 .project-list-section .project-list .project-item-container .list-title {
 	padding-right: var(--space-100);
 }
@@ -72,6 +77,15 @@
 }
 
 @media( min-width: 640px )  {
+	.project-list-section .project-list .project-list-intro {
+		padding-right: calc( var( --space-100) * 2 );
+	}
+
+	.project-list-section .project-list .project-list-intro .logo {
+		position: absolute;
+		top: 0;
+	}
+
 	.project-list-section .project-list .project-item-container {
 		padding-right: var(--space-min);
 	}
@@ -81,6 +95,14 @@
 	}
 }
 @media( min-width: 1040px ) {
+	.project-list-section .project-list .project-list-intro {
+		padding-right: 0;
+	}
+	.project-list-section .project-list .project-list-intro .logo {
+		width: 85px;
+		padding: var(--space-25) 0;
+	}
+
 	.project-list-section .project-list .project-item-container {
 		padding-right: var(--space-25);
 		padding-bottom: var(--space-25);
@@ -126,6 +148,14 @@
 	}
 }
 @media( min-width: 1480px ) {
+	.project-list-section .project-list .project-list-intro {
+		padding-right: var(--space-50);
+	}
+
+	.project-list-section .project-list .project-list-intro .logo {
+		width: 120px;
+	}
+
 	.project-list-section .project-list .project-item-container .list-title {
 		padding-right: 0;
 	}
