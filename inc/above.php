@@ -52,10 +52,10 @@ http_response_code( 200 );
 		<div id="page-content">
 
 			<!-- Navigation Section -->
-			<section class="navigation-section space-25-top">
+			<section class="navigation-section space-25-top js_navigation_section">
 				<div class="navigation-toggle-button row show-for-medium text-right">
 					<div class="container">
-						<a href="" class="icon-button menu inline" tabindex="-1" style="background-image: url('../media/icon/icon-menu.svg<?php echo $ver ?>');"></a>
+						<button class="icon-button menu inline js_menu_button" tabindex="-1" style="background-image: url('../media/icon/icon-menu.svg<?php echo $ver ?>');"></button>
 					</div>
 				</div>
 				<div class="navigation row">

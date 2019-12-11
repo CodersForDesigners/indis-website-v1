@@ -90,14 +90,14 @@
 
 
 <!-- Carousel: Offers -->
-<div class="carousel indis-carousel">
-	<div class="carousel-list">
-		<div class="carousel-list-item">
+<div class="carousel indis-carousel js_carousel_container">
+	<div class="carousel-list js_carousel_content">
+		<div class="carousel-list-item js_carousel_item">
 			<div class="carousel-title h2 strong">
 				<span class="text-red-2">offers</span> <br>and best <br>sellers
 			</div>
 		</div>
-		<div class="carousel-list-item">
+		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
 				<div class="count h3 inline-bottom">01</div>
 				<div class="total label strong text-uppercase inline-bottom">14</div>
@@ -111,7 +111,7 @@
 			</div>
 			<a href="" class="carousel-action button">Enquire Now</a>
 		</div>
-		<div class="carousel-list-item">
+		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
 				<div class="count h3 inline-bottom">02</div>
 				<div class="total label strong text-uppercase inline-bottom">14</div>
@@ -125,7 +125,7 @@
 			</div>
 			<a href="" class="carousel-action button">Enquire Now</a>
 		</div>
-		<div class="carousel-list-item">
+		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
 				<div class="count h3 inline-bottom">03</div>
 				<div class="total label strong text-uppercase inline-bottom">14</div>
@@ -139,7 +139,7 @@
 			</div>
 			<a href="" class="carousel-action button">Enquire Now</a>
 		</div>
-		<div class="carousel-list-item">
+		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
 				<div class="count h3 inline-bottom">04</div>
 				<div class="total label strong text-uppercase inline-bottom">14</div>
@@ -153,7 +153,7 @@
 			</div>
 			<a href="" class="carousel-action button">Enquire Now</a>
 		</div>
-		<div class="carousel-list-item">
+		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
 				<div class="count h3 inline-bottom">05</div>
 				<div class="total label strong text-uppercase inline-bottom">14</div>
@@ -170,8 +170,8 @@
 	</div>
 	<div class="carousel-controls clearfix">
 		<div class="container">
-			<div class="prev float-left"><button class="button fill-light"><img class="block" src="../media/icon/icon-left-triangle-dark.svg<?php echo $ver ?>"></button></div>
-			<div class="next float-right"><button class="button fill-light"><img class="block" src="../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>"></button></div>
+			<div class="prev float-left"><button class="button fill-light js_pager" data-dir="left"><img class="block" src="../media/icon/icon-left-triangle-dark.svg<?php echo $ver ?>"></button></div>
+			<div class="next float-right"><button class="button fill-light js_pager" data-dir="right"><img class="block" src="../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>"></button></div>
 		</div>
 	</div>
 </div>
