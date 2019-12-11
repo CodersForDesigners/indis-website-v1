@@ -166,7 +166,7 @@ require_once __DIR__ . '/../inc/above.php';
 				<div class="address h6 text-neutral-2 space-min-top">Nehru Outer Ring Rd, Power Welfare Society, Kokapet, HYD, Telangana — 500075</div>
 				<a href="" class="label strong text-red-2 text-uppercase space-min-top-bottom inline-middle">Open in Google Maps <img class="link-icon inline-middle" src="../media/icon/icon-location-color.svg<?php echo $ver ?>"></a>
 			</div>
-			<div class="location-title h2 strong text-neutral-2 text-lowercase columns small-9 medium-5 xlarge-4"><span class="text-light">The best views</span> for 2 to 3kms in all directions</div>
+			<div class="location-title h2 strong text-red-1 text-lowercase columns small-9 medium-5 xlarge-4"><span class="text-light">The best views</span> for 2 to 3kms in all directions</div>
 		</div>
 	</div>
 </section>
@@ -190,5 +190,133 @@ require_once __DIR__ . '/../inc/above.php';
 </section>
 <!-- END: Download Brochure -->
 
+
+<!-- Engineering Section : Concrete -->
+<section class="engineering-section concrete space-50-top-bottom">
+	<div class="container">
+		<div class="row row-1">
+			<div class="section-label columns small-12 xlarge-10 xlarge-offset-1 space-25-bottom">
+				<div class="label strong text-neutral-2 text-uppercase">Engineering</div>
+			</div>
+			<div class="heading columns small-12 medium-6 large-5 xlarge-4 xlarge-offset-1 space-50-bottom">
+				<div class="h3 strong text-lowercase">Built with precision moulded concrete structures to ensure <span class="text-red-2">factory-like repeatable quality</span> in each home.</div>
+			</div>
+			<div class="points columns small-12 medium-5 large-3 xlarge-offset-1">
+				<div class="title h4 strong space-25-bottom"><span class="text-red-2">High-Rise Build</span> <br>Engineering</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					The monolithic structure is stronger, has a longer life and is more earthquake resistant. 
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Unified build process. Structure, walls, electrical and plumbing are installed and built simultaneously.
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					No need for plastering because the wall surface is smooth and precise. 
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Pleasing and functional interior walls that don’t have visible beams and columns. 
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					The factory-like repetitive ‘build and check’ process ensures predictable quality. 
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Concrete is an excellent insulator. Our buildings are cooler and have better sound insulation.
+				</div>
+				<div class="space-50-left space-25-bottom">
+					<div class="label strong text-neutral-2 text-uppercase space-min-top-bottom">Construction Partner</div>
+					<img src="../media/engineering/landt-logo.svg<?php echo $ver ?>">
+				</div>
+			</div>
+			<div class="building-3d-1 hide-for-medium columns small-12 medium-6 medium-offset-1 large-4 xlarge-3 large-offset-0">
+				<img class="block" src="https://via.placeholder.com/400x1000">
+			</div>
+		</div>
+		<div class="row row-2">
+			<div class="film columns small-12 medium-6 large-5 xlarge-6">
+				<div class="building-3d-2 space-50-left-right">
+					<img class="block" src="https://via.placeholder.com/400x400">
+				</div>
+				<!-- video embed -->
+				<div class="video-embed js_video_embed" data-src="lncVHzsc_QA">
+					<div class="video-loading-indicator"></div>
+				</div>
+			</div>
+			<div class="infographic columns small-12 medium-6 large-6 xlarge-6">
+				<img class="block" src="../media/engineering/engineering-concrete-infographic.svg<?php echo $ver ?>">
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Engineering Section : Concrete -->
+
+<!-- Engineering Section : Railing -->
+<section class="engineering-section railing space-50-top-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="section-label columns small-12 xlarge-10 xlarge-offset-1 space-25-bottom">
+				<div class="label strong text-neutral-2 text-uppercase">Engineering</div>
+			</div>
+			<div class="heading columns small-12 space-50-bottom">
+				<div class="h3 strong text-lowercase">Every balcony railing has vertical divisions. This ensures that <span class="text-red-2">children cannot climb them.</span></div>
+			</div>
+			<div class="points columns small-12 medium-6 large-4">
+				<div class="title h4 strong space-25-bottom"><span class="text-red-2">High-Rise Safety</span> <br>Engineering</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					1.2m high balcony railings ensures safety on any floor.
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Vertical divisions on the railing ensure children cannot climb the railing.
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Complaint with the Bureau of Indian Standards National Building Code.
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Engineering Section : Railing -->
+
+<!-- Engineering Section : Fire -->
+<section class="engineering-section fire space-50-top-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="section-label columns small-12 xlarge-10 xlarge-offset-1 space-25-bottom">
+				<div class="label strong text-neutral-2 text-uppercase">Engineering</div>
+			</div>
+			<div class="heading columns small-12 space-50-bottom">
+				<div class="h3 strong text-lowercase">4 level redundancy fire fighting infrastructure. <span class="text-red-2">Early warning smoke detectors and triple pump fire sprinkler system.</span></div>
+			</div>
+			<div class="points columns small-12 medium-6 large-4">
+				<div class="title h4 strong space-25-bottom"><span class="text-red-2">High-Rise Safety</span> <br>Engineering</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Early warning smoke detectors in your kitchen and living room. 
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Smoke detectors trigger an early warning fire alarm with an exact indication of the location of a potential fire.
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Every floor has early warning fire measures like hand-held extinguishers and water hoses.
+				</div>
+			</div>
+			<div class="points columns small-12 medium-6 large-4">
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					In case a fire is to intense for early warning fire measures, evacuation is recommended. 
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					A pressurised network of pipes feed the fire sprinklers in every room of your house.
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Every fire sprinkler has a temperature activated glass bulb that melts at 68° Celsius. 
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Only the fire sprinklers in the region of the fire will activate when a fire melts the glass bulbs only. 
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Triple redundant water pumps activate when they sense a drop in water pressure. This ensures the sprinklers are fed with a constant water pressure.
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Engineering Section : Fire -->
 
 <?php require_once __DIR__ . '/../inc/below.php'; ?>
