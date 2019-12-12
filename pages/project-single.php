@@ -227,13 +227,13 @@ require_once __DIR__ . '/../inc/above.php';
 				</div>
 			</div>
 			<div class="building-3d-1 hide-for-medium columns small-12 medium-6 medium-offset-1 large-4 xlarge-3 large-offset-0">
-				<img class="block" src="https://via.placeholder.com/400x1000">
+				<img class="block" src="../media/engineering/building-3d-1.png<?php echo $ver ?>">
 			</div>
 		</div>
 		<div class="row row-2">
 			<div class="film columns small-12 medium-6 large-5 xlarge-6">
 				<div class="building-3d-2 space-50-left-right">
-					<img class="block" src="https://via.placeholder.com/400x400">
+					<img class="block" src="../media/engineering/building-3d-2.png<?php echo $ver ?>">
 				</div>
 				<!-- video embed -->
 				<div class="video-embed js_video_embed" data-src="lncVHzsc_QA">
@@ -251,14 +251,14 @@ require_once __DIR__ . '/../inc/above.php';
 <!-- Engineering Section : Railing -->
 <section class="engineering-section railing space-50-top-bottom">
 	<div class="container">
-		<div class="row">
-			<div class="section-label columns small-12 xlarge-10 xlarge-offset-1 space-25-bottom">
+		<div class="row row-1">
+			<div class="section-label columns small-12 xlarge-11 xlarge-offset-1 space-25-bottom">
 				<div class="label strong text-neutral-2 text-uppercase">Engineering</div>
 			</div>
-			<div class="heading columns small-12 space-50-bottom">
+			<div class="heading columns small-12 medium-6 large-4 large-offset-1 space-50-bottom">
 				<div class="h3 strong text-lowercase">Every balcony railing has vertical divisions. This ensures that <span class="text-red-2">children cannot climb them.</span></div>
 			</div>
-			<div class="points columns small-12 medium-6 large-4">
+			<div class="points columns small-12 medium-6 large-4 xlarge-offset-1">
 				<div class="title h4 strong space-25-bottom"><span class="text-red-2">High-Rise Safety</span> <br>Engineering</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					1.2m high balcony railings ensures safety on any floor.
@@ -267,8 +267,25 @@ require_once __DIR__ . '/../inc/above.php';
 					Vertical divisions on the railing ensure children cannot climb the railing.
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					Complaint with the Bureau of Indian Standards National Building Code.
+					Complaint with the <span style="color: #2E73D8;">Bureau of Indian Standards</span> National Building Code.
 				</div>
+			</div>
+		</div>
+		<div class="row row-2">
+			<div class="railing-3d columns small-12">
+				<img class="block" src="../media/engineering/railing-3d.png<?php echo $ver ?>">
+			</div>
+		</div>
+		<div class="row row-3">
+			<div class="film columns small-12 medium-6 large-5 xlarge-6">
+				<!-- video embed -->
+				<div class="video-embed js_video_embed" data-src="lncVHzsc_QA">
+					<div class="video-loading-indicator"></div>
+				</div>
+			</div>
+			<div class="bis-logo columns small-12 medium-6 large-6 xlarge-6">
+				<img src="../media/engineering/bis-logo.svg<?php echo $ver ?>">
+				<div class="h6 text-neutral-2">Bureau of Indian <br>Standards</div>
 			</div>
 		</div>
 	</div>
