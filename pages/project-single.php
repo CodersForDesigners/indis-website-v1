@@ -201,7 +201,7 @@ require_once __DIR__ . '/../inc/above.php';
 			<div class="heading columns small-12 medium-6 large-5 xlarge-4 xlarge-offset-1 space-50-bottom">
 				<div class="h3 strong text-lowercase">Built with precision moulded concrete structures to ensure <span class="text-red-2">factory-like repeatable quality</span> in each home.</div>
 			</div>
-			<div class="points columns small-12 medium-5 large-3 xlarge-offset-1">
+			<div class="points columns small-12 medium-5 large-3 large-offset-1">
 				<div class="title h4 strong space-25-bottom"><span class="text-red-2">High-Rise Build</span> <br>Engineering</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					The monolithic structure is stronger, has a longer life and is more earthquake resistant. 
@@ -226,12 +226,12 @@ require_once __DIR__ . '/../inc/above.php';
 					<img src="../media/engineering/landt-logo.svg<?php echo $ver ?>">
 				</div>
 			</div>
-			<div class="building-3d-1 hide-for-medium columns small-12 medium-6 medium-offset-1 large-4 xlarge-3 large-offset-0">
+			<div class="building-3d-1 hide-for-medium columns small-12 medium-6 medium-offset-1 large-3 large-offset-0">
 				<img class="block" src="../media/engineering/building-3d-1.png<?php echo $ver ?>">
 			</div>
 		</div>
 		<div class="row row-2">
-			<div class="film columns small-12 medium-6 large-5 xlarge-6">
+			<div class="film columns small-12 medium-6">
 				<div class="building-3d-2 space-50-left-right">
 					<img class="block" src="../media/engineering/building-3d-2.png<?php echo $ver ?>">
 				</div>
@@ -240,7 +240,7 @@ require_once __DIR__ . '/../inc/above.php';
 					<div class="video-loading-indicator"></div>
 				</div>
 			</div>
-			<div class="infographic columns small-12 medium-6 large-6 xlarge-6">
+			<div class="infographic columns small-12 medium-6">
 				<img class="block" src="../media/engineering/engineering-concrete-infographic.svg<?php echo $ver ?>">
 			</div>
 		</div>
@@ -255,10 +255,10 @@ require_once __DIR__ . '/../inc/above.php';
 			<div class="section-label columns small-12 xlarge-11 xlarge-offset-1 space-25-bottom">
 				<div class="label strong text-neutral-2 text-uppercase">Engineering</div>
 			</div>
-			<div class="heading columns small-12 medium-6 large-4 large-offset-1 space-50-bottom">
+			<div class="heading columns small-12 medium-6 large-5 large-offset-1 space-50-bottom">
 				<div class="h3 strong text-lowercase">Every balcony railing has vertical divisions. This ensures that <span class="text-red-2">children cannot climb them.</span></div>
 			</div>
-			<div class="points columns small-12 medium-6 large-4 xlarge-offset-1">
+			<div class="points columns small-12 medium-6 large-5 xlarge-4 xlarge-offset-1">
 				<div class="title h4 strong space-25-bottom"><span class="text-red-2">High-Rise Safety</span> <br>Engineering</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					1.2m high balcony railings ensures safety on any floor.
@@ -277,13 +277,13 @@ require_once __DIR__ . '/../inc/above.php';
 			</div>
 		</div>
 		<div class="row row-3">
-			<div class="film columns small-12 medium-6 large-5 xlarge-6">
+			<div class="film columns small-12 medium-6">
 				<!-- video embed -->
 				<div class="video-embed js_video_embed" data-src="lncVHzsc_QA">
 					<div class="video-loading-indicator"></div>
 				</div>
 			</div>
-			<div class="bis-logo columns small-12 medium-6 large-6 xlarge-6">
+			<div class="bis-logo columns small-12 medium-6 large-6">
 				<img src="../media/engineering/bis-logo.svg<?php echo $ver ?>">
 				<div class="h6 text-neutral-2">Bureau of Indian <br>Standards</div>
 			</div>
@@ -302,7 +302,7 @@ require_once __DIR__ . '/../inc/above.php';
 			<div class="heading columns small-12 medium-6 large-5 xlarge-4 xlarge-offset-1 space-50-bottom">
 				<div class="h3 strong text-lowercase">4 level redundancy fire fighting infrastructure. <span class="text-red-2">Early warning smoke detectors and triple pump fire sprinkler system.</span></div>
 			</div>
-			<div class="points points-1 columns small-12 medium-6 large-3 xlarge-offset-1">
+			<div class="points points-1 columns small-12 medium-6 large-3 large-offset-1">
 				<div class="title h4 strong space-25-bottom"><span class="text-red-2">High-Rise Safety</span> <br>Engineering</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					Early warning smoke detectors in your kitchen and living room. 
