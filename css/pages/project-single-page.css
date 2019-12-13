@@ -428,6 +428,7 @@
 	position: relative;
 	z-index: 2;
 }
+
 .engineering-section.railing .row-2 {
 	position: relative;
 	z-index: 1;
@@ -445,9 +446,11 @@
 	.engineering-section.railing .row-1  {
 		direction: rtl;
 	}
+
 	.engineering-section.railing .row-1 .columns {
 		direction: ltr;
 	}
+
 	.engineering-section.railing .row-1 .points {
 		padding-right: var(--space-50);
 	}
@@ -459,6 +462,7 @@
 	.engineering-section.railing .row-3 .film  {
 		padding-top: 0;
 	}
+
 	.engineering-section.railing .row-3 .bis-logo  {
 		padding-top: 0;
 		padding-left: var(--space-50);
@@ -472,5 +476,80 @@
 @media( min-width: 1480px ) {
 	.engineering-section.railing .row-1 .heading {
 		margin-right: calc( var(--space-100) * 2 );
+	}
+}
+
+
+/* -- Engineering Section - Railing Overwrites -- */
+
+.engineering-section.fire .row-1 .points  {
+	position: relative;
+}
+
+.engineering-section.fire .row-1 .points .smoke-detector,
+.engineering-section.fire .row-1 .points .fire-sprinkler {
+	padding: 0 var(--space-50);
+}
+
+.engineering-section.fire .row-3 .film  {
+	padding-top: var(--space-min);
+}
+
+.engineering-section.fire .row-3 .sprinkler-bulb {
+	padding-top: var(--space-min);
+}
+.engineering-section.fire .row-3 .sprinkler-bulb img {
+	width: 160px;
+}
+
+@media( min-width: 640px )  {
+	.engineering-section.fire .row-1 .points .fire-sprinkler {
+		position: absolute;
+		top: 0;
+		right: 100%;
+		width: 100%;
+		height: auto;
+	}
+
+	.engineering-section.fire .row-3 .film  {
+		padding-top: 0;
+	}
+
+	.engineering-section.fire .row-3 .sprinkler-bulb {
+		padding-top: 0;
+		padding-left: var(--space-50);
+	}
+	.engineering-section.fire .row-3 .sprinkler-bulb img {
+		width: 100px;
+	}
+}
+@media( min-width: 1040px ) {
+	.engineering-section.fire .row-1 .points .smoke-detector,
+	.engineering-section.fire .row-1 .points .fire-sprinkler {
+		padding: 0 var(--space-25);
+	}
+
+	.engineering-section.fire .row-1 .points .smoke-detector {
+		position: absolute;
+		top: 0;
+		left: 100%;
+		width: 100%;
+		height: auto;
+	}
+
+	.engineering-section.fire .row-1 .points.points-2 {
+		margin-top: calc( var(--space-100) * 5);
+	}
+	.engineering-section.fire .row-3 .sprinkler-bulb img {
+		width: 180px;
+	}
+}
+@media( min-width: 1480px ) {
+	.engineering-section.fire .row-1 .points.points-2 {
+		margin-top: calc( var(--space-100) * 4);
+	}
+
+	.engineering-section.fire .row-3 .sprinkler-bulb img {
+		width: 260px;
 	}
 }

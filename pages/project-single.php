@@ -295,14 +295,14 @@ require_once __DIR__ . '/../inc/above.php';
 <!-- Engineering Section : Fire -->
 <section class="engineering-section fire space-50-top-bottom">
 	<div class="container">
-		<div class="row">
+		<div class="row row-1">
 			<div class="section-label columns small-12 xlarge-10 xlarge-offset-1 space-25-bottom">
 				<div class="label strong text-neutral-2 text-uppercase">Engineering</div>
 			</div>
-			<div class="heading columns small-12 space-50-bottom">
+			<div class="heading columns small-12 medium-6 large-5 xlarge-4 xlarge-offset-1 space-50-bottom">
 				<div class="h3 strong text-lowercase">4 level redundancy fire fighting infrastructure. <span class="text-red-2">Early warning smoke detectors and triple pump fire sprinkler system.</span></div>
 			</div>
-			<div class="points columns small-12 medium-6 large-4">
+			<div class="points points-1 columns small-12 medium-6 large-3 xlarge-offset-1">
 				<div class="title h4 strong space-25-bottom"><span class="text-red-2">High-Rise Safety</span> <br>Engineering</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					Early warning smoke detectors in your kitchen and living room. 
@@ -310,16 +310,24 @@ require_once __DIR__ . '/../inc/above.php';
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					Smoke detectors trigger an early warning fire alarm with an exact indication of the location of a potential fire.
 				</div>
+				<div class="smoke-detector text-center">
+					<img class="block" src="../media/engineering/smoke-detector.png<?php echo $ver ?>">
+					<div class="label strong text-neutral-2 text-uppercase space-min-top-bottom">Early Warning Smoke Detector</div>
+				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					Every floor has early warning fire measures like hand-held extinguishers and water hoses.
 				</div>
 			</div>
-			<div class="points columns small-12 medium-6 large-4">
+			<div class="points points-2 columns small-12 medium-6 medium-offset-6 large-3 large-offset-0">
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					In case a fire is to intense for early warning fire measures, evacuation is recommended. 
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					A pressurised network of pipes feed the fire sprinklers in every room of your house.
+				</div>
+				<div class="fire-sprinkler text-center">
+					<img class="block" src="../media/engineering/fire-sprinkler.png<?php echo $ver ?>">
+					<div class="label strong text-neutral-2 text-uppercase space-min-top-bottom">Temperature Activated Sprinkler</div>
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					Every fire sprinkler has a temperature activated glass bulb that melts at 68° Celsius. 
@@ -330,6 +338,24 @@ require_once __DIR__ . '/../inc/above.php';
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					Triple redundant water pumps activate when they sense a drop in water pressure. This ensures the sprinklers are fed with a constant water pressure.
 				</div>
+			</div>
+		</div>
+		<div class="row row-2">
+			<div class="fire-infographic columns small-12">
+				<img class="block" src="../media/engineering/engineering-fire-infographic.png<?php echo $ver ?>">
+			</div>
+		</div>
+		<div class="row row-3">
+			<div class="film inline-bottom columns small-12 medium-6 large-5 xlarge-6">
+				<!-- video embed -->
+				<div class="video-embed js_video_embed" data-src="lncVHzsc_QA">
+					<div class="video-loading-indicator"></div>
+				</div>
+			</div>
+			<div class="sprinkler-bulb inline-bottom columns small-12 medium-6 large-6 xlarge-6">
+				<div class="h3 text-red-2 strong"><span class="h2">68°</span>celsius</div>
+				<div class="h6 text-neutral-2 space-min-bottom">will melt the temperature activated glass bulb <br>and active the sprinkler.</div>
+				<img src="../media/engineering/sprinkler-bulb.png<?php echo $ver ?>">
 			</div>
 		</div>
 	</div>
