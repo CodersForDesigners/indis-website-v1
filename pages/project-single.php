@@ -346,13 +346,13 @@ require_once __DIR__ . '/../inc/above.php';
 			</div>
 		</div>
 		<div class="row row-3">
-			<div class="film inline-bottom columns small-12 medium-6 large-5 xlarge-6">
+			<div class="film inline-bottom columns small-12 medium-6 large-6">
 				<!-- video embed -->
 				<div class="video-embed js_video_embed" data-src="lncVHzsc_QA">
 					<div class="video-loading-indicator"></div>
 				</div>
 			</div>
-			<div class="sprinkler-bulb inline-bottom columns small-12 medium-6 large-6 xlarge-6">
+			<div class="sprinkler-bulb inline-bottom columns small-12 medium-6 large-6">
 				<div class="h3 text-red-2 strong"><span class="h2">68°</span>celsius</div>
 				<div class="h6 text-neutral-2 space-min-bottom">will melt the temperature activated glass bulb <br>and active the sprinkler.</div>
 				<img src="../media/engineering/sprinkler-bulb.png<?php echo $ver ?>">
