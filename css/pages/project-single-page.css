@@ -553,3 +553,21 @@
 		width: 260px;
 	}
 }
+
+
+
+
+
+
+/*
+ *	Tab Menu
+ */
+
+.tab-menu {
+	position: relative;
+}
+.tab-button {
+	display: inline-block;
+}
+.tab-button.tab-button-large {}
+.tab-button .active {}

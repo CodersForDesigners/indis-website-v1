@@ -362,4 +362,51 @@ require_once __DIR__ . '/../inc/above.php';
 </section>
 <!-- END: Engineering Section : Fire -->
 
+
+<!-- Plans Section -->
+<section class="plans-section space-100-top-bottom fill-dark">
+	<div class="container">
+		<div class="plans-intro row space-50-bottom">
+			<div class="heading h2 strong text-lowercase columns small-12">
+				Masterplan and <br>
+				<span class="text-red-2">Floorplans</span>
+			</div>
+		</div>
+		<div class="plans row">
+			<div class="plans-menu-1 columns small-12 large-2">
+				<div class="tab-menu h5 hide-for-medium">
+					<div tabindex="-1" class="tab-button tab-button-large">Masterplan</div>
+					<div tabindex="-1" class="tab-button tab-button-large active">Block Floorplans</div>
+					<div tabindex="-1" class="tab-button tab-button-large">Aerial View</div>
+				</div> 
+					
+				<select class="select-menu fill-black show-for-medium ">
+					<option>Masterplan</option>
+					<option selected="selected">Block Floorplans</option>
+					<option>Aerial View</option>
+				</select>
+			</div>
+			<div class="plan columns small-12 large-10">
+				<div class="plans-menu-2">
+					<div class="tab-menu h5 hide-for-medium">
+						<div tabindex="-1" class="tab-button">Block A</div>
+						<div tabindex="-1" class="tab-button active">Block B</div>
+						<div tabindex="-1" class="tab-button">Block C</div>
+					</div>
+
+					<select class="select-menu fill-black show-for-medium">
+						<option>Block A</option>
+						<option selected="selected">Block B</option>
+						<option>Block C</option>
+					</select>
+				</div>
+				<div class="plan-viewer">
+					<img class="block" src="https://via.placeholder.com/1920x1200">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Plans Section -->
+
 <?php require_once __DIR__ . '/../inc/below.php'; ?>
