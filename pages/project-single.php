@@ -146,8 +146,8 @@ require_once __DIR__ . '/../inc/above.php';
 	</div>
 	<div class="carousel-controls clearfix">
 		<div class="container">
-			<div class="prev float-left"><button class="button fill-light js_pager" data-dir="left"><img class="block" src="../media/icon/icon-left-triangle-dark.svg<?php echo $ver ?>"></button></div>
-			<div class="next float-right"><button class="button fill-light js_pager" data-dir="right"><img class="block" src="../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>"></button></div>
+			<div class="prev float-left"><button class="button js_pager" data-dir="left"><img class="block" src="../media/icon/icon-left-triangle-dark.svg<?php echo $ver ?>"></button></div>
+			<div class="next float-right"><button class="button js_pager" data-dir="right"><img class="block" src="../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>"></button></div>
 		</div>
 	</div>
 </div>
@@ -247,6 +247,154 @@ require_once __DIR__ . '/../inc/above.php';
 	</div>
 </section>
 <!-- END: Engineering Section : Concrete -->
+
+<!-- Carousel Mini: Affiliates Section -->
+<section class="affiliates-section space-50-bottom">
+	<div class="affiliates-carousel-menu text-center">
+		<div class="container">
+			<div class="tab-menu hide-for-medium">
+				<div tabindex="-1" class="h6 tab-button">Structure</div>
+				<div tabindex="-1" class="h6 tab-button active">Finishes</div>
+				<div tabindex="-1" class="h6 tab-button">Plumbing</div>
+				<div tabindex="-1" class="h6 tab-button">Electrical</div>
+				<div tabindex="-1" class="h6 tab-button">Fire Safety</div>
+			</div>
+			<select class="select-menu button strong fill-neutral-2 show-for-medium">
+				<option>Structure</option>
+				<option selected="selected">Finishes</option>
+				<option>Plumbing</option>
+				<option>Electrical</option>
+				<option>Fire Safety</option>
+			</select>
+		</div>
+	</div>
+	<div class="carousel carousel-mini affiliates-carousel js_carousel_container">
+		<div class="carousel-list js_carousel_content">
+			<div class="carousel-list-item js_carousel_item">
+				<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+			</div>
+			<div class="carousel-list-item js_carousel_item">
+				<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+			</div>
+			<div class="carousel-list-item js_carousel_item">
+				<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+			</div>
+			<div class="carousel-list-item js_carousel_item">
+				<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+			</div>
+			<div class="carousel-list-item js_carousel_item">
+				<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+			</div>
+			<div class="carousel-list-item js_carousel_item">
+				<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+			</div>
+			<div class="carousel-list-item js_carousel_item">
+				<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+			</div>
+			<div class="carousel-list-item js_carousel_item">
+				<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+			</div>
+			<div class="carousel-list-item js_carousel_item">
+				<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+			</div>
+		</div>
+		<div class="carousel-controls clearfix">
+			<div class="container">
+				<div class="prev float-left"><button class="button js_pager" data-dir="left"><img class="block" src="../media/icon/icon-left-triangle-dark.svg<?php echo $ver ?>"></button></div>
+				<div class="next float-right"><button class="button js_pager" data-dir="right"><img class="block" src="../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>"></button></div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Carousel Mini: Affiliates Section -->
+
+<!-- Plans Section -->
+<section class="plans-section space-100-top space-75-bottom fill-dark">
+	<div class="container">
+		<div class="plans-intro row space-25-bottom">
+			<div class="heading h2 strong text-lowercase columns small-12">
+				Masterplan and <br>
+				<span class="text-red-2">Floorplans</span>
+			</div>
+		</div>
+		<div class="plans row">
+			<div class="plans-menu-1 columns small-12 large-2">
+				<div class="tab-menu hide-for-medium text-right">
+					<div tabindex="-1" class="h5 tab-button tab-button-large">Masterplan</div>
+					<div tabindex="-1" class="h5 tab-button tab-button-large active">Block Floorplans</div>
+					<div tabindex="-1" class="h5 tab-button tab-button-large">Aerial View</div>
+				</div> 
+					
+				<select class="select-menu button strong fill-red-2 show-for-medium ">
+					<option>Masterplan</option>
+					<option selected="selected">Block Floorplans</option>
+					<option>Aerial View</option>
+				</select>
+			</div>
+			<div class="plan columns small-12 large-10">
+				<div class="plans-menu-2">
+					<div class="tab-menu hide-for-medium">
+						<div tabindex="-1" class="h6 tab-button">Block A</div>
+						<div tabindex="-1" class="h6 tab-button active">Block B</div>
+						<div tabindex="-1" class="h6 tab-button">Block C</div>
+					</div>
+
+					<select class="select-menu button strong fill-neutral-2 show-for-medium">
+						<option>Block A</option>
+						<option selected="selected">Block B</option>
+						<option>Block C</option>
+					</select>
+				</div>
+				<div class="plan-viewer">
+					<img class="block" src="../media/plans/plans-aerial.png<?php echo $ver ?>">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Plans Section -->
+
+
+<!-- Carousel Mini: Amenities -->
+<div class="carousel carousel-mini amenities-carousel fill-dark js_carousel_container">
+	<div class="carousel-list js_carousel_content">
+		<div class="carousel-list-item js_carousel_item">
+			<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+		</div>
+		<div class="carousel-list-item js_carousel_item">
+			<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+		</div>
+		<div class="carousel-list-item js_carousel_item">
+			<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+		</div>
+		<div class="carousel-list-item js_carousel_item">
+			<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+		</div>
+		<div class="carousel-list-item js_carousel_item">
+			<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+		</div>
+		<div class="carousel-list-item js_carousel_item">
+			<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+		</div>
+		<div class="carousel-list-item js_carousel_item">
+			<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+		</div>
+		<div class="carousel-list-item js_carousel_item">
+			<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+		</div>
+		<div class="carousel-list-item js_carousel_item">
+			<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+		</div>
+	</div>
+	<div class="carousel-controls clearfix">
+		<div class="container">
+			<div class="prev float-left"><button class="button js_pager" data-dir="left"><img class="block" src="../media/icon/icon-left-triangle-light.svg<?php echo $ver ?>"></button></div>
+			<div class="next float-right"><button class="button js_pager" data-dir="right"><img class="block" src="../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>"></button></div>
+		</div>
+	</div>
+</div>
+<!-- END: Carousel Mini: Amenities -->
+
 
 <!-- Engineering Section : Railing -->
 <section class="engineering-section railing space-50-top-bottom">
@@ -362,51 +510,5 @@ require_once __DIR__ . '/../inc/above.php';
 </section>
 <!-- END: Engineering Section : Fire -->
 
-
-<!-- Plans Section -->
-<section class="plans-section space-100-top-bottom fill-dark">
-	<div class="container">
-		<div class="plans-intro row space-50-bottom">
-			<div class="heading h2 strong text-lowercase columns small-12">
-				Masterplan and <br>
-				<span class="text-red-2">Floorplans</span>
-			</div>
-		</div>
-		<div class="plans row">
-			<div class="plans-menu-1 columns small-12 large-2">
-				<div class="tab-menu h5 hide-for-medium">
-					<div tabindex="-1" class="tab-button tab-button-large">Masterplan</div>
-					<div tabindex="-1" class="tab-button tab-button-large active">Block Floorplans</div>
-					<div tabindex="-1" class="tab-button tab-button-large">Aerial View</div>
-				</div> 
-					
-				<select class="select-menu fill-black show-for-medium ">
-					<option>Masterplan</option>
-					<option selected="selected">Block Floorplans</option>
-					<option>Aerial View</option>
-				</select>
-			</div>
-			<div class="plan columns small-12 large-10">
-				<div class="plans-menu-2">
-					<div class="tab-menu h5 hide-for-medium">
-						<div tabindex="-1" class="tab-button">Block A</div>
-						<div tabindex="-1" class="tab-button active">Block B</div>
-						<div tabindex="-1" class="tab-button">Block C</div>
-					</div>
-
-					<select class="select-menu fill-black show-for-medium">
-						<option>Block A</option>
-						<option selected="selected">Block B</option>
-						<option>Block C</option>
-					</select>
-				</div>
-				<div class="plan-viewer">
-					<img class="block" src="https://via.placeholder.com/1920x1200">
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- END: Plans Section -->
 
 <?php require_once __DIR__ . '/../inc/below.php'; ?>
