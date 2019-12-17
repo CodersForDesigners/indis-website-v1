@@ -570,4 +570,61 @@ require_once __DIR__ . '/../inc/above.php';
 <!-- END: Engineering Section : Fire -->
 
 
+<!-- Updates Section -->
+<section class="updates-section space-75-top space-100-bottom fill-dark">
+	<div class="container">
+		<div class="updates-intro row space-25-bottom">
+			<div class="heading h2 strong text-lowercase columns small-12">
+				<span class="text-red-2">Construction</span> <br>
+				Updates
+			</div>
+		</div>
+		<div class="updates row">
+			<div class="updates-menu-1 columns small-12 large-2">
+				<div class="tab-menu hide-for-medium text-right">
+					<div tabindex="-1" class="h5 tab-button tab-button-large">November 2019</div>
+					<div tabindex="-1" class="h5 tab-button tab-button-large">October 2019</div>
+					<div tabindex="-1" class="h5 tab-button tab-button-large active">September 2019</div>
+				</div> 
+					
+				<select class="select-menu button strong fill-red-2 show-for-medium ">
+					<option>November 2019</option>
+					<option>October 2019</option>
+					<option selected="selected">September 2019</option>
+				</select>
+			</div>
+			<div class="update columns small-12 large-10">
+				<div class="updates-menu-2">
+					<div class="tab-menu hide-for-medium">
+						<div tabindex="-1" class="h6 tab-button">Tower Amethyst (J)</div>
+						<div tabindex="-1" class="h6 tab-button active">Tower Aquamarine (K)</div>
+						<div tabindex="-1" class="h6 tab-button">Tower Opal (L)</div>
+					</div>
+
+					<select class="select-menu button strong fill-neutral-2 show-for-medium">
+						<option>Tower Amethyst (J)</option>
+						<option selected="selected">Tower Aquamarine (K)</option>
+						<option>Tower Opal (L)</option>
+					</select>
+				</div>
+				<div class="row">
+					<div class="update-featured columns small-12 large-5">
+						<img class="block" src="https://via.placeholder.com/800x800<?php echo $ver ?>">
+					</div>
+					<div class="update-gallery columns small-12 large-7">
+						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x480"></div>
+						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x480"></div>
+						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x480"></div>
+						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x480"></div>
+						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x480"></div>
+						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x480"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Updates Section -->
+
+
 <?php require_once __DIR__ . '/../inc/below.php'; ?>

@@ -595,6 +595,38 @@
 
 
 
+
+/*
+ *	Amenities Section
+ */
+
+.updates-section {}
+
+.updates-section .updates .update .update-gallery {
+	font-size: 0;
+	padding-top: var(--space-min);
+	columns: 2;
+	column-gap: var(--space-min);
+}
+
+@media( min-width: 640px )  {
+	.updates-section .updates .update .update-gallery {
+		columns: 3;
+	}
+}
+	
+@media( min-width: 1040px ) {
+	.updates-section .updates .update .update-gallery {
+		padding-top: 0;
+		padding-left: var(--space-min);
+	}
+}
+
+@media( min-width: 1480px ) {}
+
+
+
+
 /*
  *	Tab Menu
  */
@@ -820,6 +852,85 @@ f
 	}
 
 	.amenities-menu-2 .tab-button {
+		padding: var(--space-min) var(--space-25);
+		line-height: var(--space-25);
+	}
+}
+@media( min-width: 1480px ) {}
+
+
+/* -- Updates Menu Overwrites -- */
+
+@media( min-width: 640px )  {}
+@media( min-width: 1040px ) {
+	.updates .tab-button:hover {
+		background-color: var(--black);
+	}
+
+	.updates-menu-1 {
+		padding-top: var(--space-75);
+		text-align: right;
+	}
+	.updates-menu-1 .tab-menu {
+		border-bottom-width: 0;
+		border-right-width: 2px;
+		white-space: pre;
+	}
+
+	.updates-menu-1 .tab-button {
+		padding: 0 var(--space-min);
+		line-height: var(--space-50);
+	}
+
+	.updates-menu-1 .tab-button:after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: auto;
+		right: -2px;
+		bottom: auto;
+		height: 0;
+		width: 2px;
+		transform: translateY(-50%);
+		transition: height .4s ease-out;
+	}
+
+	.updates-menu-1 .tab-button:hover:after {
+		height: var(--space-50);
+	}
+
+	.updates-menu-1 .tab-button.active:after {
+		height: var(--space-50);
+	}
+
+	.update {
+		position: relative;
+		padding-top: var(--space-75);
+		padding-left: var(--space-25);
+	}
+
+	.updates-menu-2 {
+		position: absolute;
+		top: 0;
+		left: var(--space-25);
+		width: auto;
+		height: auto;
+	}
+
+	.updates-menu-2:before {
+		content: '';
+		position: absolute;
+		bottom: 1px;
+		left: calc( var(--space-25) * -1 );
+		width: 14px;
+		height: 14px;
+		background-image: url(../../media/icon/icon-plus-neutral-4.svg);
+		background-repeat: no-repeat;
+		background-position: center center;
+		transform: translate(-50%,50%);
+	}
+
+	.updates-menu-2 .tab-button {
 		padding: var(--space-min) var(--space-25);
 		line-height: var(--space-25);
 	}
