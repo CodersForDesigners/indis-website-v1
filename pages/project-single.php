@@ -248,6 +248,7 @@ require_once __DIR__ . '/../inc/above.php';
 </section>
 <!-- END: Engineering Section : Concrete -->
 
+
 <!-- Carousel Mini: Affiliates Section -->
 <section class="affiliates-section space-50-bottom">
 	<div class="affiliates-carousel-menu text-center">
@@ -307,6 +308,7 @@ require_once __DIR__ . '/../inc/above.php';
 	</div>
 </section>
 <!-- END: Carousel Mini: Affiliates Section -->
+
 
 <!-- Plans Section -->
 <section class="plans-section space-100-top space-75-bottom fill-dark">
@@ -396,6 +398,62 @@ require_once __DIR__ . '/../inc/above.php';
 <!-- END: Carousel Mini: Amenities -->
 
 
+<!-- Amenities Section -->
+<section class="amenities-section space-75-top space-100-bottom fill-dark">
+	<div class="container">
+		<div class="amenities-intro row space-25-bottom">
+			<div class="heading h2 strong text-lowercase columns small-12">
+				Amenities
+			</div>
+		</div>
+		<div class="amenities row">
+			<div class="amenities-menu-1 columns small-12 large-2">
+				<div class="tab-menu hide-for-medium text-right">
+					<div tabindex="-1" class="h5 tab-button tab-button-large">Indoor</div>
+					<div tabindex="-1" class="h5 tab-button tab-button-large">Outdoor</div>
+					<div tabindex="-1" class="h5 tab-button tab-button-large active">Clubhouse</div>
+				</div> 
+					
+				<select class="select-menu button strong fill-red-2 show-for-medium ">
+					<option>Indoor</option>
+					<option>Outdoor</option>
+					<option selected="selected">Clubhouse</option>
+				</select>
+			</div>
+			<div class="amenitie columns small-12 large-10">
+				<div class="amenities-menu-2">
+					<div class="tab-menu hide-for-medium">
+						<div tabindex="-1" class="h6 tab-button">G Floor</div>
+						<div tabindex="-1" class="h6 tab-button active">1<sup>st</sup> Floor</div>
+						<div tabindex="-1" class="h6 tab-button">2<sup>nd</sup> Floor</div>
+					</div>
+
+					<select class="select-menu button strong fill-neutral-2 show-for-medium">
+						<option>G Floor</option>
+						<option selected="selected">1<sup>st</sup> Floor</option>
+						<option>2<sup>nd</sup> Floor</option>
+					</select>
+				</div>
+				<div class="row">
+					<div class="amenitie-viewer columns small-12 large-5">
+						<img class="block" src="https://via.placeholder.com/800x800<?php echo $ver ?>">
+					</div>
+					<div class="points columns small-12 large-7">
+						<div class="point h5 condensed space-min-bottom"><span class="inline-middle space-min-right"><img src="https://via.placeholder.com/32"></span>Multipurpose Hall</div>
+						<div class="point h5 condensed space-min-bottom"><span class="inline-middle space-min-right"><img src="https://via.placeholder.com/32"></span>Party Hall</div>
+						<div class="point h5 condensed space-min-bottom"><span class="inline-middle space-min-right"><img src="https://via.placeholder.com/32"></span>Indoor Games</div>
+						<div class="point h5 condensed space-min-bottom"><span class="inline-middle space-min-right"><img src="https://via.placeholder.com/32"></span>Squash Court</div>
+						<div class="point h5 condensed space-min-bottom"><span class="inline-middle space-min-right"><img src="https://via.placeholder.com/32"></span>Indoor Swimming Pool</div>
+						<div class="point h5 condensed space-min-bottom"><span class="inline-middle space-min-right"><img src="https://via.placeholder.com/32"></span>Community Lounge</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Amenities Section -->
+
+
 <!-- Engineering Section : Railing -->
 <section class="engineering-section railing space-50-top-bottom">
 	<div class="container">
@@ -439,6 +497,7 @@ require_once __DIR__ . '/../inc/above.php';
 	</div>
 </section>
 <!-- END: Engineering Section : Railing -->
+
 
 <!-- Engineering Section : Fire -->
 <section class="engineering-section fire space-50-top-bottom">
