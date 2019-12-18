@@ -627,4 +627,102 @@ require_once __DIR__ . '/../inc/above.php';
 <!-- END: Updates Section -->
 
 
+<section class="events-section space-100-top-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="graphic columns small-6 medium-4 xlarge-3"><img class="block" src="../media/events/events-graphic.svg<?php echo $ver ?>"></div>
+			<div class="info columns small-12 medium-8 large-7 xlarge-6">
+				<div class="title h3 strong text-lowercase space-min-bottom">At indis, we don’t just build landmarks, <span class="text-red-2">we build Lifemarks.</span></div>
+				<div class="description p text-neutral-2 space-25-bottom">Built on the ethos of community living, you will always find more people sharing your interests and making life more meaningful. Sport plays an important role in character building. Kids need to explore and spread their wings to become well-rounded individuals, and adults need to stretch a little to uncover a healthier version of themselves.</div>
+				<a href="/" class="button fill-red-2">Discover How</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- Carousel: Events -->
+<div class="carousel indis-carousel js_carousel_container">
+	<div class="carousel-list js_carousel_content">
+		<div class="carousel-list-item js_carousel_item">
+			<div class="carousel-title h2 strong text-lowercase">
+				Can an <br>Apartment <br><span class="text-red-2">change <br>your life?</span>
+			</div>
+		</div>
+		<div class="carousel-list-item js_carousel_item">
+			<div class="card-index text-neutral-2">
+				<div class="count h3 inline-bottom">01</div>
+				<div class="total label strong text-uppercase inline-bottom">14</div>
+			</div>
+			<div class="carousel-card fill-neutral-2">
+				<div class="info space-25">
+					<div class="price h5 condensed">Starting at 47 Lakhs</div>
+					<div class="title h4 strong">1450sft 2BHK on the 14th floor with a view of the Lake.</div>
+				</div>
+			</div>
+			<a href="" class="carousel-action button">Enquire Now</a>
+		</div>
+		<div class="carousel-list-item js_carousel_item">
+			<div class="card-index text-neutral-2">
+				<div class="count h3 inline-bottom">02</div>
+				<div class="total label strong text-uppercase inline-bottom">14</div>
+			</div>
+			<div class="carousel-card fill-neutral-2">
+				<div class="info space-25">
+					<div class="price h5 condensed">Starting at 50 Lakhs</div>
+					<div class="title h4 strong">1775sft 3BHK on the 3rd or 4th floor overlooking the sports arena.</div>
+				</div>
+			</div>
+			<a href="" class="carousel-action button">Enquire Now</a>
+		</div>
+		<div class="carousel-list-item js_carousel_item">
+			<div class="card-index text-neutral-2">
+				<div class="count h3 inline-bottom">03</div>
+				<div class="total label strong text-uppercase inline-bottom">14</div>
+			</div>
+			<div class="carousel-card fill-neutral-2">
+				<div class="info space-25">
+					<div class="price h5 condensed">Starting at 43 Lakhs</div>
+					<div class="title h4 strong">Most compact 3BHK at just 1680sft. Available from the 5th to 28th floor.</div>
+				</div>
+			</div>
+			<a href="" class="carousel-action button">Enquire Now</a>
+		</div>
+		<div class="carousel-list-item js_carousel_item">
+			<div class="card-index text-neutral-2">
+				<div class="count h3 inline-bottom">04</div>
+				<div class="total label strong text-uppercase inline-bottom">14</div>
+			</div>
+			<div class="carousel-card fill-neutral-2">
+				<div class="info space-25">
+					<div class="price h5 condensed">Starting at 51 Lakhs</div>
+					<div class="title h4 strong">Uninterrupted views for 4 to 5km. Spacious 1995sft 3BHK on the 18th or 20th floors.</div>
+				</div>
+			</div>
+			<a href="" class="carousel-action button">Enquire Now</a>
+		</div>
+		<div class="carousel-list-item js_carousel_item">
+			<div class="card-index text-neutral-2">
+				<div class="count h3 inline-bottom">05</div>
+				<div class="total label strong text-uppercase inline-bottom">14</div>
+			</div>
+			<div class="carousel-card fill-neutral-2">
+				<div class="info space-25">
+					<div class="price h5 condensed">Starting at 43 Lakhs</div>
+					<div class="title h4 strong">Most compact 3BHK at just 1680sft. Available from the 5th to 28th floor.</div>
+				</div>
+			</div>
+			<a href="" class="carousel-action button">Enquire Now</a>
+		</div>
+	</div>
+	<div class="carousel-controls clearfix">
+		<div class="container">
+			<div class="prev float-left"><button class="button js_pager" data-dir="left"><img class="block" src="../media/icon/icon-left-triangle-dark.svg<?php echo $ver ?>"></button></div>
+			<div class="next float-right"><button class="button js_pager" data-dir="right"><img class="block" src="../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>"></button></div>
+		</div>
+	</div>
+</div>
+<!-- END: Carousel: Events -->
+
+
 <?php require_once __DIR__ . '/../inc/below.php'; ?>

@@ -936,3 +936,32 @@ f
 	}
 }
 @media( min-width: 1480px ) {}
+
+
+/*
+ *	Events Section
+ */
+
+.events-section {}
+
+.events-section .graphic {
+	padding-bottom: var(--space-min);
+}
+
+@media( min-width: 640px )  {
+	.events-section .graphic {
+		padding-bottom: 0;
+		padding-right: var(--space-50);
+	}
+}
+@media( min-width: 1040px ) {
+	.events-section .info .description {
+		columns: 2;
+		column-gap: var(--space-25);
+	}
+}
+@media( min-width: 1480px ) {
+	.events-section .graphic {
+		padding-right: var(--space-25);
+	}
+}
