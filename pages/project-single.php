@@ -75,6 +75,52 @@ require_once __DIR__ . '/../inc/above.php';
 <!-- END: Intro Section -->
 
 
+<!-- Action: Callback : Form -->
+<section class="action-callback space-100-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="intro columns small-10 large-11 large-offset-1">
+				<div class="heading h3 condensed space-min-bottom">
+					Get In Touch
+				</div>
+			</div>
+			<div class="action-form columns small-10 large-11 large-offset-1">
+				<div class="row">
+					<div class="form-row columns small-12 medium-6 large-3">
+						<label>
+							<span class="label strong text-uppercase text-neutral-4 cursor-pointer">
+								Name
+							</span>
+							<input class="block" type="text">
+						</label>
+					</div>
+					<div class="form-row columns small-12 medium-6 large-3">
+						<label>
+							<span class="label strong text-uppercase text-neutral-4 cursor-pointer">
+								Phone
+							</span>
+							<input class="block" type="text">
+						</label>
+					</div>
+					<div class="form-row columns small-12 medium-6 large-3">
+						<label>
+							<span class="invisible label strong text-uppercase text-neutral-4 cursor-pointer">
+								Submit
+							</span>
+							<button class="button block fill-red-2 button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Submit</button>
+						</label>
+					</div>
+					<div class="form-row or-call columns small-12 medium-6 large-3">
+						<div class="h5 text-lowecase">or call <a href="" class="text-red-2">+91-99860-99860</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Action: Callback : Form -->
+
+
 <!-- Carousel: Best Sellers -->
 <div class="carousel indis-carousel js_carousel_container">
 	<div class="carousel-list js_carousel_content">
@@ -94,7 +140,7 @@ require_once __DIR__ . '/../inc/above.php';
 					<div class="title h4 strong">1450sft 2BHK on the 14th floor with a view of the Lake.</div>
 				</div>
 			</div>
-			<a href="" class="carousel-action button">Enquire Now</a>
+			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
 		</div>
 		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
@@ -107,7 +153,7 @@ require_once __DIR__ . '/../inc/above.php';
 					<div class="title h4 strong">1775sft 3BHK on the 3rd or 4th floor overlooking the sports arena.</div>
 				</div>
 			</div>
-			<a href="" class="carousel-action button">Enquire Now</a>
+			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
 		</div>
 		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
@@ -120,7 +166,7 @@ require_once __DIR__ . '/../inc/above.php';
 					<div class="title h4 strong">Most compact 3BHK at just 1680sft. Available from the 5th to 28th floor.</div>
 				</div>
 			</div>
-			<a href="" class="carousel-action button">Enquire Now</a>
+			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
 		</div>
 		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
@@ -133,7 +179,7 @@ require_once __DIR__ . '/../inc/above.php';
 					<div class="title h4 strong">Uninterrupted views for 4 to 5km. Spacious 1995sft 3BHK on the 18th or 20th floors.</div>
 				</div>
 			</div>
-			<a href="" class="carousel-action button">Enquire Now</a>
+			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
 		</div>
 		<div class="carousel-list-item js_carousel_item unlock">
 			<div class="carousel-card">
@@ -141,7 +187,7 @@ require_once __DIR__ . '/../inc/above.php';
 					<div class="unlock-title h3 strong text-lowercase">Unlock all 14 Floorplan details</div>
 				</div>
 			</div>
-			<a href="" class="carousel-action button">Unlock Now</a>
+			<a href="" class="button fill-red-2 text-light button-icon" style="--bg-i: url('../media/icon/icon-lock-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Unlock Now</a>
 		</div>
 	</div>
 	<div class="carousel-controls clearfix">
@@ -182,7 +228,7 @@ require_once __DIR__ . '/../inc/above.php';
 			</div>
 			<div class="brochure-action fill-light columns small-10 small-offset-1 medium-7 medium-offset-0 large-6 inline-middle">
 				<div class="download-title h3 text-lowercase strong space-25-bottom">If you're in a hurry, <br>just <span class="text-red-2">download the <span class="text-uppercase">PDF</span> brochure</span></div>
-				<button class="button">Download Now</button>
+				<a href="" class="button fill-dark text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-4);">Download Now</a>
 				<div class="courier-description p text-neutral-2 space-min-top">Or, if you'd like a copy of the physical brochure couriered to your location. <br><a href="" class="text-red-2">Click Here</a></div>
 			</div>
 		</div>
@@ -612,12 +658,14 @@ require_once __DIR__ . '/../inc/above.php';
 						<img class="block" src="https://via.placeholder.com/800x800<?php echo $ver ?>">
 					</div>
 					<div class="update-gallery columns small-12 large-7">
-						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x480"></div>
-						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x480"></div>
-						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x480"></div>
-						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x480"></div>
-						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x480"></div>
-						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x480"></div>
+						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x460"></div>
+						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x460"></div>
+						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x460"></div>
+						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x460"></div>
+						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x460"></div>
+						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x460"></div>
+						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x460"></div>
+						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x460"></div>
 					</div>
 				</div>
 			</div>
@@ -634,7 +682,7 @@ require_once __DIR__ . '/../inc/above.php';
 			<div class="info columns small-12 medium-8 large-7 xlarge-6">
 				<div class="title h3 strong text-lowercase space-min-bottom">At indis, we don’t just build landmarks, <span class="text-red-2">we build Lifemarks.</span></div>
 				<div class="description p text-neutral-2 space-25-bottom">Built on the ethos of community living, you will always find more people sharing your interests and making life more meaningful. Sport plays an important role in character building. Kids need to explore and spread their wings to become well-rounded individuals, and adults need to stretch a little to uncover a healthier version of themselves.</div>
-				<a href="/" class="button fill-red-2">Discover How</a>
+				<a href="" class="button fill-red-2 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Discover How</a>
 			</div>
 		</div>
 	</div>
@@ -642,7 +690,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- Carousel: Events -->
-<div class="carousel indis-carousel js_carousel_container">
+<div class="carousel indis-carousel js_carousel_container space-75-bottom">
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
 			<div class="carousel-title h2 strong text-lowercase">
@@ -660,7 +708,7 @@ require_once __DIR__ . '/../inc/above.php';
 					<div class="title h4 strong">1450sft 2BHK on the 14th floor with a view of the Lake.</div>
 				</div>
 			</div>
-			<a href="" class="carousel-action button">Enquire Now</a>
+			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
 		</div>
 		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
@@ -673,7 +721,7 @@ require_once __DIR__ . '/../inc/above.php';
 					<div class="title h4 strong">1775sft 3BHK on the 3rd or 4th floor overlooking the sports arena.</div>
 				</div>
 			</div>
-			<a href="" class="carousel-action button">Enquire Now</a>
+			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
 		</div>
 		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
@@ -686,7 +734,7 @@ require_once __DIR__ . '/../inc/above.php';
 					<div class="title h4 strong">Most compact 3BHK at just 1680sft. Available from the 5th to 28th floor.</div>
 				</div>
 			</div>
-			<a href="" class="carousel-action button">Enquire Now</a>
+			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
 		</div>
 		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
@@ -699,7 +747,7 @@ require_once __DIR__ . '/../inc/above.php';
 					<div class="title h4 strong">Uninterrupted views for 4 to 5km. Spacious 1995sft 3BHK on the 18th or 20th floors.</div>
 				</div>
 			</div>
-			<a href="" class="carousel-action button">Enquire Now</a>
+			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
 		</div>
 		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
@@ -712,7 +760,7 @@ require_once __DIR__ . '/../inc/above.php';
 					<div class="title h4 strong">Most compact 3BHK at just 1680sft. Available from the 5th to 28th floor.</div>
 				</div>
 			</div>
-			<a href="" class="carousel-action button">Enquire Now</a>
+			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
 		</div>
 	</div>
 	<div class="carousel-controls clearfix">
@@ -723,6 +771,62 @@ require_once __DIR__ . '/../inc/above.php';
 	</div>
 </div>
 <!-- END: Carousel: Events -->
+
+
+<!-- Action: Site Visit : Form -->
+<section class="action-site-visit fill-dark space-25-top-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="intro columns small-6 medium-3 large-2">
+				<div class="heading h3 strong text-lowercase space-min-bottom">
+					Book a <br>
+					<span class="text-red-2">Site Visit</span>
+				</div>
+				<div class="description h5 condensed text-neutral-4">
+					Register for pick up and drop from your location.
+				</div>
+			</div>
+			<div class="action-form columns small-10 medium-8 medium-offset-1 large-6 large-offset-0">
+				<div class="row">
+					<div class="form-row columns small-12 medium-6">
+						<label>
+							<span class="label strong text-uppercase text-neutral-4 cursor-pointer">
+								Name
+							</span>
+							<input class="block input-dark" type="text">
+						</label>
+					</div>
+					<div class="form-row columns small-12 medium-6">
+						<label>
+							<span class="label strong text-uppercase text-neutral-4 cursor-pointer">
+								Email
+							</span>
+							<input class="block input-dark" type="text">
+						</label>
+					</div>
+					<div class="form-row columns small-12 medium-6">
+						<label>
+							<span class="label strong text-uppercase text-neutral-4 cursor-pointer">
+								Phone
+							</span>
+							<input class="block input-dark" type="text">
+						</label>
+					</div>
+					<div class="form-row columns small-12 medium-6">
+						<label>
+							<span class="invisible label strong text-uppercase text-neutral-4 cursor-pointer">
+								Submit
+							</span>
+							<button class="button block fill-red-2 button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Submit</button>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Action: Site Visit : Form -->
+
 
 
 <?php require_once __DIR__ . '/../inc/below.php'; ?>
