@@ -105,6 +105,7 @@
 	<script type="text/javascript" src="/js/modules/modal_box.js"></script>
 	<script type="text/javascript" src="/js/modules/form.js"></script>
 	<script type="text/javascript" src="/js/modules/disclaimer.js"></script>
+	<script type="text/javascript" src="/js/modules/phone_country_code.js"></script>
 
 	<script type="text/javascript">
 
