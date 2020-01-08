@@ -18,7 +18,10 @@ $urlSlug = $_GET[ '_slug' ] ?? null;
 $postType = $_GET[ '_post_type' ] ?? null;
 
 $pageImage = getContent( '', 'page_image', $urlSlug ) ?: getContent( '', 'page_image' );
-$pageImage = $pageImage[ 'sizes' ][ 'medium' ] ?: $pageImage[ 'sizes' ][ 'thumbnail' ] ?: $pageImage[ 'url' ];
+if ( ! empty( $pageImage[ 'sizes' ] ) )
+	$pageImage = $pageImage[ 'sizes' ][ 'medium' ] ?: $pageImage[ 'sizes' ][ 'thumbnail' ] ?: $pageImage[ 'url' ];
+else
+	$pageImage = $pageImage[ 'url' ] ?? null;
 
 // #fornow
 // Just so that when some social media service (WhatsApp) try to ping URL,
