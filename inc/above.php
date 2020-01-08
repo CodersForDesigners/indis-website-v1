@@ -13,9 +13,39 @@ require_once __DIR__ . '/lazaro.php';
  */
 $ver = '?v=20191216';
 
-// Pull some data from the request
-$urlSlug = $_GET[ '_slug' ] ?? null;
-$postType = $_GET[ '_post_type' ] ?? null;
+/*
+ * Get all the links on the site
+ */
+$defaultLinks = require __DIR__ . '/default-nav-links.php';
+$links = getContent( $defaultLinks, 'pages' );
+
+/*
+ * Figure out the base URL
+ * 	We diff the document root and the directory of this file to determine it
+ */
+$pathFragments = array_values( array_filter( explode( '/', substr( __DIR__, strlen( $_SERVER[ 'DOCUMENT_ROOT' ] ) ) ) ) );
+if ( count( $pathFragments ) > 1 )
+	$baseURL = '/' . $pathFragments[ 0 ] . '/';
+else
+	$baseURL = '/';
+
+/*
+ * Get the title and URL of the website and current page
+ */
+$siteTitle = getContent( '', 'page_title', $urlSlug ) ?: getContent( 'Indis Valley Civilization', 'page_title' );
+$pageUrl = $siteUrl . $requestPath;
+if ( pageIsStatic() )
+	$pageTitle = getCurrentPageTitle( $links, $baseURL, $siteTitle );
+else if ( cmsIsEnabled() ) {
+	$the_post = getCurrentPost( $urlSlug, $postType );
+	if ( empty( $the_post ) ) {
+		http_response_code( 404 );
+		exit;
+	}
+	$pageTitle = $the_post->post_title . ' | ' . $siteTitle;
+}
+else
+	$pageTitle = $siteTitle;
 
 $pageImage = getContent( '', 'page_image', $urlSlug ) ?: getContent( '', 'page_image' );
 if ( ! empty( $pageImage[ 'sizes' ] ) )

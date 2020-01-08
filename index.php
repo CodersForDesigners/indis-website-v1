@@ -10,8 +10,12 @@
  */
 $documentRoot = $_SERVER[ 'DOCUMENT_ROOT' ];
 $homePage = $documentRoot . '/pages/home.php';
-$_requestPathParts = explode( '?', $_SERVER[ 'REQUEST_URI' ], -1 );
-$requestPath = trim( $_requestPathParts[ 0 ] ?? $_SERVER[ 'REQUEST_URI' ], '/' );
+// $_requestPathParts = explode( '?', $_SERVER[ 'REQUEST_URI' ], -1 );
+$requestPath = trim(
+	strstr( $_SERVER[ 'REQUEST_URI' ], '?', true ) ?: $_SERVER[ 'REQUEST_URI' ],
+	'/'
+);
+$urlSlug = '';
 
 
 
@@ -29,6 +33,13 @@ $filename = $documentRoot . '/pages/' . $requestPath . '.php';
 if ( file_exists( $filename ) ) {
 	// Set a query param
 	$_GET[ '_slug' ] = $requestPath;
+	return require_once $filename;
+}
+else if ( count( explode( '/', $requestPath ) ) === 2 ) {
+	[ $postType, $urlSlug ] = explode( '/', $requestPath );
+	$_GET[ '_slug' ] = $urlSlug;
+	$_GET[ '_post_type' ] = $postType;
+	$filename = $documentRoot . '/pages/' . $postType . '.php';
 	return require_once $filename;
 }
 else
