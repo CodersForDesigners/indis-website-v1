@@ -15,6 +15,6 @@
 $requestURI = $_SERVER[ 'REQUEST_URI' ];
 $theURLEndsWithCMS = preg_match( '/\/+cms\/+$/', $requestURI );
 if ( $theURLEndsWithCMS ) {
-	$adminPageURL = preg_replace( '/\/+/', '/', $requestURI . '/admin' );
+	$adminPageURL = preg_replace( '/\/+/', '/', $requestURI . '/wp-admin' );
 	header( 'Location: ' . $adminPageURL );
 }
