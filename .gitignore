@@ -10,3 +10,6 @@
 
 # the download directory
 /download
+
+# the Wordpress Debug Log
+/cms/wp-content/debug.log
