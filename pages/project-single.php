@@ -1,4 +1,4 @@
-<?php
+'<?php
 /*
  *
  * This is a sample page you can copy and use as boilerplate for any new page.
@@ -144,7 +144,6 @@ require_once __DIR__ . '/../inc/above.php';
 							</label>
 						</div>
 					</div>
-					<br>
 					<div class="form-row columns small-12 large-6 clearfix">
 						<div class="label strong text-red-2 text-uppercase inline-middle cursor-pointer float-left" tabindex="-1">Re-send OTP</div>
 						<div class="label strong text-red-2 text-uppercase inline-middle cursor-pointer float-right" tabindex="-1">Enter different number</div>
@@ -888,7 +887,6 @@ require_once __DIR__ . '/../inc/above.php';
 							</label>
 						</div>
 					</div>
-					<br>
 					<div class="form-row columns small-12 clearfix">
 						<div class="label strong text-red-2 text-uppercase inline-middle cursor-pointer float-left" tabindex="-1">Re-send OTP</div>
 						<div class="label strong text-red-2 text-uppercase inline-middle cursor-pointer float-right" tabindex="-1">Enter different number</div>
