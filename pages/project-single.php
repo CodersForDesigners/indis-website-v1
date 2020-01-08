@@ -95,32 +95,24 @@ require_once __DIR__ . '/../inc/above.php';
 								<input class="block" type="text">
 							</label>
 						</div>
-						<!-- <div class="form-row columns small-12 medium-6 large-3">
-							<label>
-								<span class="label strong text-uppercase text-neutral-4 cursor-pointer">
-									Phone
-								</span>
-								<input class="block" type="text">
-							</label>
-						</div> -->
 						<!-- Phone Trap -->
 						<div class="phone-trap phone-number form-row columns small-12 medium-6 large-3">
 							<label for="pt01">
 								<span class="label strong text-uppercase text-neutral-4 cursor-pointer">
 									Phone
 								</span>
-								<div class="row">
-									<div class="columns small-3 prefix-group" style="position: relative; padding-right: 5px; ">
-										<select class="form-field block js_phone_country_code" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0">
-											<?php include __DIR__ . '/../inc/phone-country-codes.php' ?>
-										</select>
-										<input class="prefix js_phone_country_code_label button fill-neutral-2 text-dark" value="+91" style="pointer-events: none; width: 100%; padding: 0;">
-									</div>
-									<div class="columns small-9">
-										<input id="pt01" class="block" type="text">
-									</div>
-								</div>
 							</label>
+							<div class="row">
+								<div class="columns small-3 prefix-group" style="position: relative; padding-right: 5px; ">
+									<select class="form-field block js_phone_country_code" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0">
+										<?php include __DIR__ . '/../inc/phone-country-codes.php' ?>
+									</select>
+									<input class="prefix js_phone_country_code_label strong input-field text-red-2 text-right" value="+91" style="pointer-events: none; width: 100%; padding: 0; padding-right: 3px; border-color: var(--red-2);">
+								</div>
+								<div class="columns small-9">
+									<input id="pt01" class="block" type="text">
+								</div>
+							</div>
 						</div>
 						<!-- END: Phone Trap -->
 						<div class="form-row columns small-12 medium-6 large-3">
@@ -856,18 +848,18 @@ require_once __DIR__ . '/../inc/above.php';
 								<span class="label strong text-uppercase text-neutral-4 cursor-pointer">
 									Phone
 								</span>
-								<div class="row">
-									<div class="columns small-3 prefix-group" style="position: relative; padding-right: 5px; ">
-										<select class="form-field block js_phone_country_code" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0">
-											<?php include __DIR__ . '/../inc/phone-country-codes.php' ?>
-										</select>
-										<input class="prefix js_phone_country_code_label button fill-neutral-4 text-neutral-1" value="+91" style="pointer-events: none; width: 100%; padding: 0;">
-									</div>
-									<div class="columns small-9">
-										<input id="pt02" class="block input-dark" type="text">
-									</div>
-								</div>
 							</label>
+							<div class="row">
+								<div class="columns small-3 prefix-group" style="position: relative; padding-right: 5px; ">
+									<select class="form-field block js_phone_country_code" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0">
+										<?php include __DIR__ . '/../inc/phone-country-codes.php' ?>
+									</select>
+									<input class="prefix js_phone_country_code_label strong input-field text-red-2 text-right" value="+91" style="pointer-events: none; width: 100%; padding: 0; padding-right: 3px; border-color: var(--red-2);">
+								</div>
+								<div class="columns small-9">
+									<input id="pt02" class="block input-dark" type="text">
+								</div>
+							</div>
 						</div>
 						<!-- END: Phone Trap -->
 						<div class="form-row columns small-12 medium-6">

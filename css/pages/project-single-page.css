@@ -188,9 +188,12 @@
 
 .action-callback .action-form {}
 
-.action-callback .action-form .form-row{
+.action-callback .action-form .form-row {
 	padding-bottom: var(--space-min);
 }
+
+.form-row:focus-within span.label { color: var(--red-2); }
+
 .action-callback .action-form .form-row.or-call {
 	padding-top: 12px;
 }
