@@ -773,6 +773,7 @@ f
 	.plans-menu-1 .tab-menu {
 		border-bottom-width: 0;
 		border-right-width: 2px;
+		width: 100%;
 		white-space: pre;
 	}
 
@@ -852,6 +853,7 @@ f
 	.amenities-menu-1 .tab-menu {
 		border-bottom-width: 0;
 		border-right-width: 2px;
+		width: 100%;
 		white-space: pre;
 	}
 
@@ -931,6 +933,7 @@ f
 	.updates-menu-1 .tab-menu {
 		border-bottom-width: 0;
 		border-right-width: 2px;
+		width: 100%;
 		white-space: pre;
 	}
 
