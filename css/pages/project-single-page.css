@@ -660,22 +660,76 @@
 
 .updates-section {}
 
+.updates-section .updates .update .update-featured .image {
+	position: relative;
+	width: 100%;
+	padding-bottom: 100%;
+	font-size: 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
 .updates-section .updates .update .update-gallery {
 	font-size: 0;
 	padding-top: var(--space-min);
-	columns: 2;
-	column-gap: var(--space-min);
+}
+
+.updates-section .updates .update .update-gallery .image-container {
+	display: inline-block;
+	padding-bottom: var(--space-min);
+}
+
+.updates-section .updates .update .update-gallery .image-container:nth-child(2n+1) {
+	padding-right: calc( var(--space-min) / 2 );
+}
+
+.updates-section .updates .update .update-gallery .image-container:nth-child(2n) {
+	padding-left: calc( var(--space-min) / 2 );
+}
+
+.updates-section .updates .update .update-gallery .image {
+	position: relative;
+	width: 100%;
+	padding-bottom: 71.95%;
+	font-size: 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
 }
 
 @media( min-width: 640px )  {
 	.updates-section .updates .update .update-gallery {
-		columns: 3;
+		padding-top: calc( var(--space-min) * 1.5 );
+	}
+
+	.updates-section .updates .update .update-gallery .image-container {
+		padding-bottom: calc( var(--space-min) * 1.5 );
+	}
+
+	.updates-section .updates .update .update-gallery .image-container:nth-child(3n+1) {
+		padding-left: 0;
+		padding-right: 0;
+		padding-right: calc( var(--space-min) / 1 );
+	}
+
+	.updates-section .updates .update .update-gallery .image-container:nth-child(3n+2) {
+		padding-left: 0;
+		padding-right: 0;
+		padding-left: calc( var(--space-min) / 2 );
+		padding-right: calc( var(--space-min) / 2 );
+	}
+
+	.updates-section .updates .update .update-gallery .image-container:nth-child(3n) {
+		padding-left: 0;
+		padding-right: 0;
+		padding-left: calc( var(--space-min) / 1 );
 	}
 }
 @media( min-width: 1040px ) {
 	.updates-section .updates .update .update-gallery {
 		padding-top: 0;
-		padding-left: var(--space-min);
+		padding-left: calc( var(--space-min) * 1.5 );
 	}
 }
 

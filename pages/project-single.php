@@ -40,12 +40,12 @@ require_once __DIR__ . '/../inc/above.php';
 			</div>
 			<div class="cover-image-strip columns small-4 medium-2 large-6">
 				<div class="row">
-					<div class="cover-image-container image-2 columns small-12 large-4"><div class="cover-image fill-neutral-2 cursor-pointer" tabindex="-1" style="background-image: url('../media/project-cover/2.jpg<?php echo $ver ?>');"></div></div>
-					<div class="cover-image-container image-3 columns small-12 large-4"><div class="cover-image fill-neutral-2 cursor-pointer" tabindex="-1" style="background-image: url('../media/project-cover/3.jpg<?php echo $ver ?>');"></div></div>
-					<div class="cover-image-container image-4 columns small-12 large-4"><div class="cover-image fill-neutral-2 cursor-pointer" tabindex="-1" style="background-image: url('../media/project-cover/4.jpg<?php echo $ver ?>');"></div></div>
+					<div class="cover-image-container image-2 columns small-12 large-4"><div class="cover-image fill-neutral-2 js_modal_trigger cursor-pointer" tabindex="-1" data-mod-id="image-gallery" style="background-image: url('../media/project-cover/2.jpg<?php echo $ver ?>');"></div></div>
+					<div class="cover-image-container image-3 columns small-12 large-4"><div class="cover-image fill-neutral-2 js_modal_trigger cursor-pointer" tabindex="-1" data-mod-id="image-gallery" style="background-image: url('../media/project-cover/3.jpg<?php echo $ver ?>');"></div></div>
+					<div class="cover-image-container image-4 columns small-12 large-4"><div class="cover-image fill-neutral-2 js_modal_trigger cursor-pointer" tabindex="-1" data-mod-id="image-gallery" style="background-image: url('../media/project-cover/4.jpg<?php echo $ver ?>');"></div></div>
 				</div>
 			</div>
-			<div class="cover-image-container image-5 columns small-12 medium-6 large-4"><div class="cover-image portrait fill-neutral-2 cursor-pointer" tabindex="-1" style="background-image: url('../media/project-cover/5.jpg<?php echo $ver ?>');"><div class="icon-button zoom" style="background-image: url('../media/icon/icon-zoom.svg<?php echo $ver ?>');"></div></div></div>
+			<div class="cover-image-container image-5 columns small-12 medium-6 large-4"><div class="cover-image portrait fill-neutral-2 js_modal_trigger cursor-pointer" tabindex="-1" data-mod-id="image-gallery" style="background-image: url('../media/project-cover/5.jpg<?php echo $ver ?>');"><div class="icon-button zoom" style="background-image: url('../media/icon/icon-zoom.svg<?php echo $ver ?>');"></div></div></div>
 		</div>
 	</div>
 </section>
@@ -443,31 +443,31 @@ require_once __DIR__ . '/../inc/above.php';
 <div class="carousel carousel-mini amenities-carousel fill-dark js_carousel_container">
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
-			<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+			<div class="carousel-mini-image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
 		</div>
 		<div class="carousel-list-item js_carousel_item">
-			<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+			<div class="carousel-mini-image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
 		</div>
 		<div class="carousel-list-item js_carousel_item">
-			<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+			<div class="carousel-mini-image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
 		</div>
 		<div class="carousel-list-item js_carousel_item">
-			<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+			<div class="carousel-mini-image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
 		</div>
 		<div class="carousel-list-item js_carousel_item">
-			<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+			<div class="carousel-mini-image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
 		</div>
 		<div class="carousel-list-item js_carousel_item">
-			<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+			<div class="carousel-mini-image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
 		</div>
 		<div class="carousel-list-item js_carousel_item">
-			<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+			<div class="carousel-mini-image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
 		</div>
 		<div class="carousel-list-item js_carousel_item">
-			<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+			<div class="carousel-mini-image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
 		</div>
 		<div class="carousel-list-item js_carousel_item">
-			<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+			<div class="carousel-mini-image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
 		</div>
 	</div>
 	<div class="carousel-controls clearfix">
@@ -691,17 +691,19 @@ require_once __DIR__ . '/../inc/above.php';
 				</div>
 				<div class="row">
 					<div class="update-featured columns small-12 large-5">
-						<img class="block" src="https://via.placeholder.com/800x800<?php echo $ver ?>">
+						<div class="image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('https://via.placeholder.com/800x800<?php echo $ver ?>');"></div>
 					</div>
 					<div class="update-gallery columns small-12 large-7">
-						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x460"></div>
-						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x460"></div>
-						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x460"></div>
-						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x460"></div>
-						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x460"></div>
-						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x460"></div>
-						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x460"></div>
-						<div class="image-container space-min-bottom inline"><img src="https://via.placeholder.com/640x460"></div>
+						<div class="block row">
+							<div class="image-container columns small-6 medium-4"><div class="image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('https://via.placeholder.com/640x460<?php echo $ver ?>');"></div></div>
+							<div class="image-container columns small-6 medium-4"><div class="image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('https://via.placeholder.com/640x460<?php echo $ver ?>');"></div></div>
+							<div class="image-container columns small-6 medium-4"><div class="image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('https://via.placeholder.com/640x460<?php echo $ver ?>');"></div></div>
+							<div class="image-container columns small-6 medium-4"><div class="image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('https://via.placeholder.com/640x460<?php echo $ver ?>');"></div></div>
+							<div class="image-container columns small-6 medium-4"><div class="image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('https://via.placeholder.com/640x460<?php echo $ver ?>');"></div></div>
+							<div class="image-container columns small-6 medium-4"><div class="image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('https://via.placeholder.com/640x460<?php echo $ver ?>');"></div></div>
+							<div class="image-container columns small-6 medium-4"><div class="image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('https://via.placeholder.com/640x460<?php echo $ver ?>');"></div></div>
+							<div class="image-container columns small-6 medium-4"><div class="image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('https://via.placeholder.com/640x460<?php echo $ver ?>');"></div></div>
+						</div>
 					</div>
 				</div>
 			</div>

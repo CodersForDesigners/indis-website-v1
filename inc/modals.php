@@ -16,6 +16,20 @@
 			</div>
 		</div><!-- END : Sample Video -->
 
+		<!-- Modal Content : Cover Image Gallery -->
+		<div class="modal-box-content js_modal_box_content" data-mod-id="image-gallery">
+			<div class="container">
+				<div class="row">
+					<div class="columns small-12">
+						<!-- Image Box -->
+						<div class="image-box">
+							<img class="block" src="https://via.placeholder.com/1920x1080">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- END : Cover Image Gallery -->
+
 		<!-- Modal Content : Sample Form -->
 		<div class="modal-box-content js_modal_box_content" data-mod-id="sample-form">
 			<div class="container">
