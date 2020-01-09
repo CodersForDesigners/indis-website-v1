@@ -48,3 +48,13 @@ acf_add_options_page( [
 	'position' => false,
 	'icon_url' => 'dashicons-info'
 ] );
+
+
+
+/*
+ *
+ * Media Settings
+ *
+ */
+add_theme_support( 'post-thumbnails' );
+add_image_size( 'small', 400, 400, false );
