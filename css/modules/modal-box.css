@@ -35,7 +35,7 @@
 	min-height: 100vh;
 	height: auto;
 	padding: 50px 0;
-	background-color: rgba(0,0,0,0.85);
+	background-color: rgba(256, 256, 256, 0.85);
 }
 
 .modal-box-content.active {
@@ -56,5 +56,6 @@
 	font-size: 2.4rem;
 	line-height: 1;
 	text-align: center;
-	background-color: #FFFFFF;
+	background-color: #C0343C;
+	color: #FFFFFF;
 }

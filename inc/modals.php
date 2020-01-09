@@ -27,6 +27,10 @@
 						</div>
 					</div>
 				</div>
+				<div class="carousel-controls block clearfix" style="position: absolute; z-index: 2; top: 50%; transform: translateY(-50%);">
+					<div class="prev float-left"><button class="button icon-button" style="background-image: url('../media/icon/icon-left-triangle-dark.svg<?php echo $ver ?>');"></button></div>
+					<div class="next float-right"><button class="button icon-button" style="background-image: url('../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>');"></button></div>
+				</div>
 			</div>
 		</div><!-- END : Cover Image Gallery -->
 
