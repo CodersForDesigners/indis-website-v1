@@ -881,14 +881,16 @@ select { cursor: pointer; }
  */
 
 .icon-button {
-	width: var(--space-100);
-	height: var(--space-100);
+	/*width: var(--space-100);*/
+	width: var(--space-75);
+	/*height: var(--space-100);*/
+	height: var(--space-75);
 	font-size: 0;
 	line-height: 0;
 	background-color: var(--light);
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-size: 28px;
+	background-size: 24px;
 }
 
 .icon-button:hover {
@@ -899,13 +901,13 @@ select { cursor: pointer; }
 	.icon-button {
 		width: var(--space-50);
 		height: var(--space-50);
-		background-size: 24px;
+		/*background-size: 24px;*/
 	}
 }
 
 @media( min-width: 1480px ) {
 	.icon-button {
-		background-size: 32px;
+		/*background-size: 32px;*/
 	}
 }
 

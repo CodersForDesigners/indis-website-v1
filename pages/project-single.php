@@ -179,6 +179,53 @@ require_once __DIR__ . '/../inc/above.php';
 				</div>
 			</div>
 			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
+			<!-- Phone Trap -->
+			<div class="phone-trap phone-number columns small-12 large-9 xlarge-10">
+				<form action="" style="display: none">
+					<div class="form-row">
+						<label for="">
+							<span class="label strong text-uppercase text-neutral-4 cursor-pointer">
+								Enter Your Phone Number
+							</span>
+						</label>
+						<div class="row">
+							<div class="columns small-3 prefix-group" style="position: relative; padding-right: 5px; ">
+								<select class="form-field block js_phone_country_code" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0">
+									<?php include __DIR__ . '/../inc/phone-country-codes.php' ?>
+								</select>
+								<input class="prefix js_phone_country_code_label strong input-field text-dark text-right" value="+91" style="pointer-events: none; width: 100%; padding: 0; padding-right: 3px; border-color: var(--dark); color: var(--dark) !important;">
+							</div>
+							<div class="columns small-6">
+								<input class="block" type="text">
+							</div>
+							<div class="columns small-3 text-right">
+								<span class="invisible label strong inline text-neutral-4 text-uppercase">Submit</span>
+								<button class="icon-button submit" style="background-color: var(--dark); background-size: auto; background-image: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>');"></button>
+							</div>
+						</div>
+					</div>
+				</form>
+				<!-- OTP Form -->
+				<form class="js_otp_form" style="display: none;">
+					<div class="otp-trap row">
+						<label class="form-row columns small-9 text-left">
+							<span class="label strong inline text-neutral-4 text-uppercase">Enter the OTP</span>
+							<input class="otp block" type="text" name="otp">
+						</label>
+						<div class="form-row columns small-3 text-right">
+							<label>
+								<span class="invisible label strong inline text-neutral-4 text-uppercase">Submit</span>
+								<button class="icon-button submit" style="background-color: var(--dark); background-size: auto; background-image: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>');"></button>
+							</label>
+						</div>
+					</div>
+					<div class="form-row columns small-12 clearfix space-min-top">
+						<div class="label strong text-red-2 text-uppercase inline-middle cursor-pointer float-left" tabindex="-1">Re-send OTP</div>
+						<div class="label strong text-dark text-uppercase inline-middle cursor-pointer float-right" tabindex="-1">Enter different number</div>
+					</div>
+				</form>
+			</div>
+			<!-- END: Phone Trap -->
 		</div>
 		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
@@ -194,6 +241,53 @@ require_once __DIR__ . '/../inc/above.php';
 				</div>
 			</div>
 			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
+			<!-- Phone Trap -->
+			<div class="phone-trap phone-number columns small-12 large-9 xlarge-10">
+				<form action="" style="display: none">
+					<div class="form-row">
+						<label for="">
+							<span class="label strong text-uppercase text-neutral-4 cursor-pointer">
+								Enter Your Phone Number
+							</span>
+						</label>
+						<div class="row">
+							<div class="columns small-3 prefix-group" style="position: relative; padding-right: 5px; ">
+								<select class="form-field block js_phone_country_code" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0">
+									<?php include __DIR__ . '/../inc/phone-country-codes.php' ?>
+								</select>
+								<input class="prefix js_phone_country_code_label strong input-field text-dark text-right" value="+91" style="pointer-events: none; width: 100%; padding: 0; padding-right: 3px; border-color: var(--dark); color: var(--dark) !important;">
+							</div>
+							<div class="columns small-6">
+								<input class="block" type="text">
+							</div>
+							<div class="columns small-3 text-right">
+								<span class="invisible label strong inline text-neutral-4 text-uppercase">Submit</span>
+								<button class="icon-button submit" style="background-color: var(--dark); background-size: auto; background-image: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>');"></button>
+							</div>
+						</div>
+					</div>
+				</form>
+				<!-- OTP Form -->
+				<form class="js_otp_form" style="display: none;">
+					<div class="otp-trap row">
+						<label class="form-row columns small-9 text-left">
+							<span class="label strong inline text-neutral-4 text-uppercase">Enter the OTP</span>
+							<input class="otp block" type="text" name="otp">
+						</label>
+						<div class="form-row columns small-3 text-right">
+							<label>
+								<span class="invisible label strong inline text-neutral-4 text-uppercase">Submit</span>
+								<button class="icon-button submit" style="background-color: var(--dark); background-size: auto; background-image: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>');"></button>
+							</label>
+						</div>
+					</div>
+					<div class="form-row columns small-12 clearfix space-min-top">
+						<div class="label strong text-red-2 text-uppercase inline-middle cursor-pointer float-left" tabindex="-1">Re-send OTP</div>
+						<div class="label strong text-dark text-uppercase inline-middle cursor-pointer float-right" tabindex="-1">Enter different number</div>
+					</div>
+				</form>
+			</div>
+			<!-- END: Phone Trap -->
 		</div>
 		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
@@ -209,6 +303,53 @@ require_once __DIR__ . '/../inc/above.php';
 				</div>
 			</div>
 			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
+			<!-- Phone Trap -->
+			<div class="phone-trap phone-number columns small-12 large-9 xlarge-10">
+				<form action="" style="display: none">
+					<div class="form-row">
+						<label for="">
+							<span class="label strong text-uppercase text-neutral-4 cursor-pointer">
+								Enter Your Phone Number
+							</span>
+						</label>
+						<div class="row">
+							<div class="columns small-3 prefix-group" style="position: relative; padding-right: 5px; ">
+								<select class="form-field block js_phone_country_code" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0">
+									<?php include __DIR__ . '/../inc/phone-country-codes.php' ?>
+								</select>
+								<input class="prefix js_phone_country_code_label strong input-field text-dark text-right" value="+91" style="pointer-events: none; width: 100%; padding: 0; padding-right: 3px; border-color: var(--dark); color: var(--dark) !important;">
+							</div>
+							<div class="columns small-6">
+								<input class="block" type="text">
+							</div>
+							<div class="columns small-3 text-right">
+								<span class="invisible label strong inline text-neutral-4 text-uppercase">Submit</span>
+								<button class="icon-button submit" style="background-color: var(--dark); background-size: auto; background-image: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>');"></button>
+							</div>
+						</div>
+					</div>
+				</form>
+				<!-- OTP Form -->
+				<form class="js_otp_form" style="display: none;">
+					<div class="otp-trap row">
+						<label class="form-row columns small-9 text-left">
+							<span class="label strong inline text-neutral-4 text-uppercase">Enter the OTP</span>
+							<input class="otp block" type="text" name="otp">
+						</label>
+						<div class="form-row columns small-3 text-right">
+							<label>
+								<span class="invisible label strong inline text-neutral-4 text-uppercase">Submit</span>
+								<button class="icon-button submit" style="background-color: var(--dark); background-size: auto; background-image: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>');"></button>
+							</label>
+						</div>
+					</div>
+					<div class="form-row columns small-12 clearfix space-min-top">
+						<div class="label strong text-red-2 text-uppercase inline-middle cursor-pointer float-left" tabindex="-1">Re-send OTP</div>
+						<div class="label strong text-dark text-uppercase inline-middle cursor-pointer float-right" tabindex="-1">Enter different number</div>
+					</div>
+				</form>
+			</div>
+			<!-- END: Phone Trap -->
 		</div>
 		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
@@ -224,6 +365,53 @@ require_once __DIR__ . '/../inc/above.php';
 				</div>
 			</div>
 			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
+			<!-- Phone Trap -->
+			<div class="phone-trap phone-number columns small-12 large-9 xlarge-10">
+				<form action="" style="display: none">
+					<div class="form-row">
+						<label for="">
+							<span class="label strong text-uppercase text-neutral-4 cursor-pointer">
+								Enter Your Phone Number
+							</span>
+						</label>
+						<div class="row">
+							<div class="columns small-3 prefix-group" style="position: relative; padding-right: 5px; ">
+								<select class="form-field block js_phone_country_code" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0">
+									<?php include __DIR__ . '/../inc/phone-country-codes.php' ?>
+								</select>
+								<input class="prefix js_phone_country_code_label strong input-field text-dark text-right" value="+91" style="pointer-events: none; width: 100%; padding: 0; padding-right: 3px; border-color: var(--dark); color: var(--dark) !important;">
+							</div>
+							<div class="columns small-6">
+								<input class="block" type="text">
+							</div>
+							<div class="columns small-3 text-right">
+								<span class="invisible label strong inline text-neutral-4 text-uppercase">Submit</span>
+								<button class="icon-button submit" style="background-color: var(--dark); background-size: auto; background-image: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>');"></button>
+							</div>
+						</div>
+					</div>
+				</form>
+				<!-- OTP Form -->
+				<form class="js_otp_form" style="display: none;">
+					<div class="otp-trap row">
+						<label class="form-row columns small-9 text-left">
+							<span class="label strong inline text-neutral-4 text-uppercase">Enter the OTP</span>
+							<input class="otp block" type="text" name="otp">
+						</label>
+						<div class="form-row columns small-3 text-right">
+							<label>
+								<span class="invisible label strong inline text-neutral-4 text-uppercase">Submit</span>
+								<button class="icon-button submit" style="background-color: var(--dark); background-size: auto; background-image: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>');"></button>
+							</label>
+						</div>
+					</div>
+					<div class="form-row columns small-12 clearfix space-min-top">
+						<div class="label strong text-red-2 text-uppercase inline-middle cursor-pointer float-left" tabindex="-1">Re-send OTP</div>
+						<div class="label strong text-dark text-uppercase inline-middle cursor-pointer float-right" tabindex="-1">Enter different number</div>
+					</div>
+				</form>
+			</div>
+			<!-- END: Phone Trap -->
 		</div>
 		<div class="carousel-list-item js_carousel_item unlock">
 			<div class="carousel-card fill-red-2">
