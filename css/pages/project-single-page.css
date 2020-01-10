@@ -1124,3 +1124,97 @@ f
 		padding-top: 75px;
 	}
 }
+
+
+
+
+
+/*
+ *	Best Sellers
+ */
+
+.best-sellers {}
+
+.best-sellers .carousel-list .carousel-list-item:not(:first-child):not(:last-child) .info .info-box {
+	height: 172px;
+}
+
+.best-sellers .unlock-form {}
+
+.best-sellers .unlock-form .input-field,
+.best-sellers .unlock-form input[type="email"],
+.best-sellers .unlock-form input[type="number"],
+.best-sellers .unlock-form input[type="search"],
+.best-sellers .unlock-form input[type="text"],
+.best-sellers .unlock-form input[type="tel"],
+.best-sellers .unlock-form input[type="url"],
+.best-sellers .unlock-form input[type="password"],
+.best-sellers .unlock-form input[type="date"],
+.best-sellers .unlock-form textarea,
+.best-sellers .unlock-form select {
+	color: var(--light);
+}
+
+.best-sellers .unlock-form .input-field:focus,
+.best-sellers .unlock-form input[type="email"]:focus,
+.best-sellers .unlock-form input[type="number"]:focus,
+.best-sellers .unlock-form input[type="search"]:focus,
+.best-sellers .unlock-form input[type="text"]:focus,
+.best-sellers .unlock-form input[type="tel"]:focus,
+.best-sellers .unlock-form input[type="url"]:focus,
+.best-sellers .unlock-form input[type="password"]:focus,
+.best-sellers .unlock-form input[type="date"]:focus,
+.best-sellers .unlock-form textarea:focus,
+.best-sellers .unlock-form select:focus {
+	border-bottom: solid 1px var(--dark);
+}
+
+.best-sellers .unlock-form .form-row {
+	padding-top: var(--space-min);
+}
+
+.best-sellers .unlock-form .form-row:focus-within span.label { color: var(--dark); }
+
+.best-sellers .carousel-list .carousel-list-item .carousel-card {
+	min-height: calc( 8 * var(--space-100) );
+}
+
+@media( min-width: 640px )  {
+	.best-sellers .carousel-list .carousel-list-item:not(:first-child):not(:last-child) .info .info-box {
+		height: 172px;
+	}
+}
+@media( min-width: 1040px ) {
+	.best-sellers .carousel-list .carousel-list-item:not(:first-child):not(:last-child) .info .info-box {
+		height: 184px;
+	}
+
+	.best-sellers .unlock-form .input-field:focus,
+	.best-sellers .unlock-form input[type="email"]:focus,
+	.best-sellers .unlock-form input[type="number"]:focus,
+	.best-sellers .unlock-form input[type="search"]:focus,
+	.best-sellers .unlock-form input[type="text"]:focus,
+	.best-sellers .unlock-form input[type="tel"]:focus,
+	.best-sellers .unlock-form input[type="url"]:focus,
+	.best-sellers .unlock-form input[type="password"]:focus,
+	.best-sellers .unlock-form input[type="date"]:focus,
+	.best-sellers .unlock-form textarea:focus,
+	.best-sellers .unlock-form select:focus {
+		border-width: 2px;
+	}
+	
+	.best-sellers .carousel-list .carousel-list-item .carousel-card {
+		min-height: calc( 7 * var(--space-100) );
+	}
+}
+@media( min-width: 1480px ) {
+	.best-sellers .carousel-list .carousel-list-item:not(:first-child):not(:last-child) .info .info-box {
+		height: 272px;
+	}
+	
+	.best-sellers .carousel-list .carousel-list-item .carousel-card {
+		min-height: calc( 6 * var(--space-100) );
+	}
+}
+
+

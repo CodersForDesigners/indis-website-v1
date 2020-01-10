@@ -158,7 +158,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- Carousel: Best Sellers -->
-<div class="carousel indis-carousel js_carousel_container">
+<div class="carousel best-sellers indis-carousel js_carousel_container">
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
 			<div class="carousel-title h2 strong">
@@ -170,10 +170,12 @@ require_once __DIR__ . '/../inc/above.php';
 				<div class="count h3 inline-bottom">01</div>
 				<div class="total label strong text-uppercase inline-bottom">14</div>
 			</div>
-			<div class="carousel-card fill-neutral-2">
+			<div class="carousel-card fill-dark">
 				<div class="info space-25">
-					<div class="price h5 condensed">Starting at 47 Lakhs</div>
-					<div class="title h4 strong">1450sft 2BHK on the 14th floor with a view of the Lake.</div>
+					<div class="info-box">
+						<div class="price h5 condensed">Starting at 47 Lakhs</div>
+						<div class="title h4 strong">1450sft 2BHK on the 14th floor with a view of the Lake.</div>
+					</div>
 				</div>
 			</div>
 			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
@@ -183,10 +185,12 @@ require_once __DIR__ . '/../inc/above.php';
 				<div class="count h3 inline-bottom">02</div>
 				<div class="total label strong text-uppercase inline-bottom">14</div>
 			</div>
-			<div class="carousel-card fill-neutral-2">
+			<div class="carousel-card fill-dark">
 				<div class="info space-25">
-					<div class="price h5 condensed">Starting at 50 Lakhs</div>
-					<div class="title h4 strong">1775sft 3BHK on the 3rd or 4th floor overlooking the sports arena.</div>
+					<div class="info-box">
+						<div class="price h5 condensed">Starting at 50 Lakhs</div>
+						<div class="title h4 strong">1775sft 3BHK on the 3rd or 4th floor overlooking the sports arena.</div>
+					</div>
 				</div>
 			</div>
 			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
@@ -196,10 +200,12 @@ require_once __DIR__ . '/../inc/above.php';
 				<div class="count h3 inline-bottom">03</div>
 				<div class="total label strong text-uppercase inline-bottom">14</div>
 			</div>
-			<div class="carousel-card fill-neutral-2">
+			<div class="carousel-card fill-dark">
 				<div class="info space-25">
-					<div class="price h5 condensed">Starting at 43 Lakhs</div>
-					<div class="title h4 strong">Most compact 3BHK at just 1680sft. Available from the 5th to 28th floor.</div>
+					<div class="info-box">
+						<div class="price h5 condensed">Starting at 43 Lakhs</div>
+						<div class="title h4 strong">Most compact 3BHK at just 1680sft. Available from the 5th to 28th floor.</div>
+					</div>
 				</div>
 			</div>
 			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
@@ -209,18 +215,78 @@ require_once __DIR__ . '/../inc/above.php';
 				<div class="count h3 inline-bottom">04</div>
 				<div class="total label strong text-uppercase inline-bottom">14</div>
 			</div>
-			<div class="carousel-card fill-neutral-2">
+			<div class="carousel-card fill-dark">
 				<div class="info space-25">
-					<div class="price h5 condensed">Starting at 51 Lakhs</div>
-					<div class="title h4 strong">Uninterrupted views for 4 to 5km. Spacious 1995sft 3BHK on the 18th or 20th floors.</div>
+					<div class="info-box">
+						<div class="price h5 condensed">Starting at 51 Lakhs</div>
+						<div class="title h4 strong">Uninterrupted views for 4 to 5km. Spacious 1995sft 3BHK on the 18th or 20th floors.</div>
+					</div>
 				</div>
 			</div>
 			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
 		</div>
 		<div class="carousel-list-item js_carousel_item unlock">
-			<div class="carousel-card">
+			<div class="carousel-card fill-red-2">
 				<div class="info space-25">
-					<div class="unlock-title h3 strong text-lowercase">Unlock all 14 Floorplan details</div>
+					<div class="unlock-title h3 strong text-lowercase space-min-bottom">Unlock all <br><span class="text-dark">14 Floorplan</span> <br>details</div>
+					<div class="unlock-form columns small-12">
+						<form action="">
+							<div class="row">
+								<div class="form-row columns small-12">
+									<label>
+										<span class="label strong text-uppercase text-red-1 cursor-pointer">
+											Name
+										</span>
+										<input class="block" type="text">
+									</label>
+								</div>
+								<div class="form-row columns small-12">
+									<label>
+										<span class="label strong text-uppercase text-red-1 cursor-pointer">
+											Email
+										</span>
+										<input class="block" type="text">
+									</label>
+								</div>
+								<!-- Phone Trap -->
+								<div class="phone-trap phone-number form-row columns small-12">
+									<label for="pt02">
+										<span class="label strong text-uppercase text-red-1 cursor-pointer">
+											Phone
+										</span>
+									</label>
+									<div class="row">
+										<div class="columns small-3 prefix-group" style="position: relative; padding-right: 5px; ">
+											<select class="form-field block js_phone_country_code" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0">
+												<?php include __DIR__ . '/../inc/phone-country-codes.php' ?>
+											</select>
+											<input class="prefix js_phone_country_code_label strong input-field text-dark text-right" value="+91" style="pointer-events: none; width: 100%; padding: 0; padding-right: 3px; border-color: var(--dark); color: var(--dark) !important;">
+										</div>
+										<div class="columns small-9">
+											<input id="pt02" class="block" type="text">
+										</div>
+									</div>
+								</div>
+								<!-- END: Phone Trap -->
+							</div>
+						</form>
+						<!-- OTP form -->
+						<form class="js_otp_form" style="display: none;">
+							<div class="otp-trap row">
+								<div class="form-row columns small-12">
+									<label class="block text-left">
+										<span class="label strong inline text-red-1 text-uppercase">Enter the OTP</span>
+										<input class="otp block" type="text" name="otp">
+									</label>
+								</div>
+							</div>
+							<div class="form-row columns small-12 clearfix">
+								<div class="label strong text-dark text-uppercase inline-middle cursor-pointer float-left" tabindex="-1">Re-send OTP</div>
+								<div class="label strong text-dark text-uppercase inline-middle cursor-pointer float-right" tabindex="-1">Enter different number</div>
+							</div>
+						</form>
+						<!-- END: OTP form -->
+					</div>
 				</div>
 			</div>
 			<a href="" class="button fill-red-2 text-light button-icon" style="--bg-i: url('../media/icon/icon-lock-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Unlock Now</a>
@@ -738,7 +804,7 @@ require_once __DIR__ . '/../inc/above.php';
 		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
 				<div class="count h3 inline-bottom">01</div>
-				<div class="total label strong text-uppercase inline-bottom">14</div>
+				<div class="total label strong text-uppercase inline-bottom">05</div>
 			</div>
 			<div class="carousel-card fill-neutral-2">
 				<div class="info space-25">
@@ -751,7 +817,7 @@ require_once __DIR__ . '/../inc/above.php';
 		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
 				<div class="count h3 inline-bottom">02</div>
-				<div class="total label strong text-uppercase inline-bottom">14</div>
+				<div class="total label strong text-uppercase inline-bottom">05</div>
 			</div>
 			<div class="carousel-card fill-neutral-2">
 				<div class="info space-25">
@@ -764,7 +830,7 @@ require_once __DIR__ . '/../inc/above.php';
 		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
 				<div class="count h3 inline-bottom">03</div>
-				<div class="total label strong text-uppercase inline-bottom">14</div>
+				<div class="total label strong text-uppercase inline-bottom">05</div>
 			</div>
 			<div class="carousel-card fill-neutral-2">
 				<div class="info space-25">
@@ -777,7 +843,7 @@ require_once __DIR__ . '/../inc/above.php';
 		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
 				<div class="count h3 inline-bottom">04</div>
-				<div class="total label strong text-uppercase inline-bottom">14</div>
+				<div class="total label strong text-uppercase inline-bottom">05</div>
 			</div>
 			<div class="carousel-card fill-neutral-2">
 				<div class="info space-25">
@@ -790,7 +856,7 @@ require_once __DIR__ . '/../inc/above.php';
 		<div class="carousel-list-item js_carousel_item">
 			<div class="card-index text-neutral-2">
 				<div class="count h3 inline-bottom">05</div>
-				<div class="total label strong text-uppercase inline-bottom">14</div>
+				<div class="total label strong text-uppercase inline-bottom">05</div>
 			</div>
 			<div class="carousel-card fill-neutral-2">
 				<div class="info space-25">

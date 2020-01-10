@@ -701,9 +701,7 @@ select { cursor: pointer; }
 
 /* -- Indis Carousel Overrides -- */
 .indis-carousel {}
-.indis-carousel .carousel-list {
-	counter-reset: cardCound;
-}
+.indis-carousel .carousel-list {}
 
 .indis-carousel .carousel-list .carousel-list-item {
 	padding-right: var(--space-min);
@@ -740,10 +738,6 @@ select { cursor: pointer; }
 	left: 0;
 	width: 100%;
 	height: auto;
-}
-
-.indis-carousel .carousel-list .carousel-list-item.unlock .carousel-card {
-	background-color: var(--red-2);
 }
 
 @media( min-width: 640px )  {}
@@ -895,6 +889,10 @@ select { cursor: pointer; }
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: 28px;
+}
+
+.icon-button:hover {
+	background-position: center center; /* to reset the background-possition transition from .button */
 }
 
 @media( min-width: 1040px ) {
