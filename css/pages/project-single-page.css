@@ -1139,6 +1139,16 @@ f
 	height: 172px;
 }
 
+.best-sellers .unlock-icon {
+	width: 90px;
+	opacity: 0.25;
+	padding-bottom: var(--space-min);
+}
+
+.best-sellers .unlock-icon img {
+	transform: translateX(-20%);
+}
+
 .best-sellers .unlock-form {}
 
 .best-sellers .unlock-form .input-field,
@@ -1187,6 +1197,11 @@ f
 @media( min-width: 1040px ) {
 	.best-sellers .carousel-list .carousel-list-item:not(:first-child):not(:last-child) .info .info-box {
 		height: 184px;
+	}
+
+	.best-sellers .unlock-icon {
+		width: 190px;
+		padding-bottom: var(--space-25);
 	}
 
 	.best-sellers .unlock-form .input-field:focus,

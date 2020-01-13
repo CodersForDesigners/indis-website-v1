@@ -416,6 +416,7 @@ require_once __DIR__ . '/../inc/above.php';
 		<div class="carousel-list-item js_carousel_item unlock">
 			<div class="carousel-card fill-red-2">
 				<div class="info space-25">
+					<div class="unlock-icon"><img class="block" src="../media/icon/icon-lock-light.svg<?php echo $ver ?>"></div>
 					<div class="unlock-title h3 strong text-lowercase space-min-bottom">Unlock all <br><span class="text-dark">14 Floorplan</span> <br>details</div>
 					<div class="unlock-form columns small-12">
 						<form action="">
