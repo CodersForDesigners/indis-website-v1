@@ -171,7 +171,7 @@
 		<div class="row">
 			<div class="columns small-10 small-offset-1 medium-3 large-2">
 
-				<div class="action button fill-blue block js_laz_agree">
+				<div class="action button fill-dark block js_laz_agree">
 					I agree
 				</div>
 			</div>
