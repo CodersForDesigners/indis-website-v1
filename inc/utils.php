@@ -42,6 +42,8 @@ function cmsIsEnabled () {
 $pageId = null;
 $siteUrl = ( isOnHTTPS() ? 'https://' : 'http://' ) . $_SERVER[ 'HTTP_HOST' ];
 $cmsIsEnabled = false;
+$thePost = null;
+$postId = null;
 function setupVars () {
 	global $pageId;
 	global $siteUrl;
@@ -55,30 +57,55 @@ function setupVars () {
  * Pull custom content from ACF fields from WordPress
  *
  */
-function getContent ( $fallback, $field, $context = null ) {
+function getContent ( $fallback, $field, $providedContext = null ) {
 
 	if ( ! function_exists( 'get_field' ) )
 		return $fallback;
 
-	if ( empty( $context ) )
-		$context = 'options';
-	else if ( is_string( $context ) ) {
+	$context = null;
+	// Setting this value here; used when searching for value recursively
+	$contexts = $providedContext ? [ ] : [ 'options' ];
+
+	if ( empty( $providedContext ) ) {
+		global $thePost;
+		if ( empty( $thePost ) )
+			$context = 'options';
+		else
+			$context = $thePost->ID;
+	}
+	else if ( is_string( $providedContext ) ) {
 		global $postType;
-		$page = get_page_by_path( $context, OBJECT, $postType ?: [ 'page', 'attachment' ] );
+		$page = get_page_by_path( $providedContext, OBJECT, $postType ?: [ 'page', 'attachment' ] );
 		if ( empty( $page ) or empty( $page->ID ) )
 			$context = 'options';
 		else
 			$context = $page->ID;
 	}
 
+
+	if ( $providedContext !== 'options' )
+		array_unshift( $contexts, $providedContext );
 	$fieldParts = preg_split( '/\s*->\s*/' , $field );
-	$content = get_field( $fieldParts[ 0 ], $context );
-	if ( count( $fieldParts ) > 1 ) {
-		$content = get_field( $fieldParts[ 0 ], $context );
+	foreach ( $contexts as $currentContext ) {
+		$content = get_field( $fieldParts[ 0 ], $currentContext );
+		if ( empty( $content ) )
+			continue;
+
 		$remainderFieldParts = array_slice( $fieldParts, 1 );
 		foreach ( $remainderFieldParts as $namespace )
-			$content = $content[ $namespace ];
+			$content = $content[ $namespace ] ?? [ ];
+
+		if ( ! empty( $content ) )
+			break;
 	}
+
+	// $content = get_field( $fieldParts[ 0 ], $providedContext );
+	// if ( count( $fieldParts ) > 1 ) {
+	// 	$content = get_field( $fieldParts[ 0 ], $providedContext );
+	// 	$remainderFieldParts = array_slice( $fieldParts, 1 );
+	// 	foreach ( $remainderFieldParts as $namespace )
+	// 		$content = $content[ $namespace ];
+	// }
 
 	if ( empty( $content ) )
 		return $fallback;
@@ -141,7 +168,10 @@ function pageIsStatic () {
  *
  */
 function getCurrentPost ( $slug, $type = 'post' ) {
-	return get_page_by_path( $slug, OBJECT, $type );
+	if ( cmsIsEnabled() )
+		return get_page_by_path( $slug, OBJECT, $type );
+	else
+		return [ ];
 }
 
 

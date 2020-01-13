@@ -37,12 +37,14 @@ $pageUrl = $siteUrl . $requestPath;
 if ( pageIsStatic() )
 	$pageTitle = getCurrentPageTitle( $links, $baseURL, $siteTitle );
 else if ( cmsIsEnabled() ) {
-	$the_post = getCurrentPost( $urlSlug, $postType );
-	if ( empty( $the_post ) ) {
+	$thePost = getCurrentPost( $urlSlug, $postType );
+	if ( empty( $thePost ) ) {
 		http_response_code( 404 );
 		exit;
 	}
-	$pageTitle = $the_post->post_title . ' | ' . $siteTitle;
+	else
+		$postId = $thePost->ID;
+	$pageTitle = $thePost->post_title . ' | ' . $siteTitle;
 }
 else
 	$pageTitle = $siteTitle;
