@@ -685,7 +685,7 @@ require_once __DIR__ . '/../inc/above.php';
 					</select>
 				</div>
 				<div class="plan-viewer">
-					<img class="block" src="../media/plans/plans-aerial.png<?php echo $ver ?>">
+					<iframe class="plan-embed js_plan_embed" src="http://139.59.39.166/media/lazaro-office-3d-tour/index.htm" frameborder="0"></iframe>
 				</div>
 			</div>
 		</div>
