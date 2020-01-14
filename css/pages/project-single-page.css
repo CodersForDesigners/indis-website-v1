@@ -820,9 +820,10 @@
 	background-image: url('../../media/icon/icon-select-menu.svg');
 	background-repeat: no-repeat;
 	background-size: var(--space-75);
-	background-position: right top;
+	background-position: right top !important; /* Overwrite Hover background-position animation from .button:hover; */
+	border: none !important; /* Overwrite Focus border-bottom from select:focus; */
 }
-f
+
 @media( min-width: 640px )  {}
 @media( min-width: 1040px ) {}
 @media( min-width: 1480px ) {}
