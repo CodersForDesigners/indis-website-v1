@@ -101,7 +101,8 @@ http_response_code( 200 );
 				</div>
 				<?php
 
-					$navigationMenuItems = getContent( [ ], 'Primary', 'navigation' );
+					$navigationMenuName = $postType === 'projects' ? 'Projects' : 'Primary';
+					$navigationMenuItems = getContent( [ ], $navigationMenuName, 'navigation' );
 					foreach ( $navigationMenuItems as &$item ) {
 						$item = [
 							'label' => $item[ 'title' ],
