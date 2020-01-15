@@ -115,13 +115,9 @@ http_response_code( 200 );
 					<div class="container">
 						<div class="columns small-12 text-right space-50-right">
 							<div class="link h4 strong text-uppercase show-for-medium ">Menu</div>
-							<a href="/" class="link h6 strong text-uppercase space-min-top-bottom">Projects</a>
-							<a href="/" class="link h6 strong text-uppercase space-min-top-bottom">Floorplans</a>
-							<a href="/" class="link h6 strong text-uppercase space-min-top-bottom">Location</a>
-							<a href="/" class="link h6 strong text-uppercase space-min-top-bottom">Masterplan</a>
-							<a href="/" class="link h6 strong text-uppercase space-min-top-bottom">Amenities</a>
-							<a href="/" class="link h6 strong text-uppercase space-min-top-bottom">Updates</a>
-							<a href="/" class="link h6 strong text-uppercase space-min-top-bottom">+91-99860-99860</a>
+							<?php foreach ( $navigationMenuItems as $item ) : ?>
+								<a href="<?= $item[ 'url' ] ?>" class="link h6 strong text-uppercase space-min-top-bottom"><?= $item[ 'label' ] ?></a>
+							<?php endforeach; ?>
 						</div>
 					</div>
 				</div>
