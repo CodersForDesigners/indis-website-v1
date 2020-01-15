@@ -31,11 +31,9 @@
 		left: 0;
 		width: 100vw;
 		min-height: 100vh;
-		/*white-space: pre-wrap;*/
 		background-color: rgba(255,255,255,0.85);
 		transform: translateX(100%);
 		transition: transform .3s ease-out;
-		/*padding-right: var(--space-150);*/
 	}
 	.navigation-section .navigation .link {
 		display: inline-block;
@@ -46,6 +44,7 @@
 		opacity: 0.5;
 		margin-top: var(--space-50);
 		margin-bottom: var(--space-25);
+		line-height: 1;
 	}
 
 	.navigation-section .navigation .link.active {
