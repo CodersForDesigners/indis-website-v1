@@ -9,6 +9,9 @@ if ( empty( $urlSlug ) )
 
 require_once __DIR__ . '/../inc/above.php';
 
+
+$amenities = getContent( [ ], 'amenity' );
+
 ?>
 
 
@@ -735,7 +738,10 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- Amenities Section -->
-<section id="amenities" class="amenities-section space-75-top space-100-bottom fill-dark">
+<?php
+	$amenities = getContent( [ ], 'amenity' );
+?>
+<section id="amenities" class="amenities-section space-75-top space-100-bottom fill-dark js_amenities">
 	<div class="container">
 		<div class="amenities-intro row space-25-bottom">
 			<div class="heading h2 strong text-lowercase columns small-12">
@@ -744,46 +750,46 @@ require_once __DIR__ . '/../inc/above.php';
 		</div>
 		<div class="amenities row">
 			<div class="amenities-menu-1 columns small-12 large-2">
-				<div class="tab-menu hide-for-medium text-right">
-					<div tabindex="-1" class="h5 tab-button tab-button-large">Indoor</div>
-					<div tabindex="-1" class="h5 tab-button tab-button-large">Outdoor</div>
-					<div tabindex="-1" class="h5 tab-button tab-button-large active">Clubhouse</div>
+				<div class="tab-menu hide-for-medium text-right js_amenity_headings">
+					<?php foreach ( $amenities as $amenity ) : ?>
+						<div tabindex="-1" class="h5 tab-button tab-button-large js_amenity_heading"><?= $amenity[ 'amenity_group_title' ] ?></div>
+					<?php endforeach; ?>
 				</div>
 
-				<select class="select-menu button strong fill-red-2 show-for-medium ">
-					<option>Indoor</option>
-					<option>Outdoor</option>
-					<option selected="selected">Clubhouse</option>
+				<select class="select-menu button strong fill-red-2 show-for-medium js_amenity_headings">
+					<?php foreach ( $amenities as $amenity ) : ?>
+						<option><?= $amenity[ 'amenity_group_title' ] ?></option>
+					<?php endforeach; ?>
 				</select>
 			</div>
-			<div class="amenitie columns small-12 large-10">
-				<div class="amenities-menu-2">
-					<div class="tab-menu hide-for-medium">
-						<div tabindex="-1" class="h6 tab-button">G Floor</div>
-						<div tabindex="-1" class="h6 tab-button active">1<sup>st</sup> Floor</div>
-						<div tabindex="-1" class="h6 tab-button">2<sup>nd</sup> Floor</div>
+			<?php foreach ( $amenities as $index => $amenity ) : ?>
+				<div class="amenitie columns small-12 large-10 <?php if ( $index ) echo 'hidden' ?>" data-amenity-group="<?= $amenity[ 'amenity_group_title' ] ?>">
+					<div class="amenities-menu-2">
+						<div class="tab-menu hide-for-medium js_amenity_subgroup_headings">
+							<?php foreach ( $amenity[ 'amenity_group' ] as $amenityGroup ) : ?>
+								<div tabindex="-1" class="h6 tab-button js_amenity_subgroup_heading"><?= $amenityGroup[ 'amenity_name' ] ?></div>
+							<?php endforeach; ?>
+						</div>
+						<select class="select-menu button strong fill-neutral-2 show-for-medium js_amenity_subgroup_headings">
+							<?php foreach ( $amenity[ 'amenity_group' ] as $amenityGroup ) : ?>
+								<option><?= $amenityGroup[ 'amenity_name' ] ?></option>
+							<?php endforeach; ?>
+						</select>
 					</div>
-
-					<select class="select-menu button strong fill-neutral-2 show-for-medium">
-						<option>G Floor</option>
-						<option selected="selected">1<sup>st</sup> Floor</option>
-						<option>2<sup>nd</sup> Floor</option>
-					</select>
+					<?php foreach ( $amenity[ 'amenity_group' ] as $index => $amenityGroup ) : ?>
+						<div class="row <?php if ( $index ) echo 'hidden' ?>" data-amenity-subgroup="<?= $amenityGroup[ 'amenity_name' ] ?>">
+							<div class="amenitie-viewer columns small-12 large-5">
+								<img class="block" src="<?= $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'medium' ] ?>" srcset="<?= $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'small' ] . ' ' . $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'small-width' ] . 'w, ' . $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'medium' ] . ' ' . $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'medium-width' ] . 'w, ' . $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'large' ] . ' ' . $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'large-width' ] . 'w' ?>">
+							</div>
+							<div class="points columns small-12 large-7">
+								<?php foreach ( $amenityGroup[ 'amenity_points' ] as $amenityPoint ) : ?>
+									<div class="point h5 condensed space-min-bottom"><span class="inline-middle space-min-right"><img src="<?= $amenityPoint[ 'amenity_point_icon' ] ?: 'https://via.placeholder.com/32' ?>"></span><?= $amenityPoint[ 'amenity_point_text' ] ?></div>
+								<?php endforeach; ?>
+							</div>
+						</div>
+					<?php endforeach; ?>
 				</div>
-				<div class="row">
-					<div class="amenitie-viewer columns small-12 large-5">
-						<img class="block" src="https://via.placeholder.com/800x800<?php echo $ver ?>">
-					</div>
-					<div class="points columns small-12 large-7">
-						<div class="point h5 condensed space-min-bottom"><span class="inline-middle space-min-right"><img src="https://via.placeholder.com/32"></span>Multipurpose Hall</div>
-						<div class="point h5 condensed space-min-bottom"><span class="inline-middle space-min-right"><img src="https://via.placeholder.com/32"></span>Party Hall</div>
-						<div class="point h5 condensed space-min-bottom"><span class="inline-middle space-min-right"><img src="https://via.placeholder.com/32"></span>Indoor Games</div>
-						<div class="point h5 condensed space-min-bottom"><span class="inline-middle space-min-right"><img src="https://via.placeholder.com/32"></span>Squash Court</div>
-						<div class="point h5 condensed space-min-bottom"><span class="inline-middle space-min-right"><img src="https://via.placeholder.com/32"></span>Indoor Swimming Pool</div>
-						<div class="point h5 condensed space-min-bottom"><span class="inline-middle space-min-right"><img src="https://via.placeholder.com/32"></span>Community Lounge</div>
-					</div>
-				</div>
-			</div>
+			<?php endforeach; ?>
 		</div>
 	</div>
 </section>
