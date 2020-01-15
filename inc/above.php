@@ -32,23 +32,29 @@ else
 /*
  * Get the title and URL of the website and current page
  */
-$siteTitle = getContent( '', 'page_title', $urlSlug ) ?: getContent( 'Indis Valley Civilization', 'page_title' );
-$pageUrl = $siteUrl . $requestPath;
-if ( pageIsStatic() )
-	$pageTitle = getCurrentPageTitle( $links, $baseURL, $siteTitle );
-else if ( cmsIsEnabled() ) {
+if ( cmsIsEnabled() ) {
 	$thePost = getCurrentPost( $urlSlug, $postType );
 	if ( empty( $thePost ) ) {
+		echo 'Please create a corresponding page or post with the slug' . '"' . $urlSlug . '"' . 'in the CMS.';
 		http_response_code( 404 );
 		exit;
 	}
 	else
 		$postId = $thePost->ID;
-	$pageTitle = $thePost->post_title . ' | ' . $siteTitle;
 }
+
+
+// Construct the page's title ( for use in the title tag )
+$siteTitle = getContent( '', 'page_title', $urlSlug ) ?: getContent( 'Indis Valley Civilization', 'page_title' );
+$pageUrl = $siteUrl . $requestPath;
+
+if ( cmsIsEnabled() )
+	$pageTitle = $thePost->post_title . ' | ' . $siteTitle;
 else
 	$pageTitle = $siteTitle;
 
+
+// Get the page's image for SEO and other related purposes
 $pageImage = getContent( '', 'page_image', $urlSlug ) ?: getContent( '', 'page_image' );
 if ( ! empty( $pageImage[ 'sizes' ] ) )
 	$pageImage = $pageImage[ 'sizes' ][ 'medium' ] ?: $pageImage[ 'sizes' ][ 'thumbnail' ] ?: $pageImage[ 'url' ];
@@ -93,6 +99,18 @@ http_response_code( 200 );
 						<button class="icon-button menu inline js_menu_button" tabindex="-1" style="background-image: url('../media/icon/icon-menu.svg<?php echo $ver ?>');"></button>
 					</div>
 				</div>
+				<?php
+
+					$navigationMenuItems = getContent( [ ], 'Primary', 'navigation' );
+					foreach ( $navigationMenuItems as &$item ) {
+						$item = [
+							'label' => $item[ 'title' ],
+							'url' => $item[ 'url' ]
+						];
+					}
+					unset( $item );
+
+				?>
 				<div class="navigation row">
 					<div class="container">
 						<div class="columns small-12 text-right space-50-right">

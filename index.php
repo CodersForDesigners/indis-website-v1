@@ -15,6 +15,7 @@ $requestPath = trim(
 	strstr( $_SERVER[ 'REQUEST_URI' ], '?', true ) ?: $_SERVER[ 'REQUEST_URI' ],
 	'/'
 );
+$postType = 'page';
 $urlSlug = '';
 
 
@@ -25,20 +26,24 @@ $urlSlug = '';
  * -/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-
  */
 // Home page
-if ( $requestPath === '' )
+if ( $requestPath === '' ) {
+	$urlSlug = 'home';
+	$_GET[ '_slug' ] = 'home';
 	return require_once $homePage;
+}
 
 // Every other page
 $filename = $documentRoot . '/pages/' . $requestPath . '.php';
 if ( file_exists( $filename ) ) {
 	// Set a query param
+	$urlSlug = $requestPath;
 	$_GET[ '_slug' ] = $requestPath;
 	return require_once $filename;
 }
 else if ( count( explode( '/', $requestPath ) ) === 2 ) {
 	[ $postType, $urlSlug ] = explode( '/', $requestPath );
 	$_GET[ '_slug' ] = $urlSlug;
-	$_GET[ '_post_type' ] = $postType;
+	// $_GET[ '_post_type' ] = $postType;
 	$filename = $documentRoot . '/pages/' . $postType . '.php';
 	return require_once $filename;
 }
