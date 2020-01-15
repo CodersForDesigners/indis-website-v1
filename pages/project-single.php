@@ -1,4 +1,4 @@
-'<?php
+<?php
 /*
  *
  * This is a sample page you can copy and use as boilerplate for any new page.
@@ -492,7 +492,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- Location Section -->
-<section class="location-section space-50-top-bottom">
+<section id="location" class="location-section space-50-top-bottom">
 	<div class="container">
 		<div class="row">
 			<div class="location-image-container columns small-12 large-12"><div class="location-image fill-neutral-2" style="background-image: url('../media/location-image/1.png<?php echo $ver ?>');"></div></div>
@@ -648,7 +648,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- Plans Section -->
-<section class="plans-section space-100-top space-75-bottom fill-dark">
+<section id="plans" class="plans-section space-100-top space-75-bottom fill-dark">
 	<div class="container">
 		<div class="plans-intro row space-25-bottom">
 			<div class="heading h2 strong text-lowercase columns small-12">
@@ -736,7 +736,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- Amenities Section -->
-<section class="amenities-section space-75-top space-100-bottom fill-dark">
+<section id="amenities" class="amenities-section space-75-top space-100-bottom fill-dark">
 	<div class="container">
 		<div class="amenities-intro row space-25-bottom">
 			<div class="heading h2 strong text-lowercase columns small-12">
@@ -908,7 +908,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- Updates Section -->
-<section class="updates-section space-75-top space-100-bottom fill-dark">
+<section id="updates" class="updates-section space-75-top space-100-bottom fill-dark">
 	<div class="container">
 		<div class="updates-intro row space-25-bottom">
 			<div class="heading h2 strong text-lowercase columns small-12">

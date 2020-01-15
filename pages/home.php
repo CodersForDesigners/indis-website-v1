@@ -90,7 +90,7 @@
 
 
 <!-- Carousel: Offers -->
-<div class="carousel indis-carousel js_carousel_container">
+<div id="offers" class="carousel indis-carousel js_carousel_container">
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
 			<div class="carousel-title h2 strong">
