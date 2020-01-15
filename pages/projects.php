@@ -15,12 +15,23 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 
+<!-- Gallery data -->
+<script type="text/javascript">
+
+	// Cover images
+	var __DATA = window.__DATA = window.__DATA || { };
+	__DATA.galleries = { };
+	__DATA.galleries.cover = <?php echo json_encode( getContent( [ ], 'cover_images' ) ) ?>;
+
+</script>
+<!-- END: All content ( in JS ) -->
+
 <!-- Cover Section -->
-<section class="cover-section space-25-top space-50-bottom">
+<section class="cover-section space-25-top space-50-bottom js_gallery_region" data-set="cover">
 	<?php $coverImages = getContent( [ ], 'cover_images' ); ?>
 	<div class="container">
 		<div class="row">
-			<div class="cover-image-container image-1 columns small-12 large-12"><div class="cover-image fill-neutral-2": url( '<?= $coverImages[ 0 ][ 'sizes' ][ 'large' ] ?>' );"></div></div>
+			<div class="cover-image-container image-1 columns small-12 large-12"><div class="cover-image fill-neutral-2 js_gallery_item" style="background-image: url( '<?= $coverImages[ 0 ][ 'sizes' ][ 'large' ] ?>' );"></div></div>
 			<div class="project-card columns small-8 medium-4 fill-dark space-25">
 				<div class="logo space-min-bottom"><img class="block" src="../media/indis-logo-light.svg<?php echo $ver ?>"></div>
 				<div class="title h4 strong"><?= $thePost->post_title ?></div>
@@ -31,12 +42,12 @@ require_once __DIR__ . '/../inc/above.php';
 			</div>
 			<div class="cover-image-strip columns small-4 medium-2 large-6">
 				<div class="row">
-					<div class="cover-image-container image-2 columns small-12 large-4"><div class="cover-image fill-neutral-2 js_modal_trigger x="-1" data-mod-id="image-gallery" style="background-image: url( '<?= $coverImages[ 1 ][ 'sizes' ][ 'small' ] ?>' );"></div></div>
-					<div class="cover-image-container image-3 columns small-12 large-4"><div class="cover-image fill-neutral-2 js_modal_trigger x="-1" data-mod-id="image-gallery" style="background-image: url( <?= $coverImages[ 2 ][ 'sizes' ][ 'small' ] ?> );"></div></div>
-					<div class="cover-image-container image-4 columns small-12 large-4"><div class="cover-image fill-neutral-2 js_modal_trigger x="-1" data-mod-id="image-gallery" style="background-image: url( '<?= $coverImages[ 3 ][ 'sizes' ][ 'small' ] ?>' );"></div></div>
+					<div class="cover-image-container image-2 columns small-12 large-4"><div class="cover-image fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer" tabindex="-1" data-mod-id="image-gallery" style="background-image: url( '<?= $coverImages[ 1 ][ 'sizes' ][ 'small' ] ?>' );"></div></div>
+					<div class="cover-image-container image-3 columns small-12 large-4"><div class="cover-image fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer" tabindex="-1" data-mod-id="image-gallery" style="background-image: url( <?= $coverImages[ 2 ][ 'sizes' ][ 'small' ] ?> );"></div></div>
+					<div class="cover-image-container image-4 columns small-12 large-4"><div class="cover-image fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer" tabindex="-1" data-mod-id="image-gallery" style="background-image: url( '<?= $coverImages[ 3 ][ 'sizes' ][ 'small' ] ?>' );"></div></div>
 				</div>
 			</div>
-			<div class="cover-image-container image-5 columns small-12 medium-6 large-4"><div class="cover-image portrait fill-neutral-2 js_modal_trigger x="-1" data-mod-id="image-gallery" style="background-image: url( '<?= $coverImages[ 4 ][ 'sizes' ][ 'medium' ] ?>' );"><div class="icon-button zoom" style="background-image: url('../media/icon/icon-zoom.svg<?php echo $ver ?>');"></div></div></div>
+			<div class="cover-image-container image-5 columns small-12 medium-6 large-4"><div class="cover-image portrait fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer" tabindex="-1" data-mod-id="image-gallery" style="background-image: url( '<?= $coverImages[ 4 ][ 'sizes' ][ 'medium' ] ?>' );"><div class="icon-button zoom" style="background-image: url('../media/icon/icon-zoom.svg<?php echo $ver ?>');"></div></div></div>
 		</div>
 	</div>
 </section>

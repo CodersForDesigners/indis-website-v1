@@ -17,19 +17,19 @@
 		</div><!-- END : Sample Video -->
 
 		<!-- Modal Content : Cover Image Gallery -->
-		<div class="modal-box-content js_modal_box_content" data-mod-id="image-gallery">
+		<div class="modal-box-content js_modal_box_content js_gallery_modal" data-mod-id="image-gallery">
 			<div class="container">
 				<div class="row">
 					<div class="columns small-12">
 						<!-- Image Box -->
-						<div class="image-box">
-							<img class="block" src="https://via.placeholder.com/1920x1080">
+						<div class="image-box loading js_image_box" data-index="" style="background-size: 50% auto">
+							<img class="block">
 						</div>
 					</div>
 				</div>
 				<div class="carousel-controls block clearfix" style="position: absolute; z-index: 2; top: 50%; transform: translateY(-50%);">
-					<div class="prev float-left"><button class="button icon-button" style="background-image: url('../media/icon/icon-left-triangle-dark.svg<?php echo $ver ?>');"></button></div>
-					<div class="next float-right"><button class="button icon-button" style="background-image: url('../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>');"></button></div>
+					<div class="prev float-left"><button class="button icon-button js_arrow" data-dir="left" style="background-image: url('../media/icon/icon-left-triangle-dark.svg<?php echo $ver ?>');"></button></div>
+					<div class="next float-right"><button class="button icon-button js_arrow" data-dir="right" style="background-image: url('../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>');"></button></div>
 				</div>
 			</div>
 		</div><!-- END : Cover Image Gallery -->
