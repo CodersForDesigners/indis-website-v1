@@ -1100,7 +1100,7 @@ require_once __DIR__ . '/../inc/above.php';
 						</div>
 						<!-- Phone Trap -->
 						<div class="phone-trap phone-number form-row columns small-12 medium-6">
-							<label for="pt02">
+							<label for="pt03">
 								<span class="label strong text-uppercase text-neutral-4 cursor-pointer">
 									Phone
 								</span>
@@ -1113,7 +1113,7 @@ require_once __DIR__ . '/../inc/above.php';
 									<input class="prefix js_phone_country_code_label strong input-field text-red-2 text-right" value="+91" style="pointer-events: none; width: 100%; padding: 0; padding-right: 3px; border-color: var(--red-2);">
 								</div>
 								<div class="columns small-9">
-									<input id="pt02" class="block input-dark" type="text">
+									<input id="pt03" class="block input-dark" type="text">
 								</div>
 							</div>
 						</div>
