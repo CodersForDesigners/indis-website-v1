@@ -57,39 +57,55 @@ function setupVars () {
  * Pull custom content from ACF fields from WordPress
  *
  */
-function getContent ( $fallback, $field, $providedContext = null ) {
+function getContent ( $fallback, $field, $context = null ) {
 
 	if ( ! function_exists( 'get_field' ) )
 		return $fallback;
 
-	$context = null;
+	global $thePost;
+	global $postType;
+
 	// Setting this value here; used when searching for value recursively
-	$contexts = $providedContext ? [ ] : [ 'options' ];
+	$contexts = $context ? [ ] : [ 'options' ];
 
-	if ( empty( $providedContext ) ) {
-		global $thePost;
-		if ( empty( $thePost ) )
-			$context = 'options';
-		else
-			$context = $thePost->ID;
+	if ( empty( $context ) ) {
+		// If the page is contextual to a post, then set that as the context
+		$context = $thePost ? $thePost->ID : 'options';
 	}
-	else if ( is_string( $providedContext ) ) {
-		global $postType;
-		$page = get_page_by_path( $providedContext, OBJECT, $postType ?: [ 'page', 'attachment' ] );
-		if ( empty( $page ) or empty( $page->ID ) )
-			$context = 'options';
-		else
-			$context = $page->ID;
+	else if ( is_string( $context ) ) {
+		if ( $context === 'navigation' ) {
+			$navigationItems = wp_get_nav_menu_items( $field );
+			if ( is_array( $navigationItems ) ) {
+				foreach ( $navigationItems as &$item )
+					$item = get_object_vars( $item );
+					// $item = (array) $item;
+				return $navigationItems;
+			}
+			else
+				return $fallback;
+		}
+		else {
+			$page = get_page_by_path( $context, OBJECT, $postType ?: [ 'page', 'attachment' ] );
+			if ( empty( $page ) or empty( $page->ID ) )
+				$context = 'options';
+			else
+				$context = $page->ID;
+		}
 	}
 
 
-	if ( $providedContext !== 'options' )
-		array_unshift( $contexts, $providedContext );
+	if ( $context !== 'options' )
+		array_unshift( $contexts, $context );
 	$fieldParts = preg_split( '/\s*->\s*/' , $field );
 	foreach ( $contexts as $currentContext ) {
 		$content = get_field( $fieldParts[ 0 ], $currentContext );
-		if ( empty( $content ) )
-			continue;
+		// If no content was found, search in underlying native post object
+		if ( empty( $content ) ) {
+			if ( $currentContext and ( ! is_string( $currentContext ) ) )
+				$content = $thePost->{$fieldParts[ 0 ]};
+			if ( empty( $content ) )
+				continue;
+		}
 
 		$remainderFieldParts = array_slice( $fieldParts, 1 );
 		foreach ( $remainderFieldParts as $namespace )
@@ -99,9 +115,9 @@ function getContent ( $fallback, $field, $providedContext = null ) {
 			break;
 	}
 
-	// $content = get_field( $fieldParts[ 0 ], $providedContext );
+	// $content = get_field( $fieldParts[ 0 ], $content );
 	// if ( count( $fieldParts ) > 1 ) {
-	// 	$content = get_field( $fieldParts[ 0 ], $providedContext );
+	// 	$content = get_field( $fieldParts[ 0 ], $content );
 	// 	$remainderFieldParts = array_slice( $fieldParts, 1 );
 	// 	foreach ( $remainderFieldParts as $namespace )
 	// 		$content = $content[ $namespace ];
