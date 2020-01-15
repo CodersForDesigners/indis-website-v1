@@ -117,7 +117,7 @@ http_response_code( 200 );
 						<div class="columns small-12 text-right space-50-right">
 							<div class="link h4 strong text-uppercase show-for-medium ">Menu</div>
 							<?php foreach ( $navigationMenuItems as $item ) : ?>
-								<a href="<?= $item[ 'url' ] ?>" class="link h6 strong text-uppercase space-min-top-bottom"><?= $item[ 'label' ] ?></a>
+								<a href="<?= $item[ 'url' ] ?>" class="link h6 strong text-uppercase space-min-top-bottom"><?= $item[ 'label' ] ?></a><br class="show-for-medium">
 							<?php endforeach; ?>
 						</div>
 					</div>
