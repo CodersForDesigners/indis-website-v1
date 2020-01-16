@@ -45,7 +45,7 @@ if ( cmsIsEnabled() ) {
 
 
 // Construct the page's title ( for use in the title tag )
-$siteTitle = getContent( '', 'page_title', $urlSlug ) ?: getContent( 'Indis Valley Civilization', 'page_title' );
+$siteTitle = getContent( '', 'page_title', $urlSlug ) ?: getContent( 'Indis', 'page_title' );
 $pageUrl = $siteUrl . $requestPath;
 
 if ( cmsIsEnabled() )
