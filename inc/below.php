@@ -23,46 +23,18 @@
 				<div class="container">
 					<div class="footer-links columns small-12 large-8">
 						<div class="row">
-							<div class="project-links columns small-6 medium-3">
-								<a href="/" class="title h6 strong text-red-2">One City, HYD
-									<span class="location block label strong text-uppercase text-red-1">Kukatpally</span>
-								</a>
-								<a href="/" class="link h6 strong text-neutral-2">Floorplans</a>
-								<a href="/" class="link h6 strong text-neutral-2">Location</a>
-								<a href="/" class="link h6 strong text-neutral-2">Masterplan</a>
-								<a href="/" class="link h6 strong text-neutral-2">Amenities</a>
-								<a href="/" class="link h6 strong text-neutral-2">Updates</a>
-							</div>
-							<div class="project-links columns small-6 medium-3">
-								<a href="/" class="title h6 strong text-red-2">PBEL City, HYD
-									<span class="location block label strong text-uppercase text-red-1">Appa Junction</span>
-								</a>
-								<a href="/" class="link h6 strong text-neutral-2">Floorplans</a>
-								<a href="/" class="link h6 strong text-neutral-2">Location</a>
-								<a href="/" class="link h6 strong text-neutral-2">Masterplan</a>
-								<a href="/" class="link h6 strong text-neutral-2">Amenities</a>
-								<a href="/" class="link h6 strong text-neutral-2">Updates</a>
-							</div>
-							<div class="project-links columns small-6 medium-3">
-								<a href="/" class="title h6 strong text-red-2">One City, HYD
-									<span class="location block label strong text-uppercase text-red-1">Kukatpally</span>
-								</a>
-								<a href="/" class="link h6 strong text-neutral-2">Floorplans</a>
-								<a href="/" class="link h6 strong text-neutral-2">Location</a>
-								<a href="/" class="link h6 strong text-neutral-2">Masterplan</a>
-								<a href="/" class="link h6 strong text-neutral-2">Amenities</a>
-								<a href="/" class="link h6 strong text-neutral-2">Updates</a>
-							</div>
-							<div class="project-links columns small-6 medium-3">
-								<a href="/" class="title h6 strong text-red-2">One City, HYD
-									<span class="location block label strong text-uppercase text-red-1">Kukatpally</span>
-								</a>
-								<a href="/" class="link h6 strong text-neutral-2">Floorplans</a>
-								<a href="/" class="link h6 strong text-neutral-2">Location</a>
-								<a href="/" class="link h6 strong text-neutral-2">Masterplan</a>
-								<a href="/" class="link h6 strong text-neutral-2">Amenities</a>
-								<a href="/" class="link h6 strong text-neutral-2">Updates</a>
-							</div>
+							<?php foreach ( $allProjectsExcludingCurrent as $project ) : ?>
+								<div class="project-links columns small-6 medium-3">
+									<a href="<?= $project[ 'permalink' ] ?>" class="title h6 strong text-red-2"><?= $project[ 'post_title' ] ?>
+										<span class="location block label strong text-uppercase text-red-1"><?= getContent( '', 'location', $project[ 'ID' ] ) ?></span>
+									</a>
+									<a href="<?= $project[ 'permalink' ] . '#plans' ?>" class="link h6 strong text-neutral-2">Floorplans</a>
+									<a href="<?= $project[ 'permalink' ] . '#location' ?>" class="link h6 strong text-neutral-2">Location</a>
+									<a href="<?= $project[ 'permalink' ] . '#plans' ?>" class="link h6 strong text-neutral-2">Masterplan</a>
+									<a href="<?= $project[ 'permalink' ] . '#amenities' ?>" class="link h6 strong text-neutral-2">Amenities</a>
+									<a href="<?= $project[ 'permalink' ] . '#updates' ?>" class="link h6 strong text-neutral-2">Updates</a>
+								</div>
+							<?php endforeach; ?>
 						</div>
 					</div>
 					<div class="footer-address columns small-12 large-4 xlarge-3 xlarge-offset-1">
