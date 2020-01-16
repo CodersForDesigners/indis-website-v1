@@ -102,7 +102,7 @@
 				<div class="count h3 inline-bottom">01</div>
 				<div class="total label strong text-uppercase inline-bottom">14</div>
 			</div>
-			<div class="carousel-card fill-neutral-2">
+			<div class="carousel-card fill-dark">
 				<div class="info space-25">
 					<div class="title h4 strong">1600sft 3BHK.</div>
 					<div class="price h5 condensed">Starting at 80 Lakhs</div>
@@ -116,7 +116,7 @@
 				<div class="count h3 inline-bottom">02</div>
 				<div class="total label strong text-uppercase inline-bottom">14</div>
 			</div>
-			<div class="carousel-card fill-neutral-2">
+			<div class="carousel-card fill-dark">
 				<div class="info space-25">
 					<div class="title h4 strong">New Tower Launch.</div>
 					<div class="price h5 condensed">Starting at 1.2Cr</div>
@@ -130,7 +130,7 @@
 				<div class="count h3 inline-bottom">03</div>
 				<div class="total label strong text-uppercase inline-bottom">14</div>
 			</div>
-			<div class="carousel-card fill-neutral-2">
+			<div class="carousel-card fill-dark">
 				<div class="info space-25">
 					<div class="title h4 strong">Pay 20% now, 80% on possession.</div>
 					<div class="price h5 condensed">Starting at 45Lakhs</div>
@@ -144,7 +144,7 @@
 				<div class="count h3 inline-bottom">04</div>
 				<div class="total label strong text-uppercase inline-bottom">14</div>
 			</div>
-			<div class="carousel-card fill-neutral-2">
+			<div class="carousel-card fill-dark">
 				<div class="info space-25">
 					<div class="title h4 strong">1930sft 3BHK, Pool View Units.</div>
 					<div class="price h5 condensed">Starting at 1.0 Cr</div>
@@ -158,7 +158,7 @@
 				<div class="count h3 inline-bottom">05</div>
 				<div class="total label strong text-uppercase inline-bottom">14</div>
 			</div>
-			<div class="carousel-card fill-neutral-2">
+			<div class="carousel-card fill-dark">
 				<div class="info space-25">
 					<div class="title h4 strong">Ready to move-in 2BHK. Only 5 left.</div>
 					<div class="price h5 condensed">Starting at 40Lakhs</div>
