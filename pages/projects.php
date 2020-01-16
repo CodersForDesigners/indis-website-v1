@@ -691,7 +691,7 @@ $amenities = getContent( [ ], 'amenity' );
 					</div>
 					<?php foreach ( $group[ 'plan_group' ] as $index => $plan ) : ?>
 						<div class="plan-viewer <?php if ( $index ) echo 'hidden' ?>" data-plan="<?= $plan[ 'plan_name' ] ?>">
-							<iframe class="plan-embed js_plan_embed" src="<?= $plan[ 'plan_image' ][ 'url' ] ?>" frameborder="0"></iframe>
+							<iframe class="plan-embed js_plan_embed" src="<?= $plan[ 'plan_image' ] ?>" frameborder="0"></iframe>
 						</div>
 					<?php endforeach; ?>
 				</div>
