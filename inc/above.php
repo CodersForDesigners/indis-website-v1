@@ -35,8 +35,9 @@ else
 if ( cmsIsEnabled() ) {
 	$thePost = getCurrentPost( $urlSlug, $postType );
 	if ( empty( $thePost ) ) {
-		echo 'Please create a corresponding page or post with the slug' . '"' . $urlSlug . '"' . 'in the CMS.';
+		// echo 'Please create a corresponding page or post with the slug' . '"' . $urlSlug . '"' . 'in the CMS.';
 		http_response_code( 404 );
+		return header( 'Location: /', true, 302 );
 		exit;
 	}
 	else
