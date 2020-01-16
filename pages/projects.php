@@ -13,6 +13,7 @@ require_once __DIR__ . '/../inc/above.php';
 $planGroups = getContent( [ ], 'plans' );
 $amenities = getContent( [ ], 'amenity' );
 $constructionUpdateGroups = getContent( [ ], 'updates' );
+$engineeringPartners = getContent( [ ], 'engineering_partners' );
 
 ?>
 
@@ -591,62 +592,38 @@ $constructionUpdateGroups = getContent( [ ], 'updates' );
 
 
 <!-- Carousel Mini: Affiliates Section -->
-<section class="affiliates-section space-50-bottom">
+<section class="affiliates-section space-50-bottom js_tab_container">
 	<div class="affiliates-carousel-menu text-center">
 		<div class="container">
-			<div class="tab-menu hide-for-medium">
-				<div tabindex="-1" class="h6 tab-button">Structure</div>
-				<div tabindex="-1" class="h6 tab-button active">Finishes</div>
-				<div tabindex="-1" class="h6 tab-button">Plumbing</div>
-				<div tabindex="-1" class="h6 tab-button">Electrical</div>
-				<div tabindex="-1" class="h6 tab-button">Fire Safety</div>
+			<div class="tab-menu hide-for-medium js_tab_headings">
+				<?php foreach ( $engineeringPartners as $partner ) : ?>
+					<div tabindex="-1" class="h6 tab-button js_tab_heading"><?= $partner[ 'partner_title' ] ?></div>
+				<?php endforeach; ?>
 			</div>
-			<select class="select-menu button strong fill-neutral-2 show-for-medium">
-				<option>Structure</option>
-				<option selected="selected">Finishes</option>
-				<option>Plumbing</option>
-				<option>Electrical</option>
-				<option>Fire Safety</option>
+			<select class="select-menu button strong fill-neutral-2 show-for-medium js_tab_headings">
+				<?php foreach ( $engineeringPartners as $partner ) : ?>
+					<option><?= $partner[ 'partner_title' ] ?></option>
+				<?php endforeach; ?>
 			</select>
 		</div>
 	</div>
-	<div class="carousel carousel-mini affiliates-carousel js_carousel_container">
-		<div class="carousel-list js_carousel_content">
-			<div class="carousel-list-item js_carousel_item">
-				<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+	<?php foreach ( $engineeringPartners as $index => $partner ) : ?>
+		<div class="carousel carousel-mini affiliates-carousel js_carousel_container js_tab <?php if ( $index ) echo 'hidden' ?>" data-tab="<?= $partner[ 'partner_title' ] ?>">
+			<div class="carousel-list js_carousel_content">
+				<?php foreach ( $partner[ 'partner_logos' ] as $image ) : ?>
+					<div class="carousel-list-item js_carousel_item">
+						<div class="carousel-mini-image" style="background-image: url( '<?= $image[ 'sizes' ][ 'medium' ] ?>' );"></div>
+					</div>
+				<?php endforeach; ?>
 			</div>
-			<div class="carousel-list-item js_carousel_item">
-				<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
-			</div>
-			<div class="carousel-list-item js_carousel_item">
-				<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
-			</div>
-			<div class="carousel-list-item js_carousel_item">
-				<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
-			</div>
-			<div class="carousel-list-item js_carousel_item">
-				<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
-			</div>
-			<div class="carousel-list-item js_carousel_item">
-				<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
-			</div>
-			<div class="carousel-list-item js_carousel_item">
-				<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
-			</div>
-			<div class="carousel-list-item js_carousel_item">
-				<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
-			</div>
-			<div class="carousel-list-item js_carousel_item">
-				<div class="carousel-mini-image" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
+			<div class="carousel-controls clearfix">
+				<div class="container">
+					<div class="prev float-left"><button class="button js_pager" data-dir="left"><img class="block" src="../media/icon/icon-left-triangle-dark.svg<?php echo $ver ?>"></button></div>
+					<div class="next float-right"><button class="button js_pager" data-dir="right"><img class="block" src="../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>"></button></div>
+				</div>
 			</div>
 		</div>
-		<div class="carousel-controls clearfix">
-			<div class="container">
-				<div class="prev float-left"><button class="button js_pager" data-dir="left"><img class="block" src="../media/icon/icon-left-triangle-dark.svg<?php echo $ver ?>"></button></div>
-				<div class="next float-right"><button class="button js_pager" data-dir="right"><img class="block" src="../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>"></button></div>
-			</div>
-		</div>
-	</div>
+	<?php endforeach; ?>
 </section>
 <!-- END: Carousel Mini: Affiliates Section -->
 
