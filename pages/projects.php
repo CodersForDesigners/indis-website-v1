@@ -629,7 +629,7 @@ $engineeringPartners = getContent( [ ], 'engineering_partners' );
 
 
 <!-- Plans Section -->
-<section id="plans" class="plans-section space-100-top space-75-bottom fill-dark js_plan_section">
+<section id="plans" class="plans-section space-100-top space-75-bottom fill-dark js_tab_container">
 	<div class="container">
 		<div class="plans-intro row space-25-bottom">
 			<div class="heading h2 strong text-lowercase columns small-12">
@@ -639,35 +639,35 @@ $engineeringPartners = getContent( [ ], 'engineering_partners' );
 		</div>
 		<div class="plans row">
 			<div class="plans-menu-1 columns small-12 large-2">
-				<div class="tab-menu hide-for-medium text-right js_plan_group_titles">
+				<div class="tab-menu hide-for-medium text-right js_tab_headings">
 					<?php foreach ( $planGroups as $group ) : ?>
-						<div tabindex="-1" class="h5 tab-button tab-button-large js_plan_group_title"><?= $group[ 'plan_group_title' ] ?></div>
+						<div tabindex="-1" class="h5 tab-button tab-button-large js_tab_heading"><?= $group[ 'plan_group_title' ] ?></div>
 					<?php endforeach; ?>
 				</div>
 
-				<select class="select-menu button strong fill-red-2 show-for-medium js_plan_group_titles">
+				<select class="select-menu button strong fill-red-2 show-for-medium js_tab_headings">
 					<?php foreach ( $planGroups as $group ) : ?>
 						<option><?= $group[ 'plan_group_title' ] ?></option>
 					<?php endforeach; ?>
 				</select>
 			</div>
 			<?php foreach ( $planGroups as $index => $group ) : ?>
-				<div class="plan columns small-12 large-10 <?php if ( $index ) echo 'hidden' ?>" data-plan-group="<?= $group[ 'plan_group_title' ] ?>">
+				<div class="plan columns small-12 large-10 js_tab js_tab_container <?php if ( $index ) echo 'hidden' ?>" data-tab="<?= $group[ 'plan_group_title' ] ?>">
 					<div class="plans-menu-2 <?php if ( count( $group[ 'plan_group' ] ) === 1 and empty( trim( $group[ 'plan_group' ][ 0 ][ 'plan_name' ] ) ) ) echo 'hidden' ?>">
-						<div class="tab-menu hide-for-medium js_plan_titles">
+						<div class="tab-menu hide-for-medium js_tab_headings">
 							<?php foreach ( $group[ 'plan_group' ] as $plan ) : ?>
-								<div tabindex="-1" class="h6 tab-button js_plan_title"><?= $plan[ 'plan_name' ] ?></div>
+								<div tabindex="-1" class="h6 tab-button js_tab_heading"><?= $plan[ 'plan_name' ] ?></div>
 							<?php endforeach; ?>
 						</div>
 
-						<select class="select-menu button strong fill-neutral-2 show-for-medium js_plan_titles">
+						<select class="select-menu button strong fill-neutral-2 show-for-medium js_tab_headings">
 							<?php foreach ( $group[ 'plan_group' ] as $plan ) : ?>
 								<option><?= $plan[ 'plan_name' ] ?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>
 					<?php foreach ( $group[ 'plan_group' ] as $index => $plan ) : ?>
-						<div class="plan-viewer <?php if ( $index ) echo 'hidden' ?>" data-plan="<?= $plan[ 'plan_name' ] ?>">
+						<div class="plan-viewer js_tab <?php if ( $index ) echo 'hidden' ?>" data-tab="<?= $plan[ 'plan_name' ] ?>">
 							<iframe class="plan-embed js_plan_embed" src="<?= $plan[ 'plan_image' ] ?>" frameborder="0"></iframe>
 						</div>
 					<?php endforeach; ?>
