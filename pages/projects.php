@@ -25,11 +25,11 @@ $constructionUpdateGroups = getContent( [ ], 'updates' );
 
 	// Cover images
 	var __DATA = window.__DATA = window.__DATA || { };
-	__DATA.galleries = { };
+	__DATA.galleries = __DATA.galleries || { };
 	__DATA.galleries.cover = <?php echo json_encode( getContent( [ ], 'cover_images' ) ) ?>;
 
 </script>
-<!-- END: All content ( in JS ) -->
+<!-- END: Gallery data -->
 
 <!-- Cover Section -->
 <section class="cover-section space-25-top space-50-bottom js_gallery_region" data-set="cover">
@@ -660,7 +660,6 @@ $constructionUpdateGroups = getContent( [ ], 'updates' );
 				<span class="text-red-2">Floorplans</span>
 			</div>
 		</div>
-		<!-- CMS-ified Version -->
 		<div class="plans row">
 			<div class="plans-menu-1 columns small-12 large-2">
 				<div class="tab-menu hide-for-medium text-right js_plan_group_titles">
