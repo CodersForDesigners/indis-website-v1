@@ -10,6 +10,7 @@ if ( empty( $urlSlug ) )
 require_once __DIR__ . '/../inc/above.php';
 
 
+$planGroups = getContent( [ ], 'plans' );
 $amenities = getContent( [ ], 'amenity' );
 
 ?>
@@ -650,7 +651,7 @@ $amenities = getContent( [ ], 'amenity' );
 
 
 <!-- Plans Section -->
-<section id="plans" class="plans-section space-100-top space-75-bottom fill-dark">
+<section id="plans" class="plans-section space-100-top space-75-bottom fill-dark js_plan_section">
 	<div class="container">
 		<div class="plans-intro row space-25-bottom">
 			<div class="heading h2 strong text-lowercase columns small-12">
@@ -658,38 +659,43 @@ $amenities = getContent( [ ], 'amenity' );
 				<span class="text-red-2">Floorplans</span>
 			</div>
 		</div>
+		<!-- CMS-ified Version -->
 		<div class="plans row">
 			<div class="plans-menu-1 columns small-12 large-2">
-				<div class="tab-menu hide-for-medium text-right">
-					<div tabindex="-1" class="h5 tab-button tab-button-large">Masterplan</div>
-					<div tabindex="-1" class="h5 tab-button tab-button-large active">Block Floorplans</div>
-					<div tabindex="-1" class="h5 tab-button tab-button-large">Aerial View</div>
+				<div class="tab-menu hide-for-medium text-right js_plan_group_titles">
+					<?php foreach ( $planGroups as $group ) : ?>
+						<div tabindex="-1" class="h5 tab-button tab-button-large js_plan_group_title"><?= $group[ 'plan_group_title' ] ?></div>
+					<?php endforeach; ?>
 				</div>
 
-				<select class="select-menu button strong fill-red-2 show-for-medium ">
-					<option>Masterplan</option>
-					<option selected="selected">Block Floorplans</option>
-					<option>Aerial View</option>
+				<select class="select-menu button strong fill-red-2 show-for-medium js_plan_group_titles">
+					<?php foreach ( $planGroups as $group ) : ?>
+						<option><?= $group[ 'plan_group_title' ] ?></option>
+					<?php endforeach; ?>
 				</select>
 			</div>
-			<div class="plan columns small-12 large-10">
-				<div class="plans-menu-2">
-					<div class="tab-menu hide-for-medium">
-						<div tabindex="-1" class="h6 tab-button">Block A</div>
-						<div tabindex="-1" class="h6 tab-button active">Block B</div>
-						<div tabindex="-1" class="h6 tab-button">Block C</div>
-					</div>
+			<?php foreach ( $planGroups as $index => $group ) : ?>
+				<div class="plan columns small-12 large-10 <?php if ( $index ) echo 'hidden' ?>" data-plan-group="<?= $group[ 'plan_group_title' ] ?>">
+					<div class="plans-menu-2">
+						<div class="tab-menu hide-for-medium js_plan_titles">
+							<?php foreach ( $group[ 'plan_group' ] as $plan ) : ?>
+								<div tabindex="-1" class="h6 tab-button js_plan_title"><?= $plan[ 'plan_name' ] ?></div>
+							<?php endforeach; ?>
+						</div>
 
-					<select class="select-menu button strong fill-neutral-2 show-for-medium">
-						<option>Block A</option>
-						<option selected="selected">Block B</option>
-						<option>Block C</option>
-					</select>
+						<select class="select-menu button strong fill-neutral-2 show-for-medium js_plan_titles">
+							<?php foreach ( $group[ 'plan_group' ] as $plan ) : ?>
+								<option><?= $plan[ 'plan_name' ] ?></option>
+							<?php endforeach; ?>
+						</select>
+					</div>
+					<?php foreach ( $group[ 'plan_group' ] as $index => $plan ) : ?>
+						<div class="plan-viewer <?php if ( $index ) echo 'hidden' ?>" data-plan="<?= $plan[ 'plan_name' ] ?>">
+							<iframe class="plan-embed js_plan_embed" src="<?= $plan[ 'plan_image' ][ 'url' ] ?>" frameborder="0"></iframe>
+						</div>
+					<?php endforeach; ?>
 				</div>
-				<div class="plan-viewer">
-					<iframe class="plan-embed js_plan_embed" src="http://139.59.39.166/media/masterplans/test/Masterplan.html" frameborder="0"></iframe>
-				</div>
-			</div>
+			<?php endforeach; ?>
 		</div>
 	</div>
 </section>
