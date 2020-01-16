@@ -12,6 +12,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 $planGroups = getContent( [ ], 'plans' );
 $amenities = getContent( [ ], 'amenity' );
+$constructionUpdateGroups = getContent( [ ], 'updates' );
 
 ?>
 
@@ -916,7 +917,7 @@ $amenities = getContent( [ ], 'amenity' );
 
 
 <!-- Updates Section -->
-<section id="updates" class="updates-section space-75-top space-100-bottom fill-dark">
+<section id="updates" class="updates-section space-75-top space-100-bottom fill-dark js_construction_updates_section">
 	<div class="container">
 		<div class="updates-intro row space-25-bottom">
 			<div class="heading h2 strong text-lowercase columns small-12">
@@ -926,50 +927,54 @@ $amenities = getContent( [ ], 'amenity' );
 		</div>
 		<div class="updates row">
 			<div class="updates-menu-1 columns small-12 large-2">
-				<div class="tab-menu hide-for-medium text-right">
-					<div tabindex="-1" class="h5 tab-button tab-button-large">November 2019</div>
-					<div tabindex="-1" class="h5 tab-button tab-button-large">October 2019</div>
-					<div tabindex="-1" class="h5 tab-button tab-button-large active">September 2019</div>
+				<div class="tab-menu hide-for-medium text-right js_update_group_titles">
+					<?php foreach ( $constructionUpdateGroups as $group ) : ?>
+						<div tabindex="-1" class="h5 tab-button tab-button-large js_update_group_title"><?= $group[ 'update_group_title' ] ?></div>
+					<?php endforeach; ?>
 				</div>
 
-				<select class="select-menu button strong fill-red-2 show-for-medium ">
-					<option>November 2019</option>
-					<option>October 2019</option>
-					<option selected="selected">September 2019</option>
+				<select class="select-menu button strong fill-red-2 show-for-medium js_update_group_titles">
+					<?php foreach ( $constructionUpdateGroups as $group ) : ?>
+						<option><?= $group[ 'update_group_title' ] ?></option>
+					<?php endforeach; ?>
 				</select>
 			</div>
-			<div class="update columns small-12 large-10">
-				<div class="updates-menu-2">
-					<div class="tab-menu hide-for-medium">
-						<div tabindex="-1" class="h6 tab-button">Tower Amethyst (J)</div>
-						<div tabindex="-1" class="h6 tab-button active">Tower Aquamarine (K)</div>
-						<div tabindex="-1" class="h6 tab-button">Tower Opal (L)</div>
-					</div>
-
-					<select class="select-menu button strong fill-neutral-2 show-for-medium">
-						<option>Tower Amethyst (J)</option>
-						<option selected="selected">Tower Aquamarine (K)</option>
-						<option>Tower Opal (L)</option>
-					</select>
-				</div>
-				<div class="row">
-					<div class="update-featured columns small-12 large-5">
-						<div class="image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('https://via.placeholder.com/800x800<?php echo $ver ?>');"></div>
-					</div>
-					<div class="update-gallery columns small-12 large-7">
-						<div class="block row">
-							<div class="image-container columns small-6 medium-4"><div class="image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('https://via.placeholder.com/640x460<?php echo $ver ?>');"></div></div>
-							<div class="image-container columns small-6 medium-4"><div class="image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('https://via.placeholder.com/640x460<?php echo $ver ?>');"></div></div>
-							<div class="image-container columns small-6 medium-4"><div class="image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('https://via.placeholder.com/640x460<?php echo $ver ?>');"></div></div>
-							<div class="image-container columns small-6 medium-4"><div class="image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('https://via.placeholder.com/640x460<?php echo $ver ?>');"></div></div>
-							<div class="image-container columns small-6 medium-4"><div class="image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('https://via.placeholder.com/640x460<?php echo $ver ?>');"></div></div>
-							<div class="image-container columns small-6 medium-4"><div class="image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('https://via.placeholder.com/640x460<?php echo $ver ?>');"></div></div>
-							<div class="image-container columns small-6 medium-4"><div class="image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('https://via.placeholder.com/640x460<?php echo $ver ?>');"></div></div>
-							<div class="image-container columns small-6 medium-4"><div class="image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('https://via.placeholder.com/640x460<?php echo $ver ?>');"></div></div>
+			<?php foreach ( $constructionUpdateGroups as $groupIndex => $group ) : ?>
+				<div class="update columns small-12 large-10 <?php if ( $groupIndex ) echo 'hidden' ?>" data-update-group="<?= $group[ 'update_group_title' ] ?>">
+					<div class="updates-menu-2">
+						<div class="tab-menu hide-for-medium js_update_titles">
+							<?php foreach ( $group[ 'update_group' ] as $update ) : ?>
+								<div tabindex="-1" class="h6 tab-button js_update_title"><?= $update[ 'update_name' ] ?></div>
+							<?php endforeach; ?>
 						</div>
+
+						<select class="select-menu button strong fill-neutral-2 show-for-medium js_update_titles">
+							<?php foreach ( $group[ 'update_group' ] as $update ) : ?>
+								<option><?= $update[ 'update_name' ] ?></option>
+							<?php endforeach; ?>
+						</select>
 					</div>
+					<?php foreach ( $group[ 'update_group' ] as $updateIndex => $update ) : ?>
+						<script type="text/javascript">
+							var __DATA = window.__DATA = window.__DATA || { };
+							__DATA.galleries = __DATA.galleries || { };
+							__DATA.galleries.constructionUpdate_<?= $groupIndex . '_' . $updateIndex ?> = <?php echo json_encode( $update[ 'update_images' ] ) ?>;
+						</script>
+						<div class="row <?php if ( $updateIndex ) echo 'hidden' ?> js_gallery_region" data-set="constructionUpdate_<?= $groupIndex . '_' . $updateIndex ?>" data-update="<?= $update[ 'update_name' ] ?>">
+							<div class="update-featured columns small-12 large-5">
+								<div class="image cursor-pointer js_modal_trigger js_gallery_item <?php if ( $update[ 'update_images' ][ 0 ][ 'width' ] / $update[ 'update_images' ][ 0 ][ 'height' ] < 1.25 ) echo 'portrait' ?>" data-mod-id="image-gallery" style="background-image: url( '<?= $update[ 'update_images' ][ 0 ][ 'sizes' ][ 'medium' ] ?>' );"></div>
+							</div>
+							<div class="update-gallery columns small-12 large-7">
+								<div class="block row">
+									<?php foreach ( array_slice( $update[ 'update_images' ], 1, 9 ) as $image ) : ?>
+										<div class="image-container columns small-6 medium-4"><div class="image cursor-pointer js_modal_trigger js_gallery_item <?php if ( $image[ 'width' ] / $image[ 'height' ] < 1.25 ) echo 'portrait' ?>" data-mod-id="image-gallery" style="background-image: url( '<?= $image[ 'sizes' ][ 'small' ] ?>' );"></div></div>
+									<?php endforeach; ?>
+								</div>
+							</div>
+						</div>
+					<?php endforeach; ?>
 				</div>
-			</div>
+			<?php endforeach; ?>
 		</div>
 	</div>
 </section>

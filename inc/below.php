@@ -109,6 +109,7 @@
 	<script type="text/javascript" src="/js/modules/gallery.js"></script>
 	<script type="text/javascript" src="/js/masterplans-and-floorplans.js"></script>
 	<script type="text/javascript" src="/js/amenities.js"></script>
+	<script type="text/javascript" src="/js/construction-updates.js"></script>
 
 	<script type="text/javascript">
 
