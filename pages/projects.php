@@ -738,9 +738,6 @@ $amenities = getContent( [ ], 'amenity' );
 
 
 <!-- Amenities Section -->
-<?php
-	$amenities = getContent( [ ], 'amenity' );
-?>
 <section id="amenities" class="amenities-section space-75-top space-100-bottom fill-dark js_amenities">
 	<div class="container">
 		<div class="amenities-intro row space-25-bottom">
