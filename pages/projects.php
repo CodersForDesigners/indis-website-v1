@@ -893,7 +893,7 @@ $engineeringPartners = getContent( [ ], 'engineering_partners' );
 
 
 <!-- Updates Section -->
-<section id="updates" class="updates-section space-75-top space-100-bottom fill-dark js_construction_updates_section">
+<section id="updates" class="updates-section space-75-top space-100-bottom fill-dark js_tab_container">
 	<div class="container">
 		<div class="updates-intro row space-25-bottom">
 			<div class="heading h2 strong text-lowercase columns small-12">
@@ -903,28 +903,28 @@ $engineeringPartners = getContent( [ ], 'engineering_partners' );
 		</div>
 		<div class="updates row">
 			<div class="updates-menu-1 columns small-12 large-2">
-				<div class="tab-menu hide-for-medium text-right js_update_group_titles">
+				<div class="tab-menu hide-for-medium text-right js_tab_headings">
 					<?php foreach ( $constructionUpdateGroups as $group ) : ?>
-						<div tabindex="-1" class="h5 tab-button tab-button-large js_update_group_title"><?= $group[ 'update_group_title' ] ?></div>
+						<div tabindex="-1" class="h5 tab-button tab-button-large js_tab_heading"><?= $group[ 'update_group_title' ] ?></div>
 					<?php endforeach; ?>
 				</div>
 
-				<select class="select-menu button strong fill-red-2 show-for-medium js_update_group_titles">
+				<select class="select-menu button strong fill-red-2 show-for-medium js_tab_headings">
 					<?php foreach ( $constructionUpdateGroups as $group ) : ?>
 						<option><?= $group[ 'update_group_title' ] ?></option>
 					<?php endforeach; ?>
 				</select>
 			</div>
 			<?php foreach ( $constructionUpdateGroups as $groupIndex => $group ) : ?>
-				<div class="update columns small-12 large-10 <?php if ( $groupIndex ) echo 'hidden' ?>" data-update-group="<?= $group[ 'update_group_title' ] ?>">
+				<div class="update columns small-12 large-10 js_tab js_tab_container <?php if ( $groupIndex ) echo 'hidden' ?>" data-tab="<?= $group[ 'update_group_title' ] ?>">
 					<div class="updates-menu-2 <?php if ( count( $group[ 'update_group' ] ) === 1 and empty( trim( $group[ 'update_group' ][ 0 ][ 'update_name' ] ) ) ) echo 'hidden' ?>">
-						<div class="tab-menu hide-for-medium js_update_titles">
+						<div class="tab-menu hide-for-medium js_tab_headings">
 							<?php foreach ( $group[ 'update_group' ] as $update ) : ?>
-								<div tabindex="-1" class="h6 tab-button js_update_title"><?= $update[ 'update_name' ] ?></div>
+								<div tabindex="-1" class="h6 tab-button js_tab_heading"><?= $update[ 'update_name' ] ?></div>
 							<?php endforeach; ?>
 						</div>
 
-						<select class="select-menu button strong fill-neutral-2 show-for-medium js_update_titles">
+						<select class="select-menu button strong fill-neutral-2 show-for-medium js_tab_headings">
 							<?php foreach ( $group[ 'update_group' ] as $update ) : ?>
 								<option><?= $update[ 'update_name' ] ?></option>
 							<?php endforeach; ?>
@@ -936,7 +936,7 @@ $engineeringPartners = getContent( [ ], 'engineering_partners' );
 							__DATA.galleries = __DATA.galleries || { };
 							__DATA.galleries.constructionUpdate_<?= $groupIndex . '_' . $updateIndex ?> = <?php echo json_encode( $update[ 'update_images' ] ) ?>;
 						</script>
-						<div class="row <?php if ( $updateIndex ) echo 'hidden' ?> js_gallery_region" data-set="constructionUpdate_<?= $groupIndex . '_' . $updateIndex ?>" data-update="<?= $update[ 'update_name' ] ?>">
+						<div class="row js_tab <?php if ( $updateIndex ) echo 'hidden' ?> js_gallery_region" data-set="constructionUpdate_<?= $groupIndex . '_' . $updateIndex ?>" data-tab="<?= $update[ 'update_name' ] ?>">
 							<div class="update-featured columns small-12 large-5">
 								<div class="image cursor-pointer js_modal_trigger js_gallery_item <?php if ( $update[ 'update_images' ][ 0 ][ 'width' ] / $update[ 'update_images' ][ 0 ][ 'height' ] < 1.25 ) echo 'portrait' ?>" data-mod-id="image-gallery" style="background-image: url( '<?= $update[ 'update_images' ][ 0 ][ 'sizes' ][ 'medium' ] ?>' );"></div>
 							</div>

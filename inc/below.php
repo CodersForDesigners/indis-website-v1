@@ -81,7 +81,6 @@
 	<script type="text/javascript" src="/js/modules/gallery.js"></script>
 	<script type="text/javascript" src="/js/modules/tabs.js"></script>
 	<script type="text/javascript" src="/js/amenities.js"></script>
-	<script type="text/javascript" src="/js/construction-updates.js"></script>
 
 	<script type="text/javascript">
 
