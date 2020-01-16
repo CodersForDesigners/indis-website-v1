@@ -80,7 +80,6 @@
 	<script type="text/javascript" src="/js/modules/phone_country_code.js"></script>
 	<script type="text/javascript" src="/js/modules/gallery.js"></script>
 	<script type="text/javascript" src="/js/modules/tabs.js"></script>
-	<script type="text/javascript" src="/js/amenities.js"></script>
 
 	<script type="text/javascript">
 

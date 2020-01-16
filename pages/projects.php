@@ -721,7 +721,7 @@ $engineeringPartners = getContent( [ ], 'engineering_partners' );
 
 
 <!-- Amenities Section -->
-<section id="amenities" class="amenities-section space-75-top space-100-bottom fill-dark js_amenities">
+<section id="amenities" class="amenities-section space-75-top space-100-bottom fill-dark js_tab_container">
 	<div class="container">
 		<div class="amenities-intro row space-25-bottom">
 			<div class="heading h2 strong text-lowercase columns small-12">
@@ -730,34 +730,34 @@ $engineeringPartners = getContent( [ ], 'engineering_partners' );
 		</div>
 		<div class="amenities row">
 			<div class="amenities-menu-1 columns small-12 large-2">
-				<div class="tab-menu hide-for-medium text-right js_amenity_headings">
+				<div class="tab-menu hide-for-medium text-right js_tab_headings">
 					<?php foreach ( $amenities as $amenity ) : ?>
-						<div tabindex="-1" class="h5 tab-button tab-button-large js_amenity_heading"><?= $amenity[ 'amenity_group_title' ] ?></div>
+						<div tabindex="-1" class="h5 tab-button tab-button-large js_tab_heading"><?= $amenity[ 'amenity_group_title' ] ?></div>
 					<?php endforeach; ?>
 				</div>
 
-				<select class="select-menu button strong fill-red-2 show-for-medium js_amenity_headings">
+				<select class="select-menu button strong fill-red-2 show-for-medium js_tab_headings">
 					<?php foreach ( $amenities as $amenity ) : ?>
 						<option><?= $amenity[ 'amenity_group_title' ] ?></option>
 					<?php endforeach; ?>
 				</select>
 			</div>
 			<?php foreach ( $amenities as $index => $amenity ) : ?>
-				<div class="amenitie columns small-12 large-10 <?php if ( $index ) echo 'hidden' ?>" data-amenity-group="<?= $amenity[ 'amenity_group_title' ] ?>">
+				<div class="amenitie columns small-12 large-10 js_tab js_tab_container <?php if ( $index ) echo 'hidden' ?>" data-tab="<?= $amenity[ 'amenity_group_title' ] ?>">
 					<div class="amenities-menu-2 <?php if ( count( $amenity[ 'amenity_group' ] ) === 1 and empty( trim( $amenity[ 'amenity_group' ][ 0 ][ 'amenity_name' ] ) ) ) echo 'hidden' ?>">
-						<div class="tab-menu hide-for-medium js_amenity_subgroup_headings">
+						<div class="tab-menu hide-for-medium js_tab_headings">
 							<?php foreach ( $amenity[ 'amenity_group' ] as $amenityGroup ) : ?>
-								<div tabindex="-1" class="h6 tab-button js_amenity_subgroup_heading"><?= $amenityGroup[ 'amenity_name' ] ?></div>
+								<div tabindex="-1" class="h6 tab-button js_tab_heading"><?= $amenityGroup[ 'amenity_name' ] ?></div>
 							<?php endforeach; ?>
 						</div>
-						<select class="select-menu button strong fill-neutral-2 show-for-medium js_amenity_subgroup_headings">
+						<select class="select-menu button strong fill-neutral-2 show-for-medium js_tab_headings">
 							<?php foreach ( $amenity[ 'amenity_group' ] as $amenityGroup ) : ?>
 								<option><?= $amenityGroup[ 'amenity_name' ] ?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>
 					<?php foreach ( $amenity[ 'amenity_group' ] as $index => $amenityGroup ) : ?>
-						<div class="row <?php if ( $index ) echo 'hidden' ?>" data-amenity-subgroup="<?= $amenityGroup[ 'amenity_name' ] ?>">
+						<div class="row js_tab <?php if ( $index ) echo 'hidden' ?>" data-tab="<?= $amenityGroup[ 'amenity_name' ] ?>">
 							<div class="amenitie-viewer columns small-12 large-5">
 								<img class="block" src="<?= $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'medium' ] ?>" srcset="<?= $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'small' ] . ' ' . $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'small-width' ] . 'w, ' . $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'medium' ] . ' ' . $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'medium-width' ] . 'w, ' . $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'large' ] . ' ' . $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'large-width' ] . 'w' ?>">
 							</div>
