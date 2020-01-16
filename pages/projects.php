@@ -676,7 +676,7 @@ $constructionUpdateGroups = getContent( [ ], 'updates' );
 			</div>
 			<?php foreach ( $planGroups as $index => $group ) : ?>
 				<div class="plan columns small-12 large-10 <?php if ( $index ) echo 'hidden' ?>" data-plan-group="<?= $group[ 'plan_group_title' ] ?>">
-					<div class="plans-menu-2">
+					<div class="plans-menu-2 <?php if ( count( $group[ 'plan_group' ] ) === 1 and empty( trim( $group[ 'plan_group' ][ 0 ][ 'plan_name' ] ) ) ) echo 'hidden' ?>">
 						<div class="tab-menu hide-for-medium js_plan_titles">
 							<?php foreach ( $group[ 'plan_group' ] as $plan ) : ?>
 								<div tabindex="-1" class="h6 tab-button js_plan_title"><?= $plan[ 'plan_name' ] ?></div>
@@ -767,7 +767,7 @@ $constructionUpdateGroups = getContent( [ ], 'updates' );
 			</div>
 			<?php foreach ( $amenities as $index => $amenity ) : ?>
 				<div class="amenitie columns small-12 large-10 <?php if ( $index ) echo 'hidden' ?>" data-amenity-group="<?= $amenity[ 'amenity_group_title' ] ?>">
-					<div class="amenities-menu-2">
+					<div class="amenities-menu-2 <?php if ( count( $amenity[ 'amenity_group' ] ) === 1 and empty( trim( $amenity[ 'amenity_group' ][ 0 ][ 'amenity_name' ] ) ) ) echo 'hidden' ?>">
 						<div class="tab-menu hide-for-medium js_amenity_subgroup_headings">
 							<?php foreach ( $amenity[ 'amenity_group' ] as $amenityGroup ) : ?>
 								<div tabindex="-1" class="h6 tab-button js_amenity_subgroup_heading"><?= $amenityGroup[ 'amenity_name' ] ?></div>
@@ -940,7 +940,7 @@ $constructionUpdateGroups = getContent( [ ], 'updates' );
 			</div>
 			<?php foreach ( $constructionUpdateGroups as $groupIndex => $group ) : ?>
 				<div class="update columns small-12 large-10 <?php if ( $groupIndex ) echo 'hidden' ?>" data-update-group="<?= $group[ 'update_group_title' ] ?>">
-					<div class="updates-menu-2">
+					<div class="updates-menu-2 <?php if ( count( $group[ 'update_group' ] ) === 1 and empty( trim( $group[ 'update_group' ][ 0 ][ 'update_name' ] ) ) ) echo 'hidden' ?>">
 						<div class="tab-menu hide-for-medium js_update_titles">
 							<?php foreach ( $group[ 'update_group' ] as $update ) : ?>
 								<div tabindex="-1" class="h6 tab-button js_update_title"><?= $update[ 'update_name' ] ?></div>
