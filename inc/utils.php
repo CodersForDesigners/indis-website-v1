@@ -54,7 +54,37 @@ function setupVars () {
 
 /*
  *
- * Pull custom content from ACF fields from WordPress
+ * Get all posts of a certain type
+ *
+ */
+function getPostsOf ( $type, $limit = -1, $exclude = [ ] ) {
+
+	$limit = $limit ?: -1;
+	if ( ! is_array( $exclude ) )
+		if ( is_int( $exclude ) )
+			$exclude = [ $exclude ];
+
+	$posts = get_posts( [
+	    'post_type' => $type,
+	    'post_status' => 'publish',
+	    'numberposts' => $limit,
+	    // 'order' => 'ASC'
+	    'orderby' => 'date',
+	    'exclude' => $exclude
+	] );
+
+	foreach ( $posts as &$post ) {
+		$post = get_object_vars( $post );
+	}
+	unset( $post );
+
+	return $posts;
+
+}
+
+/*
+ *
+ * Pull custom content from ACF fields and native post fields from WordPress
  *
  */
 function getContent ( $fallback, $field, $context = null ) {
