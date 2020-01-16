@@ -138,6 +138,13 @@
 	.cover-section .cover-image-container.image-5 .cover-image {
 		padding-bottom: 150%;
 	}
+	.cover-section .cover-image-container.image-5 .cover-image.portrait {
+		background-size: auto 100%;
+	}
+
+	.cover-section .cover-image-container.image-5 .cover-image.portrait:hover {
+		background-size: auto 120%;
+	}
 
 	.cover-section .cover-image-container.image-5 .icon-button {
 		top: 0;
@@ -1219,7 +1226,7 @@
 	}
 
 	.best-sellers .unlock-icon {
-		width: 190px;
+		width: 170px;
 		padding-bottom: var(--space-25);
 	}
 
