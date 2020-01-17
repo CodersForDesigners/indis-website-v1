@@ -22,14 +22,14 @@
 				<div class="row">
 					<div class="columns small-12">
 						<!-- Image Box -->
-						<div class="image-box loading js_image_box" data-index="" style="background-size: 50% auto">
+						<div class="image-box loading js_image_box">
 							<img class="block">
 						</div>
 					</div>
 				</div>
-				<div class="carousel-controls block clearfix" style="position: absolute; z-index: 2; top: 50%; transform: translateY(-50%);">
-					<div class="prev float-left"><button class="button icon-button js_arrow" data-dir="left" style="background-image: url('../media/icon/icon-left-triangle-dark.svg<?php echo $ver ?>');"></button></div>
-					<div class="next float-right"><button class="button icon-button js_arrow" data-dir="right" style="background-image: url('../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>');"></button></div>
+				<div class="no-pointer carousel-controls block clearfix" style="position: fixed; width: var(--container-width); z-index: 2; top: 50vh; transform: translateY(-50%);">
+					<div class="prev float-left" style="pointer-events: all;"><button class="button icon-button js_arrow" data-dir="left" style="background-image: url('../media/icon/icon-left-triangle-dark.svg<?php echo $ver ?>');"></button></div>
+					<div class="next float-right" style="pointer-events: all;"><button class="button icon-button js_arrow" data-dir="right" style="background-image: url('../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>');"></button></div>
 				</div>
 			</div>
 		</div><!-- END : Cover Image Gallery -->
