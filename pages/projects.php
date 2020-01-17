@@ -168,6 +168,7 @@ $events = getContent( [ ], 'events_list' );
 
 
 <!-- Carousel: Best Sellers -->
+<?php if ( ! empty( $bestsellers ) ) : ?>
 <div class="carousel best-sellers indis-carousel js_carousel_container">
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
@@ -314,6 +315,7 @@ $events = getContent( [ ], 'events_list' );
 		</div>
 	</div>
 </div>
+<?php endif; ?>
 <!-- END: Carousel: Best Sellers -->
 
 
@@ -413,6 +415,7 @@ $events = getContent( [ ], 'events_list' );
 
 
 <!-- Carousel Mini: Affiliates Section -->
+<?php if ( ! empty( $engineeringPartners ) ) : ?>
 <section class="affiliates-section space-50-bottom js_tab_container">
 	<div class="affiliates-carousel-menu text-center">
 		<div class="container">
@@ -446,10 +449,12 @@ $events = getContent( [ ], 'events_list' );
 		</div>
 	<?php endforeach; ?>
 </section>
+<?php endif; ?>
 <!-- END: Carousel Mini: Affiliates Section -->
 
 
 <!-- Plans Section -->
+<?php if ( ! empty( $planGroups ) ) : ?>
 <section id="plans" class="plans-section space-100-top space-75-bottom fill-dark js_tab_container">
 	<div class="container">
 		<div class="plans-intro row space-25-bottom">
@@ -497,10 +502,12 @@ $events = getContent( [ ], 'events_list' );
 		</div>
 	</div>
 </section>
+<?php endif; ?>
 <!-- END: Plans Section -->
 
 
 <!-- Carousel Mini: Amenities -->
+<?php if ( ! empty( $amenityImages ) ) : ?>
 <script type="text/javascript">
 	// Amenity images
 	var __DATA = window.__DATA = window.__DATA || { };
@@ -522,10 +529,12 @@ $events = getContent( [ ], 'events_list' );
 		</div>
 	</div>
 </div>
+<?php endif; ?>
 <!-- END: Carousel Mini: Amenities -->
 
 
 <!-- Amenities Section -->
+<?php if ( ! empty( $amenities ) ) : ?>
 <section id="amenities" class="amenities-section space-75-top space-100-bottom fill-dark js_tab_container">
 	<div class="container">
 		<div class="amenities-intro row space-25-bottom">
@@ -578,6 +587,7 @@ $events = getContent( [ ], 'events_list' );
 		</div>
 	</div>
 </section>
+<?php endif; ?>
 <!-- END: Amenities Section -->
 
 
@@ -698,6 +708,7 @@ $events = getContent( [ ], 'events_list' );
 
 
 <!-- Updates Section -->
+<?php if ( ! empty( $constructionUpdateGroups ) ) : ?>
 <section id="updates" class="updates-section space-75-top space-100-bottom fill-dark js_tab_container">
 	<div class="container">
 		<div class="updates-intro row space-25-bottom">
@@ -760,6 +771,7 @@ $events = getContent( [ ], 'events_list' );
 		</div>
 	</div>
 </section>
+<?php endif; ?>
 <!-- END: Updates Section -->
 
 
@@ -778,6 +790,7 @@ $events = getContent( [ ], 'events_list' );
 
 
 <!-- Carousel: Events -->
+<?php if ( ! empty( $events ) ) : ?>
 <div class="carousel indis-carousel js_carousel_container space-75-bottom">
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
@@ -808,6 +821,7 @@ $events = getContent( [ ], 'events_list' );
 		</div>
 	</div>
 </div>
+<?php endif; ?>
 <!-- END: Carousel: Events -->
 
 

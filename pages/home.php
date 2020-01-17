@@ -62,6 +62,7 @@ $offers = getContent( [ ], 'offers_list' );
 
 
 <!-- Carousel: Offers -->
+<?php if ( ! empty( $offers ) ) : ?>
 <div id="offers" class="carousel indis-carousel js_carousel_container">
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
@@ -93,6 +94,7 @@ $offers = getContent( [ ], 'offers_list' );
 		</div>
 	</div>
 </div>
+<?php endif; ?>
 <!-- END: Carousel: Offers -->
 
 
