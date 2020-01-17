@@ -758,7 +758,7 @@ $engineeringPartners = getContent( [ ], 'engineering_partners' );
 					</div>
 					<?php foreach ( $amenity[ 'amenity_group' ] as $index => $amenityGroup ) : ?>
 						<div class="row js_tab <?php if ( $index ) echo 'hidden' ?>" data-tab="<?= $amenityGroup[ 'amenity_name' ] ?>">
-							<div class="amenitie-viewer columns small-12 large-5">
+							<div class="amenitie-viewer columns small-12 large-5 <?php if ( empty( $amenityGroup[ 'amenity_image' ] ) ) echo 'hidden' ?>">
 								<img class="block" src="<?= $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'medium' ] ?>" srcset="<?= $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'small' ] . ' ' . $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'small-width' ] . 'w, ' . $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'medium' ] . ' ' . $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'medium-width' ] . 'w, ' . $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'large' ] . ' ' . $amenityGroup[ 'amenity_image' ][ 'sizes' ][ 'large-width' ] . 'w' ?>">
 							</div>
 							<div class="points columns small-12 large-7">
