@@ -11,7 +11,7 @@
 .cover-section .cover-image-container {
 	position: relative;
 	z-index: 1;
-	padding-bottom: var(--space-min); 
+	padding-bottom: var(--space-min);
 }
 
 .cover-section .cover-image-container .cover-image {
@@ -81,7 +81,7 @@
 }
 @media( min-width: 1040px ) {
 	.cover-section .cover-image-container {
-		padding-bottom: var(--space-25); 
+		padding-bottom: var(--space-25);
 	}
 
 	.cover-section .project-card {
@@ -116,7 +116,7 @@
 		z-index: 1;
 		padding-right: var(--space-25);
 	}
-	
+
 	.cover-section .cover-image-container.image-1 .cover-image:after {
 		content: '';
 		position: absolute;
@@ -174,6 +174,10 @@
 .intro-section .project-logo {
 	max-width: calc( var(--space-100) * 3 );
 	max-height: calc( var(--space-100) * 3 );
+}
+
+.intro-section .points .point img {
+	width: 32px;
 }
 
 @media( min-width: 640px )  {}
@@ -395,7 +399,7 @@
 }
 @media( min-width: 1040px ) {
 	.download-brochure .courier-description {
-		padding-right: calc( var(--space-100) * 1 );	
+		padding-right: calc( var(--space-100) * 1 );
 	}
 }
 @media( min-width: 1480px ) {}
@@ -506,7 +510,7 @@
 .engineering-section.railing .row-3 .film  {
 	padding-top: var(--space-min);
 }
-	
+
 .engineering-section.railing .row-3 .bis-logo  {
 	padding-top: var(--space-min);
 }
@@ -670,6 +674,9 @@
 .amenities-section .amenities .amenitie .points {
 	padding-top: var(--space-25);
 }
+.amenities-section .amenities .amenitie .points img {
+	width: 32px;
+}
 
 @media( min-width: 640px )  {
 	.amenities-section .amenities .amenitie .points {
@@ -828,7 +835,7 @@
 }
 .tab-button.active:after {
 	width: 100%;
-	background-color: var(--red-2) !important;	
+	background-color: var(--red-2) !important;
 }
 
 .fill-dark .tab-menu .tab-button:hover:after {
@@ -847,7 +854,7 @@
 	position: relative;
 	z-index: 1;
 	margin-bottom: var(--space-min);
-	padding-right: calc( (var(--space-75)/2) + var(--space-75) ); 
+	padding-right: calc( (var(--space-75)/2) + var(--space-75) );
 	background-image: url('../../media/icon/icon-select-menu.svg');
 	background-repeat: no-repeat;
 	background-size: var(--space-75);
@@ -1267,7 +1274,7 @@
 	.best-sellers .unlock-form select:focus {
 		border-width: 2px;
 	}
-	
+
 	.best-sellers .carousel-list .carousel-list-item .carousel-card {
 		min-height: calc( 7 * var(--space-100) );
 	}
@@ -1276,7 +1283,7 @@
 	.best-sellers .carousel-list .carousel-list-item:not(:first-child):not(:last-child) .info .info-box {
 		height: 272px;
 	}
-	
+
 	.best-sellers .carousel-list .carousel-list-item .carousel-card {
 		min-height: calc( 6 * var(--space-100) );
 	}
