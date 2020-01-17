@@ -37,6 +37,15 @@
 	background-size: auto 120%;
 }
 
+.project-list-section .project-list .project-item-container .project-item.portrait {
+	background-size: 100% auto;
+}
+
+.project-list-section .project-list .project-item-container .project-item.portrait:hover,
+.project-list-section .project-list .project-item-container .project-item.portrait:focus {
+	background-size: 120% auto;
+}
+
 .project-card {
 	width: calc( var(--space-100) * 4 );
 	height: calc( var(--space-100) * 4 );
