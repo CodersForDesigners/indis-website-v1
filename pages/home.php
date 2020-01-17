@@ -10,8 +10,7 @@ require_once __DIR__ . '/../inc/above.php';
 // 	`allProjectsExcludingCurrent` literally refers to "all the projects"
 $projects = &$allProjectsExcludingCurrent;
 $offers = getContent( [ ], 'offers_list' );
-	$numberOfOffers = str_pad( count( $offers ) + 1, 2, '0', STR_PAD_LEFT );
-// dd( $offers );
+	$numberOfOffers = str_pad( count( $offers ), 2, '0', STR_PAD_LEFT );
 
 ?>
 
