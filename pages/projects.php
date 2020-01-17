@@ -12,6 +12,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 $planGroups = getContent( [ ], 'plans' );
 $amenities = getContent( [ ], 'amenity' );
+	$amenityImages = getContent( [ ], 'amenities_images' );
 $constructionUpdateGroups = getContent( [ ], 'updates' );
 $engineeringPartners = getContent( [ ], 'engineering_partners' );
 $bestsellers = getContent( [ ], 'best_sellers_list' );
@@ -500,35 +501,19 @@ $events = getContent( [ ], 'events_list' );
 
 
 <!-- Carousel Mini: Amenities -->
-<div class="carousel carousel-mini amenities-carousel fill-dark js_carousel_container">
+<script type="text/javascript">
+	// Amenity images
+	var __DATA = window.__DATA = window.__DATA || { };
+	__DATA.galleries = __DATA.galleries || { };
+	__DATA.galleries.amenities = <?php echo json_encode( $amenityImages ) ?>;
+</script>
+<div class="carousel carousel-mini amenities-carousel fill-dark js_carousel_container js_gallery_region" data-set="amenities">
 	<div class="carousel-list js_carousel_content">
-		<div class="carousel-list-item js_carousel_item">
-			<div class="carousel-mini-image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
-		</div>
-		<div class="carousel-list-item js_carousel_item">
-			<div class="carousel-mini-image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
-		</div>
-		<div class="carousel-list-item js_carousel_item">
-			<div class="carousel-mini-image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
-		</div>
-		<div class="carousel-list-item js_carousel_item">
-			<div class="carousel-mini-image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
-		</div>
-		<div class="carousel-list-item js_carousel_item">
-			<div class="carousel-mini-image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
-		</div>
-		<div class="carousel-list-item js_carousel_item">
-			<div class="carousel-mini-image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
-		</div>
-		<div class="carousel-list-item js_carousel_item">
-			<div class="carousel-mini-image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
-		</div>
-		<div class="carousel-list-item js_carousel_item">
-			<div class="carousel-mini-image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
-		</div>
-		<div class="carousel-list-item js_carousel_item">
-			<div class="carousel-mini-image js_modal_trigger cursor-pointer" data-mod-id="image-gallery" style="background-image: url('../media/plans/plans-aerial.png<?php echo $ver ?>');"></div>
-		</div>
+		<?php foreach ( $amenityImages as $image ) : ?>
+			<div class="carousel-list-item js_carousel_item">
+				<div class="carousel-mini-image cursor-pointer js_modal_trigger js_gallery_item" data-mod-id="image-gallery" style="background-image: url( '<?= $image[ 'sizes' ][ 'small' ] ?>' );"></div>
+			</div>
+		<?php endforeach; ?>
 	</div>
 	<div class="carousel-controls clearfix">
 		<div class="container">
