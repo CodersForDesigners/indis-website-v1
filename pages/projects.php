@@ -941,10 +941,11 @@ $engineeringPartners = getContent( [ ], 'engineering_partners' );
 								<div class="image cursor-pointer js_modal_trigger js_gallery_item <?php if ( $update[ 'update_images' ][ 0 ][ 'width' ] / $update[ 'update_images' ][ 0 ][ 'height' ] < 1.25 ) echo 'portrait' ?>" data-mod-id="image-gallery" style="background-image: url( '<?= $update[ 'update_images' ][ 0 ][ 'sizes' ][ 'medium' ] ?>' );"></div>
 							</div>
 							<div class="update-gallery columns small-12 large-7">
-								<div class="block row">
+								<div class="block row position-relative">
 									<?php foreach ( array_slice( $update[ 'update_images' ], 1, 9 ) as $image ) : ?>
 										<div class="image-container columns small-6 medium-4"><div class="image cursor-pointer js_modal_trigger js_gallery_item <?php if ( $image[ 'width' ] / $image[ 'height' ] < 1.25 ) echo 'portrait' ?>" data-mod-id="image-gallery" style="background-image: url( '<?= $image[ 'sizes' ][ 'small' ] ?>' );"></div></div>
 									<?php endforeach; ?>
+									<div class="icon-button zoom " style="background-image: url('../media/icon/icon-zoom-white.svg<?php echo $ver ?>');"></div>
 								</div>
 							</div>
 						</div>
