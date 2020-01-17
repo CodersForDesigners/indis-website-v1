@@ -75,7 +75,7 @@ $events = getContent( [ ], 'events_list' );
 				<div class="description text-neutral-2 space-25-bottom"><?= getContent( '', 'intro_description' ) ?></div>
 				<div class="points row space-50-bottom">
 					<?php foreach ( getContent( [ ], 'intro_points' ) as $point ) : ?>
-						<div class="point h5 condensed columns small-12 medium-6 space-min-bottom"><span class="inline-middle space-min-right"><img src="<?= $point[ 'intro_point_icon' ] ?: 'https://via.placeholder.com/32' ?>"></span><?= $point[ 'intro_point_text' ] ?></div>
+						<div class="point h5 condensed columns small-12 medium-6 space-min-bottom"><span class="inline-middle space-min-right"><img src="<?= '/media/dot-icons/' . $point[ 'intro_point_icon' ] . '.svg' ?>"></span><?= $point[ 'intro_point_text' ] ?></div>
 					<?php endforeach; ?>
 				</div>
 			</div>
@@ -568,7 +568,7 @@ $events = getContent( [ ], 'events_list' );
 							</div>
 							<div class="points columns small-12 large-7">
 								<?php foreach ( $amenityGroup[ 'amenity_points' ] as $amenityPoint ) : ?>
-									<div class="point h5 condensed space-min-bottom"><span class="inline-middle space-min-right"><img src="<?= $amenityPoint[ 'amenity_point_icon' ] ?: 'https://via.placeholder.com/32' ?>"></span><?= $amenityPoint[ 'amenity_point_text' ] ?></div>
+									<div class="point h5 condensed space-min-bottom"><span class="inline-middle space-min-right"><img src="<?= '/media/dot-icons/' . $amenityPoint[ 'amenity_point_icon' ] . '.svg' ?>"></span><?= $amenityPoint[ 'amenity_point_text' ] ?></div>
 								<?php endforeach; ?>
 							</div>
 						</div>
