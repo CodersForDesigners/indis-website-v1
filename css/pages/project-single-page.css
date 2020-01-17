@@ -23,7 +23,8 @@
 	background-repeat: no-repeat;
 	transition: background 5s ease-out;
 }
-.cover-section .cover-image-container .cover-image:hover {
+.cover-section .cover-image-container .cover-image:hover,
+.cover-section .cover-image-container .cover-image:focus {
 	background-size: auto 120%;
 }
 
@@ -31,7 +32,8 @@
 	background-size: 100% auto;
 }
 
-.cover-section .cover-image-container .cover-image.portrait:hover {
+.cover-section .cover-image-container .cover-image.portrait:hover,
+.cover-section .cover-image-container .cover-image.portrait:focus {
 	background-size: 120% auto;
 }
 
