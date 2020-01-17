@@ -37,15 +37,6 @@
 	background-size: auto 120%;
 }
 
-.project-list-section .project-list .project-item-container .project-item.portrait {
-	background-size: 100% auto;
-}
-
-.project-list-section .project-list .project-item-container .project-item.portrait:hover,
-.project-list-section .project-list .project-item-container .project-item.portrait:focus {
-	background-size: 120% auto;
-}
-
 .project-card {
 	width: calc( var(--space-100) * 4 );
 	height: calc( var(--space-100) * 4 );
@@ -129,6 +120,23 @@
 		
 	.project-list-section .project-list .project-item-container:nth-child(2) .project-item {
 		padding-bottom: 80%;
+	}
+
+	.project-list-section .project-list .project-item-container .project-item {
+		background-size: auto 100%;
+	}
+
+	.project-list-section .project-list .project-item-container .project-item:hover,
+	.project-list-section .project-list .project-item-container .project-item:focus {
+		background-size: auto 120%;
+	}
+	.project-list-section .project-list .project-item-container .project-item.fit-image {
+		background-size: 100% auto;
+	}
+
+	.project-list-section .project-list .project-item-container .project-item.fit-image:hover,
+	.project-list-section .project-list .project-item-container .project-item.fit-image:focus {
+		background-size: 120% auto;
 	}
 
 	.project-list-section .project-list .project-item-container:nth-child(2) .project-item .project-card {

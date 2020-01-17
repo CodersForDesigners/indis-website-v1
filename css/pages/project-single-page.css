@@ -28,12 +28,12 @@
 	background-size: auto 120%;
 }
 
-.cover-section .cover-image-container .cover-image.portrait {
+.cover-section .cover-image-container .cover-image.fit-image {
 	background-size: 100% auto;
 }
 
-.cover-section .cover-image-container .cover-image.portrait:hover,
-.cover-section .cover-image-container .cover-image.portrait:focus {
+.cover-section .cover-image-container .cover-image.fit-image:hover,
+.cover-section .cover-image-container .cover-image.fit-image:focus {
 	background-size: 120% auto;
 }
 
@@ -140,11 +140,12 @@
 	.cover-section .cover-image-container.image-5 .cover-image {
 		padding-bottom: 150%;
 	}
-	.cover-section .cover-image-container.image-5 .cover-image.portrait {
+	.cover-section .cover-image-container.image-5 .cover-image.fit-image {
 		background-size: auto 100%;
 	}
 
-	.cover-section .cover-image-container.image-5 .cover-image.portrait:hover {
+	.cover-section .cover-image-container.image-5 .cover-image.fit-image:hover,
+	.cover-section .cover-image-container.image-5 .cover-image.fit-image:focus {
 		background-size: auto 120%;
 	}
 
