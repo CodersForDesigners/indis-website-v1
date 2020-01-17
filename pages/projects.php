@@ -37,7 +37,7 @@ $engineeringPartners = getContent( [ ], 'engineering_partners' );
 	<?php $coverImages = getContent( [ ], 'cover_images' ); ?>
 	<div class="container">
 		<div class="row">
-			<div class="cover-image-container image-1 columns small-12 large-12"><div class="cover-image fill-neutral-2 js_gallery_item <?php if ( $coverImages[ 0 ][ 'width' ] / $coverImages[ 0 ][ 'height' ] < 1.25 ) echo 'portrait' ?>" style="background-image: url( '<?= $coverImages[ 0 ][ 'sizes' ][ 'large' ] ?>' );"></div></div>
+			<div class="cover-image-container image-1 columns small-12 large-12"><div class="cover-image fill-neutral-2 js_gallery_item <?php if ( $coverImages[ 0 ][ 'width' ] / $coverImages[ 0 ][ 'height' ] < 1.25 ) echo 'fit-image' ?>" style="background-image: url( '<?= $coverImages[ 0 ][ 'sizes' ][ 'large' ] ?>' );"></div></div>
 			<div class="project-card columns small-8 medium-4 fill-dark space-25">
 				<div class="logo space-min-bottom"><img class="block" src="../media/indis-logo-light.svg<?php echo $ver ?>"></div>
 				<div class="title h4 strong"><?= $thePost->post_title ?></div>
@@ -48,12 +48,12 @@ $engineeringPartners = getContent( [ ], 'engineering_partners' );
 			</div>
 			<div class="cover-image-strip columns small-4 medium-2 large-6">
 				<div class="row">
-					<div class="cover-image-container image-2 columns small-12 large-4"><div class="cover-image fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer <?php if ( $coverImages[ 1 ][ 'width' ] / $coverImages[ 1 ][ 'height' ] < 1.25 ) echo 'portrait' ?>" tabindex="-1" data-mod-id="image-gallery" style="background-image: url( '<?= $coverImages[ 1 ][ 'sizes' ][ 'small' ] ?>' );"></div></div>
-					<div class="cover-image-container image-3 columns small-12 large-4"><div class="cover-image fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer <?php if ( $coverImages[ 2 ][ 'width' ] / $coverImages[ 2 ][ 'height' ] < 1.25 ) echo 'portrait' ?>" tabindex="-1" data-mod-id="image-gallery" style="background-image: url( <?= $coverImages[ 2 ][ 'sizes' ][ 'small' ] ?> );"></div></div>
-					<div class="cover-image-container image-4 columns small-12 large-4"><div class="cover-image fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer <?php if ( $coverImages[ 3 ][ 'width' ] / $coverImages[ 3 ][ 'height' ] < 1.25 ) echo 'portrait' ?>" tabindex="-1" data-mod-id="image-gallery" style="background-image: url( '<?= $coverImages[ 3 ][ 'sizes' ][ 'small' ] ?>' );"></div></div>
+					<div class="cover-image-container image-2 columns small-12 large-4"><div class="cover-image fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer <?php if ( $coverImages[ 1 ][ 'width' ] / $coverImages[ 1 ][ 'height' ] < 1.25 ) echo 'fit-image' ?>" tabindex="-1" data-mod-id="image-gallery" style="background-image: url( '<?= $coverImages[ 1 ][ 'sizes' ][ 'small' ] ?>' );"></div></div>
+					<div class="cover-image-container image-3 columns small-12 large-4"><div class="cover-image fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer <?php if ( $coverImages[ 2 ][ 'width' ] / $coverImages[ 2 ][ 'height' ] < 1.25 ) echo 'fit-image' ?>" tabindex="-1" data-mod-id="image-gallery" style="background-image: url( <?= $coverImages[ 2 ][ 'sizes' ][ 'small' ] ?> );"></div></div>
+					<div class="cover-image-container image-4 columns small-12 large-4"><div class="cover-image fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer <?php if ( $coverImages[ 3 ][ 'width' ] / $coverImages[ 3 ][ 'height' ] < 1.25 ) echo 'fit-image' ?>" tabindex="-1" data-mod-id="image-gallery" style="background-image: url( '<?= $coverImages[ 3 ][ 'sizes' ][ 'small' ] ?>' );"></div></div>
 				</div>
 			</div>
-			<div class="cover-image-container image-5 columns small-12 medium-6 large-4"><div class="cover-image portrait fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer <?php if ( $coverImages[ 4 ][ 'width' ] / $coverImages[ 4 ][ 'height' ] < 1.25 ) echo 'portrait' ?>" tabindex="-1" data-mod-id="image-gallery" style="background-image: url( '<?= $coverImages[ 4 ][ 'sizes' ][ 'medium' ] ?>' );"><div class="icon-button zoom" style="background-image: url('../media/icon/icon-zoom.svg<?php echo $ver ?>');"></div></div></div>
+			<div class="cover-image-container image-5 columns small-12 medium-6 large-4"><div class="cover-image portrait fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer <?php if ( $coverImages[ 4 ][ 'width' ] / $coverImages[ 4 ][ 'height' ] < 1.25 ) echo 'fit-image' ?>" tabindex="-1" data-mod-id="image-gallery" style="background-image: url( '<?= $coverImages[ 4 ][ 'sizes' ][ 'medium' ] ?>' );"><div class="icon-button zoom" style="background-image: url('../media/icon/icon-zoom.svg<?php echo $ver ?>');"></div></div></div>
 		</div>
 	</div>
 </section>
@@ -938,12 +938,12 @@ $engineeringPartners = getContent( [ ], 'engineering_partners' );
 						</script>
 						<div class="row js_tab <?php if ( $updateIndex ) echo 'hidden' ?> js_gallery_region" data-set="constructionUpdate_<?= $groupIndex . '_' . $updateIndex ?>" data-tab="<?= $update[ 'update_name' ] ?>">
 							<div class="update-featured columns small-12 large-5">
-								<div class="image cursor-pointer js_modal_trigger js_gallery_item <?php if ( $update[ 'update_images' ][ 0 ][ 'width' ] / $update[ 'update_images' ][ 0 ][ 'height' ] < 1.25 ) echo 'portrait' ?>" data-mod-id="image-gallery" style="background-image: url( '<?= $update[ 'update_images' ][ 0 ][ 'sizes' ][ 'medium' ] ?>' );"></div>
+								<div class="image cursor-pointer js_modal_trigger js_gallery_item <?php if ( $update[ 'update_images' ][ 0 ][ 'width' ] / $update[ 'update_images' ][ 0 ][ 'height' ] < 1.25 ) echo 'fit-image' ?>" data-mod-id="image-gallery" style="background-image: url( '<?= $update[ 'update_images' ][ 0 ][ 'sizes' ][ 'medium' ] ?>' );"></div>
 							</div>
 							<div class="update-gallery columns small-12 large-7">
 								<div class="block row position-relative">
 									<?php foreach ( array_slice( $update[ 'update_images' ], 1, 9 ) as $image ) : ?>
-										<div class="image-container columns small-6 medium-4"><div class="image cursor-pointer js_modal_trigger js_gallery_item <?php if ( $image[ 'width' ] / $image[ 'height' ] < 1.25 ) echo 'portrait' ?>" data-mod-id="image-gallery" style="background-image: url( '<?= $image[ 'sizes' ][ 'small' ] ?>' );"></div></div>
+										<div class="image-container columns small-6 medium-4"><div class="image cursor-pointer js_modal_trigger js_gallery_item <?php if ( $image[ 'width' ] / $image[ 'height' ] < 1.25 ) echo 'fit-image' ?>" data-mod-id="image-gallery" style="background-image: url( '<?= $image[ 'sizes' ][ 'small' ] ?>' );"></div></div>
 									<?php endforeach; ?>
 									<div class="icon-button zoom " style="background-image: url('../media/icon/icon-zoom-white.svg<?php echo $ver ?>');"></div>
 								</div>
