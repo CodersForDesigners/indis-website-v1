@@ -258,6 +258,51 @@ function getCurrentPageTitle ( $siteLinks, $baseURL, $siteTitle ) {
 
 /*
  *
+ * Get a formatted string of the time interval between two dates
+ *
+ */
+function getIntervalString ( $endDateString, $startDateString = null ) {
+
+	// Set default values and build the DateTime objects
+	if ( empty( $startDateString ) )
+		$dateStart = new DateTime();
+	else if ( is_string( $startDateString ) )
+		$dateStart = date_create( $startDateString );
+	$dateEnd = date_create( $endDateString );
+
+	// Subtract the two dates
+	$interval = date_diff( $dateStart, $dateEnd );
+
+	// Build the formatted string
+	$stringComponents = [ ];
+	if ( $interval->d ) {
+		if ( $interval->d === 1 )
+			$stringComponents[ ] = '%d day';
+		else
+			$stringComponents[ ] = '%d days';
+	}
+	if ( $interval->h ) {
+		if ( $interval->h === 1 )
+			$stringComponents[ ] = '%h hr';
+		else
+			$stringComponents[ ] = '%h hrs';
+	}
+	if ( $interval->i ) {
+		if ( $interval->i === 1 )
+			$stringComponents[ ] = '%i min';
+		else
+			$stringComponents[ ] = '%i mins';
+	}
+	$formattedIntervalString = $interval->format( implode( ', ', $stringComponents ) );
+
+	return $formattedIntervalString;
+
+}
+
+
+
+/*
+ *
  * Dump the values on the page and onto JavaScript memory, finally end the script
  *
  */
