@@ -83,7 +83,7 @@ $offers = getContent( [ ], 'offers_list' );
 						<div class="time label strong space-min-top"><span class="text-uppercase">Valid For :</span> <?= getIntervalString( $offer[ 'offer_expiry' ] ) ?></div>
 					</div>
 				</div>
-				<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
+				<a href="<?= $offer[ 'offer_page_url' ] ?>" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
 			</div>
 		<?php endforeach; ?>
 	</div>
