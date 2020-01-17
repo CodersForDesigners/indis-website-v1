@@ -113,9 +113,16 @@ unset( $project );
 					$navigationMenuName = $postType === 'projects' ? 'Projects' : 'Primary';
 					$navigationMenuItems = getContent( [ ], $navigationMenuName, 'navigation' );
 					foreach ( $navigationMenuItems as &$item ) {
+						$itemUrl = $item[ 'url' ];
+						if ( $itemUrl[ 0 ] !== '/' ) {
+							if ( $itemUrl[ 0 ] === '#' )
+								$itemUrl = $requestPath . $itemUrl;
+							else if ( strpos( substr( $itemUrl, 0, 5 ), ':' ) === false )
+								$itemUrl = $requestPath . '/' . $itemUrl;
+						}
 						$item = [
 							'label' => $item[ 'title' ],
-							'url' => $item[ 'url' ]
+							'url' => $itemUrl
 						];
 					}
 					unset( $item );
