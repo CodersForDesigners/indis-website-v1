@@ -253,3 +253,32 @@ function getCurrentPageTitle ( $siteLinks, $baseURL, $siteTitle ) {
 	return $pageTitle;
 
 }
+
+
+
+/*
+ *
+ * Dump the values on the page and onto JavaScript memory, finally end the script
+ *
+ */
+function dd ( $data ) {
+
+	echo '<pre>';
+		var_dump( [ 'memory usage' => memory_get_usage() ] );
+	echo '</pre>';
+
+	echo '<pre>';
+		var_dump( $data );
+	echo '</pre>';
+
+	echo '<pre>';
+		var_dump( [ 'memory usage' => memory_get_usage() ] );
+	echo '</pre>';
+
+	echo '<script>';
+		echo '__data = ' . json_encode( $data ) . ';';
+	echo '</script>';
+
+	exit;
+
+}
