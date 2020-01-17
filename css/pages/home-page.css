@@ -130,12 +130,15 @@
 	.project-list-section .project-list .project-item-container .project-item:focus {
 		background-size: auto 120%;
 	}
-	.project-list-section .project-list .project-item-container .project-item.fit-image {
+
+	/* Exceptions for First List item */
+
+	.project-list-section .project-list .project-item-container:nth-child(2) .project-item.fit-image {
 		background-size: 100% auto;
 	}
 
-	.project-list-section .project-list .project-item-container .project-item.fit-image:hover,
-	.project-list-section .project-list .project-item-container .project-item.fit-image:focus {
+	.project-list-section .project-list .project-item-container:nth-child(2) .project-item.fit-image:hover,
+	.project-list-section .project-list .project-item-container:nth-child(2) .project-item.fit-image:focus {
 		background-size: 120% auto;
 	}
 
