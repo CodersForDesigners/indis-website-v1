@@ -16,6 +16,8 @@ $constructionUpdateGroups = getContent( [ ], 'updates' );
 $engineeringPartners = getContent( [ ], 'engineering_partners' );
 $bestsellers = getContent( [ ], 'best_sellers_list' );
 	$numberOfBestsellers = str_pad( count( $bestsellers ), 2, '0', STR_PAD_LEFT );
+$events = getContent( [ ], 'events_list' );
+	$numberOfEvents = str_pad( count( $events ), 2, '0', STR_PAD_LEFT );
 
 ?>
 
@@ -798,71 +800,21 @@ $bestsellers = getContent( [ ], 'best_sellers_list' );
 				Can an <br>Apartment <br><span class="text-red-2">change <br>your life?</span>
 			</div>
 		</div>
-		<div class="carousel-list-item js_carousel_item">
-			<div class="card-index text-neutral-2">
-				<div class="count h3 inline-bottom">01</div>
-				<div class="total label strong text-uppercase inline-bottom">05</div>
-			</div>
-			<div class="carousel-card fill-neutral-2">
-				<div class="info space-25">
-					<div class="price h5 condensed">Starting at 47 Lakhs</div>
-					<div class="title h4 strong">1450sft 2BHK on the 14th floor with a view of the Lake.</div>
+		<?php foreach ( $events as $index => $event ) : ?>
+			<div class="carousel-list-item js_carousel_item">
+				<div class="card-index text-neutral-2">
+					<div class="count h3 inline-bottom"><?= str_pad( $index + 1, 2, '0', STR_PAD_LEFT ) ?></div>
+					<div class="total label strong text-uppercase inline-bottom"><?= $numberOfBestsellers ?></div>
 				</div>
-			</div>
-			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
-		</div>
-		<div class="carousel-list-item js_carousel_item">
-			<div class="card-index text-neutral-2">
-				<div class="count h3 inline-bottom">02</div>
-				<div class="total label strong text-uppercase inline-bottom">05</div>
-			</div>
-			<div class="carousel-card fill-neutral-2">
-				<div class="info space-25">
-					<div class="price h5 condensed">Starting at 50 Lakhs</div>
-					<div class="title h4 strong">1775sft 3BHK on the 3rd or 4th floor overlooking the sports arena.</div>
+				<div class="carousel-card fill-neutral-2">
+					<div class="info space-25">
+						<div class="price h5 condensed"><?= $event[ 'event_sub_title' ] ?></div>
+						<div class="title h4 strong"><?= $event[ 'event_title' ] ?></div>
+					</div>
 				</div>
+				<a href="<?= $event[ 'page_link' ] ?>" class="button fill-neutral-4 text-light button-icon <?php if ( empty( $event[ 'page_link' ] ) ) echo 'hidden' ?>" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);"><?= $event[ 'button_title' ] ?></a>
 			</div>
-			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
-		</div>
-		<div class="carousel-list-item js_carousel_item">
-			<div class="card-index text-neutral-2">
-				<div class="count h3 inline-bottom">03</div>
-				<div class="total label strong text-uppercase inline-bottom">05</div>
-			</div>
-			<div class="carousel-card fill-neutral-2">
-				<div class="info space-25">
-					<div class="price h5 condensed">Starting at 43 Lakhs</div>
-					<div class="title h4 strong">Most compact 3BHK at just 1680sft. Available from the 5th to 28th floor.</div>
-				</div>
-			</div>
-			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
-		</div>
-		<div class="carousel-list-item js_carousel_item">
-			<div class="card-index text-neutral-2">
-				<div class="count h3 inline-bottom">04</div>
-				<div class="total label strong text-uppercase inline-bottom">05</div>
-			</div>
-			<div class="carousel-card fill-neutral-2">
-				<div class="info space-25">
-					<div class="price h5 condensed">Starting at 51 Lakhs</div>
-					<div class="title h4 strong">Uninterrupted views for 4 to 5km. Spacious 1995sft 3BHK on the 18th or 20th floors.</div>
-				</div>
-			</div>
-			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
-		</div>
-		<div class="carousel-list-item js_carousel_item">
-			<div class="card-index text-neutral-2">
-				<div class="count h3 inline-bottom">05</div>
-				<div class="total label strong text-uppercase inline-bottom">05</div>
-			</div>
-			<div class="carousel-card fill-neutral-2">
-				<div class="info space-25">
-					<div class="price h5 condensed">Starting at 43 Lakhs</div>
-					<div class="title h4 strong">Most compact 3BHK at just 1680sft. Available from the 5th to 28th floor.</div>
-				</div>
-			</div>
-			<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
-		</div>
+		<?php endforeach; ?>
 	</div>
 	<div class="carousel-controls clearfix">
 		<div class="container">
