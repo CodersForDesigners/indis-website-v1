@@ -9,6 +9,9 @@ require_once __DIR__ . '/../inc/above.php';
 // In the context of this page,
 // 	`allProjectsExcludingCurrent` literally refers to "all the projects"
 $projects = &$allProjectsExcludingCurrent;
+$offers = getContent( [ ], 'offers_list' );
+	$numberOfOffers = str_pad( count( $offers ) + 1, 2, '0', STR_PAD_LEFT );
+// dd( $offers );
 
 ?>
 
@@ -67,76 +70,22 @@ $projects = &$allProjectsExcludingCurrent;
 				<span class="text-red-2">offers</span> <br>and best <br>sellers
 			</div>
 		</div>
-		<div class="carousel-list-item js_carousel_item">
-			<div class="card-index text-neutral-2">
-				<div class="count h3 inline-bottom">01</div>
-				<div class="total label strong text-uppercase inline-bottom">14</div>
-			</div>
-			<div class="carousel-card fill-dark">
-				<div class="info space-25">
-					<div class="title h4 strong">1600sft 3BHK.</div>
-					<div class="price h5 condensed">Starting at 80 Lakhs</div>
-					<div class="time label strong space-min-top"><span class="text-uppercase">Valid For :</span> 2 days, 11 hrs, 33 mins</div>
+		<?php foreach ( $offers as $index => $offer ) : ?>
+			<div class="carousel-list-item js_carousel_item">
+				<div class="card-index text-neutral-2">
+					<div class="count h3 inline-bottom"><?= str_pad( $index + 1, 2, '0', STR_PAD_LEFT ) ?></div>
+					<div class="total label strong text-uppercase inline-bottom"><?= $numberOfOffers ?></div>
 				</div>
-			</div>
-			<a href="" class="carousel-action button">Enquire Now</a>
-		</div>
-		<div class="carousel-list-item js_carousel_item">
-			<div class="card-index text-neutral-2">
-				<div class="count h3 inline-bottom">02</div>
-				<div class="total label strong text-uppercase inline-bottom">14</div>
-			</div>
-			<div class="carousel-card fill-dark">
-				<div class="info space-25">
-					<div class="title h4 strong">New Tower Launch.</div>
-					<div class="price h5 condensed">Starting at 1.2Cr</div>
-					<div class="time label strong space-min-top"><span class="text-uppercase">Valid For :</span> 2 days, 11 hrs, 33 mins</div>
+				<div class="carousel-card fill-dark">
+					<div class="info space-25">
+						<div class="title h4 strong"><?= $offer[ 'offer_title' ] ?></div>
+						<div class="price h5 condensed"><?= $offer[ 'offer_price' ] ?></div>
+						<div class="time label strong space-min-top"><span class="text-uppercase">Valid For :</span> <?= getIntervalString( $offer[ 'offer_expiry' ] ) ?></div>
+					</div>
 				</div>
+				<a href="" class="carousel-action button">Enquire Now</a>
 			</div>
-			<a href="" class="carousel-action button">Enquire Now</a>
-		</div>
-		<div class="carousel-list-item js_carousel_item">
-			<div class="card-index text-neutral-2">
-				<div class="count h3 inline-bottom">03</div>
-				<div class="total label strong text-uppercase inline-bottom">14</div>
-			</div>
-			<div class="carousel-card fill-dark">
-				<div class="info space-25">
-					<div class="title h4 strong">Pay 20% now, 80% on possession.</div>
-					<div class="price h5 condensed">Starting at 45Lakhs</div>
-					<div class="time label strong space-min-top"><span class="text-uppercase">Valid For :</span> 2 days, 11 hrs, 33 mins</div>
-				</div>
-			</div>
-			<a href="" class="carousel-action button">Enquire Now</a>
-		</div>
-		<div class="carousel-list-item js_carousel_item">
-			<div class="card-index text-neutral-2">
-				<div class="count h3 inline-bottom">04</div>
-				<div class="total label strong text-uppercase inline-bottom">14</div>
-			</div>
-			<div class="carousel-card fill-dark">
-				<div class="info space-25">
-					<div class="title h4 strong">1930sft 3BHK, Pool View Units.</div>
-					<div class="price h5 condensed">Starting at 1.0 Cr</div>
-					<div class="time label strong space-min-top"><span class="text-uppercase">Valid For :</span> 2 days, 11 hrs, 33 mins</div>
-				</div>
-			</div>
-			<a href="" class="carousel-action button">Enquire Now</a>
-		</div>
-		<div class="carousel-list-item js_carousel_item">
-			<div class="card-index text-neutral-2">
-				<div class="count h3 inline-bottom">05</div>
-				<div class="total label strong text-uppercase inline-bottom">14</div>
-			</div>
-			<div class="carousel-card fill-dark">
-				<div class="info space-25">
-					<div class="title h4 strong">Ready to move-in 2BHK. Only 5 left.</div>
-					<div class="price h5 condensed">Starting at 40Lakhs</div>
-					<div class="time label strong space-min-top"><span class="text-uppercase">Valid For :</span> 2 days, 11 hrs, 33 mins</div>
-				</div>
-			</div>
-			<a href="" class="carousel-action button">Enquire Now</a>
-		</div>
+		<?php endforeach; ?>
 	</div>
 	<div class="carousel-controls clearfix">
 		<div class="container">
