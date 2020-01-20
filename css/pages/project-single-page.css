@@ -304,8 +304,7 @@
 	left: 0;
 	z-index: 3;
 	width: calc( var(--space-100) * 4 );
-	height: auto;
-	/*height: calc( var(--space-100) * 4 );*/
+	height: calc( var(--space-100) * 2.1 );
 }
 
 .location-card hr.dash {
