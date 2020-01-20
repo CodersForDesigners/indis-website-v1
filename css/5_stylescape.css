@@ -855,6 +855,10 @@ select { cursor: pointer; }
 	padding-bottom: 62.5%;
 }
 
+.carousel.carousel-mini.affiliates-carousel .carousel-list .carousel-list-item .carousel-mini-image {
+	background-size: contain;
+}
+
 .carousel.carousel-mini .carousel-controls {
 	top: 50%;
 }
