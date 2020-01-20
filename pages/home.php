@@ -67,7 +67,8 @@ $offers = getContent( [ ], 'offers_list' );
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
 			<div class="carousel-title h2 strong">
-				<span class="text-red-2">offers</span> <br>and best <br>sellers
+				<!-- <span class="text-red-2">offers</span> <br>and best <br>sellers -->
+				<span class="text-red-2">spotlight</span> <br>apartment <br>units
 			</div>
 		</div>
 		<?php foreach ( $offers as $index => $offer ) : ?>

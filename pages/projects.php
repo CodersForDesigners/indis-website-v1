@@ -173,7 +173,8 @@ $events = getContent( [ ], 'events_list' );
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
 			<div class="carousel-title h2 strong">
-				offers <br>and <span class="text-red-2">best <br>sellers</span>
+				<!-- offers <br>and <span class="text-red-2">best <br>sellers</span> -->
+				<span class="text-red-2">spotlight</span> <br>apartment <br>units
 			</div>
 		</div>
 		<?php foreach ( $bestsellers as $index => $bestseller ) : ?>
