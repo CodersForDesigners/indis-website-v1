@@ -327,7 +327,7 @@ $events = getContent( [ ], 'events_list' );
 			<div class="location-image-container columns small-12 large-12">
 				<div class="location-image fill-neutral-2" style="background-image: url( '<?= getContent( '', 'location_panorama_static_image -> sizes -> large' ) ?>' );"></div>
 				<div class="panorama-viewer">
-					<iframe class="panorama-embed" src="http://indis.wip.lazaro.in/media/virtual-tours/kalyanagar-location-test/index.htm" frameborder="0"></iframe>
+					<iframe class="panorama-embed" src="<?= getContent( '', 'location_panorama' ) ?>" frameborder="0"></iframe>
 				</div>
 			</div>
 			<div class="location-card columns small-8 medium-4 fill-light space-25">
