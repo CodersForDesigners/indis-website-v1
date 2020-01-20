@@ -867,7 +867,11 @@ select { cursor: pointer; }
 }
 
 @media( min-width: 640px )  {}
-@media( min-width: 1040px ) {}
+@media( min-width: 1040px ) {
+	.carousel.carousel-mini.affiliates-carousel .carousel-list .carousel-list-item {
+		width: calc( 2.5 * var(--space-100) );
+	}
+}
 @media( min-width: 1480px ) {}
 
 
