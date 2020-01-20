@@ -255,7 +255,9 @@
 .location-section {
 	position: relative;
 }
-.location-section .location-image-container {}
+.location-section .location-image-container {
+	position: relative;
+}
 
 .location-section .location-image-container .location-image {
 	position: relative;
@@ -266,7 +268,7 @@
 	background-repeat: no-repeat;
 }
 
-.location-section .location-image-container .location-image:after {
+.location-section .location-image-container:after {
 	content: '';
 	display: block;
 	position: absolute;
@@ -277,6 +279,23 @@
 	height: 120px;
 	background: linear-gradient( transparent 0%, var(--black) 85%);
 	opacity: .65;
+}
+.location-section .location-image-container .panorama-viewer {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.location-section .location-image-container .panorama-viewer iframe.panorama-embed {
+	display: block;
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
 .location-section .location-card {

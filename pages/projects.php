@@ -323,7 +323,12 @@ $events = getContent( [ ], 'events_list' );
 <section id="location" class="location-section space-50-top-bottom">
 	<div class="container">
 		<div class="row">
-			<div class="location-image-container columns small-12 large-12"><div class="location-image fill-neutral-2" style="background-image: url( '<?= getContent( '', 'location_panorama_static_image -> sizes -> large' ) ?>' );"></div></div>
+			<div class="location-image-container columns small-12 large-12">
+				<div class="location-image fill-neutral-2" style="background-image: url( '<?= getContent( '', 'location_panorama_static_image -> sizes -> large' ) ?>' );"></div>
+				<div class="panorama-viewer">
+					<iframe class="panorama-embed" src="http://indis.wip.lazaro.in/media/virtual-tours/kalyanagar-location-test/index.htm" frameborder="0"></iframe>
+				</div>
+			</div>
 			<div class="location-card columns small-8 medium-4 fill-light space-25">
 				<div class="title h3 strong text-lowercase">Location</div>
 				<div class="location label strong text-uppercase text-neutral-2"><?= getContent( '', 'location' ) ?></div>
