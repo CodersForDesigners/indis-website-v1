@@ -304,7 +304,8 @@
 	left: 0;
 	z-index: 3;
 	width: calc( var(--space-100) * 4 );
-	height: calc( var(--space-100) * 4 );
+	height: auto;
+	/*height: calc( var(--space-100) * 4 );*/
 }
 
 .location-card hr.dash {
@@ -336,6 +337,10 @@
 @media( min-width: 640px )  {
 	.location-section .location-image-container .location-image {
 		padding-bottom: 120%;
+	}
+
+	.location-section .location-card {
+		height: calc( var(--space-100) * 4 );
 	}
 
 	.location-section .location-image-container .location-image:after {

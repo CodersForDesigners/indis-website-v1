@@ -334,7 +334,7 @@ $events = getContent( [ ], 'events_list' );
 				<div class="title h3 strong text-lowercase">Location</div>
 				<div class="location label strong text-uppercase text-neutral-2"><?= getContent( '', 'location' ) ?></div>
 				<hr class="dash">
-				<div class="address h6 text-neutral-2 space-min-top"><?= getContent( '', 'location_address' ) ?></div>
+				<div class="address h6 text-neutral-2 space-min-top hide-for-small"><?= getContent( '', 'location_address' ) ?></div>
 				<a href="<?= getContent( '', 'location_google_maps_url' ) ?>" class="label strong text-red-2 text-uppercase space-min-top-bottom inline-middle">Open in Google Maps <img class="link-icon inline-middle" src="../media/icon/icon-location-color.svg<?php echo $ver ?>"></a>
 			</div>
 			<div class="location-title h2 strong text-red-1 text-lowercase columns small-9 medium-5 xlarge-4"><span class="text-light">The best views</span> for 2 to 3kms in all directions</div>
