@@ -15,6 +15,10 @@ $navigatorZoomRectangle = $_GET[ 'navigatorZoomRectangle' ] ?? '000000';
 		<style type="text/css">
 
 			.allow-pointer-events {
+				pointer-events: auto;
+			}
+
+			.disable-pointer-events {
 				pointer-events: none;
 			}
 
@@ -122,11 +126,11 @@ $navigatorZoomRectangle = $_GET[ 'navigatorZoomRectangle' ] ?? '000000';
 				zZoomSpeed: 2,
 
 				// Events
-				zMouseWheel: 0,
+				zMouseWheel: 0,	// Prevent scroll events from being swallowed
 				zMousePan: 0,
 				zClickPan: 0,
 
-				// zOnReady: function () {
+				zOnReady: function () {
 
 				// 	// Inject an overlay on top of the map
 				// 	var domContainer = document.getElementById( "container" );
@@ -169,7 +173,30 @@ $navigatorZoomRectangle = $_GET[ 'navigatorZoomRectangle' ] ?? '000000';
 				// 	// Disable the default "mousewheel" event that is set on the ViewerDisplay element
 				// 	Z.Utils.removeEventListener( Z.ViewerDisplay, "mousewheel", Z.Viewer.viewerEventsHandler );
 
-				// }
+
+					/*
+					 *
+					 * Disable pointer events on the ViewerDisplay once the boundaries have been reached from all that panning
+					 *
+					 */
+					// Create a debounced function that eventually allows pointer events
+					var allowPointerEventsEventually = eventually( function () {
+						Z.ViewerDisplay.className = Z.ViewerDisplay.className
+							.replace( /\s*disable-pointer-events\s*/, "" )
+							.trim();
+					}, 0.5 );
+
+					var previousViewportY = Math.round( Z.Viewport.getY() );
+					Z.setCallback( "viewPanned", function () {
+						var currentViewportY = Math.round( Z.Viewport.getY() );
+						if ( previousViewportY === currentViewportY ) {
+							Z.ViewerDisplay.classList.add( "disable-pointer-events" );
+							allowPointerEventsEventually();
+						}
+						previousViewportY = currentViewportY;
+					} );
+
+				}
 			};
 			Z.showImage( "container", "media/plans/<?= $panZoom ?>", settings );
 		</script>
