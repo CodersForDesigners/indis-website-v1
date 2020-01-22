@@ -1,6 +1,7 @@
 <?php
 
 $panZoom = $_GET[ 'id' ];
+$navigatorZoomRectangle = $_GET[ 'navigatorZoomRectangle' ] ?? '000000';
 
 ?><!DOCTYPE html>
 <html xml:lang="EN" xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -47,6 +48,13 @@ $panZoom = $_GET[ 'id' ];
 				height: 100%;
 			}
 
+			/* Hide the Full-screen button on mobile */
+			@media ( max-width: 640px ) {
+				#buttonFullView {
+					display: none !important;
+				}
+			}
+
 		</style>
 
 	</head>
@@ -56,37 +64,20 @@ $panZoom = $_GET[ 'id' ];
 		<div id="container"></div>
 
 
+		<script type="text/javascript" src="/js/modules/utils.js"></script>
 		<script type="text/javascript" src="/plugins/zoomify/zoomify-image-viewer-enterprise.v5.23.5.min.js"></script>
 		<script type="text/javascript">
 
+			/*
+			 *
+			 * Disable pointer events on an element
+			 *
+			 */
 			function disablePointerEvents ( domElement ) {
 				domElement.className = domElement.className
 					.replace( /\s*allow-pointer-events\s*/, "" )
 					.trim();
 			}
-
-			function addPointerEventsEventually ( domElement, timeout ) {
-
-				var timeout = ( timeout || 1 ) * 1000;
-				var timeoutId = null;
-
-				return function addPointerEvents ( event ) {
-
-					if ( timeoutId ) {
-						clearTimeout( timeoutId );
-						timeoutId = null;
-					}
-
-					return new Promise( function ( resolve, reject ) {
-						timeoutId = setTimeout( resolve, timeout );
-					} )
-						.then( function () {
-							domElement.className = ( domElement.className + " " + "allow-pointer-events" ).trim();
-						} );
-
-				};
-
-			};
 
 			var settings = {
 				// zDebug: 3,
@@ -106,7 +97,7 @@ $panZoom = $_GET[ 'id' ];
 
 				// zMinZoom: 15,
 				zNavigatorVisible: 1,
-				zNavigatorRectangleColor: "000000",
+				zNavigatorRectangleColor: "<?= $navigatorZoomRectangle ?>",
 
 				// Toolbar
 				zToolbarVisible: 1,
@@ -130,45 +121,55 @@ $panZoom = $_GET[ 'id' ];
 				zSmoothZoomEasing: 4,
 				zZoomSpeed: 2,
 
-				zOnReady: function () {
-					var domContainer = document.getElementById( "container" );
-					var domTransparentOverlay = document.createElement( "div" );
-					domTransparentOverlay.className = "transparent-overlay allow-pointer-events";
-					// domTransparentOverlay.className = "transparent-overlay";
-					domTransparentOverlay.tabIndex = 0;
-					domContainer.prepend( domTransparentOverlay );
+				// Events
+				zMouseWheel: 0,
+				zMousePan: 0,
+				zClickPan: 0,
 
-					var overlay__removePointerEventsEventually = removePointerEventsEventually( domTransparentOverlay );
-					var overlay__addPointerEventsEventually = addPointerEventsEventually( domTransparentOverlay, 1 );
-					var pointerEventsAreEnabled = false;
+				// zOnReady: function () {
 
+				// 	// Inject an overlay on top of the map
+				// 	var domContainer = document.getElementById( "container" );
+				// 	var domTransparentOverlay = document.createElement( "div" );
+				// 	domTransparentOverlay.className = "transparent-overlay";
+				// 	domTransparentOverlay.tabIndex = 0;
+				// 	domContainer.prepend( domTransparentOverlay );
 
-					/*
-					 *
-					 * Make overlay "opaque" only for scroll and wheel events
-					 *
-					 */
-					function preventPointerInteractionsHandler ( event ) {
-						event.preventDefault();
-						event.stopImmediatePropagation();
-						event.stopPropagation();
+				// 	// Create a debounced function that eventually allows pointer events
+				// 	var addPointerEventsEventually = eventually( function () {
+				// 		domTransparentOverlay.className = ( domTransparentOverlay.className + " " + "allow-pointer-events" ).trim();
+				// 	}, 1 );
 
-						// Disable pointer events
-						disablePointerEvents( domTransparentOverlay );
+				// 	/*
+				// 	 *
+				// 	 * Make overlay "opaque" only for scroll and wheel events
+				// 	 *
+				// 	 */
+				// 	function preventPointerInteractionsHandler ( event ) {
+				// 		event.preventDefault();
+				// 		event.stopImmediatePropagation();
+				// 		event.stopPropagation();
 
-						domContainer.blur();
-						window.focus();
+				// 		// Disable pointer events
+				// 		disablePointerEvents( domTransparentOverlay );
 
-						// Enable pointer events (eventually)
-						overlay__addPointerEventsEventually( event );
+				// 		domContainer.blur();
+				// 		window.focus();
 
-						return false;
-					}
-					// Set the event handlers
-					domContainer.onwheel = preventPointerInteractionsHandler;
-					domContainer.onmousewheel = preventPointerInteractionsHandler;
-					domContainer.onscroll = preventPointerInteractionsHandler;
-				}
+				// 		// Enable pointer events (eventually)
+				// 		addPointerEventsEventually( event );
+
+				// 		return false;
+				// 	}
+				// 	// Set the event handlers
+				// 	domContainer.onwheel = preventPointerInteractionsHandler;
+				// 	domContainer.onmousewheel = preventPointerInteractionsHandler;
+				// 	domContainer.onscroll = preventPointerInteractionsHandler;
+
+				// 	// Disable the default "mousewheel" event that is set on the ViewerDisplay element
+				// 	Z.Utils.removeEventListener( Z.ViewerDisplay, "mousewheel", Z.Viewer.viewerEventsHandler );
+
+				// }
 			};
 			Z.showImage( "container", "media/plans/<?= $panZoom ?>", settings );
 		</script>
