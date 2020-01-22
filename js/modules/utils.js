@@ -28,15 +28,12 @@ function eventually ( fn, timeout ) {
 
 	return function ( event ) {
 
-		if ( timeoutId ) {
-			clearTimeout( timeoutId );
-			timeoutId = null;
-		}
+		clearTimeout( timeoutId );
 
 		return new Promise( function ( resolve, reject ) {
 			timeoutId = setTimeout( resolve, timeout );
 		} )
-			.then( fn );
+			.then( fn )
 
 	};
 
