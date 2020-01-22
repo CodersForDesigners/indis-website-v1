@@ -129,6 +129,7 @@ $navigatorZoomRectangle = $_GET[ 'navigatorZoomRectangle' ] ?? '000000';
 				zMouseWheel: 0,	// Prevent scroll events from being swallowed
 				zMousePan: 0,
 				zClickPan: 0,
+				zDoubleClickZoom: 0,
 
 				zOnReady: function () {
 
