@@ -922,29 +922,5 @@ $events = getContent( [ ], 'events_list' );
 <!-- END: Action: Site Visit : Form -->
 
 
-<script type="text/javascript">
-
-	/*
-	 *
-	 * Prevent user scrolls from getting swallowed by the iframe
-	 *
-	 */
-	$( function () {
-		var $iframe = $( ".js_plan_embed" );
-		var iframePage = $iframe.get( 0 ).contentDocument;
-
-		var eventuallyPreventPointerEvents = eventually( function () {
-			$iframe.removeClass( "no-pointer" );
-		}, 0.1 );
-		$iframe.on( "click", function ( event ) {
-			$iframe.removeClass( "no-pointer" );
-		} );
-		$( iframePage ).find( "#container" ).on( "wheel", function ( event ) {
-			$iframe.addClass( "no-pointer" );
-			eventuallyPreventPointerEvents();
-		} );
-	} )
-
-</script>
 
 <?php require_once __DIR__ . '/../inc/below.php'; ?>
