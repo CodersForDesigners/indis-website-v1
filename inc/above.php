@@ -102,7 +102,7 @@ unset( $project );
 		<div id="page-content">
 
 			<!-- Navigation Section -->
-			<section class="navigation-section space-25-top js_navigation_section">
+			<section class="navigation-section sticky space-25-top js_navigation_section">
 				<div class="navigation-toggle-button row show-for-medium text-right">
 					<div class="container">
 						<button class="icon-button menu inline js_menu_button" tabindex="-1" style="background-image: url('../media/icon/icon-menu.svg<?php echo $ver ?>');"></button>
@@ -130,7 +130,11 @@ unset( $project );
 				?>
 				<div class="navigation row">
 					<div class="container">
-						<div class="columns small-12 text-right space-50-right">
+						<div class="navigation-sticky-info hide-for-medium columns small-12 large-3 inline-bottom space-min-top-bottom space-25-left">
+							<div class="title h5 strong"><?= $thePost->post_title ?></div>
+							<div class="location label strong text-uppercase text-neutral-4"><?= getContent( '', 'location' ) ?></div>
+						</div>
+						<div class="position-relative columns small-12 large-9 inline-bottom text-right space-50-right">
 							<div class="link h4 strong text-uppercase show-for-medium ">Menu</div>
 							<?php foreach ( $navigationMenuItems as $item ) : ?>
 								<a href="<?= $item[ 'url' ] ?>" class="link h6 strong text-uppercase space-min-top-bottom"><?= $item[ 'label' ] ?></a><br class="show-for-medium">
