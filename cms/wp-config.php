@@ -18,6 +18,14 @@
  * @package WordPress
  */
 
+/**
+ * (Permalink) URLs in WordPress
+ *
+ * Allow the host/domain name to be contextual to the environment
+ */
+define( 'WP_HOME', 'http://' . ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] ) );
+define( 'WP_SITEURL', 'http://' . ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] ) . '/cms' );
+
 // ** MySQL settings ** //
 /** The name of the database for WordPress */
 define('DB_NAME', 'indis');
