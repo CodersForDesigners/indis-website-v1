@@ -44,7 +44,8 @@ $offers = getContent( [ ], 'offers_list' );
 			</div>
 			<?php foreach ( $projects as $project ) : ?>
 				<div class="project-item-container columns small-12 medium-6 large-4">
-					<a href="<?= $project[ 'permalink' ] ?>" class="project-item block fill-neutral-2 <?php if ( getContent( '', 'cover_images -> 0 -> sizes -> large-width', $project[ 'ID' ] ) / getContent( '', 'cover_images -> 0 -> sizes -> large-height', $project[ 'ID' ] ) < 1.25 ) echo 'fit-image' ?>" tabindex="-1" style="background-image: url( '<?= getContent( '', 'cover_images -> 0 -> sizes -> large', $project[ 'ID' ] ) ?>' );">
+					<a href="<?= $project[ 'permalink' ] ?>" class="project-item block fill-neutral-2" tabindex="-1">
+						<img src="<?= getContent( '', 'cover_images -> 0 -> sizes -> large', $project[ 'ID' ] ) ?>">
 						<div class="project-card fill-dark space-25">
 							<div class="title h4 strong"><?= $project[ 'post_title' ] ?></div>
 							<div class="location label"><?= getContent( '', 'location', $project[ 'ID' ] ) ?></div>
