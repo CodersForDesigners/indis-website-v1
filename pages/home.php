@@ -81,8 +81,9 @@ $offers = getContent( [ ], 'offers_list' );
 				<div class="carousel-card fill-dark">
 					<div class="info space-25">
 						<div class="title h4 strong"><?= $offer[ 'offer_title' ] ?></div>
-						<div class="price h5 condensed"><?= $offer[ 'offer_price' ] ?></div>
-						<div class="time label strong space-min-top"><span class="text-uppercase">Valid For :</span> <?= getIntervalString( $offer[ 'offer_expiry' ] ) ?></div>
+						<div class="price h5 condensed text-neutral-2"><?= $offer[ 'offer_price' ] ?></div>
+						<div class="project label strong text-neutral-2">PBEL City, HYD</div>
+						<div class="time h6 condensed space-min-top"><span class="text-uppercase">Valid For :</span> <?= getIntervalString( $offer[ 'offer_expiry' ] ) ?></div>
 					</div>
 				</div>
 				<a href="<?= $offer[ 'offer_page_url' ] ?>" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
