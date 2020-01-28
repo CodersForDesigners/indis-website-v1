@@ -135,9 +135,18 @@ unset( $project );
 							<div class="location label strong text-uppercase text-neutral-4"><?= getContent( '', 'location' ) ?></div>
 						</div>
 						<div class="position-relative columns small-12 large-9 inline-bottom text-right space-50-right">
-							<div class="link h4 strong text-uppercase show-for-medium ">Menu</div>
+							<div class="link h4 strong text-uppercase show-for-medium">Menu</div>
+							<span class="link h6 strong text-uppercase space-min-top-bottom position-relative no-pointer">
+								Projects
+								<select class="nested-link">
+									<option value="">One City, HYD</option>
+									<option value="">PBEL City, HYD</option>
+									<option value="">VB City, HYD</option>
+									<option value="">Viva City, HYD</option>
+								</select>
+							</span><br class="show-for-medium">
 							<?php foreach ( $navigationMenuItems as $item ) : ?>
-								<a href="<?= $item[ 'url' ] ?>" class="link h6 strong text-uppercase space-min-top-bottom"><?= $item[ 'label' ] ?></a><br class="show-for-medium">
+								<a href="<?= $item[ 'url' ] ?>" class="link h6 strong text-uppercase space-min-top-bottom position-relative"><?= $item[ 'label' ] ?></a><br class="show-for-medium">
 							<?php endforeach; ?>
 						</div>
 					</div>
