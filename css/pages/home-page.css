@@ -104,6 +104,7 @@
 		padding-right: 0;
 	}
 }
+
 @media( min-width: 1040px ) {
 	.project-list-section .project-list .project-list-intro {
 		padding-right: 0;
@@ -155,6 +156,13 @@
 		height: 2px;
 	}
 }
+
+@media( max-width: 1039px ) {
+	.project-list-section .project-list .project-item-container .project-item.in-view img {
+		transform: translate(-50%, -50%) scale(1.2);
+	}
+}
+
 @media( min-width: 1480px ) {
 	.project-list-section .project-list .project-list-intro {
 		padding-right: var(--space-50);
