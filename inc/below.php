@@ -7,7 +7,7 @@
 
 
 		<!-- Footer Section -->
-		<section id="about" class="footer-section space-50-top-bottom">
+		<section data-section="About" id="about" class="footer-section space-50-top-bottom">
 			<div class="row space-50-top space-25-bottom">
 				<div class="container">
 					<div class="footer-info columns small-12 medium-10 large-8">
