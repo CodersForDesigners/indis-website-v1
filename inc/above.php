@@ -139,10 +139,10 @@ unset( $project );
 							<span class="link h6 strong text-uppercase space-min-top-bottom position-relative no-pointer">
 								Projects
 								<select class="nested-link">
-									<option value="">One City, HYD</option>
-									<option value="">PBEL City, HYD</option>
-									<option value="">VB City, HYD</option>
-									<option value="">Viva City, HYD</option>
+									<option data-href="<?= get_permalink( $thePost->ID ) ?>"><?= $thePost->post_title ?></option>
+									<?php foreach ( $allProjectsExcludingCurrent as $project ) : ?>
+										<option data-href="<?= get_permalink( $project[ 'ID' ] ) ?>"><?= $project[ 'post_title' ] ?></option>
+									<?php endforeach; ?>
 								</select>
 							</span><br class="show-for-medium">
 							<?php foreach ( $navigationMenuItems as $item ) : ?>
