@@ -18,6 +18,21 @@ $( document ).on( "click", ".js_menu_button", function ( event ) {
 
 
 
+/*
+ *
+ * Navigate to the project selected on the Project menu item sub-menu
+ *
+ */
+$( ".js_projects_selector" ).removeClass( "hidden" );
+$( ".js_projects_selector" ).on( "change", function ( event ) {
+	var $selector = $( event.target );
+	var project = $selector.val();
+	var link = $selector.find( ":selected" ).data( "href" );
+	location.href = link;
+} );
+
+
+
 
 
 /*
