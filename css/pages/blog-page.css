@@ -12,6 +12,7 @@
 
 .blog-page .blog-title {}
 
+
 .blog-page .blog-content {
 	position: relative;
 	color: var(--dark);
@@ -27,6 +28,17 @@
 .blog-page .blog-content h4 {
 	font-family: 'Barlow', 'Arial Black', Arial, sans-serif;
 	line-height: 1;
+	font-weight: 700;
+	text-transform: lowercase;
+}
+
+.blog-page .blog-content h1,
+.blog-page .blog-content h2,
+.blog-page .blog-content h3,
+.blog-page .blog-content h4,
+.blog-page .blog-content p {
+	display: block;
+	padding-bottom: var(--space-25);
 }
 
 .blog-page .blog-content h1 { font-size: 3.6rem; }
@@ -38,6 +50,14 @@
 .blog-page .blog-content p 	{ font-size: 1.4rem; }
 .blog-page .blog-content small { font-size: 0.8rem; }
 .blog-page .blog-content label { font-size: 1.0rem; }
+
+.blog-page .blog-content .wp-block-image {
+	padding-bottom: var(--space-25);
+}
+	
+.blog-page .blog-content .wp-block-image figure {
+	margin: 0;
+}
 
 @media( min-width: 640px )  {
 	.blog-page .blog-content h1 { font-size: 4.2em; }

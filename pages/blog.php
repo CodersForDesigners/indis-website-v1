@@ -14,16 +14,28 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 
-<!-- Post Content -->
-<section class="sample-section">
+<!-- Blog Page -->
+<section class="blog-page">
+	<div class="blog-header space-100-bottom fill-dark">
+		<div class="container">
+			<div class="row">
+				<div class="columns small-12">
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="container">
 		<div class="row">
-			<div class="title"><?= $thePost->post_title ?></div>
-			<div class="content"><?= $thePost->post_content ?></div>
+			<div class="columns small-12 large-8 large-offset-2">
+				<div class="blog-title h1 strong text-lowercase space-50-top-bottom"><?= $thePost->post_title ?></div>
+			</div>
+			<div class="columns small-12 large-8 large-offset-2">
+				<div class="blog-content"><?= $thePost->post_content ?></div>
+			</div>
 		</div>
 	</div>
 </section>
-<!-- END: Post Content -->
+<!-- END: Blog Page -->
 
 
 
