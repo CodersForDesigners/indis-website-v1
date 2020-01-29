@@ -31,7 +31,7 @@ $offers = getContent( [ ], 'offers_list' );
 
 
 <!-- Project List Section -->
-<section class="project-list-section space-25-top space-100-bottom">
+<section data-section="Projects List" class="project-list-section space-25-top space-100-bottom">
 	<div class="container">
 		<div class="project-list row">
 			<div class="project-item-container columns small-12 medium-6 large-4">
@@ -63,7 +63,7 @@ $offers = getContent( [ ], 'offers_list' );
 
 <!-- Carousel: Offers -->
 <?php if ( ! empty( $offers ) ) : ?>
-<div id="offers" class="carousel indis-carousel js_carousel_container">
+<div data-section="Offers" id="offers" class="carousel indis-carousel js_carousel_container">
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
 			<div class="carousel-title h2 strong">

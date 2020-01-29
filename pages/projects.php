@@ -38,7 +38,7 @@ $events = getContent( [ ], 'events_list' );
 <!-- END: Gallery data -->
 
 <!-- Cover Section -->
-<section class="cover-section space-25-top space-50-bottom js_gallery_region" data-set="cover">
+<section data-section="Cover" class="cover-section space-25-top space-50-bottom js_gallery_region" data-set="cover">
 	<?php $coverImages = getContent( [ ], 'cover_images' ); ?>
 	<div class="container">
 		<div class="row">
@@ -66,7 +66,7 @@ $events = getContent( [ ], 'events_list' );
 
 
 <!-- Intro Section -->
-<section class="intro-section">
+<section data-section="Intro" class="intro-section">
 	<div class="container">
 		<div class="row">
 			<div class="columns small-12 medium-10 large-6 large-offset-1">
@@ -169,7 +169,7 @@ $events = getContent( [ ], 'events_list' );
 
 <!-- Carousel: Best Sellers -->
 <?php if ( ! empty( $bestsellers ) ) : ?>
-<div class="carousel best-sellers indis-carousel js_carousel_container">
+<div data-section="Best-sellers" class="carousel best-sellers indis-carousel js_carousel_container">
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
 			<div class="carousel-title h2 strong">
@@ -321,7 +321,7 @@ $events = getContent( [ ], 'events_list' );
 
 
 <!-- Location Section -->
-<section id="location" class="location-section space-50-top-bottom">
+<section data-section="Location" id="location" class="location-section space-50-top-bottom">
 	<div class="container">
 		<div class="row">
 			<div class="location-image-container columns small-12 large-12">
@@ -363,7 +363,7 @@ $events = getContent( [ ], 'events_list' );
 
 
 <!-- Engineering Section : Concrete -->
-<section class="engineering-section concrete space-50-top-bottom">
+<section data-section="Engineering — High-rise" class="engineering-section concrete space-50-top-bottom">
 	<div class="container">
 		<div class="row row-1">
 			<div class="section-label columns small-12 xlarge-10 xlarge-offset-1 space-25-bottom">
@@ -422,7 +422,7 @@ $events = getContent( [ ], 'events_list' );
 
 <!-- Carousel Mini: Affiliates Section -->
 <?php if ( ! empty( $engineeringPartners ) ) : ?>
-<section class="affiliates-section space-50-bottom js_tab_container">
+<section data-section="Affiliates" class="affiliates-section space-50-bottom js_tab_container">
 	<div class="affiliates-carousel-menu text-center">
 		<div class="container">
 			<div class="tab-menu hide-for-medium js_tab_headings">
@@ -461,7 +461,7 @@ $events = getContent( [ ], 'events_list' );
 
 <!-- Plans Section -->
 <?php if ( ! empty( $planGroups ) ) : ?>
-<section id="plans" class="plans-section space-100-top space-75-bottom fill-dark js_tab_container">
+<section data-section="Masterplans" id="plans" class="plans-section space-100-top space-75-bottom fill-dark js_tab_container">
 	<div class="container">
 		<div class="plans-intro row space-25-bottom">
 			<div class="heading h2 strong text-lowercase columns small-12">
@@ -541,7 +541,7 @@ $events = getContent( [ ], 'events_list' );
 
 <!-- Amenities Section -->
 <?php if ( ! empty( $amenities ) ) : ?>
-<section id="amenities" class="amenities-section space-75-top space-100-bottom fill-dark js_tab_container">
+<section data-section="Amenities" id="amenities" class="amenities-section space-75-top space-100-bottom fill-dark js_tab_container">
 	<div class="container">
 		<div class="amenities-intro row space-25-bottom">
 			<div class="heading h2 strong text-lowercase columns small-12">
@@ -598,7 +598,7 @@ $events = getContent( [ ], 'events_list' );
 
 
 <!-- Engineering Section : Railing -->
-<section class="engineering-section railing space-50-top-bottom">
+<section data-section="Engineering — Railing" class="engineering-section railing space-50-top-bottom">
 	<div class="container">
 		<div class="row row-1">
 			<div class="section-label columns small-12 xlarge-11 xlarge-offset-1 space-25-bottom">
@@ -643,7 +643,7 @@ $events = getContent( [ ], 'events_list' );
 
 
 <!-- Engineering Section : Fire -->
-<section class="engineering-section fire space-50-top-bottom">
+<section data-section="Engineering — Fire" class="engineering-section fire space-50-top-bottom">
 	<div class="container">
 		<div class="row row-1">
 			<div class="section-label columns small-12 xlarge-10 xlarge-offset-1 space-25-bottom">
@@ -715,7 +715,7 @@ $events = getContent( [ ], 'events_list' );
 
 <!-- Updates Section -->
 <?php if ( ! empty( $constructionUpdateGroups ) ) : ?>
-<section id="updates" class="updates-section space-75-top space-100-bottom fill-dark js_tab_container">
+<section data-section="Construction Updates" id="updates" class="updates-section space-75-top space-100-bottom fill-dark js_tab_container">
 	<div class="container">
 		<div class="updates-intro row space-25-bottom">
 			<div class="heading h2 strong text-lowercase columns small-12">
@@ -797,7 +797,7 @@ $events = getContent( [ ], 'events_list' );
 
 <!-- Carousel: Events -->
 <?php if ( ! empty( $events ) ) : ?>
-<div class="carousel indis-carousel js_carousel_container space-75-bottom">
+<div data-section="Events" class="carousel indis-carousel js_carousel_container space-75-bottom">
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
 			<div class="carousel-title h2 strong text-lowercase">
