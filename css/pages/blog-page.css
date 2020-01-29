@@ -8,3 +8,69 @@
 @media( min-width: 1040px ) {}
 @media( min-width: 1480px ) {}
 
+
+
+.blog-page .blog-title {}
+
+.blog-page .blog-content {
+	position: relative;
+	color: var(--dark);
+	font-family: 'Barlow', Arial, sans-serif;
+	font-weight: 400;
+	font-size: 1.4rem;
+	line-height: 1.375;
+}
+
+.blog-page .blog-content h1,
+.blog-page .blog-content h2,
+.blog-page .blog-content h3,
+.blog-page .blog-content h4 {
+	font-family: 'Barlow', 'Arial Black', Arial, sans-serif;
+	line-height: 1;
+}
+
+.blog-page .blog-content h1 { font-size: 3.6rem; }
+.blog-page .blog-content h2 { font-size: 3.0rem; }
+.blog-page .blog-content h3 { font-size: 2.4rem; }
+.blog-page .blog-content h4 { font-size: 2.0rem; }
+.blog-page .blog-content h5 { font-size: 1.8rem; }
+.blog-page .blog-content h6 { font-size: 1.4rem; }
+.blog-page .blog-content p 	{ font-size: 1.4rem; }
+.blog-page .blog-content small { font-size: 0.8rem; }
+.blog-page .blog-content label { font-size: 1.0rem; }
+
+@media( min-width: 640px )  {
+	.blog-page .blog-content h1 { font-size: 4.2em; }
+	.blog-page .blog-content h2 { font-size: 3.4rem; }
+	.blog-page .blog-content h3 { font-size: 2.8rem; }
+	.blog-page .blog-content h4 { font-size: 2.2rem; }
+	.blog-page .blog-content h5 { font-size: 1.8rem; }
+	.blog-page .blog-content h6 { font-size: 1.4rem; }
+	.blog-page .blog-content p 	{ font-size: 1.4rem; }
+	.blog-page .blog-content small { font-size: 0.8rem; }
+	.blog-page .blog-content label { font-size: 1.0rem; }
+}
+
+@media( min-width: 1040px ) {
+	.blog-page .blog-content h1 { font-size: 8.0rem; }
+	.blog-page .blog-content h2 { font-size: 5.6rem; }
+	.blog-page .blog-content h3 { font-size: 4.0rem; }
+	.blog-page .blog-content h4 { font-size: 2.8rem; }
+	.blog-page .blog-content h5 { font-size: 2.0rem; }
+	.blog-page .blog-content h6 { font-size: 1.4rem; }
+	.blog-page .blog-content p 	{ font-size: 1.4rem; }
+	.blog-page .blog-content small { font-size: 0.8rem; }
+	.blog-page .blog-content label { font-size: 1.0rem; }
+}
+
+@media( min-width: 1480px ) {
+	.blog-page .blog-content h1 { font-size: 9.6rem; }
+	.blog-page .blog-content h2 { font-size: 6.8rem;  }
+	.blog-page .blog-content h3 { font-size: 4.8rem;  }
+	.blog-page .blog-content h4 { font-size: 3.2rem;  }
+	.blog-page .blog-content h5 { font-size: 2.4rem;  }
+	.blog-page .blog-content h6 { font-size: 1.7rem;  }
+	.blog-page .blog-content p 	{ font-size: 1.7rem;  }
+	.blog-page .blog-content small { font-size: 1.2rem; }
+	.blog-page .blog-content label { font-size: 1.4rem; }
+}
