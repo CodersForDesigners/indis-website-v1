@@ -138,7 +138,7 @@ unset( $project );
 							<div class="link h4 strong text-uppercase show-for-medium">Menu</div>
 							<span class="link h6 strong text-uppercase space-min-top-bottom position-relative no-pointer">
 								Projects
-								<select class="nested-link">
+								<select class="nested-link js_projects_selector hidden">
 									<option data-href="<?= get_permalink( $thePost->ID ) ?>"><?= $thePost->post_title ?></option>
 									<?php foreach ( $allProjectsExcludingCurrent as $project ) : ?>
 										<option data-href="<?= get_permalink( $project[ 'ID' ] ) ?>"><?= $project[ 'post_title' ] ?></option>

@@ -31,7 +31,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	opacity: 0.5;
+	opacity: 0;
 	border: 0 !important;
 }
 
@@ -91,7 +91,7 @@
 	.navigation-section .navigation-sticky-info {
 		display: none;
 	}
-		
+
 	.navigation-section .navigation-sticky-info .title {
 		line-height: 1;
 	}
