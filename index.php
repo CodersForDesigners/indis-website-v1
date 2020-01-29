@@ -15,7 +15,7 @@ $requestPath = trim(
 	strstr( $_SERVER[ 'REQUEST_URI' ], '?', true ) ?: $_SERVER[ 'REQUEST_URI' ],
 	'/'
 );
-$postType = 'page';
+$postType = null;
 $urlSlug = '';
 
 
@@ -47,5 +47,8 @@ else if ( count( explode( '/', $requestPath ) ) === 2 ) {
 	$filename = $documentRoot . '/pages/' . $postType . '.php';
 	return require_once $filename;
 }
-else
-	return header( 'Location: /', true, 302 );
+else {
+	$urlSlug = $requestPath;
+	$filename = $documentRoot . '/pages/blog.php';
+	return require_once $filename;
+}
