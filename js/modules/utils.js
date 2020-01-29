@@ -18,6 +18,22 @@ function waitFor ( seconds ) {
 
 /*
  *
+ * Recur a given function every given interval
+ *
+ */
+function executeEvery ( interval, fn ) {
+	window.setTimeout( function () {
+		window.requestAnimationFrame( function () {
+			fn();
+			executeEvery( interval, fn );
+		} );
+	}, interval );
+}
+
+
+
+/*
+ *
  * Returns a debounced function that eventually performs a given function
  *
  */
