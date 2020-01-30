@@ -7,6 +7,34 @@ $( function ( $ ) {
 
 /*
  *
+ * Smooth-scroll to sections
+ *
+ */
+$( document ).on( "click", "a[ href ]", function ( event ) {
+	var $anchor = $( event.target ).closest( "a" );
+	var domAnchor = $anchor.get( 0 );
+	var currentUrl = location.origin + location.pathname;
+
+	// Subtract the current URL from the destination URL
+	var remainingUrl = domAnchor.href.replace( currentUrl, "" );
+	if ( remainingUrl[ 0 ] !== "#" )
+		return true;
+
+	event.preventDefault();
+	event.stopPropagation();
+	event.stopImmediatePropagation();
+	var toSectionId = remainingUrl.slice( 1 );
+	// setTimeout( function () {
+		var domSection = document.getElementById( toSectionId );
+		window.scrollTo( { top: domSection.offsetTop - 50, behavior: "smooth" } );
+	// }, 0 );
+	return false;
+} );
+
+
+
+/*
+ *
  * Toggle Navigation when Menu (hamburger) icon is clicked
  *
  */
