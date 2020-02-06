@@ -18,6 +18,10 @@
  * @package WordPress
  */
 
+if ( ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] ) !== 'indis.wip.lazaro.in' )
+	if ( strpos( $_SERVER[ 'REQUEST_URI' ], '/cms/wp-content/uploads/' ) !== false )
+		return header( 'Location: http://indis.wip.lazaro.in' . $_SERVER[ 'REQUEST_URI' ], true, 302 );
+
 /**
  * (Permalink) URLs in WordPress
  *
