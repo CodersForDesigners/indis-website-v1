@@ -61,6 +61,10 @@
 
 		<!-- Modal Close Button -->
 		<div class="modal-close js_modal_close">&times;</div>
+
+		<!-- Modal Close Box -->
+		<div class="modal-close-area left-area  js_modal_close"></div>
+		<div class="modal-close-area right-area  js_modal_close"></div>
 	</div>
 
 </div><!-- END : Modal Wrapper -->
