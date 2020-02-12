@@ -18,6 +18,11 @@
 	left: 0;
 	width: 100%;
 	height: auto;
+	pointer-events: none;
+}
+
+.navigation-section .navigation-toggle-button .menu {
+	pointer-events: all;
 }
 
 .navigation-section .link {
@@ -33,6 +38,35 @@
 	height: 100%;
 	opacity: 0;
 	border: 0 !important;
+}
+
+/* - Sticky Navigation - */
+.navigation-section.sticky.show .navigation-sticky-info {
+	left: calc(((100vw - var(--container-width))/2) - 100vw );
+}
+
+.navigation-section .navigation-sticky-info {
+	position: fixed;
+	left: -200vw;
+	top: var(--space-25);
+	background-color: var(--light);
+	width: auto;
+	height: var(--space-75);
+	padding-top: 3.5px;
+	padding-right: var(--space-25);
+	transition: left .3s ease-out;
+}
+
+.navigation-section .navigation-sticky-info .logo {
+	width: 32px;
+}
+
+.navigation-section .navigation-sticky-info .logo * {
+	pointer-events: none;
+}
+
+.navigation-section .navigation-sticky-info .title {
+	line-height: 1;
 }
 
 @media( min-width: 640px )  {
@@ -89,14 +123,21 @@
 
 	/* - Sticky Navigation - */
 	.navigation-section .navigation-sticky-info {
+		position: relative;
+		left: auto !important;
+		top: auto !important;
+		height: auto;
+		width: 25%;
+		background-color: transparent;
+	}
+
+	.navigation-section .navigation-sticky-info .row {
 		display: none;
 	}
 
-	.navigation-section .navigation-sticky-info .title {
-		line-height: 1;
+	.navigation-section.sticky .navigation-sticky-info .row {
+		display: block;
 	}
-
-	.navigation-section.sticky .navigation-sticky-info { display: inline-block; }
 
 	.navigation-section.sticky {
 		position: fixed;
@@ -104,6 +145,14 @@
 		background-color: rgba(255,255,255,0.95);
 		box-shadow: 0px 1px 2px rgba(0,0,0,0.2), 0px 2px 6px rgba(0,0,0,0.2);
 		color: var(--dark);
+		top: 0;
+		left: 0;
+		transform: translateY(-200%);
+		transition: transform .4s ease-out;
+	}
+		
+	.navigation-section.sticky.show {
+		transform: translateY(0);
 	}
 
 	.navigation-section.sticky .navigation {
@@ -126,4 +175,8 @@
 		width: 100%;
 	}
 }
-@media( min-width: 1480px ) {}
+@media( min-width: 1480px ) {
+	.navigation-section .navigation-sticky-info .logo {
+		width: 42px;
+	}
+}

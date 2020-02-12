@@ -102,7 +102,7 @@ unset( $project );
 		<div id="page-content">
 
 			<!-- Navigation Section -->
-			<section class="navigation-section sticky space-25-top js_navigation_section">
+			<section class="navigation-section sticky show space-25-top js_navigation_section">
 				<div class="navigation-toggle-button row show-for-medium text-right">
 					<div class="container">
 						<button class="icon-button menu inline js_menu_button" tabindex="-1" style="background-image: url('../media/icon/icon-menu.svg<?php echo $ver ?>');"></button>
@@ -130,11 +130,18 @@ unset( $project );
 				?>
 				<div class="navigation row">
 					<div class="container">
-						<div class="navigation-sticky-info hide-for-medium columns small-12 large-3 inline-bottom space-min-top-bottom space-25-left">
-							<div class="title h5 strong"><?= $thePost->post_title ?></div>
-							<div class="location label strong text-uppercase text-neutral-4"><?= getContent( '', 'location' ) ?></div>
+						<div class="navigation-sticky-info columns small-12 large-3 inline-middle space-25-left">
+							<div class="row">
+								<div class="inline-middle space-min-right">
+									<a href="/" class="logo float-left"><img class="block" src="../media/indis-symbol-color.svg<?php echo $ver ?>"></a>	
+								</div>
+								<div class="inline-middle">
+									<div class="title h5 strong"><?= $thePost->post_title ?></div>
+									<div class="location label strong text-uppercase text-neutral-4"><?= getContent( '', 'location' ) ?></div>
+								</div>								
+							</div>
 						</div>
-						<div class="position-relative columns small-12 large-9 inline-bottom text-right space-50-right">
+						<div class="position-relative columns small-12 large-9 inline-middle text-right space-50-right">
 							<div class="link h4 strong text-uppercase show-for-medium">Menu</div>
 							<span class="link h6 strong text-uppercase space-min-top-bottom position-relative no-pointer">
 								Projects
