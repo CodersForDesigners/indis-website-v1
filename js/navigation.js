@@ -28,6 +28,10 @@ $( document ).on( "click", "a[ href ]", function ( event ) {
 		var domSection = document.getElementById( toSectionId );
 		window.scrollTo( { top: domSection.offsetTop, behavior: "smooth" } );
 	// }, 0 );
+
+	// Close the menu
+	$( ".js_navigation_section" ).removeClass( "open" );
+
 	return false;
 } );
 
