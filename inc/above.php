@@ -102,7 +102,7 @@ unset( $project );
 		<div id="page-content">
 
 			<!-- Navigation Section -->
-			<section class="navigation-section sticky show space-25-top js_navigation_section">
+			<section class="navigation-section space-25-top js_navigation_section">
 				<div class="navigation-toggle-button row show-for-medium text-right">
 					<div class="container">
 						<button class="icon-button menu inline js_menu_button" tabindex="-1" style="background-image: url('../media/icon/icon-menu.svg<?php echo $ver ?>');"></button>
