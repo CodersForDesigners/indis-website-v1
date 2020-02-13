@@ -124,7 +124,6 @@ var trackEngagementWithSections = function () {
 				    		event: "section-view",
 				    		currentSectionName: currentSectionName
 				    	} );
-				    console.log( "Section: " + currentSectionName )
 				    lastRecordedSection = currentSectionName;
 				}
 			}
