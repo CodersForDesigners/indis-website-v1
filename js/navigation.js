@@ -74,15 +74,18 @@ var intervalToCheckForEngagement = 250;
 var thresholdTimeForEngagement = 2000;
 var timeSpentOnASection = 0;
 
-var trackEngagementWithSections = function () {
+var thingsToDoOnEveryInterval = function () {
 
 	var currentScrollTop;
 	var previousScrollTop;
+	var $currentSection;
 	var currentSectionName;
 	var previousSectionName;
 	var sectionScrollTop;
 	var $currentNavItem;
 	var lastRecordedSection;
+	var $navigationItems = $( ".js_navigation_item" );
+	var $currentNavigationItem;
 
 	// Get all the sections in the reverse order
 	var $sections = Array.prototype.slice.call( $( "[ data-section ]" ) )
@@ -92,24 +95,33 @@ var trackEngagementWithSections = function () {
 					.reverse()
 					.map( function ( el ) { return $( el ) } );
 
-	return function trackEngagementWithSections () {
+	return function thingsToDoOnEveryInterval () {
 
 		var viewportHeight = $( window ).height();
 		currentScrollTop = window.scrollY || document.body.scrollTop;
+		$currentSection = null;
 		currentSectionName = null;
 
 		var _i
 		for ( _i = 0; _i < $sections.length; _i += 1 ) {
-			sectionScrollTop = $sections[ _i ].position().top;
+			$currentSection = $sections[ _i ];
+			sectionScrollTop = $currentSection.position().top;
 			if (
 				( currentScrollTop >= sectionScrollTop - viewportHeight / 2 )
 				&&
-				( currentScrollTop <= sectionScrollTop + $sections[ _i ].height() + viewportHeight / 2 )
+				( currentScrollTop <= sectionScrollTop + $currentSection.height() + viewportHeight / 2 )
 			) {
-				currentSectionName = $sections[ _i ].data( "section" );
+				currentSectionName = $currentSection.data( "section" );
+				currentSectionId = $currentSection.get( 0 ).id;
 				break;
 			}
 		}
+
+		// Mark the corresponding item in the navigation menu
+		$currentNavigationItem = $navigationItems
+							.removeClass( "active" )
+							.filter( "[ href $= '#" + currentSectionId + "' ]" )
+		$currentNavigationItem.addClass( "active" );
 
 		/*
 		 * If the previous and the current section are the same, then add time
@@ -140,7 +152,7 @@ var trackEngagementWithSections = function () {
 }();
 
 
-executeEvery( intervalToCheckForEngagement, trackEngagementWithSections )
+executeEvery( intervalToCheckForEngagement, thingsToDoOnEveryInterval )
 
 
 

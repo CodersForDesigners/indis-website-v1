@@ -153,7 +153,7 @@ unset( $project );
 								</select>
 							</span><br class="show-for-medium">
 							<?php foreach ( $navigationMenuItems as $item ) : ?>
-								<a href="<?= $item[ 'url' ] ?>" class="link h6 strong text-uppercase space-min-top-bottom position-relative"><?= $item[ 'label' ] ?></a><br class="show-for-medium">
+								<a href="<?= $item[ 'url' ] ?>" class="link h6 strong text-uppercase space-min-top-bottom position-relative js_navigation_item"><?= $item[ 'label' ] ?></a><br class="show-for-medium">
 							<?php endforeach; ?>
 						</div>
 					</div>
