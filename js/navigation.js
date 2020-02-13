@@ -26,7 +26,7 @@ $( document ).on( "click", "a[ href ]", function ( event ) {
 	var toSectionId = remainingUrl.slice( 1 );
 	// setTimeout( function () {
 		var domSection = document.getElementById( toSectionId );
-		window.scrollTo( { top: domSection.offsetTop - 50, behavior: "smooth" } );
+		window.scrollTo( { top: domSection.offsetTop, behavior: "smooth" } );
 	// }, 0 );
 	return false;
 } );
