@@ -191,9 +191,9 @@ var controlDisplayAndStickinessOfNavigationBar = function () {
 			$navigationBar.removeClass( "sticky" );
 
 		if ( currentScrollY > previousScrollY )
-			$navigationBar.removeClass( "show" );
-		else if ( previousScrollY - currentScrollY > scrollThreshold )
 			$navigationBar.addClass( "show" );
+		else if ( previousScrollY - currentScrollY > scrollThreshold )
+			$navigationBar.removeClass( "show" );
 
 		previousScrollY = currentScrollY;
 
