@@ -146,4 +146,49 @@ executeEvery( intervalToCheckForEngagement, trackEngagementWithSections )
 
 
 
+
+
+/*
+ *
+ * When scrolling through the page,
+ * 	1. Stick the navigation bar to the top after a certain point on the page
+ * 	2. Show the navigation bar while scrolling down, hide it while scrolling up
+ *
+ */
+var controlDisplayAndStickinessOfNavigationBar = function () {
+
+	var currentScrollY;
+	var previousScrollY = 0;
+
+	var $navigationBar = $( ".js_navigation_section" );
+	var scrollThreshold = 5;
+
+	// The `navigationBarStickyPoint` holds a jQuery DOM element before which the bar should not be sticky
+	var navigationBarStickyPoint = $( ".js_navigation_sticky_point" ).get( 0 );
+
+	return function controlDisplayAndStickinessOfNavigationBar ( event ) {
+
+		currentScrollY = window.scrollY || document.body.scrollTop;
+
+		if ( currentScrollY >= navigationBarStickyPoint.offsetTop )
+			$navigationBar.addClass( "sticky" );
+		else
+			$navigationBar.removeClass( "sticky" );
+
+		if ( currentScrollY > previousScrollY )
+			$navigationBar.removeClass( "show" );
+		else if ( previousScrollY - currentScrollY > scrollThreshold )
+			$navigationBar.addClass( "show" );
+
+		previousScrollY = currentScrollY;
+
+	};
+
+}();
+$( window ).on( "scroll", controlDisplayAndStickinessOfNavigationBar );
+
+
+
+
+
 } );
