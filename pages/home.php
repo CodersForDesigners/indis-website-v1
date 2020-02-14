@@ -44,7 +44,7 @@ $offers = getContent( [ ], 'offers_list' );
 			</div>
 			<?php foreach ( $projects as $project ) : ?>
 				<div class="project-item-container columns small-12 medium-6 large-4">
-					<a href="<?= $project[ 'permalink' ] ?>" class="project-item block fill-neutral-2" tabindex="-1">
+					<a href="<?= $project[ 'permalink' ] ?>" class="project-item block fill-neutral-2 js_project_item" tabindex="-1">
 						<img src="<?= getContent( '', 'cover_images -> 0 -> sizes -> large', $project[ 'ID' ] ) ?>">
 						<div class="project-card fill-dark space-25">
 							<div class="title h4 strong"><?= $project[ 'post_title' ] ?></div>
@@ -102,3 +102,4 @@ $offers = getContent( [ ], 'offers_list' );
 
 
 <?php require_once __DIR__ . '/../inc/below.php'; ?>
+<script type="text/javascript" src="/js/home.js<?= $ver ?>"></script>
