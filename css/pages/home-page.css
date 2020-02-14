@@ -157,9 +157,20 @@
 	}
 }
 
+.project-list-section .project-list .project-item-container .project-item .project-card {
+	transition: opacity .4s ease-out;
+}
+.project-list-section .project-list .project-item-container .project-item:hover .project-card {
+	opacity: 0.75;
+}
+
 @media( max-width: 1039px ) {
 	.project-list-section .project-list .project-item-container .project-item.in-view img {
-		transform: translate(-50%, -50%) scale(1.2);
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	.project-list-section .project-list .project-item-container .project-item.in-view .project-card {
+		opacity: 0.75;
 	}
 }
 
