@@ -105,7 +105,7 @@ unset( $project );
 			<section class="navigation-section space-25-top js_navigation_section">
 				<div class="navigation-toggle-button row show-for-medium text-right">
 					<div class="container">
-						<button class="icon-button menu inline js_menu_button" tabindex="-1" style="background-image: url('../media/icon/icon-menu.svg<?php echo $ver ?>');"></button>
+						<button class="icon-button menu clickable inline js_menu_button" tabindex="-1" style="background-image: url('../media/icon/icon-menu.svg<?php echo $ver ?>');"></button>
 					</div>
 				</div>
 				<?php
@@ -133,7 +133,7 @@ unset( $project );
 						<div class="navigation-sticky-info columns small-12 large-3 inline-middle space-25-left">
 							<div class="row">
 								<div class="inline-middle space-min-right">
-									<a href="/" class="logo float-left"><img class="block" src="../media/indis-symbol-color.svg<?php echo $ver ?>"></a>	
+									<a href="<?php echo $baseURL ?>" class="logo clickable float-left"><img class="block" src="../media/indis-symbol-color.svg<?php echo $ver ?>"></a>	
 								</div>
 								<div class="inline-middle">
 									<div class="title h5 strong"><?= $thePost->post_title ?></div>
@@ -145,7 +145,7 @@ unset( $project );
 							<div class="link h4 strong text-uppercase show-for-medium">Menu</div>
 							<span class="link h6 strong text-uppercase space-min-top-bottom position-relative no-pointer">
 								Projects
-								<select class="nested-link js_projects_selector hidden">
+								<select class="nested-link clickable js_projects_selector hidden">
 									<option data-href="<?= get_permalink( $thePost->ID ) ?>"><?= $thePost->post_title ?></option>
 									<?php foreach ( $allProjectsExcludingCurrent as $project ) : ?>
 										<option data-href="<?= get_permalink( $project[ 'ID' ] ) ?>"><?= $project[ 'post_title' ] ?></option>
@@ -153,7 +153,7 @@ unset( $project );
 								</select>
 							</span><br class="show-for-medium">
 							<?php foreach ( $navigationMenuItems as $item ) : ?>
-								<a href="<?= $item[ 'url' ] ?>" class="link h6 strong text-uppercase space-min-top-bottom position-relative js_navigation_item"><?= $item[ 'label' ] ?></a><br class="show-for-medium">
+								<a href="<?= $item[ 'url' ] ?>" class="link clickable h6 strong text-uppercase space-min-top-bottom position-relative js_navigation_item"><?= $item[ 'label' ] ?></a><br class="show-for-medium">
 							<?php endforeach; ?>
 						</div>
 					</div>

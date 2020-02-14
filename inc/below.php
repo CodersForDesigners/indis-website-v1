@@ -40,7 +40,7 @@
 					<div class="footer-address columns small-12 large-4 xlarge-3 xlarge-offset-1">
 						<div class="title h6 strong text-uppercase space-min-bottom">Corporate Address :</div>
 						<div class="address h4 text-neutral-2 space-min-bottom">69, 70, Kavuri Hills, <br>Madhapur, Hyderabad, <br>Telangana — 500033.</div>
-						<a href="/" class="link label strong text-red-2 text-uppercase inline-middle">Open in Google Maps <img class="link-icon inline-middle" src="../media/icon/icon-location-color.svg<?php echo $ver ?>"></a>
+						<a href="https://goo.gl/maps/jFcbmAJ1rhwwh5Wo6" target="_blank" class="link label strong text-red-2 text-uppercase inline-middle">Open in Google Maps <img class="link-icon inline-middle" src="../media/icon/icon-location-color.svg<?php echo $ver ?>"></a>
 					</div>
 				</div>
 			</div>

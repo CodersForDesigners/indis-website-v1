@@ -9,7 +9,11 @@
 	left: 0;
 	width: 100%;
 	height: auto;
+	pointer-events: none;
 }
+
+/* -- Required for all Clickable elements -- */
+.navigation-section .clickable { pointer-events: all; }
 
 .navigation-section .navigation-toggle-button {
 	position: fixed;

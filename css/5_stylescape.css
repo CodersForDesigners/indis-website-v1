@@ -660,11 +660,13 @@ select { cursor: pointer; }
 .carousel:before {
 	left: 0;
 	background-image: linear-gradient( to left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 90%);
+	opacity: 0.5;
 }
 
 .carousel:after {
 	right: 0;
 	background-image: linear-gradient( to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 90%);
+	opacity: 0.5;
 }
 
 .carousel.fill-dark:before {
@@ -841,7 +843,8 @@ select { cursor: pointer; }
 
 .carousel.carousel-mini {}
 .carousel.carousel-mini .carousel-list {
-	padding:var(--space-25) 0;
+	padding-top: var(--space-25);
+	padding-bottom: var(--space-25);
 }
 
 .carousel.carousel-mini .carousel-list .carousel-list-item {

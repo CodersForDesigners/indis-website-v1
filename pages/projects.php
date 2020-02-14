@@ -48,7 +48,7 @@ $events = getContent( [ ], 'events_list' );
 				</div>
 			</div>
 			<div class="project-card columns small-8 medium-4 fill-dark space-25">
-				<div class="logo space-min-bottom"><img class="block" src="../media/indis-logo-light.svg<?php echo $ver ?>"></div>
+				<div class="logo space-min-bottom"><a href="<?php echo $baseURL ?>" class="inline"><img class="block" src="../media/indis-logo-light.svg<?php echo $ver ?>"></a></div>
 				<div class="title h4 strong"><?= $thePost->post_title ?></div>
 				<div class="location label strong text-uppercase text-neutral-4"><?= getContent( '', 'location' ) ?></div>
 				<hr class="dash">
@@ -190,7 +190,7 @@ $events = getContent( [ ], 'events_list' );
 
 <!-- Carousel: Best Sellers -->
 <?php if ( ! empty( $bestsellers ) ) : ?>
-<div data-section="Best-sellers" class="carousel best-sellers indis-carousel js_carousel_container">
+<div data-section="Best-sellers" id="spotlight" class="carousel best-sellers indis-carousel js_carousel_container">
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
 			<div class="carousel-title h2 strong">
@@ -356,7 +356,7 @@ $events = getContent( [ ], 'events_list' );
 				<div class="location label strong text-uppercase text-neutral-2"><?= getContent( '', 'location' ) ?></div>
 				<hr class="dash">
 				<div class="address h6 text-neutral-2 space-min-top hide-for-small"><?= getContent( '', 'location_address' ) ?></div>
-				<a href="<?= getContent( '', 'location_google_maps_url' ) ?>" class="label strong text-red-2 text-uppercase space-min-top-bottom inline-middle">Open in Google Maps <img class="link-icon inline-middle" src="../media/icon/icon-location-color.svg<?php echo $ver ?>"></a>
+				<a href="<?= getContent( '', 'location_google_maps_url' ) ?>" target="_blank" class="label strong text-red-2 text-uppercase space-min-top-bottom inline-middle">Open in Google Maps <img class="link-icon inline-middle" src="../media/icon/icon-location-color.svg<?php echo $ver ?>"></a>
 			</div>
 			<div class="location-title h2 strong text-red-1 text-lowercase columns small-9 medium-5 xlarge-4"><span class="text-light">The best views</span> for 2 to 3kms in all directions</div>
 		</div>
@@ -374,8 +374,8 @@ $events = getContent( [ ], 'events_list' );
 			</div>
 			<div class="brochure-action fill-light columns small-10 small-offset-1 medium-7 medium-offset-0 large-6 inline-middle">
 				<div class="download-title h3 text-lowercase strong space-25-bottom">If you're in a hurry, <br>just <span class="text-red-2">download the <span class="text-uppercase">PDF</span> brochure</span></div>
-				<a href="" class="button fill-dark text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-4);">Download Now</a>
-				<div class="courier-description p text-neutral-2 space-min-top">Or, if you'd like a copy of the physical brochure couriered to your location. <br><a href="" class="text-red-2">Click Here</a></div>
+				<a href="" target="_blank" class="button fill-dark text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-4);">Download Now</a>
+				<div class="courier-description p text-neutral-2 space-min-top">Or, if you'd like a copy of the physical brochure couriered to your location. <br><a href="" target="_blank" class="text-red-2">Click Here</a></div>
 			</div>
 		</div>
 	</div>
@@ -637,7 +637,7 @@ $events = getContent( [ ], 'events_list' );
 					Vertical divisions on the railing ensure children cannot climb the railing.
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					Complaint with the <span style="color: #2E73D8;">Bureau of Indian Standards</span> National Building Code.
+					Compliant with the <span style="color: #2E73D8;">Bureau of Indian Standards</span> National Building Code.
 				</div>
 			</div>
 		</div>
@@ -809,7 +809,7 @@ $events = getContent( [ ], 'events_list' );
 			<div class="info columns small-12 medium-8 large-7 xlarge-6">
 				<div class="title h3 strong text-lowercase space-min-bottom">At indis, we don’t just build landmarks, <span class="text-red-2">we build Lifemarks.</span></div>
 				<div class="description p text-neutral-2 space-25-bottom">Built on the ethos of community living, you will always find more people sharing your interests and making life more meaningful. Sport plays an important role in character building. Kids need to explore and spread their wings to become well-rounded individuals, and adults need to stretch a little to uncover a healthier version of themselves.</div>
-				<a href="" class="button fill-red-2 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Discover How</a>
+				<a href="" target="blank" class="button fill-red-2 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Discover How</a>
 			</div>
 		</div>
 	</div>

@@ -36,7 +36,7 @@ $offers = getContent( [ ], 'offers_list' );
 		<div class="project-list row">
 			<div class="project-item-container columns small-12 medium-6 large-4">
 				<div class="project-list-intro space-25-left">
-					<div class="logo"><img class="block" src="../media/indis-logo-dark.svg<?php echo $ver ?>"></div>
+					<div class="logo"><a href="<?php echo $baseURL ?>" class="inline"><img class="block" src="../media/indis-logo-dark.svg<?php echo $ver ?>"></a></div>
 					<div class="list-title space-50-top-bottom">
 						<div class="h2 strong text-lowercase">Find an <span class="text-red-2">Indis</span> home near you</div>
 					</div>
@@ -64,7 +64,7 @@ $offers = getContent( [ ], 'offers_list' );
 
 <!-- Carousel: Offers -->
 <?php if ( ! empty( $offers ) ) : ?>
-<div data-section="Offers" id="offers" class="carousel indis-carousel js_navigation_sticky_point js_carousel_container">
+<div data-section="Offers" id="spotlight" class="carousel indis-carousel js_navigation_sticky_point js_carousel_container">
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
 			<div class="carousel-title h2 strong">
