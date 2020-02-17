@@ -708,6 +708,7 @@ select { cursor: pointer; }
 .indis-carousel .carousel-list .carousel-list-item {
 	padding-right: var(--space-min);
 	padding-top: var(--space-100);
+	width: calc( 5 * var(--space-100) );
 }
 
 .indis-carousel .carousel-list .carousel-list-item .card-index {
@@ -745,6 +746,9 @@ select { cursor: pointer; }
 @media( min-width: 640px )  {}
 @media( min-width: 1040px ) {
 	.indis-carousel .carousel-list .carousel-list-item {
+		width: calc( 4 * var(--space-100) );
+	}
+	.indis-carousel .carousel-list .carousel-list-item {
 		padding-right: var(--space-25);
 	}
 	.indis-carousel .carousel-list .carousel-list-item .carousel-card {
@@ -752,7 +756,7 @@ select { cursor: pointer; }
 	}
 }
 @media( min-width: 1480px ) {
-	.carousel .carousel-list .carousel-list-item {
+	.indis-carousel .carousel-list .carousel-list-item {
 		width: calc( 3 * var(--space-100) );
 	}
 	.indis-carousel .carousel-list .carousel-list-item .carousel-card {

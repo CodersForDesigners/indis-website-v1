@@ -15,8 +15,8 @@ $amenities = getContent( [ ], 'amenity' );
 	$amenityImages = getContent( [ ], 'amenities_images' );
 $constructionUpdateGroups = getContent( [ ], 'updates' );
 $engineeringPartners = getContent( [ ], 'engineering_partners' );
-$bestsellers = getContent( [ ], 'best_sellers_list' );
-	$numberOfBestsellers = str_pad( count( $bestsellers ), 2, '0', STR_PAD_LEFT );
+$spotlights = getContent( [ ], 'spotlight_list' );
+	$numberOfSpotlight = str_pad( count( $spotlights ), 2, '0', STR_PAD_LEFT );
 $events = getContent( [ ], 'events_list' );
 	$numberOfEvents = str_pad( count( $events ), 2, '0', STR_PAD_LEFT );
 
@@ -188,9 +188,9 @@ $events = getContent( [ ], 'events_list' );
 <!-- END: Action: Callback : Form -->
 
 
-<!-- Carousel: Best Sellers -->
-<?php if ( ! empty( $bestsellers ) ) : ?>
-<div data-section="Best-sellers" id="spotlight" class="carousel best-sellers indis-carousel js_carousel_container">
+<!-- Carousel: Spotlight -->
+<?php if ( ! empty( $spotlights ) ) : ?>
+<div data-section="Spotlight" id="spotlight" class="carousel spotlight indis-carousel js_carousel_container">
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
 			<div class="carousel-title h2 strong">
@@ -198,18 +198,21 @@ $events = getContent( [ ], 'events_list' );
 				<span class="text-red-2">spotlight</span> <br>apartment <br>units
 			</div>
 		</div>
-		<?php foreach ( $bestsellers as $index => $bestseller ) : ?>
+		<?php foreach ( $spotlights as $index => $spotlight ) : ?>
 			<div class="carousel-list-item js_carousel_item <?php if ( $index >= 4 ) echo 'hidden' ?>">
 				<div class="card-index text-neutral-2">
 					<div class="count h3 inline-bottom"><?= str_pad( $index + 1, 2, '0', STR_PAD_LEFT ) ?></div>
-					<div class="total label strong text-uppercase inline-bottom"><?= $numberOfBestsellers ?></div>
+					<div class="total label strong text-uppercase inline-bottom"><?= $numberOfSpotlight ?></div>
 				</div>
-				<div class="carousel-card fill-dark">
+				<div class="carousel-card fill-dark" style="background-image: url( '<?= $spotlight[ 'spotlight_thumbnail' ][ 'sizes' ][ 'small' ] ?>' );">
 					<div class="info space-25">
+						<div class="project label strong text-neutral-2">PBEL City, HYD</div>
 						<div class="info-box">
-							<div class="price h5 condensed"><?= $bestseller[ 'best_sellers_price' ] ?></div>
-							<div class="title h4 strong"><?= $bestseller[ 'best_sellers_title' ] ?></div>
+							<span class="title h5 strong"><?= $spotlight[ 'spotlight_title' ] ?></span>
+							<span class="description p text-neutral-2"><?= $spotlight[ 'spotlight_description' ] ?></span>
 						</div>
+						<div class="price h5 condensed"><?= $spotlight[ 'spotlight_price' ] ?></div>
+						<div class="time h6 condensed"><span class="text-uppercase">Valid For :</span> <?= getIntervalString( $spotlight[ 'spotlight_expiry' ] ) ?></div>
 					</div>
 				</div>
 				<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
@@ -266,7 +269,7 @@ $events = getContent( [ ], 'events_list' );
 			<div class="carousel-card fill-red-2">
 				<div class="info space-25">
 					<div class="unlock-icon"><img class="block" src="../media/icon/icon-lock-light.svg<?php echo $ver ?>"></div>
-					<div class="unlock-title h3 strong text-lowercase space-min-bottom">Unlock all <br><span class="text-dark"><?= (int) $numberOfBestsellers ?> Floorplan</span> <br>details</div>
+					<div class="unlock-title h3 strong text-lowercase space-min-bottom">Unlock all <br><span class="text-dark"><?= (int) $numberOfSpotlight ?> Floorplan</span> <br>details</div>
 					<div class="unlock-form columns small-12">
 						<form action="">
 							<div class="row">
@@ -338,7 +341,7 @@ $events = getContent( [ ], 'events_list' );
 	</div>
 </div>
 <?php endif; ?>
-<!-- END: Carousel: Best Sellers -->
+<!-- END: Carousel: Spotlight -->
 
 
 <!-- Location Section -->
@@ -818,7 +821,7 @@ $events = getContent( [ ], 'events_list' );
 
 <!-- Carousel: Events -->
 <?php if ( ! empty( $events ) ) : ?>
-<div data-section="Events" class="carousel indis-carousel js_carousel_container space-75-bottom">
+<div data-section="Events" class="carousel events indis-carousel js_carousel_container space-75-bottom">
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
 			<div class="carousel-title h2 strong text-lowercase">
@@ -829,9 +832,10 @@ $events = getContent( [ ], 'events_list' );
 			<div class="carousel-list-item js_carousel_item">
 				<div class="card-index text-neutral-2">
 					<div class="count h3 inline-bottom"><?= str_pad( $index + 1, 2, '0', STR_PAD_LEFT ) ?></div>
-					<div class="total label strong text-uppercase inline-bottom"><?= $numberOfBestsellers ?></div>
+					<div class="total label strong text-uppercase inline-bottom"><?= $numberOfSpotlight ?></div>
 				</div>
-				<div class="carousel-card fill-neutral-2">
+				<div class="carousel-card fill-dark">
+					<div class="thumbnail" style="background-image: url( '<?= $event[ 'event_thumbnail' ][ 'sizes' ][ 'small' ] ?>' );"></div>
 					<div class="info space-25">
 						<div class="price h5 condensed"><?= $event[ 'event_sub_title' ] ?></div>
 						<div class="title h4 strong"><?= $event[ 'event_title' ] ?></div>
