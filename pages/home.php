@@ -85,7 +85,7 @@ $numberOfSpotlights = str_pad( count( $featuredSpotlights ), 2, '0', STR_PAD_LEF
 			</div>
 		</div>
 		<?php foreach ( $featuredSpotlights as $index => $spotlight ) : ?>
-			<div class="carousel-list-item js_carousel_item <?php if ( $index >= 4 ) echo 'hidden' ?>">
+			<div class="carousel-list-item js_carousel_item">
 				<div class="card-index text-neutral-2">
 					<div class="count h3 inline-bottom"><?= str_pad( $index + 1, 2, '0', STR_PAD_LEFT ) ?></div>
 					<div class="total label strong text-uppercase inline-bottom"><?= $numberOfSpotlights ?></div>
