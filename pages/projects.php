@@ -829,13 +829,14 @@ $events = getContent( [ ], 'events_list' );
 			</div>
 		</div>
 		<?php foreach ( $events as $index => $event ) : ?>
-			<div class="carousel-list-item js_carousel_item">
+			<?php $hasYoutubeURL = ! empty( $event[ 'youtube_embed' ] ); ?>
+			<div <?php if ( $hasYoutubeURL ) echo 'id="event-' . $index . '"' ?> class="carousel-list-item js_carousel_item <?php if ( $hasYoutubeURL ) echo 'youtube js_modal_trigger' ?>" <?php if ( $hasYoutubeURL ) echo 'data-mod-id="youtube-video"' ?> <?php if ( $hasYoutubeURL ) echo 'data-src="' . $event[ 'youtube_embed' ] . '"' ?>>
 				<div class="card-index text-neutral-2">
 					<div class="count h3 inline-bottom"><?= str_pad( $index + 1, 2, '0', STR_PAD_LEFT ) ?></div>
 					<div class="total label strong text-uppercase inline-bottom"><?= $numberOfEvents ?></div>
 				</div>
 				<div class="carousel-card fill-dark">
-					<div class="thumbnail" style="background-image: url( '<?= $event[ 'event_thumbnail' ][ 'sizes' ][ 'small' ] ?>' );"></div>
+					<div class="thumbnail <?php if ( $hasYoutubeURL ) echo 'cursor-pointer' ?>" style="background-image: url( '<?= $event[ 'event_thumbnail' ][ 'sizes' ][ 'small' ] ?>' );"></div>
 					<div class="info space-25">
 						<div class="price h5 condensed"><?= $event[ 'event_sub_title' ] ?></div>
 						<div class="title h4 strong"><?= $event[ 'event_title' ] ?></div>

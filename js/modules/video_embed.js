@@ -123,12 +123,49 @@ $( document ).one( "youtube/player/create", function ( event, domVideo ) {
 
 $( function () {
 
+
 	// Wait for a bit
 	waitFor( 3 )
 		.then( function () {
 			// Initialize, load and setup the video embeds and their players
-			initialiseVideoEmbeds();
-			setupYoutubePlayers();
+			$( ".js_video_embed" ).each( function ( _i, domVideoEmbed ) {
+				initialiseVideoEmbed( domVideoEmbed );
+			} );
 		} )
+
+
+	var $youtubeModal = $( ".js_modal_box_content[ data-mod-id = 'youtube-video' ]" );
+	var $videoEmbed = $youtubeModal.find( ".js_video_embed" );
+	var domVideoEmbed = $videoEmbed.get( 0 );
+	var youtubeIdRegex = /\?v=([^&\s]+)(?:&|$)/;
+
+	// When YouTube modal is triggered for opening
+	$( document ).on( "modal/open/youtube-video", function ( event, data ) {
+
+		var $modalTrigger = data.$trigger;
+
+		// Extract the YouTube video ID from the data attribute
+		var youtubeIdMatches = $modalTrigger.data( "src" ).match( youtubeIdRegex );
+		if ( ! youtubeIdMatches )
+			return;
+		var youtubeId = youtubeIdMatches[ 1 ];
+
+		// Set the data-src attribute on the video embed element
+		$videoEmbed.data( "src", youtubeId );
+		// Store the id of the modal trigger element, it'll be used for destroying the player later
+		$youtubeModal.data( "player", $modalTrigger.attr( "id" ) );
+
+		// Now, actually set up the video embed
+		initialiseVideoEmbed( domVideoEmbed, youtubeId );
+		// $( document ).trigger( "youtube/player/create", $modalTrigger.get( 0 ) );
+
+	} );
+
+	// When YouTube modal is closing
+	$( document ).on( "modal/close/youtube-video", function ( event ) {
+		var playerId = $youtubeModal.data( "player" );
+		// $( document ).trigger( "youtube/player/destroy", playerId );
+		destroyVideoEmbed( domVideoEmbed );
+	} );
 
 } );
