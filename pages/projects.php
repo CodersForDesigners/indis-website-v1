@@ -832,7 +832,7 @@ $events = getContent( [ ], 'events_list' );
 			<div class="carousel-list-item js_carousel_item">
 				<div class="card-index text-neutral-2">
 					<div class="count h3 inline-bottom"><?= str_pad( $index + 1, 2, '0', STR_PAD_LEFT ) ?></div>
-					<div class="total label strong text-uppercase inline-bottom"><?= $numberOfSpotlight ?></div>
+					<div class="total label strong text-uppercase inline-bottom"><?= $numberOfEvents ?></div>
 				</div>
 				<div class="carousel-card fill-dark">
 					<div class="thumbnail" style="background-image: url( '<?= $event[ 'event_thumbnail' ][ 'sizes' ][ 'small' ] ?>' );"></div>
