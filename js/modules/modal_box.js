@@ -45,14 +45,6 @@ $( function () {
 		$( document.body ).removeClass( "modal-open" ); // Un-freeze the page layer
 		$activeModal.removeClass( "active" );	// Hide the modal content
 
-		var $videoEmbeds = $( event.target )
-			.closest( ".js_modal_box" )
-			.find( ".js_video_embed" );
-		$videoEmbeds.each( function ( _i, el ) {
-			unsetVideoEmbed( el );
-			setVideoEmbed( el );
-		} )
-
 		// Form reset operations
 		$( ".form-error" ).removeClass( "form-error" );
 
