@@ -269,7 +269,7 @@ $events = getContent( [ ], 'events_list' );
 			<div class="carousel-card fill-red-2">
 				<div class="info space-25">
 					<div class="unlock-icon"><img class="block" src="../media/icon/icon-lock-light.svg<?php echo $ver ?>"></div>
-					<div class="unlock-title h3 strong text-lowercase space-min-bottom">Unlock all <br><span class="text-dark"><?= (int) $numberOfSpotlight ?> Spotlight</span> <br>floorplan</div>
+					<div class="unlock-title h3 strong text-lowercase space-min-bottom">Unlock all <br><span class="text-dark"><?= (int) $numberOfSpotlight ?> Spotlight</span> <br>floorplans</div>
 					<div class="unlock-form columns small-12">
 						<form action="">
 							<div class="row">
