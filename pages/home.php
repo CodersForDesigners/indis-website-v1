@@ -75,9 +75,9 @@ $numberOfSpotlights = str_pad( count( $featuredSpotlights ), 2, '0', STR_PAD_LEF
 <!-- END: Project List Section -->
 
 
-<!-- Carousel: Offers -->
+<!-- Carousel: Spotlights -->
 <?php if ( ! empty( $featuredSpotlights ) ) : ?>
-<div data-section="Offers" id="spotlight" class="carousel indis-carousel js_navigation_sticky_point js_carousel_container">
+<div data-section="Spotlight" id="spotlight" class="carousel spotlight indis-carousel js_carousel_container">
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
 			<div class="carousel-title h2 strong">
@@ -107,13 +107,13 @@ $numberOfSpotlights = str_pad( count( $featuredSpotlights ), 2, '0', STR_PAD_LEF
 	</div>
 	<div class="carousel-controls clearfix">
 		<div class="container">
-			<div class="prev float-left"><button class="button fill-light js_pager" data-dir="left"><img class="block" src="../media/icon/icon-left-triangle-dark.svg<?php echo $ver ?>"></button></div>
-			<div class="next float-right"><button class="button fill-light js_pager" data-dir="right"><img class="block" src="../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>"></button></div>
+			<div class="prev float-left"><button class="button js_pager" data-dir="left"><img class="block" src="../media/icon/icon-left-triangle-dark.svg<?php echo $ver ?>"></button></div>
+			<div class="next float-right"><button class="button js_pager" data-dir="right"><img class="block" src="../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>"></button></div>
 		</div>
 	</div>
 </div>
 <?php endif; ?>
-<!-- END: Carousel: Offers -->
+<!-- END: Carousel: Spotlights -->
 
 
 <?php require_once __DIR__ . '/../inc/below.php'; ?>
