@@ -9,8 +9,6 @@ require_once __DIR__ . '/../inc/above.php';
 // In the context of this page,
 // 	`allProjectsExcludingCurrent` literally refers to "all the projects"
 $projects = &$allProjectsExcludingCurrent;
-$offers = getContent( [ ], 'offers_list' );
-	$numberOfOffers = str_pad( count( $offers ), 2, '0', STR_PAD_LEFT );
 
 ?>
 
@@ -60,45 +58,6 @@ $offers = getContent( [ ], 'offers_list' );
 	</div>
 </section>
 <!-- END: Project List Section -->
-
-
-<!-- Carousel: Offers -->
-<?php if ( ! empty( $offers ) ) : ?>
-<div data-section="Offers" id="spotlight" class="carousel indis-carousel js_navigation_sticky_point js_carousel_container">
-	<div class="carousel-list js_carousel_content">
-		<div class="carousel-list-item js_carousel_item">
-			<div class="carousel-title h2 strong">
-				<!-- <span class="text-red-2">offers</span> <br>and best <br>sellers -->
-				<span class="text-red-2">spotlight</span> <br>apartment <br>units
-			</div>
-		</div>
-		<?php foreach ( $offers as $index => $offer ) : ?>
-			<div class="carousel-list-item js_carousel_item">
-				<div class="card-index text-neutral-2">
-					<div class="count h3 inline-bottom"><?= str_pad( $index + 1, 2, '0', STR_PAD_LEFT ) ?></div>
-					<div class="total label strong text-uppercase inline-bottom"><?= $numberOfOffers ?></div>
-				</div>
-				<div class="carousel-card fill-dark">
-					<div class="info space-25">
-						<div class="title h4 strong"><?= $offer[ 'offer_title' ] ?></div>
-						<div class="price h5 condensed text-neutral-2"><?= $offer[ 'offer_price' ] ?></div>
-						<div class="project label strong text-neutral-2">PBEL City, HYD</div>
-						<div class="time h6 condensed space-min-top"><span class="text-uppercase">Valid For :</span> <?= getIntervalString( $offer[ 'offer_expiry' ] ) ?></div>
-					</div>
-				</div>
-				<a href="<?= $offer[ 'offer_page_url' ] ?>" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
-			</div>
-		<?php endforeach; ?>
-	</div>
-	<div class="carousel-controls clearfix">
-		<div class="container">
-			<div class="prev float-left"><button class="button fill-light js_pager" data-dir="left"><img class="block" src="../media/icon/icon-left-triangle-dark.svg<?php echo $ver ?>"></button></div>
-			<div class="next float-right"><button class="button fill-light js_pager" data-dir="right"><img class="block" src="../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>"></button></div>
-		</div>
-	</div>
-</div>
-<?php endif; ?>
-<!-- END: Carousel: Offers -->
 
 
 <?php require_once __DIR__ . '/../inc/below.php'; ?>
