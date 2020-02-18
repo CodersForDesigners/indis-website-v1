@@ -8,6 +8,33 @@
 @media( min-width: 1040px ) {}
 @media( min-width: 1480px ) {}
 
+.blog-page .blog-header {
+	padding-top: var(--space-min);
+	padding-left: var(--space-min);
+	padding-bottom: var(--space-25);
+}
+
+.blog-page .blog-header .logo {
+	width: 75px;
+	padding: var(--space-min) 0;
+}
+
+@media( min-width: 640px )  {}
+@media( min-width: 1040px ) {
+	.blog-page .blog-header {
+		padding-top: var(--space-25);
+		padding-left: var(--space-25);
+		padding-bottom: var(--space-min);
+	}
+
+	.blog-page .blog-header .logo {
+		width: 85px;
+	}
+}
+	
+@media( min-width: 1480px ) {
+}
+
 
 
 .blog-page .blog-title {}

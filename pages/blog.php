@@ -16,10 +16,11 @@ require_once __DIR__ . '/../inc/above.php';
 
 <!-- Blog Page -->
 <section class="blog-page">
-	<div class="blog-header space-100-bottom fill-dark">
+	<div class="blog-header fill-dark">
 		<div class="container">
 			<div class="row">
 				<div class="columns small-12">
+					<div class="logo"><a href="<?php echo $baseURL ?>" class="inline"><img class="block" src="../media/indis-logo-light.svg<?php echo $ver ?>"></a></div>
 				</div>
 			</div>
 		</div>
