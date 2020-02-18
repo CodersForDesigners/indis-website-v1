@@ -34,13 +34,19 @@ else
  */
 if ( cmsIsEnabled() ) {
 	$thePost = getCurrentPost( $urlSlug, $postType );
-	if ( empty( $thePost ) ) {
+	if ( empty( $thePost ) and ! in_array( $postType, [ 'page', null ] ) ) {
 		// echo 'Please create a corresponding page or post with the slug' . '"' . $urlSlug . '"' . 'in the CMS.';
 		http_response_code( 404 );
 		return header( 'Location: /', true, 302 );
 		exit;
 	}
-	else
+	// If there is neither a corresponding post in the database nor a dedicated template for the given route, return a 404 and redirect
+	else if ( empty( $thePost ) and ! $hasDedicatedTemplate ) {
+		http_response_code( 404 );
+		return header( 'Location: /', true, 302 );
+		exit;
+	}
+	else if ( ! empty( $thePost ) )
 		$postId = $thePost->ID;
 }
 
@@ -49,10 +55,11 @@ if ( cmsIsEnabled() ) {
 $siteTitle = getContent( '', 'page_title', $urlSlug ) ?: getContent( 'Indis', 'page_title' );
 $pageUrl = $siteUrl . $requestPath;
 
-if ( cmsIsEnabled() )
-	$pageTitle = $thePost->post_title . ' | ' . $siteTitle;
+// Build the Page Title ( if an explicit one is set, use that )
+if ( cmsIsEnabled() and ! empty( $thePost ) )
+	$pageTitle = ( $pageTitle ?? $thePost->post_title ) . ' | ' . $siteTitle;
 else
-	$pageTitle = $siteTitle;
+	$pageTitle = empty( $pageTitle ) ? $siteTitle : ( $pageTitle . ' | ' . $siteTitle );
 
 
 // Get the page's image for SEO and other related purposes
