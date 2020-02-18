@@ -1309,19 +1309,19 @@
 	background-size: 100% auto;
 }
 
-.spotlight .carousel-list .carousel-list-item:not(:first-child):not(:last-child) .info .info-box {
+.spotlight .carousel-list .carousel-list-item:not(:first-child) .info .info-box {
 	height: 126px;
 	overflow: hidden;
 }
-.spotlight .carousel-list .carousel-list-item:not(:first-child):not(:last-child) .info .info-box .title {
+.spotlight .carousel-list .carousel-list-item:not(:first-child) .info .info-box .title {
 	line-height: 20px;
 }
 
-.spotlight .carousel-list .carousel-list-item:not(:first-child):not(:last-child) .info .info-box .title:after {
+.spotlight .carousel-list .carousel-list-item:not(:first-child) .info .info-box .title:after {
 	content: '\00a0';
 }
 	
-.spotlight .carousel-list .carousel-list-item:not(:first-child):not(:last-child) .info .info-box .description {
+.spotlight .carousel-list .carousel-list-item:not(:first-child) .info .info-box .description {
 	line-height: 20px;
 }
 
@@ -1379,16 +1379,16 @@
 @media( min-width: 640px )  {
 }
 @media( min-width: 1040px ) {
-	.spotlight .carousel-list .carousel-list-item:not(:first-child):not(:last-child) .info .info-box {
+	.spotlight .carousel-list .carousel-list-item:not(:first-child) .info .info-box {
 		height: 140px;
 	}
 
-	.spotlight .carousel-list .carousel-list-item:not(:first-child):not(:last-child) .info .info-box .title {
+	.spotlight .carousel-list .carousel-list-item:not(:first-child) .info .info-box .title {
 		font-size: 2.2rem;
 		line-height: 23px;
 	}
 		
-	.spotlight .carousel-list .carousel-list-item:not(:first-child):not(:last-child) .info .info-box .description {
+	.spotlight .carousel-list .carousel-list-item:not(:first-child) .info .info-box .description {
 		font-size: 1.6rem;
 		line-height: 21px;
 	}
