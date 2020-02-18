@@ -101,7 +101,7 @@ $numberOfSpotlights = str_pad( count( $featuredSpotlights ), 2, '0', STR_PAD_LEF
 						<div class="time h6 condensed"><span class="text-uppercase">Valid For :</span> <?= getIntervalString( $spotlight[ 'spotlight_expiry' ] ) ?></div>
 					</div>
 				</div>
-				<a href="<?= $spotlight[ 'permalink' ] ?>" target="_blank" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Visit Project</a>
+				<a href="<?= $spotlight[ 'permalink' ] ?>?scrollto=spotlight" target="_blank" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Visit Project</a>
 			</div>
 		<?php endforeach; ?>
 	</div>
