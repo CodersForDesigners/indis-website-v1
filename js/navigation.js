@@ -5,6 +5,14 @@ $( function ( $ ) {
 
 
 
+function smoothScrollTo ( hash ) {
+	if ( ! hash )
+		return;
+	var locationId = hash.replace( "#", "" );
+	var domLocation = document.getElementById( locationId );
+	window.scrollTo( { top: domLocation.offsetTop, behavior: "smooth" } );
+}
+
 /*
  *
  * Smooth-scroll to sections
@@ -201,6 +209,23 @@ var controlDisplayAndStickinessOfNavigationBar = function () {
 
 }();
 $( window ).on( "scroll", controlDisplayAndStickinessOfNavigationBar );
+
+
+
+
+/*
+ *
+ * If the URL has a hash value,
+ * 	smooth-scroll to that section
+ *	and restore the hash to the URL
+ *
+ */
+// The hash was removed but cached in this variable
+if ( window.__BFS.scrollTo ) {
+	smoothScrollTo( window.__BFS.scrollTo );
+	var fullURL = location.origin + location.pathname + location.search + window.__BFS.scrollTo;
+	window.history.replaceState( { }, "", fullURL )
+}
 
 
 

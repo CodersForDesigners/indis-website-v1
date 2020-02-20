@@ -116,6 +116,22 @@
 
 	<!--
 	*
+	*	Prevent browsers from (non-smooth) scrolling when a hash is in the URL
+	*
+	- -->
+	<script type="text/javascript">
+
+		if ( window.location.hash ) {
+			window.__BFS = window.__BFS || { };
+			window.__BFS.scrollTo = window.location.hash;
+			window.history.replaceState( { }, "", location.origin + location.pathname + location.search )
+		}
+
+	</script>
+
+
+	<!--
+	*
 	*	Enqueue Files
 	*
 	- -->
