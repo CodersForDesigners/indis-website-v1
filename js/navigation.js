@@ -31,11 +31,7 @@ $( document ).on( "click", "a[ href ]", function ( event ) {
 	event.preventDefault();
 	event.stopPropagation();
 	event.stopImmediatePropagation();
-	var toSectionId = remainingUrl.slice( 1 );
-	// setTimeout( function () {
-		var domSection = document.getElementById( toSectionId );
-		window.scrollTo( { top: domSection.offsetTop, behavior: "smooth" } );
-	// }, 0 );
+	smoothScrollTo( remainingUrl );
 
 	// Close the menu
 	$( ".js_navigation_section" ).removeClass( "open" );
