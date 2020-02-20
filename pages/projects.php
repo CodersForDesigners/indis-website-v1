@@ -340,6 +340,9 @@ $events = getContent( [ ], 'events_list' );
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	$( ".js_navigation_item" ).filter( "[ href $= '#spotlight' ]" ).removeClass( "hidden" );
+</script>
 <?php endif; ?>
 <!-- END: Carousel: Spotlight -->
 
