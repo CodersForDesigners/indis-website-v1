@@ -182,14 +182,29 @@ var controlDisplayAndStickinessOfNavigationBar = function () {
 	var $navigationBar = $( ".js_navigation_section" );
 	var scrollThreshold = 5;
 
+	/*
+	 * Get the navigation bar sticky point
+	 *
+	 * The sticky point can be a DOM element, or a value set in CSS
+	 *
+	 */
 	// The `navigationBarStickyPoint` holds a jQuery DOM element before which the bar should not be sticky
-	var navigationBarStickyPoint = $( ".js_navigation_sticky_point" ).get( 0 );
+	var navigationBarStickyPoint = $( ".js_navigation_sticky_point" ).get( 0 ) || getComputedStyle( document.documentElement );
 
 	return function controlDisplayAndStickinessOfNavigationBar ( event ) {
 
+		var stickyOffset;
+
+		if ( ! navigationBarStickyPoint )
+			return;
+		else if ( navigationBarStickyPoint.constructor.name === "CSSStyleDeclaration" )
+			stickyOffset = parseInt( navigationBarStickyPoint.getPropertyValue( "--navigation-sticky-point" ), 10 );
+		else if ( navigationBarStickyPoint.constructor.name === "HTMLHtmlElement" )
+			stickyOffset = navigationBarStickyPoint.offsetTop
+
 		currentScrollY = window.scrollY || document.body.scrollTop;
 
-		if ( currentScrollY >= navigationBarStickyPoint.offsetTop )
+		if ( currentScrollY >= stickyOffset )
 			$navigationBar.addClass( "sticky" );
 		else
 			$navigationBar.removeClass( "sticky" );

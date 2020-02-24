@@ -137,6 +137,41 @@
 	- -->
 	<!-- Stylesheet -->
 	<?php require __DIR__ . '/../style.php'; ?>
+	<!-- Set the navigation bar sticky point -->
+	<style type="text/css">
+
+		<?php if ( getContent( false, 'navigation_bar_sticky_point -> S' ) ) : ?>
+			:root {
+				--navigation-sticky-point: <?= getContent( '', 'navigation_bar_sticky_point -> S' ) ?>;
+			}
+		<?php endif; ?>
+
+		<?php if ( getContent( false, 'navigation_bar_sticky_point -> M' ) ) : ?>
+			@media( min-width: 640px )  {
+				:root {
+					--navigation-sticky-point: <?= getContent( false, 'navigation_bar_sticky_point -> M' ) ?>;
+				}
+			}
+		<?php endif; ?>
+
+		<?php if ( getContent( false, 'navigation_bar_sticky_point -> L' ) ) : ?>
+			@media( min-width: 1040px ) {
+				:root {
+					--navigation-sticky-point: <?= getContent( false, 'navigation_bar_sticky_point -> L' ) ?>;
+				}
+			}
+		<?php endif; ?>
+
+		<?php if ( getContent( false, 'navigation_bar_sticky_point -> XL' ) ) : ?>
+			@media( min-width: 1480px ) {
+				:root {
+					--navigation-sticky-point: <?= getContent( false, 'navigation_bar_sticky_point -> XL' ) ?>;
+				}
+			}
+		<?php endif; ?>
+
+	</style>
+
 	<!-- jQuery 3 -->
 	<script type="text/javascript" src="plugins/jquery/jquery-3.0.0.min.js<?php echo $ver ?>"></script>
 	<!-- Slick Carousel -->
