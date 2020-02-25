@@ -154,7 +154,11 @@ unset( $project );
 							<span class="link h6 strong text-uppercase space-min-top-bottom position-relative no-pointer">
 								Projects
 								<select class="nested-link clickable js_projects_selector hidden">
-									<option data-href="<?= get_permalink( $thePost->ID ) ?>"><?= $thePost->post_title ?></option>
+									<?php if ( $postType === 'projects' ) : ?>
+										<option data-href="<?= get_permalink( $thePost->ID ) ?>"><?= $thePost->post_title ?></option>
+									<?php else : ?>
+										<option disabled selected>Select Project</option>
+									<?php endif; ?>
 									<?php foreach ( $allProjectsExcludingCurrent as $project ) : ?>
 										<option data-href="<?= get_permalink( $project[ 'ID' ] ) ?>"><?= $project[ 'post_title' ] ?></option>
 									<?php endforeach; ?>
