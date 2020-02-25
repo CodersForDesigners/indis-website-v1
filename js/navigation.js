@@ -197,9 +197,9 @@ var controlDisplayAndStickinessOfNavigationBar = function () {
 
 		if ( ! navigationBarStickyPoint )
 			return;
-		else if ( navigationBarStickyPoint.constructor.name === "CSSStyleDeclaration" )
+		else if ( navigationBarStickyPoint.constructor.name.indexOf( "CSS" ) !== -1 )
 			stickyOffset = parseInt( navigationBarStickyPoint.getPropertyValue( "--navigation-sticky-point" ), 10 );
-		else if ( navigationBarStickyPoint.constructor.name === "HTMLHtmlElement" )
+		else if ( navigationBarStickyPoint.constructor.name.indexOf( "HTML" ) !== -1 )
 			stickyOffset = navigationBarStickyPoint.offsetTop
 
 		currentScrollY = window.scrollY || document.body.scrollTop;
