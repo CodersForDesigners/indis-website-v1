@@ -675,7 +675,7 @@
 	display: none;
 }
 
-@media (orientation: portrait) {
+@media (orientation: portrait) and (max-width: 639px) {
 	.plans-section .plans .plan .plan-viewer + .help-message {
 		display: block;
 	}
