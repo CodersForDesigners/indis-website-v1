@@ -659,7 +659,7 @@
 	z-index: 1;
 	width: 100%;
 	height: auto;
-	padding-bottom: 75vh;
+	padding-bottom: 75%;
 }
 .plans-section .plans .plan .plan-viewer iframe.plan-embed {
 	display: block;
@@ -671,10 +671,13 @@
 	height: 100%;
 }
 
-@media( min-width: 640px )  {
-	.plans-section .plans .plan .plan-viewer {
-		/*padding-bottom: 62.5%;*/
-		padding-bottom: 75%;
+.plans-section .plans .plan .plan-viewer + .help-message {
+	display: none;
+}
+
+@media (orientation: portrait) {
+	.plans-section .plans .plan .plan-viewer + .help-message {
+		display: block;
 	}
 }
 
