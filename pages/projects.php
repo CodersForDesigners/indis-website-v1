@@ -87,7 +87,7 @@ $events = getContent( [ ], 'events_list' );
 
 
 <!-- Intro Section -->
-<section data-section="Intro" class="intro-section js_navigation_sticky_point">
+<section data-section="Intro" class="intro-section">
 	<div class="container">
 		<div class="row">
 			<div class="columns small-12 medium-10 large-6 large-offset-1">
