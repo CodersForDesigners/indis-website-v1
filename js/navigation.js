@@ -5,6 +5,14 @@ $( function ( $ ) {
 
 
 
+function smoothScrollTo ( hash ) {
+	if ( ! hash )
+		return;
+	var locationId = hash.replace( "#", "" );
+	var domLocation = document.getElementById( locationId );
+	window.scrollTo( { top: domLocation.offsetTop, behavior: "smooth" } );
+}
+
 /*
  *
  * Smooth-scroll to sections
@@ -23,11 +31,7 @@ $( document ).on( "click", "a[ href ]", function ( event ) {
 	event.preventDefault();
 	event.stopPropagation();
 	event.stopImmediatePropagation();
-	var toSectionId = remainingUrl.slice( 1 );
-	// setTimeout( function () {
-		var domSection = document.getElementById( toSectionId );
-		window.scrollTo( { top: domSection.offsetTop, behavior: "smooth" } );
-	// }, 0 );
+	smoothScrollTo( remainingUrl );
 
 	// Close the menu
 	$( ".js_navigation_section" ).removeClass( "open" );
@@ -178,14 +182,29 @@ var controlDisplayAndStickinessOfNavigationBar = function () {
 	var $navigationBar = $( ".js_navigation_section" );
 	var scrollThreshold = 5;
 
+	/*
+	 * Get the navigation bar sticky point
+	 *
+	 * The sticky point can be a DOM element, or a value set in CSS
+	 *
+	 */
 	// The `navigationBarStickyPoint` holds a jQuery DOM element before which the bar should not be sticky
-	var navigationBarStickyPoint = $( ".js_navigation_sticky_point" ).get( 0 );
+	var navigationBarStickyPoint = $( ".js_navigation_sticky_point" ).get( 0 ) || getComputedStyle( document.documentElement );
 
 	return function controlDisplayAndStickinessOfNavigationBar ( event ) {
 
+		var stickyOffset;
+
+		if ( ! navigationBarStickyPoint )
+			return;
+		else if ( navigationBarStickyPoint.constructor.name.indexOf( "CSS" ) !== -1 )
+			stickyOffset = parseInt( navigationBarStickyPoint.getPropertyValue( "--navigation-sticky-point" ), 10 );
+		else if ( navigationBarStickyPoint.constructor.name.indexOf( "HTML" ) !== -1 )
+			stickyOffset = navigationBarStickyPoint.offsetTop
+
 		currentScrollY = window.scrollY || document.body.scrollTop;
 
-		if ( currentScrollY >= navigationBarStickyPoint.offsetTop )
+		if ( currentScrollY >= stickyOffset )
 			$navigationBar.addClass( "sticky" );
 		else
 			$navigationBar.removeClass( "sticky" );
@@ -201,6 +220,23 @@ var controlDisplayAndStickinessOfNavigationBar = function () {
 
 }();
 $( window ).on( "scroll", controlDisplayAndStickinessOfNavigationBar );
+
+
+
+
+/*
+ *
+ * If the URL has a hash value,
+ * 	smooth-scroll to that section
+ *	and restore the hash to the URL
+ *
+ */
+// The hash was removed but cached in this variable
+if ( window.__BFS.scrollTo ) {
+	smoothScrollTo( window.__BFS.scrollTo );
+	var fullURL = location.origin + location.pathname + location.search + window.__BFS.scrollTo;
+	window.history.replaceState( { }, "", fullURL )
+}
 
 
 

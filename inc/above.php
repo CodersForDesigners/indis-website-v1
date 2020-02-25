@@ -129,7 +129,8 @@ unset( $project );
 						}
 						$item = [
 							'label' => $item[ 'title' ],
-							'url' => $itemUrl
+							'url' => $itemUrl,
+							'classes' => implode( ' ', $item[ 'classes' ] )
 						];
 					}
 					unset( $item );
@@ -160,7 +161,7 @@ unset( $project );
 								</select>
 							</span><br class="show-for-medium">
 							<?php foreach ( $navigationMenuItems as $item ) : ?>
-								<a href="<?= $item[ 'url' ] ?>" class="link clickable h6 strong text-uppercase space-min-top-bottom position-relative js_navigation_item"><?= $item[ 'label' ] ?></a><br class="show-for-medium">
+								<a href="<?= $item[ 'url' ] ?>" class="link clickable h6 strong text-uppercase space-min-top-bottom position-relative <?= $item[ 'classes' ] ?> js_navigation_item"><?= $item[ 'label' ] ?></a><br class="show-for-medium">
 							<?php endforeach; ?>
 						</div>
 					</div>
