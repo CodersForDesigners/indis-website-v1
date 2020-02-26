@@ -120,6 +120,20 @@ unset( $project );
 					$navigationMenuName = $postType === 'projects' ? 'Projects' : 'Primary';
 					$navigationMenuItems = getContent( [ ], $navigationMenuName, 'navigation' );
 					foreach ( $navigationMenuItems as &$item ) {
+						$field = getContent( '', 'nav_override_from_field', $item[ 'ID' ] );
+						if ( ! empty( $field ) and ! empty( getContent( '', $field ) ) ) {
+							$item[ 'url' ] = getContent( '', $field );
+							// If the override value is a phone number, perform some modifications
+							if ( preg_match( '/^\+?[\d\-]+$/', $item[ 'url' ] ) ) {
+								// Prepend the `+91` country code if one isn't provided
+								if ( $item[ 'url' ][ 0 ] !== '+' )
+									$item[ 'url' ] = '+91' . $item[ 'url' ];
+								// replace the navigation item's label as well
+								$item[ 'title' ] = $item[ 'url' ];
+								// Prepend the `tel:` protocol to the URL
+								$item[ 'url' ] = 'tel:' . str_replace( '-', '', $item[ 'url' ] );
+							}
+						}
 						$itemUrl = $item[ 'url' ];
 						// If the URL starts with a `#`, that means it links to a section
 						if ( ! empty( $itemUrl[ 0 ] ) and $itemUrl[ 0 ] === '#' )
