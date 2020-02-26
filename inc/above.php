@@ -121,12 +121,9 @@ unset( $project );
 					$navigationMenuItems = getContent( [ ], $navigationMenuName, 'navigation' );
 					foreach ( $navigationMenuItems as &$item ) {
 						$itemUrl = $item[ 'url' ];
-						if ( $itemUrl[ 0 ] !== '/' ) {
-							if ( $itemUrl[ 0 ] === '#' )
-								$itemUrl = $requestPath . $itemUrl;
-							else if ( strpos( substr( $itemUrl, 0, 5 ), ':' ) === false )
-								$itemUrl = $requestPath . '/' . $itemUrl;
-						}
+						// If the URL starts with a `#`, that means it links to a section
+						if ( ! empty( $itemUrl[ 0 ] ) and $itemUrl[ 0 ] === '#' )
+							$itemUrl = $requestPath . $itemUrl;
 						$item = [
 							'label' => $item[ 'title' ],
 							'url' => $itemUrl,
