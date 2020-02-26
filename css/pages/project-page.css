@@ -660,6 +660,7 @@
 	width: 100%;
 	height: auto;
 	padding-bottom: 75%;
+	background-color: var(--light);
 }
 .plans-section .plans .plan .plan-viewer iframe.plan-embed {
 	display: block;
@@ -675,12 +676,28 @@
 	display: none;
 }
 
-@media (orientation: portrait) and (max-width: 639px) {
+@media( orientation: portrait ) and ( max-width: 639px ) {
 	.plans-section .plans .plan .plan-viewer + .help-message {
 		display: block;
 	}
 }
 
+@media( max-width: 1039px ) {
+	.plans-section .plans .plan .plan-viewer {
+		min-width: 100%;
+		width: calc(100vw - var(--space-50));
+		padding-bottom: calc( (100vw - var(--space-100)) * 0.75 );
+		margin-left: 50%;
+		transform: translateX(-50%);
+	}
+}
+
+@media( orientation: landscape ) and ( max-width: 1039px ) {
+	.plans-section .plans .plan .plan-viewer {
+		width: calc(100vw - var(--space-150));
+		padding-bottom: 100vh;
+	}
+}
 
 
 

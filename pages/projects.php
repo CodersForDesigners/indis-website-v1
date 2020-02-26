@@ -529,7 +529,7 @@ $events = getContent( [ ], 'events_list' );
 						<div class="plan-viewer js_tab <?php if ( $index ) echo 'hidden' ?>" data-tab="<?= $plan[ 'plan_name' ] ?>">
 							<iframe class="plan-embed js_plan_embed" src="<?= $plan[ 'plan_image' ] ?>" frameborder="0"></iframe>
 						</div>
-						<div class="help-message p strong text-red-2 space-min-top">Rotate your device for the best experience!</div>
+						<div class="help-message p strong text-red-2 space-min-top"><img class="inline-middle" width="20px" src="../media/icon/icon-orientation.svg<?php echo $ver ?>"> Rotate device for best experience!</div>
 					<?php endforeach; ?>
 				</div>
 			<?php endforeach; ?>
