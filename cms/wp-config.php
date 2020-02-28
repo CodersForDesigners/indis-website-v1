@@ -95,6 +95,14 @@ define( 'DB_DIR', '/Users/lazaro/Dropbox (Lazaro)/Indis/04 Development/01 Build/
 define( 'DB_FILE', 'cms.db.sqlite' );
 
 
+
+/**
+ * Media and Uploads
+ *
+ */
+define( 'UPLOADS', '../content/cms' );	# this one is relative to `ABSPATH`
+
+
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
