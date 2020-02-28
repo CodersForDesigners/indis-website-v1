@@ -677,7 +677,7 @@
 }
 
 @media( orientation: portrait ) and ( max-width: 639px ) {
-	.plans-section .plans .plan .plan-viewer + .help-message {
+	.plans-section .plans .plan .plan-viewer:not(.hidden) + .help-message {
 		display: block;
 	}
 }
