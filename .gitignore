@@ -5,6 +5,9 @@
 # the media directory
 /media
 
+# the content directory
+/content
+
 # the download directory
 /download
 
