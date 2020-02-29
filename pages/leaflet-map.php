@@ -31,6 +31,10 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 			padding: 0;
 		}
 
+		.map {
+			height: 100vh;
+		}
+
 		.icon {
 			position: absolute;
 			top: 0;
