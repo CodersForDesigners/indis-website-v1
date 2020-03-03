@@ -77,10 +77,12 @@ http_response_code( 200 );
 
 // Get all the project but the current one ( if the page is that of a project )
 $allProjectsExcludingCurrent = getPostsOf( 'projects', null, $thePost->ID );
-foreach ( $allProjectsExcludingCurrent as &$project ) {
-	$project[ 'permalink' ] = get_permalink( $project[ 'ID' ] );
+if ( cmsIsEnabled() ) {
+	foreach ( $allProjectsExcludingCurrent as &$project ) {
+		$project[ 'permalink' ] = get_permalink( $project[ 'ID' ] );
+	}
+	unset( $project );
 }
-unset( $project );
 
 ?>
 
