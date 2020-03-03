@@ -43,6 +43,26 @@ $( document ).on( "click", "a[ href ]", function ( event ) {
 
 /*
  *
+ * Un-hide in-page navigation menu items if the section they point to is present
+ *
+ */
+var hashRegex = /#([^#\?]+)/;
+$( ".js_navigation_item[ data-type = 'in-page' ]" ).each( function ( _i, el ) {
+	var $el = $( el );
+	var href;
+	if ( $el.is( "a" ) )
+		href = $el.attr( "href" );
+	else
+		href = $el.find( "a" ).attr( "href" )
+	var sectionId = ( href.match( hashRegex ) || [ ] )[ 1 ];
+	if ( document.getElementById( sectionId ) )
+		$el.removeClass( "hidden" )
+} )
+
+
+
+/*
+ *
  * Toggle Navigation when Menu (hamburger) icon is clicked
  *
  */

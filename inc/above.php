@@ -110,12 +110,16 @@ foreach ( $navigationMenuItems as &$item ) {
 	}
 	$itemUrl = $item[ 'url' ];
 	// If the URL starts with a `#`, that means it links to a section
-	if ( ! empty( $itemUrl[ 0 ] ) and $itemUrl[ 0 ] === '#' )
+	if ( ! empty( $itemUrl[ 0 ] ) and $itemUrl[ 0 ] === '#' ) {
 		$itemUrl = $requestPath . $itemUrl;
+		$item[ 'type' ] = 'in-page';
+		$item[ 'classes' ][ ] = 'hidden';
+	}
 	$item = [
 		'label' => $item[ 'title' ],
 		'url' => $itemUrl,
-		'classes' => implode( ' ', $item[ 'classes' ] )
+		'classes' => implode( ' ', $item[ 'classes' ] ),
+		'type' => $item[ 'type' ] ?? ''
 	];
 }
 unset( $item );
@@ -182,7 +186,7 @@ unset( $item );
 								</select>
 							</span><br class="show-for-medium">
 							<?php foreach ( $navigationMenuItems as $item ) : ?>
-								<a href="<?= $item[ 'url' ] ?>" class="link clickable h6 strong text-uppercase space-min-top-bottom position-relative <?= $item[ 'classes' ] ?> js_navigation_item"><?= $item[ 'label' ] ?></a><br class="show-for-medium">
+								<a href="<?= $item[ 'url' ] ?>" class="link clickable h6 strong text-uppercase space-min-top-bottom position-relative <?= $item[ 'classes' ] ?> js_navigation_item" data-type="<?= $item[ 'type' ] ?>"><?= $item[ 'label' ] ?></a><br class="show-for-medium">
 							<?php endforeach; ?>
 						</div>
 					</div>
