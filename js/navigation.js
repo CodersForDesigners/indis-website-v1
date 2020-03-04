@@ -74,6 +74,26 @@ $( document ).on( "click", ".js_menu_button", function ( event ) {
 
 
 
+/*
+ *
+ * For Navigation Items that are Post Selectors
+ *
+ */
+if ( $( ".js_navigation_post_selector" ).length ) {
+	// Prevent the default behavior for an anchor click
+	$( ".js_navigation_post_selector" ).on( "click", function ( event ) {
+		event.preventDefault();
+	} );
+	// Navigate to the post/page that is selected
+	$( ".js_navigation_post_selector" ).on( "change", function ( event ) {
+		var $selector = $( event.target );
+		var link = $selector.find( ":selected" ).data( "href" );
+		location.href = link;
+	} );
+}
+
+
+
 
 
 /*

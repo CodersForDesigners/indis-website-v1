@@ -94,32 +94,49 @@ if ( cmsIsEnabled() ) {
 $navigationMenuName = $postType === 'projects' ? 'Projects' : 'Primary';
 $navigationMenuItems = getContent( [ ], $navigationMenuName, 'navigation' );
 foreach ( $navigationMenuItems as &$item ) {
+	$itemUrl = $item[ 'url' ];
+
+	// If the item has a contextual URL override
 	$field = getContent( '', 'nav_override_from_field', $item[ 'ID' ] );
 	if ( ! empty( $field ) and ! empty( getContent( '', $field ) ) ) {
-		$item[ 'url' ] = getContent( '', $field );
+		$itemUrl = getContent( '', $field );
 		// If the override value is a phone number, perform some modifications
-		if ( preg_match( '/^\+?[\d\-]+$/', $item[ 'url' ] ) ) {
+		if ( preg_match( '/^\+?[\d\-]+$/', $itemUrl ) ) {
 			// Prepend the `+91` country code if one isn't provided
-			if ( $item[ 'url' ][ 0 ] !== '+' )
-				$item[ 'url' ] = '+91' . $item[ 'url' ];
-			// replace the navigation item's label as well
-			$item[ 'title' ] = $item[ 'url' ];
+			if ( $itemUrl[ 0 ] !== '+' )
+				$itemUrl = '+91' . $itemUrl;
+			// Replace the navigation item's label as well
+			$item[ 'title' ] = $itemUrl;
 			// Prepend the `tel:` protocol to the URL
-			$item[ 'url' ] = 'tel:' . str_replace( '-', '', $item[ 'url' ] );
+			$itemUrl = 'tel:' . str_replace( '-', '', $itemUrl );
 		}
 	}
-	$itemUrl = $item[ 'url' ];
-	// If the URL starts with a `#`, that means it links to a section
+
+	// If the item is an in-page (section) link, i.e. it starts with a `#`
 	if ( ! empty( $itemUrl[ 0 ] ) and $itemUrl[ 0 ] === '#' ) {
 		$itemUrl = $requestPath . $itemUrl;
 		$item[ 'type' ] = 'in-page';
 		$item[ 'classes' ][ ] = 'hidden';
 	}
+
+	// If the item is a "post-selector"
+	$item[ 'selectorOf' ] = getContent( '', 'post-type-selector', $item[ 'ID' ] );
+	if ( ! empty( $item[ 'selectorOf' ] ) ) {
+		$item[ 'type' ] = 'post-selector';
+		$item[ 'posts' ] = getPostsOf( $item[ 'selectorOf' ], null, $thePost->ID );
+		$item[ 'classes' ][ ] = 'no-pointer';
+	}
+	else
+		$item[ 'classes' ][ ] = 'clickable';
+
+	// Finally, re-shape the data-structure to include all the relevant fields
 	$item = [
 		'label' => $item[ 'title' ],
 		'url' => $itemUrl,
 		'classes' => implode( ' ', $item[ 'classes' ] ),
-		'type' => $item[ 'type' ] ?? ''
+		'type' => $item[ 'type' ] ?? '',
+		'selectorOf' => $item[ 'selectorOf' ],
+		'posts' => $item[ 'posts' ] ?? [ ]
 	];
 }
 unset( $item );
@@ -173,7 +190,21 @@ unset( $item );
 						<div class="position-relative columns small-12 large-9 inline-middle text-right space-50-right">
 							<div class="link h4 strong text-uppercase show-for-medium">Menu</div>
 							<?php foreach ( $navigationMenuItems as $item ) : ?>
-								<a href="<?= $item[ 'url' ] ?>" class="link clickable h6 strong text-uppercase space-min-top-bottom position-relative <?= $item[ 'classes' ] ?> js_navigation_item" data-type="<?= $item[ 'type' ] ?>"><?= $item[ 'label' ] ?></a><br class="show-for-medium">
+								<a href="<?= $item[ 'url' ] ?>" class="link h6 strong text-uppercase space-min-top-bottom position-relative <?= $item[ 'classes' ] ?> js_navigation_item" data-type="<?= $item[ 'type' ] ?>">
+									<?= $item[ 'label' ] ?>
+									<?php if ( $item[ 'type' ] === 'post-selector' ) : ?>
+										<select class="nested-link clickable js_navigation_post_selector">
+											<?php if ( $item[ 'selectorOf' ] === $postType ) : ?>
+												<option data-href="<?= get_permalink( $thePost->ID ) ?>" selected><?= $thePost->post_title ?></option>
+											<?php else : ?>
+												<option disabled selected>Select <?= $item[ 'selectorOf' ] ?></option>
+											<?php endif; ?>
+											<?php foreach ( $item[ 'posts' ] as $post ) : ?>
+												<option data-href="<?= get_permalink( $post[ 'ID' ] ) ?>"><?= $post[ 'post_title' ] ?></option>
+											<?php endforeach; ?>
+										</select>
+									<?php endif; ?>
+								</a><br class="show-for-medium">
 							<?php endforeach; ?>
 						</div>
 					</div>
