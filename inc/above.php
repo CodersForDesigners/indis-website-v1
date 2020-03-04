@@ -172,19 +172,6 @@ unset( $item );
 						</div>
 						<div class="position-relative columns small-12 large-9 inline-middle text-right space-50-right">
 							<div class="link h4 strong text-uppercase show-for-medium">Menu</div>
-							<span class="link h6 strong text-uppercase space-min-top-bottom position-relative no-pointer">
-								Projects
-								<select class="nested-link clickable js_projects_selector hidden">
-									<?php if ( $postType === 'projects' ) : ?>
-										<option data-href="<?= get_permalink( $thePost->ID ) ?>"><?= $thePost->post_title ?></option>
-									<?php else : ?>
-										<option disabled selected>Select Project</option>
-									<?php endif; ?>
-									<?php foreach ( $allProjectsExcludingCurrent as $project ) : ?>
-										<option data-href="<?= get_permalink( $project[ 'ID' ] ) ?>"><?= $project[ 'post_title' ] ?></option>
-									<?php endforeach; ?>
-								</select>
-							</span><br class="show-for-medium">
 							<?php foreach ( $navigationMenuItems as $item ) : ?>
 								<a href="<?= $item[ 'url' ] ?>" class="link clickable h6 strong text-uppercase space-min-top-bottom position-relative <?= $item[ 'classes' ] ?> js_navigation_item" data-type="<?= $item[ 'type' ] ?>"><?= $item[ 'label' ] ?></a><br class="show-for-medium">
 							<?php endforeach; ?>
