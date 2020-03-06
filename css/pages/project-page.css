@@ -1345,6 +1345,13 @@
 	line-height: 20px;
 }
 
+.spotlight .carousel-list .carousel-list-item:not(:first-child) .info .tag span {
+	display: inline-block;
+	line-height: 1;
+	padding: 3px 5px;
+	margin-top: 5px;
+}
+
 
 .spotlight .unlock-icon {
 	width: 120px;

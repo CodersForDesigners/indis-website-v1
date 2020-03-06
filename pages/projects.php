@@ -206,13 +206,17 @@ $events = getContent( [ ], 'events_list' );
 				</div>
 				<div class="carousel-card fill-dark" style="background-image: url( '<?= $spotlight[ 'spotlight_thumbnail' ][ 'sizes' ][ 'small' ] ?>' );">
 					<div class="info space-25">
-						<div class="project label strong text-neutral-2">PBEL City, HYD</div>
 						<div class="info-box">
 							<span class="title h5 strong"><?= $spotlight[ 'spotlight_title' ] ?></span>
 							<span class="description p text-neutral-2"><?= $spotlight[ 'spotlight_description' ] ?></span>
 						</div>
 						<div class="price h5 condensed"><?= $spotlight[ 'spotlight_price' ] ?></div>
-						<div class="time h6 condensed"><span class="text-uppercase">Valid For :</span> <?= getIntervalString( $spotlight[ 'spotlight_expiry' ] ) ?></div>
+						<div class="tag">
+							<span class="project h6 strong fill-light"><?= $thePost->post_title ?></span>
+							<?php if( ! empty( $spotlight[ 'spotlight_series_id' ] ) ) : ?>
+							<span class="series-id h6 strong fill-red-2"><?= $spotlight[ 'spotlight_series_id' ] ?></span>
+							<?php endif; ?>
+						</div>
 					</div>
 				</div>
 				<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
