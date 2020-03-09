@@ -1352,6 +1352,10 @@
 	margin-top: 5px;
 }
 
+.spotlight .carousel-list .carousel-list-item:not(:first-child) .info .tag span.series-id {
+    letter-spacing: .1rem;
+}
+
 
 .spotlight .unlock-icon {
 	width: 120px;
