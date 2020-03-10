@@ -182,9 +182,9 @@ unset( $item );
 									<a href="<?php echo $baseURL ?>" class="logo clickable float-left"><img class="block" src="../media/indis-symbol-color.svg<?php echo $ver ?>"></a>	
 								</div>
 								<div class="inline-middle">
-									<div class="title h5 strong"><?= $thePost->post_title ?></div>
-									<div class="location label strong text-uppercase text-neutral-4"><?= getContent( '', 'location' ) ?></div>
-								</div>								
+									<div class="title h5 strong"><?= ( $urlSlug === 'home' ? 'indis' : $thePost->post_title ) ?></div>
+									<div class="location label strong text-uppercase text-neutral-4"><?= getContent( 'Group INCOR', 'location' ) ?></div>
+								</div>
 							</div>
 						</div>
 						<div class="position-relative columns small-12 large-9 inline-middle text-right space-50-right">
