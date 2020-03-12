@@ -14,6 +14,11 @@ require_once __DIR__ . '/lazaro.php';
 $ver = '?v=20200127';
 
 /*
+ * A class name for temporarily disabling sections or content parts while under construction
+ */
+$hide = 'hidden';
+
+/*
  * Get all the links on the site
  */
 $defaultLinks = require __DIR__ . '/default-nav-links.php';

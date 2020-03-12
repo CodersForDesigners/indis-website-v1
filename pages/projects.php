@@ -373,7 +373,7 @@ $events = getContent( [ ], 'events_list' );
 
 
 <!-- Download Brochure -->
-<section class="download-brochure">
+<section class="download-brochure <?= $hide ?>">
 	<div class="container">
 		<div class="row">
 			<div class="brochure-mockup columns small-12 medium-5 large-6 inline-middle">
@@ -435,11 +435,11 @@ $events = getContent( [ ], 'events_list' );
 					<img class="block" src="../media/engineering/building-3d-2.png<?php echo $ver ?>">
 				</div>
 				<!-- video embed -->
-				<div class="video-embed js_video_embed" data-src="lncVHzsc_QA">
+				<div class="video-embed js_video_embed <?= $hide ?>" data-src="lncVHzsc_QA">
 					<div class="video-loading-indicator"></div>
 				</div>
 			</div>
-			<div class="infographic columns small-12 medium-6">
+			<div class="infographic columns small-12 medium-6 <?= $hide ?>">
 				<img class="block" src="../media/engineering/engineering-concrete-infographic.svg<?php echo $ver ?>">
 			</div>
 		</div>
@@ -458,7 +458,7 @@ $events = getContent( [ ], 'events_list' );
 					<div tabindex="-1" class="h6 tab-button js_tab_heading"><?= $partner[ 'partner_title' ] ?></div>
 				<?php endforeach; ?>
 			</div>
-			<select class="select-menu button strong fill-neutral-2 show-for-medium js_tab_headings">
+			<select class="select-menu button strong fill-neutral-2 show-for-medium js_tab_headings" style="margin-left: auto; margin-right: auto;">
 				<?php foreach ( $engineeringPartners as $partner ) : ?>
 					<option><?= $partner[ 'partner_title' ] ?></option>
 				<?php endforeach; ?>
@@ -655,7 +655,7 @@ $events = getContent( [ ], 'events_list' );
 			</div>
 		</div>
 		<div class="row row-3">
-			<div class="film columns small-12 medium-6">
+			<div class="film columns small-12 medium-6 <?= $hide ?>">
 				<!-- video embed -->
 				<div class="video-embed js_video_embed" data-src="lncVHzsc_QA">
 					<div class="video-loading-indicator"></div>
@@ -702,7 +702,7 @@ $events = getContent( [ ], 'events_list' );
 					In case a fire is to intense for early warning fire measures, evacuation is recommended.
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					A pressurised network of pipes feed the fire sprinklers in every room of your house.
+					A pressurized network of pipes feed the fire sprinklers in every room of your house.
 				</div>
 				<div class="fire-sprinkler text-center">
 					<img class="block" src="../media/engineering/fire-sprinkler.png<?php echo $ver ?>">
@@ -725,7 +725,7 @@ $events = getContent( [ ], 'events_list' );
 			</div>
 		</div>
 		<div class="row row-3">
-			<div class="film inline-bottom columns small-12 medium-6 large-6">
+			<div class="film inline-bottom columns small-12 medium-6 large-6 <?= $hide ?>">
 				<!-- video embed -->
 				<div class="video-embed js_video_embed" data-src="lncVHzsc_QA">
 					<div class="video-loading-indicator"></div>
