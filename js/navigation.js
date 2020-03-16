@@ -25,24 +25,38 @@ function smoothScrollTo ( locationHash ) {
  *
  */
 $( document ).on( "click", "a[ href ]", function ( event ) {
+
 	var $anchor = $( event.target ).closest( "a" );
 	var domAnchor = $anchor.get( 0 );
-	var currentUrl = location.origin + location.pathname;
 
-	// Subtract the current URL from the destination URL
-	var remainingUrl = domAnchor.href.replace( currentUrl, "" );
-	if ( remainingUrl[ 0 ] !== "#" )
-		return true;
+	var urlParts = domAnchor.href.split( "#" );
+	// If the url has more than one `#`es in it, we're not even going to try
+	if ( urlParts.length !== 2 )
+		return;
 
+	var path = urlParts[ 0 ];
+	var sectionId = urlParts[ 1 ];
+
+	// If the path does not match that of the current page
+	if ( path !== window.location.href )
+		return;
+
+	// If the section id is empty or a stub
+	if ( ! sectionId.trim() || sectionId === "0" )
+		return;
+
+	// Prevent default behaviour
 	event.preventDefault();
 	event.stopPropagation();
 	event.stopImmediatePropagation();
-	smoothScrollTo( remainingUrl );
 
-	// Close the menu
+	// Close the navigation menu
 	$( ".js_navigation_section" ).removeClass( "open" );
 
+	smoothScrollTo( sectionId );
+
 	return false;
+
 } );
 
 
