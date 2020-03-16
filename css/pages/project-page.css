@@ -748,10 +748,12 @@
 
 .updates-section .updates .update .update-featured {
 	padding-bottom: var(--space-min);
+	position: relative;
 }
 
 .updates-section .updates .update .update-featured .image {
 	position: relative;
+	z-index: 1;
 	width: 100%;
 	padding-bottom: 100%;
 	font-size: 0;
@@ -760,19 +762,20 @@
 	background-position: center center;
 }
 
+.updates-section .updates .update .update-featured .icon-button.zoom {
+	background-color: var(--dark);
+	position: absolute;
+	z-index: 2;
+	bottom: var(--space-min);
+	right: 0;
+	pointer-events: none;
+}
+
 .updates-section .updates .update .update-gallery {
 	position: relative;
 	font-size: 0;
 }
 
-.updates-section .updates .update .update-gallery .icon-button.zoom {
-	background-color: var(--dark);
-	position: absolute;
-	z-index: 2;
-	top: 0;
-	left: 0;
-	pointer-events: none;
-}
 
 .updates-section .updates .update .update-gallery .image-container {
 	position: relative;
@@ -802,6 +805,10 @@
 @media( min-width: 640px )  {
 	.updates-section .updates .update .update-featured {
 		padding-bottom: calc( var(--space-min) * 1.5 );
+	}
+
+	.updates-section .updates .update .update-featured .icon-button.zoom {
+		bottom: calc( var(--space-min) * 1.5 );
 	}
 
 	.updates-section .updates .update .update-gallery .image-container {
