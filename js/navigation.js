@@ -278,7 +278,8 @@ $( window ).on( "scroll", controlDisplayAndStickinessOfNavigationBar );
  */
 // The hash was removed but cached in this variable
 if ( window.__BFS.scrollTo ) {
-	smoothScrollTo( window.__BFS.scrollTo );
+	if ( window.scrollY < 1 )
+		smoothScrollTo( window.__BFS.scrollTo );
 	var fullURL = location.origin + location.pathname + location.search + window.__BFS.scrollTo;
 	window.history.replaceState( { }, "", fullURL )
 }
