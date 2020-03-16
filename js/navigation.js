@@ -5,12 +5,18 @@ $( function ( $ ) {
 
 
 
-function smoothScrollTo ( hash ) {
-	if ( ! hash )
+function smoothScrollTo ( locationHash ) {
+
+	if ( ! locationHash )
 		return;
-	var locationId = hash.replace( "#", "" );
+
+	var locationId = locationHash.replace( "#", "" );
 	var domLocation = document.getElementById( locationId );
+	if ( ! domLocation )
+		return;
+
 	window.scrollTo( { top: domLocation.offsetTop, behavior: "smooth" } );
+
 }
 
 /*
