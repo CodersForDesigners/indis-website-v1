@@ -353,6 +353,10 @@
 		height: 400px;
 	}
 
+	.location-section .location-image-container .panorama-viewer {
+		right: var(--space-25);
+	}
+
 	.location-section .location-card {
 		width: calc( var(--space-100) * 3 );
 		height: calc( var(--space-100) * 3 );
