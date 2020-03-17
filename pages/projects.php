@@ -19,6 +19,7 @@ $spotlights = getContent( [ ], 'spotlight_list' );
 	$numberOfSpotlight = str_pad( count( $spotlights ), 2, '0', STR_PAD_LEFT );
 $events = getContent( [ ], 'events_list' );
 	$numberOfEvents = str_pad( count( $events ), 2, '0', STR_PAD_LEFT );
+$officeAddresses = getContent( [ ], 'office_addresses' );
 
 ?>
 
@@ -947,11 +948,37 @@ $events = getContent( [ ], 'events_list' );
 				</form>
 				<!-- END: OTP form -->
 			</div>
+			<div class="or-call columns small-10 medium-6 medium-offset-0 large-4 large-offset-0">
+				<div class="h5 text-lowecase">or call <a href="" class="text-red-2">+91-99860-99860</a></div>
+			</div>
 		</div>
 	</div>
 </section>
 <!-- END: Action: Site Visit : Form -->
 
+
+<!-- Office Addresses Section -->
+<?php if ( ! empty( $officeAddresses ) ) : ?>
+<section class="addresses-section fill-black space-25-bottom">
+	<div class="container">
+		<div class="row">
+			<?php foreach ( $officeAddresses as $address ) : ?>
+				<div class="address columns small-10 medium-8 large-4 space-25-top space-25-right">
+					<div class="title h6 text-lowercase"><?= $address[ 'address_label' ] ?></div>
+					<div class="name h5 condensed text-red-2"><?= $address[ 'name' ] ?></div>
+					<div class="description h6 text-neutral-2"><?= $address[ 'address' ] ?></div>
+					
+					<?php if ( ! empty( $address[ 'cin' ] ) ) : ?>
+					<div class="cin h6 text-neutral-2">CIN: <?= $address[ 'cin' ] ?></div>
+					<?php endif; ?>
+
+				</div>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</section>
+<?php endif; ?>
+<!-- END: Office Addresses Section -->
 
 
 <?php require_once __DIR__ . '/../inc/below.php'; ?>
