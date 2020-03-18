@@ -10,6 +10,8 @@ if ( empty( $urlSlug ) )
 require_once __DIR__ . '/../inc/above.php';
 
 
+$projectPhoneNumberFormatted = '+91' . getContent( '', 'phone_number' );
+$projectPhoneNumberUnformatted = str_replace( [ '-', ' ' ], '', $projectPhoneNumberFormatted );
 $planGroups = getContent( [ ], 'plans' );
 $amenities = getContent( [ ], 'amenity' );
 	$amenityImages = getContent( [ ], 'amenities_images' );
@@ -156,7 +158,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 							</label>
 						</div>
 						<div class="form-row or-call columns small-12 medium-6 large-3">
-							<div class="h5 text-lowecase">or call <a href="" class="text-red-2">+91-99860-99860</a></div>
+							<div class="h5 text-lowecase">or call <a href="tel:<?= $projectPhoneNumberUnformatted ?>" class="text-red-2"><?= $projectPhoneNumberFormatted ?></a></div>
 						</div>
 					</div>
 				</form>
@@ -949,7 +951,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 				<!-- END: OTP form -->
 			</div>
 			<div class="or-call columns small-10 medium-6 medium-offset-0 large-4 large-offset-0">
-				<div class="h5 text-lowecase">or call <a href="" class="text-red-2">+91-99860-99860</a></div>
+				<div class="h5 text-lowecase">or call <a href="<?= $projectPhoneNumberUnformatted ?>" class="text-red-2"><?= $projectPhoneNumberFormatted ?></a></div>
 			</div>
 		</div>
 	</div>
