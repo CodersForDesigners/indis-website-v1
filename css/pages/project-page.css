@@ -169,6 +169,12 @@
 	max-height: calc( var(--space-100) * 3 );
 }
 
+.intro-section .points .point {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 .intro-section .points .point img {
 	width: 32px;
 }
@@ -717,6 +723,9 @@
 
 .amenities-section .amenities .amenitie .points {
 	padding-top: var(--space-25);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .amenities-section .amenities .amenitie .points img {
 	width: 32px;
