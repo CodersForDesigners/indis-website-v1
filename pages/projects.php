@@ -967,11 +967,6 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 					<div class="title h6 text-lowercase"><?= $address[ 'address_label' ] ?></div>
 					<div class="name h5 condensed text-red-2"><?= $address[ 'name' ] ?></div>
 					<div class="description h6 text-neutral-2"><?= $address[ 'address' ] ?></div>
-					
-					<?php if ( ! empty( $address[ 'cin' ] ) ) : ?>
-					<div class="cin h6 text-neutral-2">CIN: <?= $address[ 'cin' ] ?></div>
-					<?php endif; ?>
-
 				</div>
 			<?php endforeach; ?>
 		</div>
