@@ -723,6 +723,9 @@
 
 .amenities-section .amenities .amenitie .points {
 	padding-top: var(--space-25);
+}
+
+.amenities-section .amenities .amenitie .points .point {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
