@@ -113,7 +113,7 @@ foreach ( $navigationMenuItems as &$item ) {
 			// Replace the navigation item's label as well
 			$item[ 'title' ] = $itemUrl;
 			// Prepend the `tel:` protocol to the URL
-			$itemUrl = 'tel:' . str_replace( '-', '', $itemUrl );
+			$itemUrl = 'tel:' . str_replace( [ ' ', '-' ], '', $itemUrl );
 		}
 	}
 
