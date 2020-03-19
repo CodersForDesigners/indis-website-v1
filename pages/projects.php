@@ -957,7 +957,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 				<!-- END: OTP form -->
 			</div>
 			<div class="or-call columns small-10 medium-6 medium-offset-0 large-4 large-offset-0">
-				<div class="h5 text-lowecase">or call <a href="<?= $projectPhoneNumberUnformatted ?>" class="text-red-2"><?= $projectPhoneNumberFormatted ?></a></div>
+				<div class="h5 text-lowecase">or call <a href="tel:<?= $projectPhoneNumberUnformatted ?>" class="text-red-2"><?= $projectPhoneNumberFormatted ?></a></div>
 			</div>
 		</div>
 	</div>
