@@ -96,7 +96,7 @@ $numberOfSpotlights = str_pad( count( $featuredSpotlights ), 2, '0', STR_PAD_LEF
 							<span class="title h5 strong"><?= $spotlight[ 'spotlight_title' ] ?></span>
 							<span class="description p text-neutral-2"><?= $spotlight[ 'spotlight_description' ] ?></span>
 						</div>
-						<div class="price h5 condensed"><?= $spotlight[ 'spotlight_price' ] ?></div>
+						<div class="price h5 condensed <?= $hide ?>"><?= $spotlight[ 'spotlight_price' ] ?></div>
 						<div class="tag">
 							<span class="project h6 strong fill-light"><?= $spotlight[ 'project' ] ?></span>
 							<?php if( ! empty( $spotlight[ 'spotlight_series_id' ] ) ) : ?>

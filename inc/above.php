@@ -14,7 +14,7 @@ require_once __DIR__ . '/lazaro.php';
 $ver = '?v=20200127';
 
 /*
- * A class name for temporarily disabling sections or content parts while under construction
+ * A class name for temporarily disabling sections or features or content parts while in development
  */
 $hide = 'hidden';
 
