@@ -241,7 +241,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 									<input class="block" type="text">
 								</div>
 								<div class="columns small-3 text-right">
-									<span class="invisible label strong inline text-neutral-4 text-uppercase">Submit</span>
+									<span class="hidden label strong inline text-neutral-4 text-uppercase">Submit</span><!-- Hidden Because the Fields and button were not Visually Aligning -->
 									<button class="icon-button submit" style="background-color: var(--dark); background-size: auto; background-image: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>');"></button>
 								</div>
 							</div>
