@@ -54,3 +54,29 @@ function eventually ( fn, timeout ) {
 	};
 
 }
+
+
+
+/*
+ * ------------------------\
+ *  Form helpers
+ * ------------------------|
+ */
+// Disable the form
+function disableForm ( $form, message ) {
+	$form.find( "input, select, button" ).prop( "disabled", true );
+	if ( message ) {
+		var $feedback = $form.find( "[ type = 'submit' ]" );
+		$feedback.data( "default", $feedback.text() );
+		$feedback.text( message );
+	}
+}
+// Enable the form
+function enableForm ( $form, message ) {
+	$form.find( "input, select, button" ).prop( "disabled", false );
+	var $feedback = $form.find( "[ type = 'submit' ]" );
+	if ( message )
+		$feedback.text( message );
+	else if ( $feedback.data( "default" ) )
+		$feedback.text( $feedback.data( "default" ) );
+}
