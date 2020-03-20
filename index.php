@@ -44,7 +44,7 @@ if ( file_exists( $filename ) ) {
 	$_GET[ '_slug' ] = $requestPath;
 	return require_once $filename;
 }
-else if ( count( explode( '/', $requestPath ) ) === 2 ) {
+else if ( count( explode( '/', $requestPath ) ) >= 2 ) {
 	[ $postType, $urlSlug ] = explode( '/', $requestPath );
 	$_GET[ '_slug' ] = $urlSlug;
 	// $_GET[ '_post_type' ] = $postType;
