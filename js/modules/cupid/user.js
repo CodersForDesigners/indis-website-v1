@@ -324,6 +324,7 @@ Person.prototype.verifyOTP = function verifyOTP ( otp ) {
 	var url = apiEndpoint + "/v2/people/otp/verify";
 
 	var data = {
+		client: this.client,
 		otp: otp,
 		sessionId: this.otpSessionId
 	};
@@ -452,7 +453,9 @@ Person.prototype.update = function update () {
 /*
  * Notifiy the Person's presence on the website
  */
-Person.prototype.isOnWebsite = function isOnWebsite () {
+Person.prototype.isOnWebsite = function isOnWebsite ( place ) {
+
+	place = place || document.title.split( "|" )[ 0 ].trim();
 
 	var data = {
 		client: this.client,
@@ -460,7 +463,8 @@ Person.prototype.isOnWebsite = function isOnWebsite () {
 		interests: this.interests,
 		deviceId: this.deviceId,
 		name: this.name,
-		emailAddress: this.emailAddress
+		emailAddress: this.emailAddress,
+		where: place
 	};
 
 	var apiEndpoint = __.settings.cupidApiEndpoint;
