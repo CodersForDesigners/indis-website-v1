@@ -80,11 +80,26 @@
 	<script type="text/javascript" src="/js/modules/gallery.js<?= $ver ?>"></script>
 	<script type="text/javascript" src="/js/modules/tabs.js<?= $ver ?>"></script>
 	<script type="text/javascript" src="/js/modules/video_embed.js<?= $ver ?>"></script>
+	<script type="text/javascript" src="/js/modules/cupid/utils.js<?= $ver ?>"></script>
+	<script type="text/javascript" src="/js/modules/cupid/user.js<?= $ver ?>"></script>
+	<script type="text/javascript" src="/js/login-prompts.js<?= $ver ?>"></script>
+	<script type="text/javascript" src="/js/forms.js<?= $ver ?>"></script>
 
 	<script type="text/javascript">
 
 		$( function () {
-			//
+
+			var user = __CUPID.utils.getUser();
+			if ( user ) {
+				setTimeout( function () {
+					__CUPID.utils.getAnalyticsId()
+						.then( function ( deviceId ) {
+							user.hasDeviceId( deviceId );
+							user.isOnWebsite();
+						} )
+				}, 1500 );
+			}
+
 		} );
 
 	</script>

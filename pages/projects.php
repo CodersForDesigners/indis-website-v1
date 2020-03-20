@@ -986,3 +986,17 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 
 
 <?php require_once __DIR__ . '/../inc/below.php'; ?>
+
+<script type="text/javascript">
+
+
+	function unlockSpotlights () {
+		var user = __CUPID.utils.getUser();
+		if ( ! user )
+			return;
+		$( ".js_spotlight" ).removeClass( "hidden" );
+		$( ".js_spotlight_unlock_form_section" ).addClass( "hidden" );
+	}
+	unlockSpotlights();
+
+</script>
