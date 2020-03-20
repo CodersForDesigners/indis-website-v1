@@ -814,6 +814,11 @@
 	background-position: center center;
 }
 
+.updates-section .updates .update .update-rera .icon-ts-rera {
+	width: 120px;
+	margin-top: var(--space-min);
+}
+
 @media( min-width: 640px )  {
 	.updates-section .updates .update .update-featured {
 		padding-bottom: calc( var(--space-min) * 1.5 );
@@ -850,9 +855,17 @@
 	.updates-section .updates .update .update-gallery {
 		padding-left: calc( var(--space-min) * 1.5 );
 	}
+	.updates-section .updates .update .update-rera .icon-ts-rera {
+		width: 140px;
+		margin-top: calc( var(--space-min) * 1.5 );
+	}
 }
 
-@media( min-width: 1480px ) {}
+@media( min-width: 1480px ) {
+	.updates-section .updates .update .update-rera .icon-ts-rera {
+		width: 160px;
+	}
+}
 
 
 

@@ -802,6 +802,12 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 									<?php endforeach; ?>
 								</div>
 							</div>
+							<?php if ( ! empty( $update[ 'rera_number' ] ) ) : ?>
+							<div class="update-rera columns small-12">
+								<div class="h5 condensed text-red-2">TS RERA Number: <?= $update[ 'rera_number' ] ?></div>
+								<img class="icon-ts-rera" src="../media/construction/icon-ts-rera.png<?php echo $ver ?>">
+							</div>
+							<?php endif; ?>
 						</div>
 					<?php endforeach; ?>
 				</div>
