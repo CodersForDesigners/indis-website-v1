@@ -110,7 +110,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 
 
 <!-- Action: Callback : Form -->
-<section class="action-callback space-100-bottom">
+<section class="action-callback space-100-bottom qpid_login_site js_get_in_touch_section">
 	<div class="container">
 		<div class="row">
 			<div class="intro columns small-10 large-11 large-offset-1">
@@ -119,14 +119,14 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 				</div>
 			</div>
 			<div class="action-form columns small-10 large-11 large-offset-1">
-				<form action="">
+				<form class="js_get_in_touch_form" data-c="get-in-touch/<?= $urlSlug ?>">
 					<div class="row">
 						<div class="form-row columns small-12 medium-6 large-3">
 							<label>
 								<span class="label strong text-uppercase text-neutral-4 cursor-pointer">
 									Name
 								</span>
-								<input class="block" type="text">
+								<input class="block" type="text" name="name" required>
 							</label>
 						</div>
 						<!-- Phone Trap -->
@@ -144,7 +144,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 									<input class="prefix js_phone_country_code_label strong input-field text-red-2 text-right" value="+91" style="pointer-events: none; width: 100%; padding: 0; padding-right: 3px; border-color: var(--red-2);">
 								</div>
 								<div class="columns small-9">
-									<input id="pt01" class="block" type="text">
+									<input id="pt01" class="block" type="text" name="phone-number" required>
 								</div>
 							</div>
 						</div>
@@ -154,7 +154,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 								<span class="invisible label strong text-uppercase text-neutral-4 cursor-pointer">
 									Submit
 								</span>
-								<button class="button block fill-red-2 button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Submit</button>
+								<button class="button block fill-red-2 button-icon" type="submit" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Submit</button>
 							</label>
 						</div>
 						<div class="form-row or-call columns small-12 medium-6 large-3">
@@ -174,11 +174,11 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 						<div class="form-row columns small-12 medium-6 large-3">
 							<label class="submit block">
 								<span class="invisible label strong inline text-neutral-4 text-uppercase">Submit</span>
-								<button class="button block fill-red-2 button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Contact</button>
+								<button class="button block fill-red-2 button-icon" type="submit" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Contact</button>
 							</label>
 						</div>
 					</div>
-					<div class="form-row columns small-12 large-6 clearfix">
+					<div class="form-row columns small-12 large-6 clearfix hidden">
 						<div class="label strong text-red-2 text-uppercase inline-middle cursor-pointer float-left" tabindex="-1">Re-send OTP</div>
 						<div class="label strong text-red-2 text-uppercase inline-middle cursor-pointer float-right" tabindex="-1">Enter different number</div>
 					</div>
@@ -202,7 +202,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 			</div>
 		</div>
 		<?php foreach ( $spotlights as $index => $spotlight ) : ?>
-			<div class="carousel-list-item js_carousel_item <?php if ( $index >= 4 ) echo 'hidden' ?>">
+			<div class="carousel-list-item js_carousel_item qpid_login_site js_spotlight <?php if ( $index >= 4 ) echo 'hidden' ?>">
 				<div class="card-index text-neutral-2">
 					<div class="count h3 inline-bottom"><?= str_pad( $index + 1, 2, '0', STR_PAD_LEFT ) ?></div>
 					<div class="total label strong text-uppercase inline-bottom"><?= $numberOfSpotlight ?></div>
@@ -222,10 +222,10 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 						</div>
 					</div>
 				</div>
-				<a href="" class="button fill-neutral-4 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</a>
+				<button id="spotlight-<?= $index + 1 ?>-enquire" class="button fill-neutral-4 text-light button-icon js_spotlight_enquire" data-c="/spotlight/<?= $urlSlug ?>" data-spotlight="Spotlight: <?= $thePost->post_title . ': ' . $spotlight[ 'spotlight_series_id' ] ?>" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</button>
 				<!-- Phone Trap -->
 				<div class="phone-trap phone-number columns small-12 large-9 xlarge-10">
-					<form action="" style="display: none">
+					<form class="js_phone_form" style="display: none">
 						<div class="form-row">
 							<label for="">
 								<span class="label strong text-uppercase text-neutral-4 cursor-pointer">
@@ -240,11 +240,11 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 									<input class="prefix js_phone_country_code_label strong input-field text-dark text-right" value="+91" style="pointer-events: none; width: 100%; padding: 0; padding-right: 3px; border-color: var(--dark); color: var(--dark) !important;">
 								</div>
 								<div class="columns small-6">
-									<input class="block" type="text">
+									<input class="block" type="text" name="phone-number">
 								</div>
 								<div class="columns small-3 text-right">
 									<span class="hidden label strong inline text-neutral-4 text-uppercase">Submit</span><!-- Hidden Because the Fields and button were not Visually Aligning -->
-									<button class="icon-button submit" style="background-color: var(--dark); background-size: auto; background-image: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>');"></button>
+									<button class="icon-button submit" type="submit" style="background-color: var(--dark); background-size: auto; background-image: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>');"></button>
 								</div>
 							</div>
 						</div>
@@ -259,11 +259,11 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 							<div class="form-row columns small-3 text-right">
 								<label>
 									<span class="invisible label strong inline text-neutral-4 text-uppercase">Submit</span>
-									<button class="icon-button submit" style="background-color: var(--dark); background-size: auto; background-image: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>');"></button>
+									<button class="icon-button submit" type="submit" style="background-color: var(--dark); background-size: auto; background-image: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>');"></button>
 								</label>
 							</div>
 						</div>
-						<div class="form-row columns small-12 clearfix space-min-top">
+						<div class="form-row columns small-12 clearfix space-min-top hidden">
 							<div class="label strong text-red-2 text-uppercase inline-middle cursor-pointer float-left" tabindex="-1">Re-send OTP</div>
 							<div class="label strong text-dark text-uppercase inline-middle cursor-pointer float-right" tabindex="-1">Enter different number</div>
 						</div>
@@ -272,20 +272,20 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 				<!-- END: Phone Trap -->
 			</div>
 		<?php endforeach; ?>
-		<div class="carousel-list-item js_carousel_item unlock">
+		<div class="carousel-list-item js_carousel_item unlock qpid_login_site js_spotlight_unlock_form_section">
 			<div class="carousel-card fill-red-2">
 				<div class="info space-25">
 					<div class="unlock-icon"><img class="block" src="../media/icon/icon-lock-light.svg<?php echo $ver ?>"></div>
 					<div class="unlock-title h3 strong text-lowercase space-min-bottom">Unlock all <br><span class="text-dark"><?= (int) $numberOfSpotlight ?> Spotlight</span> <br>floorplans</div>
 					<div class="unlock-form columns small-12">
-						<form action="">
+						<form class="js_spotlights_unlock_form" data-c="/spotlight/<?= $urlSlug ?>">
 							<div class="row">
 								<div class="form-row columns small-12">
 									<label>
 										<span class="label strong text-uppercase text-red-1 cursor-pointer">
 											Name
 										</span>
-										<input class="block" type="text">
+										<input class="block" type="text" name="name" required>
 									</label>
 								</div>
 								<div class="form-row columns small-12">
@@ -293,7 +293,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 										<span class="label strong text-uppercase text-red-1 cursor-pointer">
 											Email
 										</span>
-										<input class="block" type="text">
+										<input class="block" type="text" name="email-address" required>
 									</label>
 								</div>
 								<!-- Phone Trap -->
@@ -311,11 +311,12 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 											<input class="prefix js_phone_country_code_label strong input-field text-dark text-right" value="+91" style="pointer-events: none; width: 100%; padding: 0; padding-right: 3px; border-color: var(--dark); color: var(--dark) !important;">
 										</div>
 										<div class="columns small-9">
-											<input id="pt02" class="block" type="text">
+											<input id="pt02" class="block" type="text" name="phone-number" required>
 										</div>
 									</div>
 								</div>
 								<!-- END: Phone Trap -->
+								<button type="submit" class="hidden">Submit</button>
 							</div>
 						</form>
 						<!-- OTP form -->
@@ -328,7 +329,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 									</label>
 								</div>
 							</div>
-							<div class="form-row columns small-12 clearfix">
+							<div class="form-row columns small-12 clearfix hidden">
 								<div class="label strong text-dark text-uppercase inline-middle cursor-pointer float-left" tabindex="-1">Re-send OTP</div>
 								<div class="label strong text-dark text-uppercase inline-middle cursor-pointer float-right" tabindex="-1">Enter different number</div>
 							</div>
@@ -337,7 +338,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 					</div>
 				</div>
 			</div>
-			<a href="" class="button fill-red-2 text-light button-icon" style="--bg-i: url('../media/icon/icon-lock-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Unlock Now</a>
+			<button class="button fill-red-2 text-light button-icon js_spotlight_unlock_all" type="submit" style="--bg-i: url('../media/icon/icon-lock-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Unlock Now</button>
 		</div>
 	</div>
 	<div class="carousel-controls clearfix">
@@ -872,7 +873,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 
 
 <!-- Action: Site Visit : Form -->
-<section class="action-site-visit fill-dark space-25-top-bottom">
+<section class="action-site-visit fill-dark space-25-top-bottom qpid_login_site js_book_site_visit_section">
 	<div class="container">
 		<div class="row">
 			<div class="intro columns small-6 medium-3 large-2">
@@ -885,14 +886,14 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 				</div>
 			</div>
 			<div class="action-form columns small-10 medium-8 medium-offset-1 large-6 large-offset-0">
-				<form action="">
+				<form class="js_book_site_visit_form" data-c="book-site-visit/<?= $urlSlug ?>">
 					<div class="row">
 						<div class="form-row columns small-12 medium-6">
 							<label>
 								<span class="label strong text-uppercase text-neutral-4 cursor-pointer">
 									Name
 								</span>
-								<input class="block input-dark" type="text">
+								<input class="block input-dark" type="text" name="name" required>
 							</label>
 						</div>
 						<div class="form-row columns small-12 medium-6">
@@ -900,7 +901,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 								<span class="label strong text-uppercase text-neutral-4 cursor-pointer">
 									Email
 								</span>
-								<input class="block input-dark" type="text">
+								<input class="block input-dark" type="text" name="email-address" required>
 							</label>
 						</div>
 						<!-- Phone Trap -->
@@ -918,7 +919,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 									<input class="prefix js_phone_country_code_label strong input-field text-red-2 text-right" value="+91" style="pointer-events: none; width: 100%; padding: 0; padding-right: 3px; border-color: var(--red-2);">
 								</div>
 								<div class="columns small-9">
-									<input id="pt03" class="block input-dark" type="text">
+									<input id="pt03" class="block input-dark" type="text" name="phone-number" required>
 								</div>
 							</div>
 						</div>
@@ -928,7 +929,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 								<span class="invisible label strong text-uppercase text-neutral-4 cursor-pointer">
 									Submit
 								</span>
-								<button class="button block fill-red-2 button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Submit</button>
+								<button class="button block fill-red-2 button-icon" type="submit" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Submit</button>
 							</label>
 						</div>
 					</div>
@@ -945,11 +946,11 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 						<div class="form-row columns small-12 medium-6">
 							<label class="submit block">
 								<span class="invisible label inline text-neutral-4 text-uppercase">Submit</span>
-								<button class="button block fill-red-2 button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Book Now</button>
+								<button class="button block fill-red-2 button-icon" type="submit" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Book Now</button>
 							</label>
 						</div>
 					</div>
-					<div class="form-row columns small-12 clearfix">
+					<div class="form-row columns small-12 clearfix hidden">
 						<div class="label strong text-red-2 text-uppercase inline-middle cursor-pointer float-left" tabindex="-1">Re-send OTP</div>
 						<div class="label strong text-red-2 text-uppercase inline-middle cursor-pointer float-right" tabindex="-1">Enter different number</div>
 					</div>
