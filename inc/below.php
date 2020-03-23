@@ -28,11 +28,19 @@
 									<a href="<?= $project[ 'permalink' ] ?>" class="title h6 strong text-red-2"><?= $project[ 'post_title' ] ?>
 										<span class="location block label strong text-uppercase text-red-1"><?= getContent( '', 'location', $project[ 'ID' ] ) ?></span>
 									</a>
-									<a href="<?= $project[ 'permalink' ] . '#plans' ?>" class="link h6 strong text-neutral-2">Floorplans</a>
+									<?php if ( getContent( false, 'plans', $project[ 'ID' ] ) ) : ?>
+										<a href="<?= $project[ 'permalink' ] . '#plans' ?>" class="link h6 strong text-neutral-2">Floorplans</a>
+									<?php endif; ?>
 									<a href="<?= $project[ 'permalink' ] . '#location' ?>" class="link h6 strong text-neutral-2">Location</a>
-									<a href="<?= $project[ 'permalink' ] . '#plans' ?>" class="link h6 strong text-neutral-2">Masterplan</a>
-									<a href="<?= $project[ 'permalink' ] . '#amenities' ?>" class="link h6 strong text-neutral-2">Amenities</a>
-									<a href="<?= $project[ 'permalink' ] . '#updates' ?>" class="link h6 strong text-neutral-2">Updates</a>
+									<?php if ( getContent( false, 'plans', $project[ 'ID' ] ) ) : ?>
+										<a href="<?= $project[ 'permalink' ] . '#plans' ?>" class="link h6 strong text-neutral-2">Masterplan</a>
+									<?php endif; ?>
+									<?php if ( getContent( false, 'amenity', $project[ 'ID' ] ) ) : ?>
+										<a href="<?= $project[ 'permalink' ] . '#amenities' ?>" class="link h6 strong text-neutral-2">Amenities</a>
+									<?php endif; ?>
+									<?php if ( getContent( false, 'updates', $project[ 'ID' ] ) ) : ?>
+										<a href="<?= $project[ 'permalink' ] . '#updates' ?>" class="link h6 strong text-neutral-2">Updates</a>
+									<?php endif; ?>
 								</div>
 							<?php endforeach; ?>
 						</div>
