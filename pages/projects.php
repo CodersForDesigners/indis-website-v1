@@ -141,7 +141,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 									<select class="form-field block js_phone_country_code" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0">
 										<?php include __DIR__ . '/../inc/phone-country-codes.php' ?>
 									</select>
-									<input class="prefix js_phone_country_code_label strong input-field text-red-2 text-right" value="+91" style="pointer-events: none; width: 100%; padding: 0; padding-right: 3px; border-color: var(--red-2);">
+									<input class="prefix strong input-field text-red-2 text-right no-pointer js_phone_country_code_label" tabindex="-1" value="+91" style="width: 100%; padding: 0; padding-right: 3px; border-color: var(--red-2);">
 								</div>
 								<div class="columns small-9">
 									<input id="pt01" class="block" type="text" name="phone-number" required>
@@ -237,7 +237,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 									<select class="form-field block js_phone_country_code" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0">
 										<?php include __DIR__ . '/../inc/phone-country-codes.php' ?>
 									</select>
-									<input class="prefix js_phone_country_code_label strong input-field text-dark text-right" value="+91" style="pointer-events: none; width: 100%; padding: 0; padding-right: 3px; border-color: var(--dark); color: var(--dark) !important;">
+									<input class="prefix strong input-field text-dark text-right no-pointer js_phone_country_code_label" tabindex="-1" value="+91" style="width: 100%; padding: 0; padding-right: 3px; border-color: var(--dark); color: var(--dark) !important;">
 								</div>
 								<div class="columns small-6">
 									<input class="block" type="text" name="phone-number">
@@ -308,7 +308,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 											<select class="form-field block js_phone_country_code" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0">
 												<?php include __DIR__ . '/../inc/phone-country-codes.php' ?>
 											</select>
-											<input class="prefix js_phone_country_code_label strong input-field text-dark text-right" value="+91" style="pointer-events: none; width: 100%; padding: 0; padding-right: 3px; border-color: var(--dark); color: var(--dark) !important;">
+											<input class="prefix strong input-field text-dark text-right no-pointer js_phone_country_code_label" tabindex="-1" value="+91" style="width: 100%; padding: 0; padding-right: 3px; border-color: var(--dark); color: var(--dark) !important;">
 										</div>
 										<div class="columns small-9">
 											<input id="pt02" class="block" type="text" name="phone-number" required>
@@ -916,7 +916,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 									<select class="form-field block js_phone_country_code" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0">
 										<?php include __DIR__ . '/../inc/phone-country-codes.php' ?>
 									</select>
-									<input class="prefix js_phone_country_code_label strong input-field text-red-2 text-right" value="+91" style="pointer-events: none; width: 100%; padding: 0; padding-right: 3px; border-color: var(--red-2);">
+									<input class="prefix strong input-field text-red-2 text-right no-pointer js_phone_country_code_label" tabindex="-1" value="+91" style="width: 100%; padding: 0; padding-right: 3px; border-color: var(--red-2);">
 								</div>
 								<div class="columns small-9">
 									<input id="pt03" class="block input-dark" type="text" name="phone-number" required>
