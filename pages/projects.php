@@ -16,6 +16,7 @@ $planGroups = getContent( [ ], 'plans' );
 $amenities = getContent( [ ], 'amenity' );
 	$amenityImages = getContent( [ ], 'amenities_images' );
 $constructionUpdateGroups = getContent( [ ], 'updates' );
+$constructionPartnerLogo = getContent( '', 'construction_partner_logo -> sizes -> thumbnail' );
 $engineeringPartners = getContent( [ ], 'engineering_partners' );
 $spotlights = getContent( [ ], 'spotlight_list' );
 	$numberOfSpotlight = str_pad( count( $spotlights ), 2, '0', STR_PAD_LEFT );
@@ -424,10 +425,14 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					Concrete is an excellent insulator. Our buildings are cooler and have better sound insulation.
 				</div>
+				<?php if ( ! empty( $constructionPartnerLogo ) ) : ?>
 				<div class="space-50-left space-25-bottom">
 					<div class="label strong text-neutral-2 text-uppercase space-min-top-bottom">Construction Partner</div>
-					<img src="../media/engineering/landt-logo.svg<?php echo $ver ?>">
+					<div class="construction-partner-logo">
+						<img class="block" src="<?= $constructionPartnerLogo ?><?php echo $ver ?>">
+					</div>
 				</div>
+				<?php endif; ?>
 			</div>
 			<div class="building-3d-1 hide-for-medium columns small-12 medium-6 medium-offset-1 large-3 large-offset-0">
 				<img class="block" src="../media/engineering/building-3d-1.png<?php echo $ver ?>">
