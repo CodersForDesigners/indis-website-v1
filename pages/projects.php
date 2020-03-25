@@ -538,6 +538,9 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 					<?php foreach ( $group[ 'plan_group' ] as $index => $plan ) : ?>
 						<div class="plan-viewer js_tab <?php if ( $index ) echo 'hidden' ?>" data-tab="<?= $plan[ 'plan_name' ] ?>">
 							<iframe class="plan-embed js_plan_embed" src="<?= $plan[ 'plan_image' ] ?>" frameborder="0"></iframe>
+							<?php if ( ! empty( $plan[ 'compass_offset' ] ) or $plan[ 'compass_offset' ] === '0' ) : ?>
+								<div class="icon-compass" style="transform: rotate(<?= $plan[ 'compass_offset' ] ?>deg);"><img class="block" src="../media/icon/icon-compass.svg<?php echo $ver ?>"></div>
+							<?php endif; ?>
 						</div>
 						<div class="help-message p strong text-red-2 space-min-top"><img class="inline-middle" width="20px" src="../media/icon/icon-orientation.svg<?php echo $ver ?>"> Rotate device for best experience!</div>
 					<?php endforeach; ?>

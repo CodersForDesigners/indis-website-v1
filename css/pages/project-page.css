@@ -694,6 +694,21 @@
 	height: 100%;
 }
 
+.plans-section .plans .plan .plan-viewer .icon-compass {
+	pointer-events: none;
+	position: absolute;
+	width: 60px;
+	display: block;
+	z-index: 3;
+	bottom: var(--space-min);
+	left: var(--space-min);
+	transform: rotate(0deg);
+}
+
+.plans-section .plans .plan .plan-viewer .icon-compass * {
+	pointer-events: none;
+}
+
 .plans-section .plans .plan .plan-viewer + .help-message {
 	display: none;
 }
@@ -718,6 +733,23 @@
 	.plans-section .plans .plan .plan-viewer {
 		width: calc(100vw - var(--space-150));
 		padding-bottom: 100vh;
+	}
+}
+
+@media( min-width: 640px )  {
+	.plans-section .plans .plan .plan-viewer .icon-compass {
+		width: 80px;
+	}
+}
+@media( min-width: 1040px ) {
+	.plans-section .plans .plan .plan-viewer .icon-compass {
+		width: 100px;
+	}
+
+}
+@media( min-width: 1480px ) {
+	.plans-section .plans .plan .plan-viewer .icon-compass {
+		width: 120px;
 	}
 }
 
