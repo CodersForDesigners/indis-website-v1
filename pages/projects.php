@@ -370,7 +370,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 				<div class="address h6 text-neutral-2 space-min-top hide-for-small"><?= getContent( '', 'location_address' ) ?></div>
 				<a href="<?= getContent( '', 'location_google_maps_url' ) ?>" target="_blank" class="label strong text-red-2 text-uppercase space-min-top-bottom inline-middle">Open in Google Maps <img class="link-icon inline-middle" src="../media/icon/icon-location-color.svg<?php echo $ver ?>"></a>
 			</div>
-			<div class="location-title h2 strong text-light text-lowercase columns small-9 medium-5 xlarge-4"><?= getContent( '', 'location_title' ) ?></div>
+			<div class="location-title no-pointer h2 strong text-light text-lowercase columns small-9 medium-5 xlarge-4"><?= getContent( '', 'location_title' ) ?></div>
 		</div>
 	</div>
 </section>
