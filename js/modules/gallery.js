@@ -49,7 +49,7 @@ function setGalleryImage ( index, set ) {
 	if ( newIndex < 0 )
 		newIndex = lengthOfSet - 1;
 
-	var image = __DATA.galleries[ set ][ newIndex ];
+	var image = __DATA.galleries[ set ][ newIndex ].image;
 	var imageSizes = image.sizes;
 	var thumbnailImageURL = imageSizes.thumbnail;
 	var smallImageURL = imageSizes.small;
