@@ -12,7 +12,7 @@
 $( document ).on( "modal/open/image-gallery", function ( event, data ) {
 	var $galleryRegion = $( event.target ).closest( ".js_gallery_region" );
 	var gallerySet = $galleryRegion.data( "set" );
-	$visibleGalleryImages = $galleryRegion.find( ".js_gallery_item" );
+	var $visibleGalleryImages = $galleryRegion.find( ".js_gallery_item" );
 	var startingPosition = $visibleGalleryImages.index( event.target );
 	setGalleryImage( startingPosition, gallerySet );
 } );
