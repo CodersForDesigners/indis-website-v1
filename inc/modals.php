@@ -17,7 +17,7 @@
 			</div>
 		</div><!-- END : Sample Video -->
 
-		<!-- Modal Content : Cover Image Gallery -->
+		<!-- Modal Content : Image Gallery -->
 		<div class="modal-box-content js_modal_box_content js_gallery_modal" data-mod-id="image-gallery">
 			<div class="container">
 				<div class="row">
@@ -26,6 +26,8 @@
 						<div class="image-box loading js_image_box">
 							<img class="block">
 						</div>
+						<!-- Image Caption -->
+						<div class="image-caption">Lorem ipsum dolor sit amet, a few more words consectetur adipisicing elit.</div>
 					</div>
 				</div>
 				<div class="no-pointer carousel-controls block clearfix" style="position: fixed; width: var(--container-width); z-index: 2; top: 50vh; transform: translateY(-50%);">
@@ -33,7 +35,7 @@
 					<div class="next float-right" style="pointer-events: all;"><button class="button icon-button js_arrow" data-dir="right" style="background-image: url('../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>');"></button></div>
 				</div>
 			</div>
-		</div><!-- END : Cover Image Gallery -->
+		</div><!-- END : Image Gallery -->
 
 		<!-- Modal Content : Sample Form -->
 		<div class="modal-box-content js_modal_box_content" data-mod-id="sample-form">
