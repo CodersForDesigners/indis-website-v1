@@ -14,7 +14,7 @@ $projectPhoneNumberFormatted = '+91' . getContent( '', 'phone_number' );
 $projectPhoneNumberUnformatted = str_replace( [ '-', ' ' ], '', $projectPhoneNumberFormatted );
 $planGroups = getContent( [ ], 'plans' );
 $amenities = getContent( [ ], 'amenity' );
-	$amenityImages = getContent( [ ], 'amenities_images' );
+	$amenityImages = getContent( [ ], 'amenities_images_2' );
 $constructionUpdateGroups = getContent( [ ], 'updates' );
 $constructionPartnerLogo = getContent( '', 'construction_partner_logo -> sizes -> thumbnail' );
 $engineeringPartners = getContent( [ ], 'engineering_partners' );
@@ -36,19 +36,19 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 	// Cover images
 	var __DATA = window.__DATA = window.__DATA || { };
 	__DATA.galleries = __DATA.galleries || { };
-	__DATA.galleries.cover = <?php echo json_encode( getContent( [ ], 'cover_images' ) ) ?>;
+	__DATA.galleries.cover = <?php echo json_encode( getContent( [ ], 'cover_images_2' ) ) ?>;
 
 </script>
 <!-- END: Gallery data -->
 
 <!-- Cover Section -->
 <section data-section="Cover" class="cover-section space-25-top space-50-bottom js_gallery_region" data-set="cover">
-	<?php $coverImages = getContent( [ ], 'cover_images' ); ?>
+	<?php $coverImages = getContent( [ ], 'cover_images_2' ); ?>
 	<div class="container">
 		<div class="row">
 			<div class="cover-image-container image-1 columns small-12 large-12">
 				<div class="cover-image fill-neutral-2 js_gallery_item">
-					<img src="<?= $coverImages[ 0 ][ 'sizes' ][ 'large' ] ?>">
+					<img src="<?= $coverImages[ 0 ][ 'image' ][ 'sizes' ][ 'large' ] ?>">
 				</div>
 			</div>
 			<div class="project-card columns small-8 medium-4 fill-dark space-25">
@@ -63,24 +63,24 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 				<div class="row">
 					<div class="cover-image-container image-2 columns small-12 large-4">
 						<div class="cover-image fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer" tabindex="-1" data-mod-id="image-gallery">
-							<img src="<?= $coverImages[ 1 ][ 'sizes' ][ 'small' ] ?>">
+							<img src="<?= $coverImages[ 1 ][ 'image' ][ 'sizes' ][ 'small' ] ?>">
 						</div>
 					</div>
 					<div class="cover-image-container image-3 columns small-12 large-4">
 						<div class="cover-image fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer" tabindex="-1" data-mod-id="image-gallery">
-							<img src="<?= $coverImages[ 2 ][ 'sizes' ][ 'small' ] ?>">
+							<img src="<?= $coverImages[ 2 ][ 'image' ][ 'sizes' ][ 'small' ] ?>">
 						</div>
 					</div>
 					<div class="cover-image-container image-4 columns small-12 large-4">
 						<div class="cover-image fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer" tabindex="-1" data-mod-id="image-gallery">
-							<img src="<?= $coverImages[ 3 ][ 'sizes' ][ 'small' ] ?>">
+							<img src="<?= $coverImages[ 3 ][ 'image' ][ 'sizes' ][ 'small' ] ?>">
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="cover-image-container image-5 columns small-12 medium-6 large-4">
 				<div class="cover-image portrait fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer" tabindex="-1" data-mod-id="image-gallery">
-					<img src="<?= $coverImages[ 4 ][ 'sizes' ][ 'medium' ] ?>">
+					<img src="<?= $coverImages[ 4 ][ 'image' ][ 'sizes' ][ 'medium' ] ?>">
 					<div class="icon-button zoom" style="background-image: url('../media/icon/icon-zoom.svg<?php echo $ver ?>');"></div>
 				</div>
 			</div>
@@ -565,7 +565,7 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 	<div class="carousel-list js_carousel_content">
 		<?php foreach ( $amenityImages as $image ) : ?>
 			<div class="carousel-list-item js_carousel_item">
-				<div class="carousel-mini-image cursor-pointer js_modal_trigger js_gallery_item" data-mod-id="image-gallery" style="background-image: url( '<?= $image[ 'sizes' ][ 'small' ] ?>' );"></div>
+				<div class="carousel-mini-image cursor-pointer js_modal_trigger js_gallery_item" data-mod-id="image-gallery" style="background-image: url( '<?= $image[ 'image' ][ 'sizes' ][ 'small' ] ?>' );"></div>
 			</div>
 		<?php endforeach; ?>
 	</div>
@@ -797,17 +797,17 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 						<script type="text/javascript">
 							var __DATA = window.__DATA = window.__DATA || { };
 							__DATA.galleries = __DATA.galleries || { };
-							__DATA.galleries.constructionUpdate_<?= $groupIndex . '_' . $updateIndex ?> = <?php echo json_encode( $update[ 'update_images' ] ) ?>;
+							__DATA.galleries.constructionUpdate_<?= $groupIndex . '_' . $updateIndex ?> = <?php echo json_encode( $update[ 'update_images_2' ] ) ?>;
 						</script>
 						<div class="row js_tab <?php if ( $updateIndex ) echo 'hidden' ?> js_gallery_region" data-set="constructionUpdate_<?= $groupIndex . '_' . $updateIndex ?>" data-tab="<?= $update[ 'update_name' ] ?>">
 							<div class="update-featured columns small-12 large-5">
-								<div class="image cursor-pointer js_modal_trigger js_gallery_item <?php if ( $update[ 'update_images' ][ 0 ][ 'width' ] / $update[ 'update_images' ][ 0 ][ 'height' ] < 1.25 ) echo 'fit-image' ?>" data-mod-id="image-gallery" style="background-image: url( '<?= $update[ 'update_images' ][ 0 ][ 'sizes' ][ 'medium' ] ?>' );"></div>
+								<div class="image cursor-pointer js_modal_trigger js_gallery_item <?php if ( $update[ 'update_images_2' ][ 0 ][ 'image' ][ 'width' ] / $update[ 'update_images_2' ][ 0 ][ 'image' ][ 'height' ] < 1.25 ) echo 'fit-image' ?>" data-mod-id="image-gallery" style="background-image: url( '<?= $update[ 'update_images_2' ][ 0 ][ 'image' ][ 'sizes' ][ 'medium' ] ?>' );"></div>
 								<div class="icon-button zoom " style="background-image: url('../media/icon/icon-zoom-white.svg<?php echo $ver ?>');"></div>
 							</div>
 							<div class="update-gallery columns small-12 large-7">
 								<div class="block row position-relative">
-									<?php foreach ( array_slice( $update[ 'update_images' ], 1, 9 ) as $image ) : ?>
-										<div class="image-container columns small-6 medium-4"><div class="image cursor-pointer js_modal_trigger js_gallery_item <?php if ( $image[ 'width' ] / $image[ 'height' ] < 1.25 ) echo 'fit-image' ?>" data-mod-id="image-gallery" style="background-image: url( '<?= $image[ 'sizes' ][ 'small' ] ?>' );"></div></div>
+									<?php foreach ( array_slice( $update[ 'update_images_2' ], 1, 9 ) as $image ) : ?>
+										<div class="image-container columns small-6 medium-4"><div class="image cursor-pointer js_modal_trigger js_gallery_item <?php if ( $image[ 'image' ][ 'width' ] / $image[ 'image' ][ 'height' ] < 1.25 ) echo 'fit-image' ?>" data-mod-id="image-gallery" style="background-image: url( '<?= $image[ 'image' ][ 'sizes' ][ 'small' ] ?>' );"></div></div>
 									<?php endforeach; ?>
 								</div>
 							</div>
