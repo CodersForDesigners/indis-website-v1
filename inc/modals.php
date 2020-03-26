@@ -25,9 +25,9 @@
 						<!-- Image Box -->
 						<div class="image-box loading js_image_box">
 							<img class="block">
+							<!-- Image Caption -->
+							<div class="image-caption js_caption"></div>
 						</div>
-						<!-- Image Caption -->
-						<div class="image-caption">Lorem ipsum dolor sit amet, a few more words consectetur adipisicing elit.</div>
 					</div>
 				</div>
 				<div class="no-pointer carousel-controls block clearfix" style="position: fixed; width: var(--container-width); z-index: 2; top: 50vh; transform: translateY(-50%);">
