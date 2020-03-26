@@ -50,6 +50,7 @@ function setGalleryImage ( index, set ) {
 		newIndex = lengthOfSet - 1;
 
 	var image = __DATA.galleries[ set ][ newIndex ].image;
+	var caption = __DATA.galleries[ set ][ newIndex ].caption;
 	var imageSizes = image.sizes;
 	var thumbnailImageURL = imageSizes.thumbnail;
 	var smallImageURL = imageSizes.small;
@@ -73,6 +74,7 @@ function setGalleryImage ( index, set ) {
 		srcset: srcset,
 		sizes: "100vw"
 	} );
+	$imageBox.find( ".js_caption" ).text( caption || "" );
 
 }
 
