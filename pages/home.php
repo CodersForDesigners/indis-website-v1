@@ -58,7 +58,7 @@ $numberOfSpotlights = str_pad( count( $featuredSpotlights ), 2, '0', STR_PAD_LEF
 			<?php foreach ( $projects as $project ) : ?>
 				<div class="project-item-container columns small-12 medium-6 large-4">
 					<a href="<?= $project[ 'permalink' ] ?>" class="project-item block fill-neutral-2 js_project_item" tabindex="-1">
-						<img src="<?= getContent( '', 'cover_images -> 0 -> sizes -> large', $project[ 'ID' ] ) ?>">
+						<img src="<?= getContent( '', 'cover_images -> 0 -> image -> sizes -> large', $project[ 'ID' ] ) ?>">
 						<div class="project-card fill-dark space-25">
 							<div class="title h4 strong"><?= $project[ 'post_title' ] ?></div>
 							<div class="location label"><?= getContent( '', 'location', $project[ 'ID' ] ) ?></div>
