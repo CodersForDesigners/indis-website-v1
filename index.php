@@ -16,6 +16,7 @@ $requestPath = trim(
 	'/'
 );
 $postType = null;
+$thePost = null;
 $urlSlug = '';
 // Does this route have a dedicated template?
 $hasDedicatedTemplate = false;

@@ -10,6 +10,10 @@
  *
  */
 function initWordPress () {
+
+	if ( cmsIsEnabled() )
+		return;
+
 	$configFile = __DIR__ . '/../cms/wp-config.php';
 	$configFile__AlternateLocation = __DIR__ . '/../wp-config.php';
 	if ( file_exists( $configFile ) || file_exists( $configFile__AlternateLocation ) ) {
@@ -18,8 +22,10 @@ function initWordPress () {
 			global $cmsIsEnabled;
 			$cmsIsEnabled = true;
 			setupVars();
+			establishContext();
 		}
 	}
+
 }
 
 
@@ -39,16 +45,50 @@ function cmsIsEnabled () {
  * Set up global variables
  *
  */
-$pageId = null;
 $siteUrl = ( isOnHTTPS() ? 'https://' : 'http://' ) . $_SERVER[ 'HTTP_HOST' ];
 $cmsIsEnabled = false;
-$thePost = null;
 $postId = null;
+$pageId = null;
 function setupVars () {
 	global $pageId;
-	global $siteUrl;
 	$pageId = get_the_ID();
+	// global $siteUrl
 	// $siteUrl = preg_replace( '/\/[^\/.]*$/', '', site_url() );
+}
+
+
+
+/*
+ *
+ * Fetch the post object corresponding to the route.
+ *	If neither a post object, nor a page file for the route exists, respond and re-direct.
+ *
+ */
+function establishContext () {
+
+	global $thePost;
+	global $postId;
+	global $postType;
+	global $urlSlug;
+	global $siteUrl;
+	global $hasDedicatedTemplate;
+
+	$thePost = getCurrentPost( $urlSlug, $postType );
+	if ( empty( $thePost ) and ! in_array( $postType, [ 'page', null ] ) ) {
+		// echo 'Please create a corresponding page or post with the slug' . '"' . $urlSlug . '"' . 'in the CMS.';
+		http_response_code( 404 );
+		return header( 'Location: /', true, 302 );
+		exit;
+	}
+	// If there is neither a corresponding post in the database nor a dedicated template for the given route, return a 404 and redirect
+	else if ( empty( $thePost ) and ! $hasDedicatedTemplate ) {
+		http_response_code( 404 );
+		return header( 'Location: /', true, 302 );
+		exit;
+	}
+	else if ( ! empty( $thePost ) )
+		$postId = $thePost->ID;
+
 }
 
 

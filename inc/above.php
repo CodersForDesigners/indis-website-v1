@@ -34,27 +34,6 @@ if ( count( $pathFragments ) > 1 )
 else
 	$baseURL = '/';
 
-/*
- * Get the title and URL of the website and current page
- */
-if ( cmsIsEnabled() ) {
-	$thePost = getCurrentPost( $urlSlug, $postType );
-	if ( empty( $thePost ) and ! in_array( $postType, [ 'page', null ] ) ) {
-		// echo 'Please create a corresponding page or post with the slug' . '"' . $urlSlug . '"' . 'in the CMS.';
-		http_response_code( 404 );
-		return header( 'Location: /', true, 302 );
-		exit;
-	}
-	// If there is neither a corresponding post in the database nor a dedicated template for the given route, return a 404 and redirect
-	else if ( empty( $thePost ) and ! $hasDedicatedTemplate ) {
-		http_response_code( 404 );
-		return header( 'Location: /', true, 302 );
-		exit;
-	}
-	else if ( ! empty( $thePost ) )
-		$postId = $thePost->ID;
-}
-
 
 // Construct the page's title ( for use in the title tag )
 $siteTitle = getContent( '', 'page_title', $urlSlug ) ?: getContent( 'Indis', 'page_title' );
