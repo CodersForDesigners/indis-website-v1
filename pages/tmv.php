@@ -44,7 +44,7 @@ require_once __DIR__ . '/../inc/above.php';
 			<div class="columns small-12 medium-10 large-8">
 				<div class="h2 strong text-lowercase space-50-top space-min-bottom">Tile Map Viewer</div>
 				<div class="h5 text-neutral-2 space-50-bottom">
-					Minimium Size: 14304 × 9888. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi veniam, repudiandae aut incidunt voluptatum quidem, nesciunt facilis labore temporibus molestias quaerat dicta magni illo obcaecati praesentium. Impedit, voluptas. Laborum, ad.
+					Provide a Large .PNG or .JPG File of Minimum Size: 14304 × 9888. Ensure the .PNG file contains no transparency. The recommended aspect ratio for this project is that of an A1 size Paper (2384 x 2384 at 72DPI) in the landscape orientation.
 				</div>
 			</div>
 		</div>
