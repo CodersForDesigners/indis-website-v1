@@ -107,13 +107,6 @@
 	<meta property="og:description" content="<?php echo getContent( '', 'og -> description' ) ?>">
 	<meta property="og:site_name" content="<?php echo getContent( '', 'site_title' ) ?>">
 
-
-	<!-- Schema.org / Google+ -->
-	<meta itemprop="name" content="<?php echo $pageTitle ?>">
-	<meta itemprop="description" content="<?php echo getContent( 'This is a website', 'schema -> description' ) ?>">
-	<meta itemprop="image" content="<?php echo $pageImage ?: '' ?>">
-
-
 	<!--
 	*
 	*	Prevent browsers from (non-smooth) scrolling when a hash is in the URL
