@@ -41,7 +41,7 @@ $pageUrl = $siteUrl . $requestPath;
 
 // Build the Page Title ( if an explicit one is set, use that )
 if ( cmsIsEnabled() and ! empty( $thePost ) )
-	$pageTitle = ( $pageTitle ?? $thePost->post_title ) . ' | ' . $siteTitle;
+	$pageTitle = ( $pageTitle ?? $thePost[ 'post_title' ] ) . ' | ' . $siteTitle;
 else
 	$pageTitle = empty( $pageTitle ) ? $siteTitle : ( $pageTitle . ' | ' . $siteTitle );
 
@@ -61,7 +61,7 @@ http_response_code( 200 );
 
 
 // Get all the project but the current one ( if the page is that of a project )
-$allProjectsExcludingCurrent = getPostsOf( 'projects', null, $thePost->ID );
+$allProjectsExcludingCurrent = getPostsOf( 'projects', null, $thePost[ 'ID' ] ?? [ ] );
 if ( cmsIsEnabled() ) {
 	foreach ( $allProjectsExcludingCurrent as &$project ) {
 		$project[ 'permalink' ] = get_permalink( $project[ 'ID' ] );
@@ -108,7 +108,7 @@ foreach ( $navigationMenuItems as &$item ) {
 	$item[ 'selectorOf' ] = getContent( '', 'post-type-selector', $item[ 'ID' ] );
 	if ( ! empty( $item[ 'selectorOf' ] ) ) {
 		$item[ 'type' ] = 'post-selector';
-		$item[ 'posts' ] = getPostsOf( $item[ 'selectorOf' ], null, $thePost->ID );
+		$item[ 'posts' ] = getPostsOf( $item[ 'selectorOf' ], null, $thePost[ 'ID' ] ?? [ ] );
 		$item[ 'classes' ][ ] = 'no-pointer';
 	}
 	else
@@ -167,7 +167,7 @@ unset( $item );
 									<a href="<?php echo $baseURL ?>" class="logo clickable float-left"><img class="block" src="../media/indis-symbol-color.svg<?php echo $ver ?>"></a>	
 								</div>
 								<div class="inline-middle">
-									<div class="title h5 strong"><?= ( $urlSlug === 'home' ? 'indis' : $thePost->post_title ) ?></div>
+									<div class="title h5 strong"><?= $thePost[ 'post_title' ] ?? 'indis' ?></div>
 									<div class="location label strong text-uppercase text-neutral-4"><?= getContent( 'Group INCOR', 'location' ) ?></div>
 								</div>
 							</div>
@@ -180,7 +180,7 @@ unset( $item );
 									<?php if ( $item[ 'type' ] === 'post-selector' ) : ?>
 										<select class="nested-link clickable js_navigation_post_selector">
 											<?php if ( $item[ 'selectorOf' ] === $postType ) : ?>
-												<option data-href="<?= get_permalink( $thePost->ID ) ?>" selected><?= $thePost->post_title ?></option>
+												<option data-href="<?= get_permalink( $thePost[ 'ID' ] ) ?>" selected><?= $thePost[ 'post_title' ] ?></option>
 											<?php else : ?>
 												<option disabled selected>Select <?= $item[ 'selectorOf' ] ?></option>
 											<?php endif; ?>

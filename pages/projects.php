@@ -62,7 +62,7 @@ require_once __DIR__ . '/../inc/above.php';
 			</div>
 			<div class="project-card columns small-8 medium-4 fill-dark space-25">
 				<div class="logo space-min-bottom"><a href="<?php echo $baseURL ?>" class="inline"><img class="block" src="../media/indis-logo-light.svg<?php echo $ver ?>"></a></div>
-				<div class="title h4 strong"><?= $thePost->post_title ?></div>
+				<div class="title h4 strong"><?= $thePost[ 'post_title' ] ?></div>
 				<div class="location label strong text-uppercase text-neutral-4"><?= getContent( '', 'location' ) ?></div>
 				<hr class="dash">
 				<div class="type h6 strong space-min-top"><?= getContent( '', 'type' ) ?></div>
@@ -225,14 +225,14 @@ require_once __DIR__ . '/../inc/above.php';
 						</div>
 						<div class="price h5 condensed <?= $hide ?>"><?= $spotlight[ 'spotlight_price' ] ?></div>
 						<div class="tag">
-							<span class="project h6 strong fill-light"><?= $thePost->post_title ?></span>
+							<span class="project h6 strong fill-light"><?= $thePost[ 'post_title' ] ?></span>
 							<?php if( ! empty( $spotlight[ 'spotlight_series_id' ] ) ) : ?>
 							<span class="series-id h6 strong fill-red-2"><?= $spotlight[ 'spotlight_series_id' ] ?></span>
 							<?php endif; ?>
 						</div>
 					</div>
 				</div>
-				<button id="spotlight-<?= $index + 1 ?>-enquire" class="button fill-neutral-4 text-light button-icon js_spotlight_enquire" data-c="/spotlight/<?= $urlSlug ?>" data-spotlight="Spotlight: <?= $thePost->post_title . ': ' . $spotlight[ 'spotlight_series_id' ] ?>" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</button>
+				<button id="spotlight-<?= $index + 1 ?>-enquire" class="button fill-neutral-4 text-light button-icon js_spotlight_enquire" data-c="/spotlight/<?= $urlSlug ?>" data-spotlight="Spotlight: <?= $thePost[ 'post_title' ] . ': ' . $spotlight[ 'spotlight_series_id' ] ?>" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</button>
 				<!-- Phone Trap -->
 				<div class="phone-trap phone-number columns small-12 large-9 xlarge-10">
 					<form class="js_phone_form" style="display: none">
