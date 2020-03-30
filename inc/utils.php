@@ -87,7 +87,7 @@ function establishContext () {
 		exit;
 	}
 	else if ( ! empty( $thePost ) )
-		$postId = $thePost->ID;
+		$postId = $thePost[ 'ID' ];
 
 }
 
@@ -140,7 +140,7 @@ function getContent ( $fallback, $field, $context = null ) {
 
 	if ( empty( $context ) ) {
 		// If the page is contextual to a post, then set that as the context
-		$context = $thePost ? $thePost->ID : 'options';
+		$context = $thePost ? $thePost[ 'ID' ] : 'options';
 	}
 	else if ( is_string( $context ) ) {
 		if ( $context === 'navigation' ) {
@@ -172,7 +172,7 @@ function getContent ( $fallback, $field, $context = null ) {
 		// If no content was found, search in underlying native post object
 		if ( empty( $content ) ) {
 			if ( $currentContext and ( ! is_string( $currentContext ) ) )
-				$content = $thePost->{$fieldParts[ 0 ]};
+				$content = $thePost[ $fieldParts[ 0 ] ] ?? null;
 			if ( empty( $content ) )
 				continue;
 		}
@@ -254,13 +254,23 @@ function pageIsStatic () {
  *
  */
 function getCurrentPost ( $slug, $type = null ) {
-	if ( cmsIsEnabled() )
-		if ( ! empty( $type ) )
-			return get_page_by_path( $slug, OBJECT, $type );
-		else
-			return get_page_by_path( $slug, OBJECT, 'post' ) ?: get_page_by_path( $slug, OBJECT, 'page' );
-	else
+
+	if ( ! cmsIsEnabled() )
 		return [ ];
+
+	$post = null;
+	if ( ! empty( $type ) )
+		$post = get_page_by_path( $slug, OBJECT, $type );
+	else
+		$post = get_page_by_path( $slug, OBJECT, 'post' ) ?: get_page_by_path( $slug, OBJECT, 'page' );
+
+	if ( is_object( $post ) )
+		$post = get_object_vars( $post );
+	if ( ! is_array( $post ) )
+		$post = [ ];
+
+	return $post;
+
 }
 
 
