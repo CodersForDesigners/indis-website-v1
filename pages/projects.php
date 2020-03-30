@@ -7,8 +7,14 @@
 if ( empty( $urlSlug ) )
 	return header( 'Location: /', true, 302 );
 
-require_once __DIR__ . '/../inc/above.php';
 
+
+require_once __DIR__ . '/../inc/utils.php';
+initWordPress();
+
+$metaDescription = getContent( '', 'intro_title' ) ?? null;
+$coverImages = getContent( [ ], 'cover_images' );
+$metaImage = $coverImages[ 0 ][ 'image' ] ?? [ ];
 
 $projectPhoneNumberFormatted = '+91' . getContent( '', 'phone_number' );
 $projectPhoneNumberUnformatted = str_replace( [ '-', ' ' ], '', $projectPhoneNumberFormatted );
@@ -23,6 +29,10 @@ $spotlights = getContent( [ ], 'spotlight_list' );
 $events = getContent( [ ], 'events_list' );
 	$numberOfEvents = str_pad( count( $events ), 2, '0', STR_PAD_LEFT );
 $officeAddresses = getContent( [ ], 'office_addresses' );
+
+
+require_once __DIR__ . '/../inc/above.php';
+
 
 ?>
 
@@ -43,7 +53,6 @@ $officeAddresses = getContent( [ ], 'office_addresses' );
 
 <!-- Cover Section -->
 <section data-section="Cover" class="cover-section space-25-top space-50-bottom js_gallery_region" data-set="cover">
-	<?php $coverImages = getContent( [ ], 'cover_images' ); ?>
 	<div class="container">
 		<div class="row">
 			<div class="cover-image-container image-1 columns small-12 large-12">

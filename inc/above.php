@@ -46,12 +46,13 @@ else
 	$pageTitle = empty( $pageTitle ) ? $siteTitle : ( $pageTitle . ' | ' . $siteTitle );
 
 
-// Get the page's image for SEO and other related purposes
-$pageImage = getContent( '', 'page_image', $urlSlug ) ?: getContent( '', 'page_image' );
-if ( ! empty( $pageImage[ 'sizes' ] ) )
-	$pageImage = $pageImage[ 'sizes' ][ 'medium' ] ?: $pageImage[ 'sizes' ][ 'thumbnail' ] ?: $pageImage[ 'url' ];
-else
-	$pageImage = $pageImage[ 'url' ] ?? null;
+/*
+ * Meta / SEO
+ */
+$metaDescription = $metaDescription ?? getContent( null, 'meta_description' );
+$metaImage = $metaImage ?? getContent( [ ], 'meta_image' );
+$metaImage = $metaImage[ 'sizes' ][ 'medium' ] ?? $metaImage[ 'sizes' ][ 'small' ] ?? $metaImage[ 'sizes' ][ 'thumbnail' ] ?? $metaImage[ 'url' ] ?? null;
+
 
 // #fornow
 // Just so that when some social media service (WhatsApp) try to ping URL,
