@@ -175,26 +175,14 @@
 	<link rel="stylesheet" type="text/css" href="plugins/slick/slick.css<?php echo $ver ?>"/>
 	<link rel="stylesheet" type="text/css" href="plugins/slick/slick-theme.css<?php echo $ver ?>"/>
 
-	<!--
-	*
-	*	Fonts and Icons
-	*
-	- -->
-	<?php echo getContent( <<<ARB
-	<!-- Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:400,700|Barlow:400,700&display=swap" rel="stylesheet">
-	<!-- Icons -->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<?= getContent( <<<ARB
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:400,700|Barlow:400,700&display=swap" rel="stylesheet">
+		<!-- Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 ARB
-, 'fonts_and_icons' ) ?>
-
-
-	<?php
-		/*
-		 * Arbitrary Code ( Bottom of Head )
-		 */
-		echo getContent( '', 'arbitrary_code_head_bottom' );
-	?>
+, 'arbitrary_code -> before_head_closing' ); ?>
 
 
 </head>
