@@ -23,7 +23,7 @@
 	<!-- Short description of the document (limit to 150 characters) -->
 	<!-- This content *may* be used as a part of search engine results. -->
 	<?php if ( $metaDescription ) : ?>
-	<meta name="description" content="<?= $metaDescription ?>">
+	<meta name="description" content="<?= htmlentities( strip_tags( $metaDescription ) ) ?>">
 	<?php endif; ?>
 
 
@@ -107,7 +107,7 @@
 	<meta property="og:image" content="<?= $metaImage ?>">
 	<?php endif; ?>
 	<?php if ( $metaDescription ) : ?>
-	<meta property="og:description" content="<?= $metaDescription ?>">
+	<meta property="og:description" content="<?= htmlentities( strip_tags( $metaDescription ) ) ?>">
 	<?php endif; ?>
 	<meta property="og:site_name" content="<?php echo getContent( '', 'site_title' ) ?>">
 
