@@ -63,10 +63,10 @@ require_once __DIR__ . '/../inc/above.php';
 			<div class="project-card columns small-8 medium-4 fill-dark space-25">
 				<div class="logo space-min-bottom"><a href="<?php echo $baseURL ?>" class="inline"><img class="block" src="../media/indis-logo-light.svg<?php echo $ver ?>"></a></div>
 				<div class="title h4 strong"><?= $thePost[ 'post_title' ] ?></div>
-				<div class="location label strong text-uppercase text-neutral-4"><?= getContent( '', 'location' ) ?></div>
+				<div class="location label strong text-uppercase text-red-2"><?= getContent( '', 'location' ) ?></div>
 				<hr class="dash">
 				<div class="type h6 strong space-min-top"><?= getContent( '', 'type' ) ?></div>
-				<div class="price h5 condensed"><?= getContent( '', 'price' ) ?></div>
+				<div class="price h5 condensed text-neutral-4"><?= getContent( '', 'price' ) ?></div>
 			</div>
 			<div class="cover-image-strip columns small-4 medium-2 large-6">
 				<div class="row">

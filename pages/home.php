@@ -61,10 +61,10 @@ $numberOfSpotlights = str_pad( count( $featuredSpotlights ), 2, '0', STR_PAD_LEF
 						<img src="<?= getContent( '', 'cover_images -> 0 -> image -> sizes -> large', $project[ 'ID' ] ) ?>">
 						<div class="project-card fill-dark space-25">
 							<div class="title h4 strong"><?= $project[ 'post_title' ] ?></div>
-							<div class="location label"><?= getContent( '', 'location', $project[ 'ID' ] ) ?></div>
+							<div class="location label strong text-uppercase text-red-2"><?= getContent( '', 'location', $project[ 'ID' ] ) ?></div>
 							<hr class="dash">
 							<div class="type h6 strong space-25-top"><?= getContent( '', 'type', $project[ 'ID' ] ) ?></div>
-							<div class="price h5 condensed space-min-top"><?= getContent( '', 'price', $project[ 'ID' ] ) ?></div>
+							<div class="price h5 condensed text-neutral-4"><?= getContent( '', 'price', $project[ 'ID' ] ) ?></div>
 						</div>
 					</a>
 				</div>
