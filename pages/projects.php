@@ -745,7 +745,7 @@ require_once __DIR__ . '/../inc/above.php';
 				<img class="block" src="../media/engineering/engineering-fire-infographic.png<?php echo $ver ?>">
 			</div>
 		</div>
-		<div class="row row-3">
+		<div class="row row-3 <?= $showMedium ?>">
 			<div class="film inline-bottom columns small-12 medium-6 large-6 <?= $hide ?>">
 				<!-- video embed -->
 				<div class="video-embed js_video_embed" data-src="lncVHzsc_QA">
@@ -844,7 +844,7 @@ require_once __DIR__ . '/../inc/above.php';
 			<div class="info columns small-12 medium-8 large-7 xlarge-6">
 				<div class="title h3 strong text-lowercase space-min-bottom">At indis, we don’t just build landmarks, <span class="text-red-2">we build Lifemarks.</span></div>
 				<div class="description p text-neutral-2 space-25-bottom">Built on the ethos of community living, you will always find more people sharing your interests and making life more meaningful. Sport plays an important role in character building. Kids need to explore and spread their wings to become well-rounded individuals, and adults need to stretch a little to uncover a healthier version of themselves.</div>
-				<a href="" target="blank" class="button fill-red-2 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Discover How</a>
+				<a href="" target="blank" class="button fill-red-2 text-light button-icon <?= $hide ?>" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Discover How</a>
 			</div>
 		</div>
 	</div>

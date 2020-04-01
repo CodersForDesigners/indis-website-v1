@@ -17,6 +17,7 @@ $ver = '?v=20200127';
  * A class name for temporarily disabling sections or features or content parts while in development
  */
 $hide = 'hidden';
+$showMedium = 'show-for-medium';
 
 /*
  * Get all the links on the site

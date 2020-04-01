@@ -49,7 +49,7 @@ $numberOfSpotlights = str_pad( count( $featuredSpotlights ), 2, '0', STR_PAD_LEF
 		<div class="project-list row">
 			<div class="project-item-container columns small-12 medium-6 large-4">
 				<div class="project-list-intro space-25-left">
-					<div class="logo"><a href="<?php echo $baseURL ?>" class="inline"><img class="block" src="../media/indis-logo-dark.svg<?php echo $ver ?>"></a></div>
+					<div class="logo"><a href="<?php echo $baseURL ?>" class="inline"><img class="block" src="../media/indis-logo-color.svg<?php echo $ver ?>"></a></div>
 					<div class="list-title space-50-top-bottom">
 						<div class="h2 strong text-lowercase">Find an <span class="text-red-2">Indis</span> home near you</div>
 					</div>
