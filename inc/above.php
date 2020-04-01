@@ -88,9 +88,6 @@ foreach ( $navigationMenuItems as &$item ) {
 		$itemUrl = getContent( '', $field );
 		// If the override value is a phone number, perform some modifications
 		if ( preg_match( '/^\+?[\d\-]+$/', $itemUrl ) ) {
-			// Prepend the `+91` country code if one isn't provided
-			if ( $itemUrl[ 0 ] !== '+' )
-				$itemUrl = '+91' . $itemUrl;
 			// Replace the navigation item's label as well
 			$item[ 'title' ] = $itemUrl;
 			// Prepend the `tel:` protocol to the URL
