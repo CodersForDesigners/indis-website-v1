@@ -178,7 +178,7 @@
 
 	<?= getContent( <<<ARB
 		<!-- Fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:400,700|Barlow:400,700&display=swap|Bebas+Neue&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:ital,wght@0,700;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
 		<!-- Icons -->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 ARB

@@ -724,38 +724,50 @@ require_once __DIR__ . '/../inc/above.php';
 			<div class="points points-1 columns small-12 medium-6 large-3 large-offset-1">
 				<div class="title h4 strong space-25-bottom"><span class="text-red-2">High-Rise Safety</span> <br>Engineering</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					Early warning smoke detectors in your kitchen and living room.
+					Early warning heat detectors <span class="text-dark">in your kitchen</span>. Multi-detectors <span class="text-dark">for heat and smoke in all the remaining rooms.</span>
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					Smoke detectors trigger an early warning fire alarm with an exact indication of the location of a potential fire.
+					Detectors trigger an early warning fire alarm alerting personnel in the building with the exact location of a potential fire.
 				</div>
 				<div class="smoke-detector text-center">
 					<img class="block" src="../media/engineering/smoke-detector.png<?php echo $ver ?>">
-					<div class="label strong text-neutral-2 text-uppercase space-min-top-bottom">Early Warning Smoke Detector</div>
+					<div class="label strong text-neutral-2 text-uppercase space-min-top-bottom">Smoke and Heat Detector</div>
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					Every floor has early warning fire measures like hand-held extinguishers and water hoses.
+					Every floor has <span class="text-red-2">early warning fire measures</span> like hand-held extinguishers and water hoses.
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					In case a fire is too intense for early warning fire measures, <span class="text-red-2">evacuation is recommended.</span>
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					A pressurized network of pipes feed the <span class="text-dark">fire sprinklers in every room of your house.</span>
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Every fire sprinkler has a <span class="text-dark">temperature activated glass bulb</span> that melts at 68° Celsius.
 				</div>
 			</div>
 			<div class="points points-2 columns small-12 medium-6 medium-offset-6 large-3 large-offset-0">
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					In case a fire is to intense for early warning fire measures, evacuation is recommended.
-				</div>
-				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					A pressurized network of pipes feed the fire sprinklers in every room of your house.
+					<span class="text-dark">Only the fire sprinklers in the region of the fire will activate when a fire melts the glass bulbs.</span>
 				</div>
 				<div class="fire-sprinkler text-center">
 					<img class="block" src="../media/engineering/fire-sprinkler.png<?php echo $ver ?>">
 					<div class="label strong text-neutral-2 text-uppercase space-min-top-bottom">Temperature Activated Sprinkler</div>
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					Every fire sprinkler has a temperature activated glass bulb that melts at 68° Celsius.
+					Three redundant <span class="text-dark">water pumps activate in sequence</span> when they sense a drop in water pressure. This ensures the sprinklers are fed with a constant water pressure.
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					Only the fire sprinklers in the region of the fire will activate when a fire melts the glass bulbs only.
+					<span class="text-red-2">Pump 1</span> is an electric pump capable of delivering 180 litres per minute.
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					Triple redundant water pumps activate when they sense a drop in water pressure. This ensures the sprinklers are fed with a constant water pressure.
+					<span class="text-red-2">Pump 2</span> is a high capacity electric pump which can deliver 1620/2280/2850 litres per minute. This pump switches on if Pump 1 is unable to maintain water pressure.
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					<span class="text-red-2">Pump 3</span> is a high capacity diesel pump which can also deliver 1620/2280/2850 litres per minute.
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					This diesel pump switches on if Pump 1 and 2 are unable to maintain water pressure or <span class="text-dark">if the electrical power supply fails.</span>
 				</div>
 			</div>
 		</div>

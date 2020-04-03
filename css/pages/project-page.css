@@ -649,7 +649,7 @@
 	}
 
 	.engineering-section.fire .row-1 .points.points-2 {
-		margin-top: calc( var(--space-100) * 5);
+		margin-top: calc( var(--space-100) * 9);
 	}
 	.engineering-section.fire .row-3 .sprinkler-bulb img {
 		width: 180px;
@@ -657,7 +657,7 @@
 }
 @media( min-width: 1480px ) {
 	.engineering-section.fire .row-1 .points.points-2 {
-		margin-top: calc( var(--space-100) * 4);
+		margin-top: calc( var(--space-100) * 7);
 	}
 
 	.engineering-section.fire .row-3 .sprinkler-bulb img {
