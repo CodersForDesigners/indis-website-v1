@@ -506,6 +506,13 @@ require_once __DIR__ . '/../inc/above.php';
 			</div>
 		</div>
 	<?php endforeach; ?>
+	<div class="row">
+		<div class="container">
+			<div class="columns small-12 text-center">
+				<div class="h5">Material <span class="text-red-2">Brands</span> Used</div>
+			</div>
+		</div>
+	</div>
 </section>
 <?php endif; ?>
 <!-- END: Carousel Mini: Affiliates Section -->
