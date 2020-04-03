@@ -11,7 +11,7 @@ require_once __DIR__ . '/lazaro.php';
 /*
  * A version number for versioning assets to invalidate the browser cache
  */
-$ver = '?v=20200127';
+$ver = '?v=20200403';
 
 /*
  * A class name for temporarily disabling sections or features or content parts while in development
