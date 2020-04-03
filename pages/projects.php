@@ -558,6 +558,16 @@ require_once __DIR__ . '/../inc/above.php';
 							<?php endif; ?>
 						</div>
 						<div class="help-message p strong text-red-2 space-min-top"><img class="inline-middle" width="20px" src="../media/icon/icon-orientation.svg<?php echo $ver ?>"> Rotate device for best experience!</div>
+						<div class="plan-status row">
+							<div class="columns small-12 medium-9 large-7">
+								<div class="title h5 condensed space-min-top">
+									<?= $plan[ 'plan_status_title' ] ?>
+								</div>
+								<div class="description h6 text-neutral-2 space-min-top">
+									<?= $plan[ 'plan_status_description' ] ?>
+								</div>
+							</div>
+						</div>
 					<?php endforeach; ?>
 				</div>
 			<?php endforeach; ?>
@@ -830,12 +840,22 @@ require_once __DIR__ . '/../inc/above.php';
 									<?php endforeach; ?>
 								</div>
 							</div>
-							<?php if ( ! empty( $update[ 'rera_number' ] ) ) : ?>
-							<div class="update-rera columns small-12">
-								<div class="h5 condensed text-red-2">TS RERA Number: <?= $update[ 'rera_number' ] ?></div>
-								<img class="icon-ts-rera" src="../media/construction/icon-ts-rera.png<?php echo $ver ?>">
+							<div class="row">
+								<div class="update-rera columns small-12 large-5">
+									<?php if ( ! empty( $update[ 'rera_number' ] ) ) : ?>
+										<div class="h5 condensed text-red-2 space-min-top">TS RERA Number: <?= $update[ 'rera_number' ] ?></div>
+										<img class="icon-ts-rera" src="../media/construction/icon-ts-rera.png<?php echo $ver ?>">
+									<?php endif; ?>
+								</div>
+								<div class="update-status columns small-12 medium-9 large-7">
+									<div class="title h5 condensed space-min-top">
+										<?= $update[ 'update_status_title' ] ?>
+									</div>
+									<div class="description h6 text-neutral-2 space-min-top">
+										<?= $update[ 'update_status_description' ] ?>
+									</div>
+								</div>
 							</div>
-							<?php endif; ?>
 						</div>
 					<?php endforeach; ?>
 				</div>

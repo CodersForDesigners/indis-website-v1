@@ -713,6 +713,10 @@
 	display: none;
 }
 
+.plans-section .plans .plan .plan-viewer.hidden + .help-message + .plan-status {
+	display: none;
+}
+
 @media( orientation: portrait ) and ( max-width: 639px ) {
 	.plans-section .plans .plan .plan-viewer:not(.hidden) + .help-message {
 		display: block;
@@ -898,6 +902,9 @@
 	.updates-section .updates .update .update-rera .icon-ts-rera {
 		width: 140px;
 		margin-top: calc( var(--space-min) * 1.5 );
+	}
+	.updates-section .updates .update .update-status {
+		padding-left: calc( var(--space-min) * 1.5 );
 	}
 }
 
