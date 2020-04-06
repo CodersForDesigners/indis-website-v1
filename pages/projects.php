@@ -16,7 +16,7 @@ $metaDescription = getContent( '', 'intro_title' ) ?? null;
 $coverImages = getContent( [ ], 'cover_images' );
 $metaImage = $coverImages[ 0 ][ 'image' ] ?? [ ];
 
-$projectPhoneNumberFormatted = '+91' . getContent( '', 'phone_number' );
+$projectPhoneNumberFormatted = getContent( '', 'phone_number' );
 $projectPhoneNumberUnformatted = str_replace( [ '-', ' ' ], '', $projectPhoneNumberFormatted );
 $planGroups = getContent( [ ], 'plans' );
 $amenities = getContent( [ ], 'amenity' );
