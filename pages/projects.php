@@ -1055,7 +1055,11 @@ require_once __DIR__ . '/../inc/above.php';
 
 <script type="text/javascript">
 
-
+	/*
+	 *
+	 * Unlock all the spotlights if the user is already logged in
+	 *
+	 */
 	function unlockSpotlights () {
 		var user = __CUPID.utils.getUser();
 		if ( ! user )
