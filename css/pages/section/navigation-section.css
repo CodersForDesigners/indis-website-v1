@@ -33,6 +33,10 @@
 	display: inline-block;
 }
 
+.navigation-section .link.hidden + br {
+	display: none !important;
+}
+
 .navigation-section .link .nested-link {
 	pointer-events: all;
 	position: absolute;
