@@ -455,7 +455,10 @@ require_once __DIR__ . '/../inc/above.php';
 		<div class="row row-2">
 			<div class="film columns small-12 medium-6">
 				<div class="building-3d-2 space-50-left-right">
-					<img class="block" src="../media/engineering/building-3d-2.png<?php echo $ver ?>">
+					<canvas style="width: 100%" class="hidden js_building_image_sequence">
+						<img class="block" src="../media/engineering/building-3d-2.png<?php echo $ver ?>">
+					</canvas>
+					<img class="block js_building_image_sequence_placeholder" src="../media/engineering/building-3d-2.png<?php echo $ver ?>">
 				</div>
 				<!-- video embed -->
 				<div class="video-embed js_video_embed <?= $hide ?>" data-src="lncVHzsc_QA">
@@ -1068,5 +1071,20 @@ require_once __DIR__ . '/../inc/above.php';
 		$( ".js_spotlight_unlock_form_section" ).addClass( "hidden" );
 	}
 	unlockSpotlights();
+
+
+
+	/*
+	 *
+	 * Set up the building image sequence
+	 *
+	 */
+	var imageSequencer = new ImageSequencer( "/content/building-frames/short-building-{i}.png", 5, $( "canvas" ).get( 0 ) );
+	$( ".js_building_image_sequence_placeholder" ).addClass( "hidden" );
+	$( ".js_building_image_sequence" ).removeClass( "hidden" );
+	imageSequencer.onReady( function () {
+		imageSequencer.loop = true;
+		imageSequencer.play();
+	} );
 
 </script>
