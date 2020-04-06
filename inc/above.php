@@ -87,7 +87,7 @@ foreach ( $navigationMenuItems as &$item ) {
 	if ( ! empty( $field ) and ! empty( getContent( '', $field ) ) ) {
 		$itemUrl = getContent( '', $field );
 		// If the override value is a phone number, perform some modifications
-		if ( preg_match( '/^\+?[\d\-]+$/', $itemUrl ) ) {
+		if ( preg_match( '/^\+?[\d\s\-]+$/', $itemUrl ) ) {
 			// Replace the navigation item's label as well
 			$item[ 'title' ] = $itemUrl;
 			// Prepend the `tel:` protocol to the URL
