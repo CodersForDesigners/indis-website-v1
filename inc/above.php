@@ -160,7 +160,7 @@ unset( $item );
 									<a href="<?php echo $baseURL ?>" class="logo clickable float-left"><img class="block" src="../media/indis-symbol-color.svg<?php echo $ver ?>"></a>	
 								</div>
 								<div class="inline-middle">
-									<div class="title h5 strong"><?= $thePost[ 'post_title' ] ?? 'indis' ?></div>
+									<div class="title h5 strong"><?= $postType === 'projects' ? $thePost[ 'post_title' ] : 'indis' ?></div>
 									<div class="location label strong text-uppercase text-neutral-4"><?= getContent( 'Group INCOR', 'location' ) ?></div>
 								</div>
 							</div>
