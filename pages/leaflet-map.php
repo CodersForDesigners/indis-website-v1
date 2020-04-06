@@ -20,7 +20,7 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
 
-	<title><?= $readableMapName ?> | Indis</title>
+	<title><?= $readableMapName ?> | INDIS</title>
 
 	<style type="text/css">
 
@@ -104,7 +104,7 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 		// Open the leaflet widget on a new tab
 		if ( window.parent.location !== window.location ) {
 			var launchInNewWindowControl = L.easyButton( "<span class=\"icon launch\"></span>", function ( control, map ) {
-				window.open( "<?= $_SERVER[ 'REQUEST_URI' ] ?>", "<?= $readableMapName ?> | Indis" );
+				window.open( "<?= $_SERVER[ 'REQUEST_URI' ] ?>", "<?= $readableMapName ?> | INDIS" );
 			}, "Open in new tab" );
 			additionalControls.push( launchInNewWindowControl );
 		}
