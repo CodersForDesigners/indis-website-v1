@@ -475,6 +475,13 @@ require_once __DIR__ . '/../inc/above.php';
 <!-- Carousel Mini: Affiliates Section -->
 <?php if ( ! empty( $engineeringPartners ) ) : ?>
 <section data-section="Affiliates" class="affiliates-section space-50-bottom js_tab_container">
+	<div class="row">
+		<div class="container">
+			<div class="columns small-12 text-center space-25-bottom">
+				<div class="h5">Material <span class="text-red-2">Brands</span> Used</div>
+			</div>
+		</div>
+	</div>
 	<div class="affiliates-carousel-menu text-center">
 		<div class="container">
 			<div class="tab-menu hide-for-medium js_tab_headings">
@@ -506,13 +513,6 @@ require_once __DIR__ . '/../inc/above.php';
 			</div>
 		</div>
 	<?php endforeach; ?>
-	<div class="row">
-		<div class="container">
-			<div class="columns small-12 text-center">
-				<div class="h5">Material <span class="text-red-2">Brands</span> Used</div>
-			</div>
-		</div>
-	</div>
 </section>
 <?php endif; ?>
 <!-- END: Carousel Mini: Affiliates Section -->
