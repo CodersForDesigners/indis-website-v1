@@ -173,12 +173,12 @@ unset( $item );
 									<?php if ( $item[ 'type' ] === 'post-selector' ) : ?>
 										<select class="nested-link clickable js_navigation_post_selector">
 											<?php if ( $item[ 'selectorOf' ] === $postType ) : ?>
-												<option data-href="<?= get_permalink( $thePost[ 'ID' ] ) ?>" selected><?= $thePost[ 'post_title' ] ?></option>
+												<option data-href="<?= get_permalink( $thePost[ 'ID' ] ) ?>" selected>&nbsp;&nbsp;&nbsp;<?= $thePost[ 'post_title' ] ?>&nbsp;&nbsp;&nbsp;</option>
 											<?php else : ?>
-												<option disabled selected>Select <?= $item[ 'selectorOf' ] ?></option>
+												<option disabled selected>&nbsp;&nbsp;&nbsp;Select <?= $item[ 'selectorOf' ] ?>&nbsp;&nbsp;&nbsp;</option>
 											<?php endif; ?>
 											<?php foreach ( $item[ 'posts' ] as $post ) : ?>
-												<option data-href="<?= get_permalink( $post[ 'ID' ] ) ?>"><?= $post[ 'post_title' ] ?></option>
+												<option data-href="<?= get_permalink( $post[ 'ID' ] ) ?>">&nbsp;&nbsp;&nbsp;<?= $post[ 'post_title' ] ?>&nbsp;&nbsp;&nbsp;</option>
 											<?php endforeach; ?>
 										</select>
 									<?php endif; ?>
