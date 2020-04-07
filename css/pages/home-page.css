@@ -6,7 +6,7 @@
 .project-list-section .project-list .project-list-item {}
 
 .project-list-section .project-list .project-list-intro .logo {
-	width: 75px;
+	width: 100px;
 	padding: var(--space-min) 0;
 }
 
@@ -114,7 +114,7 @@
 		padding-right: 0;
 	}
 	.project-list-section .project-list .project-list-intro .logo {
-		width: 85px;
+		width: 120px;
 		padding: var(--space-25) 0;
 	}
 
@@ -184,7 +184,7 @@
 	}
 
 	.project-list-section .project-list .project-list-intro .logo {
-		width: 120px;
+		width: 165px;
 	}
 
 	.project-list-section .project-list .project-item-container .list-title {
