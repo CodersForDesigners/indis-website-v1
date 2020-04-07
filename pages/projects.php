@@ -747,7 +747,7 @@ require_once __DIR__ . '/../inc/above.php';
 					Every floor has <span class="text-red-2">early warning fire measures</span> like hand-held extinguishers and water hoses.
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					In case a fire is too intense for early warning fire measures, <span class="text-red-2">evacuation is recommended.</span>
+					In case a fire is too intense for early warning fire measures, <span class="text-red-2">follow the exit signs and evacuate the building.</span>
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					A pressurized network of pipes feed the <span class="text-dark">fire sprinklers in every room of your house.</span>
@@ -771,10 +771,10 @@ require_once __DIR__ . '/../inc/above.php';
 					<span class="text-red-2">Pump 1</span> is an electric pump capable of delivering 180 litres per minute.
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					<span class="text-red-2">Pump 2</span> is a high capacity electric pump which can deliver 1620/2280/2850 litres per minute. This pump switches on if Pump 1 is unable to maintain water pressure.
+					<span class="text-red-2">Pump 2</span> is a high capacity electric pump which can deliver up to 2850 litres per minute. This pump switches on if Pump 1 is unable to maintain water pressure.
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					<span class="text-red-2">Pump 3</span> is a high capacity diesel pump which can also deliver 1620/2280/2850 litres per minute.
+					<span class="text-red-2">Pump 3</span> is a high capacity diesel pump which can also deliver up to 2850 litres per minute.
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					This diesel pump switches on if Pump 1 and 2 are unable to maintain water pressure or <span class="text-dark">if the electrical power supply fails.</span>
