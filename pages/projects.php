@@ -737,7 +737,7 @@ require_once __DIR__ . '/../inc/above.php';
 					Early warning heat detectors <span class="text-dark">in your kitchen</span>. Multi-detectors <span class="text-dark">for heat and smoke in all the remaining rooms.</span>
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					Detectors trigger an early warning fire alarm alerting personnel in the building with the exact location of a potential fire.
+					Detectors trigger an early warning fire alarm alerting residents and personnel in the building with the location of a potential fire.
 				</div>
 				<div class="smoke-detector text-center">
 					<img class="block" src="../media/engineering/smoke-detector.png<?php echo $ver ?>">
