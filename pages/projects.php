@@ -420,7 +420,7 @@ require_once __DIR__ . '/../inc/above.php';
 				<div class="h3 strong text-lowercase">Built with precision moulded concrete structures to ensure <span class="text-red-2">factory-like repeatable quality</span> in each home.</div>
 			</div>
 			<div class="points columns small-12 medium-5 large-3 large-offset-1">
-				<div class="title h4 strong space-25-bottom"><span class="text-red-2">High-Rise Build</span> <br>Engineering</div>
+				<div class="title h4 strong space-25-bottom"><span class="text-red-2">Shear Wall</span> <br>Engineering</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					The monolithic structure is stronger, has a longer life and is more earthquake resistant.
 				</div>
@@ -685,7 +685,7 @@ require_once __DIR__ . '/../inc/above.php';
 				<div class="h3 strong text-lowercase">Every balcony railing has vertical divisions. This ensures that <span class="text-red-2">children cannot climb them.</span></div>
 			</div>
 			<div class="points columns small-12 medium-6 large-5 xlarge-4 xlarge-offset-1">
-				<div class="title h4 strong space-25-bottom"><span class="text-red-2">High-Rise Safety</span> <br>Engineering</div>
+				<div class="title h4 strong space-25-bottom"><span class="text-red-2">Safety</span> <br>Engineering</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					1.2m high balcony railings ensures safety on any floor.
 				</div>
@@ -732,7 +732,7 @@ require_once __DIR__ . '/../inc/above.php';
 				<div class="h3 strong text-lowercase">4 level redundancy fire fighting infrastructure. <span class="text-red-2">Early warning smoke detectors and triple pump fire sprinkler system.</span></div>
 			</div>
 			<div class="points points-1 columns small-12 medium-6 large-3 large-offset-1">
-				<div class="title h4 strong space-25-bottom"><span class="text-red-2">High-Rise Safety</span> <br>Engineering</div>
+				<div class="title h4 strong space-25-bottom"><span class="text-red-2">Fire Safety</span> <br>Engineering</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					Early warning heat detectors <span class="text-dark">in your kitchen</span>. Multi-detectors <span class="text-dark">for heat and smoke in all the remaining rooms.</span>
 				</div>
