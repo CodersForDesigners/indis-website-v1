@@ -48,20 +48,19 @@
 					<div class="footer-address columns small-12 large-4 xlarge-3 xlarge-offset-1">
 						<div class="title h6 strong text-uppercase space-min-bottom">Corporate Address :</div>
 						<div class="address h4 text-neutral-2 space-min-bottom">69, 70, Kavuri Hills, <br>Madhapur, Hyderabad, <br>Telangana — 500033.</div>
-						<a href="https://goo.gl/maps/jFcbmAJ1rhwwh5Wo6" target="_blank" class="link label strong text-red-2 text-uppercase inline-middle">Open in Google Maps <img class="link-icon inline-middle" src="../media/icon/icon-location-color.svg<?php echo $ver ?>"></a><br>
+						<a href="https://goo.gl/maps/jFcbmAJ1rhwwh5Wo6" target="_blank" class="hidden link label strong text-red-2 text-uppercase inline-middle">Open in Google Maps <img class="link-icon inline-middle" src="../media/icon/icon-location-color.svg<?php echo $ver ?>"></a>
 						
-						<div class="title h6 strong text-uppercase space-min-top">Email Us:</div>
-						<a href="mailto:cs@indis.co.in" target="_blank" class="h6 strong text-red-2 inline-middle">
+						<a href="mailto:cs@indis.co.in" target="_blank" class="label strong text-neutral-4 inline-middle">
 							cs@indis.co.in
-							<span class="small strong text-uppercase text-red-1">for Corporate Enquiries</span>
+							<span class="small strong text-uppercase text-neutral-2">for Corporate Enquiries</span>
 						</a><br>
-						<a href="mailto:ask@indis.co.in" target="_blank" class="h6 strong text-red-2 inline-middle">
+						<a href="mailto:ask@indis.co.in" target="_blank" class="label strong text-neutral-4 inline-middle">
 							ask@indis.co.in
-							<span class="small strong text-uppercase text-red-1">for General Enquiries</span>
+							<span class="small strong text-uppercase text-neutral-2">for General Enquiries</span>
 						</a><br>
-						<a href="mailto:careers@indis.co.in" target="_blank" class="h6 strong text-red-2 inline-middle">
+						<a href="mailto:careers@indis.co.in" target="_blank" class="label strong text-neutral-4 inline-middle">
 							careers@indis.co.in
-							<span class="small strong text-uppercase text-red-1">for Careers Enquiries</span>
+							<span class="small strong text-uppercase text-neutral-2">for Careers Enquiries</span>
 						</a>
 					</div>
 				</div>
