@@ -690,7 +690,7 @@ require_once __DIR__ . '/../inc/above.php';
 					1.2m high balcony railings ensures safety on any floor.
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					Vertical divisions on the railing ensure children cannot climb the railing.
+					Apart from the 3 horizontal railing members that are a structural requirement, all other railing members are vertical.
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					Compliant with the <span style="color: #2E73D8;">Bureau of Indian Standards</span> National Building Code.
@@ -1042,9 +1042,9 @@ require_once __DIR__ . '/../inc/above.php';
 		<div class="row">
 			<?php foreach ( $officeAddresses as $address ) : ?>
 				<div class="address columns small-10 medium-8 large-4 space-25-top space-25-right">
-					<div class="title h6 text-lowercase"><?= $address[ 'address_label' ] ?></div>
-					<div class="name h5 condensed text-red-2"><?= $address[ 'name' ] ?></div>
-					<div class="description h6 text-neutral-2"><?= $address[ 'address' ] ?></div>
+					<div class="title label text-lowercase"><?= $address[ 'address_label' ] ?></div>
+					<div class="name h6 condensed text-red-2"><?= $address[ 'name' ] ?></div>
+					<div class="description label text-neutral-2"><?= $address[ 'address' ] ?></div>
 				</div>
 			<?php endforeach; ?>
 		</div>
