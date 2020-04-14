@@ -850,10 +850,8 @@ require_once __DIR__ . '/../inc/above.php';
 							<?php endforeach; ?>
 						</div>
 						<div class="scroll-controls clearfix">
-							<div class="container">
-								<div class="prev float-left"><button class="button fill-neutral-4" data-dir="left"><img class="block" src="../media/icon/icon-left-triangle-light.svg<?php echo $ver ?>"></button></div>
-								<div class="next float-right"><button class="button fill-neutral-4" data-dir="right"><img class="block" src="../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>"></button></div>
-							</div>
+							<div class="prev float-left"><button class="button fill-neutral-4" data-dir="left"><img class="block" src="../media/icon/icon-left-triangle-light.svg<?php echo $ver ?>"></button></div>
+							<div class="next float-right"><button class="button fill-neutral-4" data-dir="right"><img class="block" src="../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>"></button></div>
 						</div>
 						<select class="select-menu button strong fill-neutral-2 show-for-medium js_tab_headings">
 							<?php foreach ( $group[ 'update_group' ] as $update ) : ?>
