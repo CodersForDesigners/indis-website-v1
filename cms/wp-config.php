@@ -20,15 +20,15 @@
 
 if ( ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] ) !== 'indis.wip.lazaro.in' )
 	if ( strpos( $_SERVER[ 'REQUEST_URI' ], '/content/cms/' ) !== false )
-		return header( 'Location: http://indis.wip.lazaro.in' . $_SERVER[ 'REQUEST_URI' ], true, 302 );
+		return header( 'Location: https://indis.wip.lazaro.in' . $_SERVER[ 'REQUEST_URI' ], true, 302 );
 
 /**
  * (Permalink) URLs in WordPress
  *
  * Allow the host/domain name to be contextual to the environment
  */
-define( 'WP_HOME', 'http://' . ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] ) );
-define( 'WP_SITEURL', 'http://' . ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] ) . '/cms' );
+define( 'WP_HOME', 'https://' . ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] ) );
+define( 'WP_SITEURL', 'https://' . ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] ) . '/cms' );
 
 // ** MySQL settings ** //
 /** The name of the database for WordPress */
