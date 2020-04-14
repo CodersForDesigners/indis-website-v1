@@ -928,8 +928,13 @@
 	border: 0px solid var(--neutral-1);
 	border-bottom-width: 2px;
 	white-space: nowrap;
-	overflow-x: auto;
+	overflow-x: hidden;
+	overflow-Y: hidden;
 	max-width: 100%;
+}
+
+.tab-menu + .scroll-controls {
+	display: none;
 }
 
 .fill-dark .tab-menu {
@@ -989,7 +994,26 @@
 }
 
 @media( min-width: 640px )  {}
-@media( min-width: 1040px ) {}
+@media( min-width: 1040px ) {
+	.tab-menu + .scroll-controls {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		height: auto;
+		z-index: 2;
+		pointer-events: none;
+	}
+	.tab-menu + .scroll-controls .button {
+		width: var(--space-50);
+		pointer-events: all;
+		padding: 0;
+		text-align: center;
+	}
+}
 @media( min-width: 1480px ) {}
 
 /* -- Affiliates Carousel Menu Overwrites -- */
