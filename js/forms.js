@@ -303,8 +303,19 @@ $( document ).on( "submit", ".js_spotlights_unlock_form", function ( event ) {
 
 $( document ).on( "click", ".js_spotlight_enquire", function ( event ) {
 	var $button = $( event.target );
-	$button.prop( "disabled", true );
-	$button.text( "We'll contact you." );
+	var $spotlight = $button.closest( ".js_spotlight" );
+
+	// Convert this button into a gallery trigger ( if a floorplan has been provided )
+	var spotlightIndex = $( ".js_spotlight" ).index( $spotlight ) + 1;
+
+	if ( __DATA.galleries[ "spotlight" + spotlightIndex ] ) {
+		$button.addClass( "hidden" );
+		$spotlight.find( ".js_view_spotlight_floorplan" ).removeClass( "hidden" );
+	}
+	else {
+		$button.prop( "disabled", true );
+		$button.text( "We'll contact you." );
+	}
 
 	var deal = $button.data( "spotlight" );
 	__.user.isInterestedIn( deal );

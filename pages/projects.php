@@ -207,6 +207,16 @@ require_once __DIR__ . '/../inc/above.php';
 
 <!-- Carousel: Spotlight -->
 <?php if ( ! empty( $spotlights ) ) : ?>
+<script type="text/javascript">
+	// Build the spotlight gallery objects
+	var __DATA = window.__DATA = window.__DATA || { };
+	__DATA.galleries = __DATA.galleries || { };
+	<?php foreach ( $spotlights as $index => $spotlight ) : ?>
+		<?php if ( ! empty( $spotlight[ 'spotlight_floorplan' ] ) ) : ?>
+			__DATA.galleries.spotlight<?= $index + 1 ?> = [ { image: <?php echo json_encode( $spotlight[ 'spotlight_floorplan' ] ) ?> } ];
+		<?php endif; ?>
+	<?php endforeach; ?>
+</script>
 <div data-section="Spotlight" id="spotlight" class="carousel spotlight indis-carousel js_carousel_container">
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
@@ -216,7 +226,7 @@ require_once __DIR__ . '/../inc/above.php';
 			</div>
 		</div>
 		<?php foreach ( $spotlights as $index => $spotlight ) : ?>
-			<div class="carousel-list-item js_carousel_item qpid_login_site js_spotlight <?php if ( $index >= 4 ) echo 'hidden' ?>">
+			<div class="carousel-list-item js_carousel_item js_gallery_region qpid_login_site js_spotlight <?php if ( $index >= 4 ) echo 'hidden' ?>" data-set="spotlight<?= $index + 1 ?>">
 				<div class="card-index text-neutral-2">
 					<div class="count h3 inline-bottom"><?= str_pad( $index + 1, 2, '0', STR_PAD_LEFT ) ?></div>
 					<div class="total label strong text-uppercase inline-bottom"><?= $numberOfSpotlight ?></div>
@@ -237,6 +247,8 @@ require_once __DIR__ . '/../inc/above.php';
 					</div>
 				</div>
 				<button id="spotlight-<?= $index + 1 ?>-enquire" class="button fill-neutral-4 text-light button-icon js_spotlight_enquire" data-c="/spotlight/<?= $urlSlug ?>" data-spotlight="Spotlight: <?= $thePost[ 'post_title' ] . ': ' . $spotlight[ 'spotlight_series_id' ] ?>" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</button>
+				<!-- This button will be shown after verification (if there's a floorplan) -->
+				<button class="button fill-neutral-4 text-light button-icon hidden js_view_spotlight_floorplan js_modal_trigger js_gallery_item" data-mod-id="image-gallery" data-series-id="<?= $spotlight[ 'spotlight_series_id' ] ?>" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">View <?= $spotlight[ 'spotlight_series_id' ] ?> Floorplan</button>
 				<!-- Phone Trap -->
 				<div class="phone-trap phone-number columns small-12 large-9 xlarge-10">
 					<form class="js_phone_form" style="display: none">
