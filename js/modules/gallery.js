@@ -15,6 +15,10 @@ $( document ).on( "modal/open/image-gallery", function ( event, data ) {
 	var $visibleGalleryImages = $galleryRegion.find( ".js_gallery_item" );
 	var startingPosition = $visibleGalleryImages.index( event.target );
 
+	// Hide the next/previous buttons (in case there's only one image in the set)
+	if ( __DATA.galleries[ gallerySet ].length === 1 )
+		$( ".js_gallery_modal .js_arrow" ).hide();
+
 	// Set the current gallery image
 	setGalleryImage( startingPosition, gallerySet );
 } );
@@ -88,5 +92,8 @@ $( document ).on( "modal/close/image-gallery", function ( event, data ) {
 		src: null,
 		srcset: null
 	} );
+
+	// Restore the next/previous buttons (in case they were hidden)
+	$( ".js_gallery_modal .js_arrow" ).show();
 
 } );
