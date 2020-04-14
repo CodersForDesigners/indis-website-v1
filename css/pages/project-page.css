@@ -166,7 +166,7 @@
 
 .intro-section .project-logo {
 	max-width: calc( var(--space-100) * 3 );
-	max-height: calc( var(--space-100) * 3 );
+	/*max-height: calc( var(--space-100) * 3 );*/
 }
 
 .intro-section .points .point {
@@ -183,7 +183,7 @@
 @media( min-width: 1040px ) {
 	.intro-section .project-logo {
 		max-width: calc( var(--space-100) * 2 );
-		max-height: calc( var(--space-100) * 2 );
+		/*max-height: calc( var(--space-100) * 2 );*/
 	}
 }
 @media( min-width: 1480px ) {}
