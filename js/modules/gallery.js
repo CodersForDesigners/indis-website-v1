@@ -14,6 +14,8 @@ $( document ).on( "modal/open/image-gallery", function ( event, data ) {
 	var gallerySet = $galleryRegion.data( "set" );
 	var $visibleGalleryImages = $galleryRegion.find( ".js_gallery_item" );
 	var startingPosition = $visibleGalleryImages.index( event.target );
+
+	// Set the current gallery image
 	setGalleryImage( startingPosition, gallerySet );
 } );
 
