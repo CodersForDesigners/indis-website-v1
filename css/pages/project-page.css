@@ -165,7 +165,7 @@
 .intro-section {}
 
 .intro-section .project-logo {
-	max-width: calc( var(--space-100) * 3 );
+	max-width: calc( var(--space-100) * 4 );
 	/*max-height: calc( var(--space-100) * 3 );*/
 }
 
