@@ -927,6 +927,9 @@
 	font-size: 0;
 	border: 0px solid var(--neutral-1);
 	border-bottom-width: 2px;
+	white-space: nowrap;
+	overflow-x: auto;
+	max-width: 100%;
 }
 
 .fill-dark .tab-menu {
@@ -1209,6 +1212,7 @@
 		left: var(--space-25);
 		width: auto;
 		height: auto;
+		max-width: 100%;
 	}
 
 	.updates-menu-2:before {
