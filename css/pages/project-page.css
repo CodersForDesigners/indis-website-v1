@@ -939,6 +939,16 @@
 	display: none;
 }
 
+.tab-menu + .scroll-controls .button {
+	opacity: 0;
+	visibility: hidden;
+}
+.tab-menu + .scroll-controls .button.fade-in {
+	opacity: 1;
+	visibility: visible;
+	transition: opacity 0.1s ease-in;
+}
+
 .fill-dark .tab-menu {
 	border: 0px solid var(--neutral-4);
 	border-bottom-width: 2px;

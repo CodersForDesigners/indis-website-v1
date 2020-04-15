@@ -819,7 +819,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 <!-- Updates Section -->
 <?php if ( ! empty( $constructionUpdateGroups ) ) : ?>
-<section data-section="Construction Updates" id="updates" class="updates-section space-75-top space-100-bottom fill-dark js_tab_container">
+<section data-section="Construction Updates" id="updates" class="updates-section space-75-top space-100-bottom fill-dark js_section_construction_updates js_tab_container">
 	<div class="container">
 		<div class="updates-intro row space-25-bottom">
 			<div class="heading h2 strong text-lowercase columns small-12">
@@ -831,7 +831,7 @@ require_once __DIR__ . '/../inc/above.php';
 			<div class="updates-menu-1 columns small-12 large-2">
 				<div class="tab-menu hide-for-medium text-right js_tab_headings">
 					<?php foreach ( $constructionUpdateGroups as $group ) : ?>
-						<div tabindex="-1" class="h5 tab-button tab-button-large js_tab_heading"><?= $group[ 'update_group_title' ] ?></div>
+						<div tabindex="-1" class="h5 tab-button tab-button-large js_tab_heading js_vertical_tab_heading"><?= $group[ 'update_group_title' ] ?></div>
 					<?php endforeach; ?>
 				</div>
 
@@ -843,15 +843,15 @@ require_once __DIR__ . '/../inc/above.php';
 			</div>
 			<?php foreach ( $constructionUpdateGroups as $groupIndex => $group ) : ?>
 				<div class="update columns small-12 large-10 js_tab js_tab_container <?php if ( $groupIndex ) echo 'hidden' ?>" data-tab="<?= $group[ 'update_group_title' ] ?>">
-					<div class="updates-menu-2 <?php if ( count( $group[ 'update_group' ] ) === 1 and empty( trim( $group[ 'update_group' ][ 0 ][ 'update_name' ] ) ) ) echo 'hidden' ?>">
-						<div class="tab-menu hide-for-medium js_tab_headings">
+					<div class="updates-menu-2 js_construction_update_heading_carousel <?php if ( count( $group[ 'update_group' ] ) === 1 and empty( trim( $group[ 'update_group' ][ 0 ][ 'update_name' ] ) ) ) echo 'hidden' ?>">
+						<div class="tab-menu hide-for-medium js_tab_headings js_construction_update_heading_row">
 							<?php foreach ( $group[ 'update_group' ] as $update ) : ?>
 								<div tabindex="-1" class="h6 tab-button js_tab_heading"><?= $update[ 'update_name' ] ?></div>
 							<?php endforeach; ?>
 						</div>
-						<div class="scroll-controls clearfix">
-							<div class="prev float-left"><button class="button fill-neutral-4" data-dir="left"><img class="block" src="../media/icon/icon-left-triangle-light.svg<?php echo $ver ?>"></button></div>
-							<div class="next float-right"><button class="button fill-neutral-4" data-dir="right"><img class="block" src="../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>"></button></div>
+						<div class="scroll-controls clearfix js_construction_update_heading_controls">
+							<div class="prev float-left"><button class="button fill-neutral-4 js_pager" data-dir="left"><img class="block" src="../media/icon/icon-left-triangle-light.svg<?php echo $ver ?>"></button></div>
+							<div class="next float-right"><button class="button fill-neutral-4 js_pager" data-dir="right"><img class="block" src="../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>"></button></div>
 						</div>
 						<select class="select-menu button strong fill-neutral-2 show-for-medium js_tab_headings">
 							<?php foreach ( $group[ 'update_group' ] as $update ) : ?>
@@ -1087,6 +1087,83 @@ require_once __DIR__ . '/../inc/above.php';
 	}
 	unlockSpotlights();
 
+
+	/*
+	 *
+	 * The Construction Updates row heading carousel
+	 *
+	 */
+
+	// This function hides/shows the carousel's arrow button when necessary
+	var adjustConstructionUpdateRowHeadingCarousel = function () {
+			var $tabHeadings = $( ".js_section_construction_updates .js_vertical_tab_heading" );
+			var $tabs = $( ".js_section_construction_updates .js_tab_container[ data-tab ]" );
+			return eventually( function () {
+				// 1. Get the active tab heading row
+				var activeTabName = $tabHeadings.filter( ".active" ).text();
+				var $tab = $tabs.filter( "[ data-tab = '" + activeTabName + "' ]" );
+				var domHeadingRow = $tab.find( ".js_construction_update_heading_row" ).get( 0 );
+				var $carouselControls = $tab.find( ".js_construction_update_heading_controls" );
+				// 2. Hide the carousel controls for the tabs that aren't active
+				$tabs.not( $tab ).find( ".js_construction_update_heading_controls .js_pager" ).removeClass( "fade-in" );
+				// 3. Hide/show the arrow buttons depending on how the width of row heading compares to the content it encloses
+				if ( domHeadingRow.offsetWidth < domHeadingRow.scrollWidth ) {
+					// $carouselControls.removeClass( "hidden" );
+
+					if ( domHeadingRow.scrollLeft < 15 )
+						$carouselControls.find( "[ data-dir = 'left' ]" ).removeClass( "fade-in" );
+					else
+						$carouselControls.find( "[ data-dir = 'left' ]" ).addClass( "fade-in" );
+
+					var maximumScrollLeft = domHeadingRow.scrollWidth - domHeadingRow.offsetWidth;
+					if ( maximumScrollLeft - domHeadingRow.scrollLeft < 15 )
+						$carouselControls.find( "[ data-dir = 'right' ]" ).removeClass( "fade-in" );
+					else
+						$carouselControls.find( "[ data-dir = 'right' ]" ).addClass( "fade-in" );
+				}
+				else {
+					// $carouselControls.addClass( "hidden" );
+					$carouselControls.find( "[ data-dir ]" ).hide();
+				}
+			}, 0.5 );
+	}();
+	$( document ).on( "click", ".js_section_construction_updates .js_vertical_tab_heading", adjustConstructionUpdateRowHeadingCarousel );
+	$( window ).on( "resize", adjustConstructionUpdateRowHeadingCarousel );
+
+	// This handler scrolls the tab headings when the arrow buttons are hit
+	$( document ).on( "click", ".js_construction_update_heading_controls .js_pager", function ( event ) {
+
+		/*
+		 * 1. Get references to all the relevant elements
+		 */
+		var $carouselArrowButton = $( event.currentTarget );
+		var domCarouselContent = $carouselArrowButton
+					.closest( ".js_construction_update_heading_carousel" )
+					.find( ".js_construction_update_heading_row" )
+					.get( 0 );
+
+		/*
+		 * 2. Get the amount of scroll that has to be done to center the next item
+		 */
+		var scrollDirection = $carouselArrowButton.data( "dir" );
+		var scrollOffset = domCarouselContent.scrollLeft;
+		if ( scrollDirection == "left" )
+			scrollOffset -= domCarouselContent.offsetWidth / 3;
+		else
+			scrollOffset += domCarouselContent.offsetWidth / 3;
+
+		/*
+		 * 3. Finally, scroll the carousel.
+		 */
+		try {
+			domCarouselContent.scrollTo( { left: scrollOffset, behavior: "smooth" } );
+		}
+		catch ( e ) {
+			domCarouselContent.scrollTo( scrollOffset, 0 );
+		}
+		adjustConstructionUpdateRowHeadingCarousel();
+
+	} );
 
 
 	/*
