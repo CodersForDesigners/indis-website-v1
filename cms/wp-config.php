@@ -27,8 +27,14 @@ if ( ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] ) !== 'indis.wip.laz
  *
  * Allow the host/domain name to be contextual to the environment
  */
-define( 'WP_HOME', 'https://' . ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] ) );
-define( 'WP_SITEURL', 'https://' . ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] ) . '/cms' );
+if ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] === 'localhost' ) {
+	define( 'WP_HOME', 'http://localhost' );
+	define( 'WP_SITEURL', 'http://localhost/cms' );
+}
+else {
+	define( 'WP_HOME', 'https://' . ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] ) );
+	define( 'WP_SITEURL', 'https://' . ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] ) . '/cms' );
+}
 
 // ** MySQL settings ** //
 /** The name of the database for WordPress */
