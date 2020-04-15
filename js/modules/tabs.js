@@ -7,8 +7,11 @@
 $( function () {
 
 	$( ".js_tab_heading" ).on( "click", function ( event ) {
-		var tabName = $( event.target ).text();
-		var $tabContainer = $( event.target ).closest( ".js_tab_container" );
+		var $tabHeading = $( event.target );
+		if ( $tabHeading.hasClass( "active" ) )
+			return;
+		var tabName = $tabHeading.text();
+		var $tabContainer = $tabHeading.closest( ".js_tab_container" );
 		toggleTab( $tabContainer, tabName );
 	} );
 
