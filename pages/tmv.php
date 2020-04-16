@@ -307,7 +307,7 @@ $maps = array_map( function ( $directoryName ) {
 		var $map = $target.closest( ".js_map" );
 		var mapId = $map.data( "id" )
 
-		var url = "/leaflet-map?id=" + mapId;
+		var url = location.origin + "/leaflet-map?id=" + mapId;
 		var $url = $( ".js_copy_content" );
 		var domUrl = $url.get( 0 );
 		$url.text( url );
