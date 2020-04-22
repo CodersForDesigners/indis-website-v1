@@ -30,9 +30,10 @@ $events = getContent( [ ], 'events_list' );
 	$numberOfEvents = str_pad( count( $events ), 2, '0', STR_PAD_LEFT );
 $officeAddresses = getContent( [ ], 'office_addresses' );
 
-$hideEngineeringConcrete = getContent( [ ], 'engineering_section_concrete' );
-$hideEngineeringRailing = getContent( [ ], 'engineering_section_railing' );
-$hideEngineeringFire = getContent( [ ], 'engineering_section_fire' );
+$showEngineeringConcrete = getContent( [ ], 'engineering_section_concrete' );
+$showEngineeringRailing = getContent( [ ], 'engineering_section_railing' );
+$showEngineeringFire = getContent( [ ], 'engineering_section_fire' );
+$showEngineeringFire2 = getContent( [ ], 'engineering_section_fire_2' );
 
 
 require_once __DIR__ . '/../inc/above.php';
@@ -421,7 +422,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- Engineering Section : Concrete -->
-<?php if( empty( $hideEngineeringConcrete ) ) : ?>
+<?php if( ! empty( $showEngineeringConcrete ) ) : ?>
 <section data-section="Engineering — High-rise" class="engineering-section concrete space-50-top-bottom">
 	<div class="container">
 		<div class="row row-1">
@@ -686,7 +687,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- Engineering Section : Railing -->
-<?php if( empty( $hideEngineeringRailing ) ) : ?>
+<?php if( ! empty( $showEngineeringRailing ) ) : ?>
 <section data-section="Engineering — Railing" class="engineering-section railing space-50-top-bottom">
 	<div class="container">
 		<div class="row row-1">
@@ -733,7 +734,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- Engineering Section : Fire -->
-<?php if( empty( $hideEngineeringFire ) ) : ?>
+<?php if( ! empty( $showEngineeringFire ) ) : ?>
 <section data-section="Engineering — Fire" class="engineering-section fire space-50-top-bottom">
 	<div class="container">
 		<div class="row row-1">
@@ -783,10 +784,10 @@ require_once __DIR__ . '/../inc/above.php';
 					<span class="text-red-2">Pump 1</span> is an electric pump capable of delivering 180 litres per minute.
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					<span class="text-red-2">Pump 2</span> is a high capacity electric pump which can deliver up to 2850 litres per minute. This pump switches on if Pump 1 is unable to maintain water pressure.
+					<span class="text-red-2">Pump 2</span> is a high capacity electric pump which can deliver up to 2250 or 2850 litres per minute, depending on the height of the building. This pump switches on if Pump 1 is unable to maintain water pressure.
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					<span class="text-red-2">Pump 3</span> is a high capacity diesel pump which can also deliver up to 2850 litres per minute.
+					<span class="text-red-2">Pump 3</span> is a high capacity diesel pump which can also deliver up to 2250 or 2850 litres per minute, depending on the height of the building.
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					This diesel pump switches on if Pump 1 and 2 are unable to maintain water pressure or <span class="text-dark">if the electrical power supply fails.</span>
@@ -815,6 +816,80 @@ require_once __DIR__ . '/../inc/above.php';
 </section>
 <?php endif; ?>
 <!-- END: Engineering Section : Fire -->
+
+<!-- Engineering Section : Fire 2 -->
+<?php if( ! empty( $showEngineeringFire2 ) ) : ?>
+<section data-section="Engineering — Fire" class="engineering-section fire fire-2 space-50-top-bottom">
+	<div class="container">
+		<div class="row row-1">
+			<div class="section-label columns small-12 xlarge-10 xlarge-offset-1 space-25-bottom">
+				<div class="label strong text-neutral-2 text-uppercase">Engineering</div>
+			</div>
+			<div class="heading columns small-12 medium-6 large-5 xlarge-4 xlarge-offset-1 space-50-bottom">
+				<div class="h3 strong text-lowercase">4 level redundancy fire fighting infrastructure. <span class="text-red-2">Early warning smoke detectors and triple pump fire sprinkler system.</span></div>
+			</div>
+			<div class="points points-1 columns small-12 medium-6 large-3 large-offset-1">
+				<div class="title h4 strong space-25-bottom"><span class="text-red-2">Fire Safety</span> <br>Engineering</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Every floor has <span class="text-red-2">early warning fire measures</span> like hand-held extinguishers and water hoses.
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					In case a fire is too intense for early warning fire measures, <span class="text-red-2">follow the exit signs and evacuate the building.</span>
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					A pressurized network of pipes feed the <span class="text-dark">fire sprinklers in every room of your house.</span>
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Every fire sprinkler has a <span class="text-dark">temperature activated glass bulb</span> that melts at 68° Celsius.
+				</div>
+			</div>
+			<div class="points points-2 columns small-12 medium-6 medium-offset-6 large-3 large-offset-0">
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					<span class="text-dark">Only the fire sprinklers in the region of the fire will activate when a fire melts the glass bulbs.</span>
+				</div>
+				<div class="fire-sprinkler text-center">
+					<img class="block" src="../media/engineering/fire-sprinkler.png<?php echo $ver ?>">
+					<div class="label strong text-neutral-2 text-uppercase space-min-top-bottom">Temperature Activated Sprinkler</div>
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Three redundant <span class="text-dark">water pumps activate in sequence</span> when they sense a drop in water pressure. This ensures the sprinklers are fed with a constant water pressure.
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					<span class="text-red-2">Pump 1</span> is an electric pump capable of delivering 180 litres per minute.
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					<span class="text-red-2">Pump 2</span> is a high capacity electric pump which can deliver up to 2250 or 2850 litres per minute, depending on the height of the building. This pump switches on if Pump 1 is unable to maintain water pressure.
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					<span class="text-red-2">Pump 3</span> is a high capacity diesel pump which can also deliver up to 2250 or 2850 litres per minute, depending on the height of the building.
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					This diesel pump switches on if Pump 1 and 2 are unable to maintain water pressure or <span class="text-dark">if the electrical power supply fails.</span>
+				</div>
+			</div>
+		</div>
+		<div class="row row-2">
+			<div class="fire-infographic columns small-12">
+				<img class="block" src="../media/engineering/engineering-fire-infographic.png<?php echo $ver ?>">
+			</div>
+		</div>
+		<div class="row row-3 <?= $showMedium ?>">
+			<div class="film inline-bottom columns small-12 medium-6 large-6 <?= $hide ?>">
+				<!-- video embed -->
+				<div class="video-embed js_video_embed" data-src="lncVHzsc_QA">
+					<div class="video-loading-indicator"></div>
+				</div>
+			</div>
+			<div class="sprinkler-bulb inline-bottom columns small-12 medium-6 large-6">
+				<div class="h3 text-red-2 strong"><span class="h2">68°</span>celsius</div>
+				<div class="h6 text-neutral-2 space-min-bottom">will melt the temperature activated glass bulb <br>and active the sprinkler.</div>
+				<img src="../media/engineering/sprinkler-bulb.png<?php echo $ver ?>">
+			</div>
+		</div>
+	</div>
+</section>
+<?php endif; ?>
+<!-- END: Engineering Section : Fire 2 -->
 
 
 <!-- Updates Section -->

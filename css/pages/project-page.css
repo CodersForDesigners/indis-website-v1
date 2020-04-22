@@ -591,7 +591,7 @@
 }
 
 
-/* -- Engineering Section - Railing Overwrites -- */
+/* -- Engineering Section - Fire Overwrites -- */
 
 .engineering-section.fire .row-1 .points  {
 	position: relative;
@@ -664,6 +664,25 @@
 		width: 260px;
 	}
 }
+
+
+
+
+
+/* -- Engineering Section - Fire 2 Overwrites -- */
+.engineering-section.fire.fire-2 {}
+
+@media( min-width: 1040px ) {
+	.engineering-section.fire.fire-2 .row-1 .points.points-2 {
+		margin-top: calc( var(--space-100) * 6);
+	}
+}
+@media( min-width: 1480px ) {
+	.engineering-section.fire.fire-2 .row-1 .points.points-2 {
+		margin-top: calc( var(--space-100) * 5);
+	}
+}
+
 
 
 
