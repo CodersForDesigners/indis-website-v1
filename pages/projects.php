@@ -404,7 +404,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- Download Brochure -->
-<section class="download-brochure <?= $hide ?>">
+<section class="download-brochure">
 	<div class="container">
 		<div class="row">
 			<div class="brochure-mockup columns small-12 medium-5 large-6 inline-middle">
