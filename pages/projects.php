@@ -412,7 +412,7 @@ require_once __DIR__ . '/../inc/above.php';
 			</div>
 			<div class="brochure-action fill-light columns small-10 small-offset-1 medium-7 medium-offset-0 large-6 inline-middle">
 				<div class="download-title h3 text-lowercase strong space-25-bottom">If you're in a hurry, <br>just <span class="text-red-2">download the <span class="text-uppercase">PDF</span> brochure</span></div>
-				<a href="" target="_blank" class="button fill-dark text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-4);">Download Now</a>
+				<a href="<?= getContent( '', 'brochure_pdf' ) ?>" target="_blank" class="button fill-dark text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-4);">Download Now</a>
 				<div class="courier-description p text-neutral-2 space-min-top <?= $hide ?>">Or, if you'd like a copy of the physical brochure couriered to your location. <br><a href="" target="_blank" class="text-red-2">Click Here</a></div>
 			</div>
 		</div>
