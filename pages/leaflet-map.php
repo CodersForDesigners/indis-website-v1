@@ -9,6 +9,8 @@ else if ( file_exists( $fullSizeMapPath . '.jpg' ) )
 	$fullSizeMapPath = $fullSizeMapPath . '.jpg';
 [ $imageWidth, $imageHeight ] = getimagesize( $fullSizeMapPath );
 
+$imageVersion = filemtime( $fullSizeMapPath );
+
 $readableMapName = implode( ' ', explode( '-', $mapId ) );
 
 ?>
@@ -84,7 +86,7 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 
 		map.setView( rasterCoordinates.unproject( imageDimensions ), 0 );
 
-		var layer = L.tileLayer( "<?= '/content/plans/' . $mapId ?>/{z}/{x}/{y}.png", { noWrap: true } )
+		var layer = L.tileLayer( "<?= '/content/plans/' . $mapId ?>/{z}/{x}/{y}.png?v=<?= $imageVersion ?>", { noWrap: true } )
 
 		layer.addTo( map );
 
