@@ -69,9 +69,9 @@
 			<div class="row space-25-top-bottom">
 				<div class="container">
 					<div class="footer-menu columns small-12 large-8">
-						<a class="link h6 strong text-red-1" tabindex="-1" href="">Link 1</a>
-						<a class="link h6 strong text-red-1" tabindex="-1" href="">Link 2</a>
-						<a class="link h6 strong text-red-1" tabindex="-1" href="">Link 3</a>
+						<?php foreach ( $footerNavigation as $item ) : ?>
+							<a class="link h6 strong text-red-1" tabindex="-1" href="<?= $item[ 'url' ] ?>"><?= $item[ 'label' ] ?></a>
+						<?php endforeach; ?>
 					</div>
 				</div>
 			</div>

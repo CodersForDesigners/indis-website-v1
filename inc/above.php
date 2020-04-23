@@ -79,6 +79,7 @@ if ( cmsIsEnabled() ) {
  */
 $navigationMenuName = $postType === 'projects' ? 'Projects' : 'Primary';
 $navigationMenuItems = getNavigationMenu( $navigationMenuName );
+$footerNavigation = getNavigationMenu( 'Footer' );
 
 ?>
 
