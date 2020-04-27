@@ -703,7 +703,7 @@ require_once __DIR__ . '/../inc/above.php';
 					1.2m high balcony railings ensures safety on any floor.
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					Apart from the 3 horizontal railing members that are a structural requirement, all other railing members are vertical.
+					Apart from a few horizontal railing members that are a structural requirement, all other railing members are vertical.
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					Compliant with the <span style="color: #2E73D8;">Bureau of Indian Standards</span> National Building Code.
