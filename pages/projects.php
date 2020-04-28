@@ -45,6 +45,18 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 
+<!--
+	Store some data pertaining to the page in a global var
+  -->
+<script type="text/javascript">
+	window.__BFS = window.__BFS || { };
+	window.__BFS.content = {
+		project: {
+			name: "<?= $thePost[ 'post_title' ] ?>"
+		}
+	};
+</script>
+
 <!-- Gallery data -->
 <script type="text/javascript">
 
