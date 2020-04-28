@@ -123,11 +123,11 @@ $maps = array_map( function ( $directoryName ) {
 		<!-- Upload -->
 		<div class="row">
 			<div class="columns small-12 medium-10 large-8">
-				<input id="file" class="js_map_image_input visuallyhidden" type="file" name="map-image" accept="image/*" required>
+				<input id="file" class="js_map_image_input visuallyhidden" type="file" name="map-image" accept="image/*" multiple required>
 
 				<!-- Hide when Processing -->
 				<label for="file" class="upload-button button fill-red-2 button-icon js_image_upload_button" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg?v=20200127'); --bg-c: var(--red-1);">
-					Upload New Image
+					Upload New Images
 				</label>
 
 				<!-- Hide when Not Processing -->
@@ -137,7 +137,20 @@ $maps = array_map( function ( $directoryName ) {
 
 				<br>
 				<!-- Print Active Upload File Name Here -->
-				<div class="file-name label space-min-top space-50-bottom js_file_selected">No Files Selected</div>
+				<div class="file-name label space-min-top space-50-bottom hidden js_upload_progress">
+					<b>(</b>
+						<b class="js_upload_queue_numerator"></b>
+							/
+						<b class="js_upload_queue_denominator"></b>
+					<b>)</b>
+					&nbsp;&nbsp;<span class="js_file_currently_processing"></span>
+				</div>
+
+				<div class="file-name label space-min-top space-50-bottom hidden js_upload_error_log">
+					There were issues uploading/processing the following file(s):
+					<br>
+					<span></span>
+				</div>
 
 			</div>
 		</div>
@@ -177,7 +190,23 @@ $maps = array_map( function ( $directoryName ) {
 
 <script type="text/javascript">
 
-/**/
+	function getErrorResponse ( jqXHR, textStatus, e ) {
+		var code = -1;
+		var message;
+		if ( jqXHR.responseJSON ) {
+			code = jqXHR.responseJSON.code || jqXHR.responseJSON.statusCode;
+			message = jqXHR.responseJSON.message;
+		}
+		else if ( typeof e == "object" ) {
+			message = e.stack;
+		}
+		else {
+			message = jqXHR.responseText;
+		}
+		var error = new Error( message );
+		error.code = code;
+		return error;
+	}
 
 	$( "form" ).on( "submit", function ( event ) {
 		event.preventDefault();
@@ -213,28 +242,33 @@ $maps = array_map( function ( $directoryName ) {
 	} );
 	$( document.body ).on( "drop", function ( event ) {
 
-		if ( thingsBeingDropped.length !== 1 )
-			return;
-		if ( ! typesOfThingsBeingDropped.includes( "Files" ) )
+		event.preventDefault();
+
+		if ( thingsBeingDropped.length < 1 )
 			return;
 
-		if ( ! thingsBeingDropped[ 0 ].type.startsWith( "image" ) ) {
-			alert( "Please provide an image." );
+		if ( ! typesOfThingsBeingDropped.includes( "Files" ) ) {
+			alert( "Please provide images only." );
 			return;
 		}
 
+		if ( ! thingsBeingDropped[ 0 ].type.startsWith( "image" ) ) {
+			alert( "Please provide images only." );
+			return;
+		}
 
-		// Scroll to the top so the use can see the feedback
-		window.scrollTo( { top: 0, behavior: "smooth" } );
-
-		// Now, upload the image
-		uploadImage( thingsBeingDropped );
+		var imageFiles = thingsBeingDropped;
 
 		// Reset the global vars
 		thingsBeingDropped = [ ];
 		typesOfThingsBeingDropped = [ ];
 
-		event.preventDefault();
+		// Scroll to the top so the use can see the feedback
+		window.scrollTo( { top: 0, behavior: "smooth" } );
+
+		// Now, upload the image(s)
+		$( document ).trigger( "upload/queue/add", { images: [ ...imageFiles ] } );
+
 		return false;
 
 	} );
@@ -242,29 +276,100 @@ $maps = array_map( function ( $directoryName ) {
 
 	$( document ).on( "change", ".js_map_image_input", function ( event ) {
 		var domFileInput = event.target;
-		uploadImage( domFileInput.files );
+		$( document ).trigger( "upload/queue/add", { images: [ ...domFileInput.files ] } );
 	} );
 
-	function uploadImage ( fileList ) {
 
-		// If no image was selected, return
-		if ( ! fileList.length )
+	var imageQueue = [ ];
+	var uploadIsInSession = false;
+	var queueLengthForCurrentUploadSession = 0;
+	/*
+	 *
+	 * This event fires whenever a new batch of images are set for uploading
+	 *
+	 */
+	$( document ).on( "upload/queue/add", function ( event, { images } ) {
+
+		// Add the images to the upload queue
+		imageQueue.push( ...images );
+		queueLengthForCurrentUploadSession += images.length;
+
+		// Reflect the increase in the queue size
+		$( ".js_upload_queue_denominator" ).text( queueLengthForCurrentUploadSession );
+
+
+		if ( uploadIsInSession )
 			return;
 
-		var imageFilename = fileList[ 0 ].name;
 
-		// Display the file name that was selected
-		$( ".js_file_selected" ).text( imageFilename );
+
+		uploadIsInSession = true
 		// Toggle loading indicator
-		$( ".js_image_upload_button" ).addClass( "hidden" );
+		$( ".js_image_upload_button" ).text( "Upload more images" );
 		$( ".js_image_upload_indicator" ).removeClass( "hidden" );
+		$( ".js_upload_progress" ).removeClass( "hidden" );
+		// Schedule the image(s) for uploading
+		scheduleUpload( imageQueue, 0, uploadImage ).then( function () {
+			uploadIsInSession = false;
+			// Reset the queue length
+			queueLengthForCurrentUploadSession = 0;
+			// Restore the upload input button
+			$( ".js_image_upload_button" ).text( "Upload New Images" );
+			// Hide the loading indicator
+			$( ".js_image_upload_indicator" ).addClass( "hidden" );
 
+			$( ".js_upload_progress" ).addClass( "hidden" );
+			alert( "Uploading and processing has completed. Please refresh the page." )
+		} );
 
+	} );
+
+	/*
+	 *
+	 * This essentially runs an async function against every element in an array,
+	 * 	**in sequence**
+	 *
+	 */
+	function scheduleUpload ( queue, index, fn ) {
+
+		// If the upload queue is empty
+		if ( index >= queue.length )
+			return Promise.resolve();
+
+		// Reflect upload progress to the UI
+		$( ".js_upload_queue_numerator" ).text( index + 1 );
+		$( ".js_file_currently_processing" ).text( queue[ index ].name );
+
+		return fn( queue[ index ] )
+			.then( function () {
+				return scheduleUpload( queue, index + 1, fn )
+			} )
+			.catch( function () {
+				// Log the error
+				$( ".js_upload_error_log" )
+					.removeClass( "hidden" )
+					.find( "span" )
+					.html( function ( _i, existingMarkup ) {
+						return queue[ index ].name + "<br>" + existingMarkup;
+					} );
+				// Continue uploading the next image in queue
+				return scheduleUpload( queue, index + 1, fn )
+			} )
+
+	}
+
+	function uploadImage ( imageFile ) {
+
+		// If no image was selected, return
+		if ( ! imageFile )
+			return Promise.resolve();
+
+		var imageFilename = imageFile.name;
 
 		var formData = new FormData();
 		var mapId = imageFilename.replace( /\.[^\.]+$/, "" );
 		formData.append( "map-name", mapId );
-		formData.append( "map-image", fileList[ 0 ] );
+		formData.append( "map-image", imageFile );
 
 		var endpoint = "/server/maps/post.php";
 		var ajaxRequest = $.ajax( {
@@ -278,16 +383,20 @@ $maps = array_map( function ( $directoryName ) {
 			contentType: false,
 		} );
 
-		ajaxRequest.done( function ( response ) {
-			console.log( "done:" );
-			console.log( response );
-			alert( response.message );
-			window.location.reload();
-		} );
-		ajaxRequest.fail( function ( jqXHR, textStatus, e ) {
-			var errorResponse = getErrorResponse( jqXHR, textStatus, e );
-			console.log( errorResponse );
-			alert( errorResponse.message );
+		return new Promise( function ( resolve, reject ) {
+			ajaxRequest.done( function ( response ) {
+				// console.log( "done:" );
+				// console.log( response );
+				// alert( response.message );
+				// window.location.reload();
+				resolve( response );
+			} );
+			ajaxRequest.fail( function ( jqXHR, textStatus, e ) {
+				var errorResponse = getErrorResponse( jqXHR, textStatus, e );
+				reject( errorResponse );
+				// console.log( errorResponse );
+				// alert( errorResponse.message );
+			} );
 		} );
 
 	}
