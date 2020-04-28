@@ -700,7 +700,7 @@ require_once __DIR__ . '/../inc/above.php';
 			<div class="points columns small-12 medium-6 large-5 xlarge-4 xlarge-offset-1">
 				<div class="title h4 strong space-25-bottom"><span class="text-red-2">Safety</span> <br>Engineering</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
-					1.2m high balcony railings ensures safety on any floor.
+					Depending on the height of the building, 1.1m to 1.2m high balcony railings ensure safety on any floor.
 				</div>
 				<div class="point h5 condensed text-neutral-3 space-min-bottom">
 					Apart from a few horizontal railing members that are a structural requirement, all other railing members are vertical.
