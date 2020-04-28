@@ -400,7 +400,7 @@ $( document ).on( "submit", ".js_book_site_visit_form", function ( event ) {
 	//  * Update the person's information
 	//  ----- */
 	var projectName = window.__BFS.content.project.name;
-	__.user.isInterestedIn( projectName + "Site Visit" );
+	__.user.isInterestedIn( projectName + ": Site Visit" );
 	__.user.update();
 
 	// /* -----
