@@ -45,6 +45,18 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 
+<!--
+	Store some data pertaining to the page in a global var
+  -->
+<script type="text/javascript">
+	window.__BFS = window.__BFS || { };
+	window.__BFS.content = {
+		project: {
+			name: "<?= $thePost[ 'post_title' ] ?>"
+		}
+	};
+</script>
+
 <!-- Gallery data -->
 <script type="text/javascript">
 
@@ -247,7 +259,7 @@ require_once __DIR__ . '/../inc/above.php';
 						</div>
 					</div>
 				</div>
-				<button id="spotlight-<?= $index + 1 ?>-enquire" class="button fill-neutral-4 text-light button-icon js_spotlight_enquire" data-c="/spotlight/<?= $urlSlug ?>" data-spotlight="Spotlight: <?= $thePost[ 'post_title' ] . ': ' . $spotlight[ 'spotlight_series_id' ] ?>" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</button>
+				<button id="spotlight-<?= $index + 1 ?>-enquire" class="button fill-neutral-4 text-light button-icon js_spotlight_enquire" data-c="/spotlight/<?= $urlSlug ?>" data-spotlight="<?= 'Spotlight - ' . $spotlight[ 'spotlight_series_id' ] ?>" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</button>
 				<!-- This button will be shown after verification (if there's a floorplan) -->
 				<button class="button fill-neutral-4 text-light button-icon hidden js_view_spotlight_floorplan js_modal_trigger js_gallery_item" data-mod-id="image-gallery" data-series-id="<?= $spotlight[ 'spotlight_series_id' ] ?>" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">View <?= $spotlight[ 'spotlight_series_id' ] ?> Floorplan</button>
 				<!-- Phone Trap -->
