@@ -207,7 +207,8 @@ $( document ).on( "submit", ".js_get_in_touch_form", function ( event ) {
 	// /* -----
 	//  * Update the person's information
 	//  ----- */
-	__.user.isInterestedIn( "Getting in Touch" );
+	var projectName = window.__BFS.content.project.name;
+	__.user.isInterestedIn( projectName + ": Getting in Touch" );
 	__.user.update();
 
 	// /* -----
@@ -318,7 +319,8 @@ $( document ).on( "click", ".js_spotlight_enquire", function ( event ) {
 	}
 
 	var deal = $button.data( "spotlight" );
-	__.user.isInterestedIn( deal );
+	var projectName = window.__BFS.content.project.name;
+	__.user.isInterestedIn( projectName + ": " + deal );
 	__.user.update();
 } );
 
@@ -397,7 +399,8 @@ $( document ).on( "submit", ".js_book_site_visit_form", function ( event ) {
 	// /* -----
 	//  * Update the person's information
 	//  ----- */
-	__.user.isInterestedIn( "Site Visit" );
+	var projectName = window.__BFS.content.project.name;
+	__.user.isInterestedIn( projectName + "Site Visit" );
 	__.user.update();
 
 	// /* -----
