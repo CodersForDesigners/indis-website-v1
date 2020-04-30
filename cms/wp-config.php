@@ -18,6 +18,15 @@
  * @package WordPress
  */
 
+/*
+ *
+ * Pull in the environment configuration
+ *
+ */
+require_once __DIR__ . '/../conf.php';
+
+
+
 if ( ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] ) !== 'indis.wip.lazaro.in' )
 	if ( strpos( $_SERVER[ 'REQUEST_URI' ], '/content/cms/' ) !== false )
 		return header( 'Location: https://indis.wip.lazaro.in' . $_SERVER[ 'REQUEST_URI' ], true, 302 );

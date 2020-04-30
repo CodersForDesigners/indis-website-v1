@@ -8,6 +8,7 @@
  *  Set some useful variables
  * -/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-
  */
+require_once __DIR__ . '/conf.php';
 $documentRoot = $_SERVER[ 'DOCUMENT_ROOT' ];
 $homePage = $documentRoot . '/pages/home.php';
 // $_requestPathParts = explode( '?', $_SERVER[ 'REQUEST_URI' ], -1 );
