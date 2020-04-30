@@ -237,6 +237,7 @@ function getNavigationMenu ( $name ) {
 		// If the item is a "post-selector"
 		$item[ 'selectorOf' ] = getContent( '', 'post-type-selector', $item[ 'ID' ] );
 		if ( ! empty( $item[ 'selectorOf' ] ) ) {
+			global $thePost;
 			$item[ 'type' ] = 'post-selector';
 			$item[ 'posts' ] = getPostsOf( $item[ 'selectorOf' ], null, $thePost[ 'ID' ] ?? [ ] );
 			$item[ 'classes' ][ ] = 'no-pointer';
