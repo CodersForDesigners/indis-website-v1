@@ -6,7 +6,7 @@ require_once __DIR__ . '/utils.php';
 initWordPress();
 
 /* -- Lazaro disclaimer and footer -- */
-require_once __DIR__ . '/lazaro.php';
+require_once __DIR__ . '/signatures-and-disclaimers.php';
 
 /*
  * A version number for versioning assets to invalidate the browser cache
