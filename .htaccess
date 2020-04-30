@@ -9,6 +9,11 @@
 
 RewriteEngine On
 
+# Serve from the cache (if present)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/_cache%{REQUEST_URI}\.html -f
+RewriteRule ^ %{DOCUMENT_ROOT}/_cache%{REQUEST_URI}.html [L]
+
 # Certain *static* pages need to first be augmented with some code
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^/?(content/.*) https://indis.wip.lazaro.in/$1 [NC,QSA,R=302,L]
