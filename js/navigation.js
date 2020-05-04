@@ -5,6 +5,26 @@ $( function ( $ ) {
 
 
 
+window.__BFS = window.__BFS || { };
+
+
+
+
+
+/*
+ *
+ * Add given data to the data layer variable established by GTM
+ *
+ */
+function gtmPushToDataLayer ( data ) {
+	if ( ! window.dataLayer )
+		return;
+	window.dataLayer.push( data );
+}
+window.__BFS.gtmPushToDataLayer = gtmPushToDataLayer;
+
+
+
 function smoothScrollTo ( locationHash ) {
 
 	if ( ! locationHash )
@@ -126,13 +146,17 @@ if ( $( ".js_navigation_post_selector" ).length ) {
 var intervalToCheckForEngagement = 250;
 var thresholdTimeForEngagement = 2000;
 var timeSpentOnASection = 0;
+window.__BFS.engagementIntervalCheck = null;	// this is set later
 
 var thingsToDoOnEveryInterval = function () {
 
+	var $window = $( window );
 	var currentScrollTop;
 	var previousScrollTop;
 	var $currentSection;
 	var currentSectionName;
+		var currentSectionId;
+		var currentSectionDOMId;
 	var previousSectionName;
 	var sectionScrollTop;
 	var $currentNavItem;
@@ -150,11 +174,12 @@ var thingsToDoOnEveryInterval = function () {
 
 	return function thingsToDoOnEveryInterval () {
 
-		var viewportHeight = $( window ).height();
+		var viewportHeight = $window.height();
 		currentScrollTop = window.scrollY || document.body.scrollTop;
 		$currentSection = null;
 		currentSectionName = null;
 
+		// Determine the section being viewed
 		var _i
 		for ( _i = 0; _i < $sections.length; _i += 1 ) {
 			$currentSection = $sections[ _i ];
@@ -165,7 +190,8 @@ var thingsToDoOnEveryInterval = function () {
 				( currentScrollTop <= sectionScrollTop + $currentSection.height() + viewportHeight / 2 )
 			) {
 				currentSectionName = $currentSection.data( "section" );
-				currentSectionId = $currentSection.get( 0 ).id;
+				currentSectionId = $currentSection.data( "section-id" );
+				currentSectionDOMId = $currentSection.attr( "id" );
 				break;
 			}
 		}
@@ -184,12 +210,12 @@ var thingsToDoOnEveryInterval = function () {
 			timeSpentOnASection += intervalToCheckForEngagement
 			if ( timeSpentOnASection >= thresholdTimeForEngagement ) {
 				if ( currentSectionName != lastRecordedSection ) {
-					if ( window.dataLayer )
-				    	window.dataLayer.push( {
-				    		event: "section-view",
-				    		currentSectionName: currentSectionName
-				    	} );
-				    lastRecordedSection = currentSectionName;
+					gtmPushToDataLayer( {
+						event: "section-view",
+						currentSectionId: currentSectionId,
+						currentSectionName: currentSectionName
+					} );
+					lastRecordedSection = currentSectionName;
 				}
 			}
 		}
@@ -205,10 +231,11 @@ var thingsToDoOnEveryInterval = function () {
 }();
 
 
-executeEvery(
+window.__BFS.engagementIntervalCheck = executeEvery(
 	intervalToCheckForEngagement / 1000,
 	thingsToDoOnEveryInterval
-).start();
+);
+window.__BFS.engagementIntervalCheck.start();
 
 
 
