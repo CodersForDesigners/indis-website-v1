@@ -69,14 +69,15 @@ $when = CFD\DateTime::getSpreadsheetDateFromISO8601( $input->when );
 $activity = '';
 $sourceMedium = '';
 $sourcePoint = '';
+$verificationMethod = $input->verificationMethod;
 if ( $event === 'person/is/verified' ) {
 	$activity = 'Verification';
-	$sourceMedium = 'Phone';
-	if (
-		! empty( $input->agent )
-		and ! empty( $input->agent->phoneNumber )
-	)
-		$sourcePoint = $input->agent->phoneNumber;
+	if ( ! empty( $input->source ) ) {
+		if ( ! empty( $input->source->medium ) )
+			$sourceMedium = $input->source->medium;
+		if ( ! empty( $input->source->point ) )
+			$sourcePoint = $input->source->point;
+	}
 }
 else if ( $event === 'person/phoned/' ) {
 	$activity = 'Phone';
@@ -101,6 +102,7 @@ $data = [
 	'id' => $input->id,
 	'phoneNumber' => $input->phoneNumber,
 	'verified' => $input->verified,
+	'verificationMethod' => $input->verificationMethod,
 	'sourceMedium' => $sourceMedium,
 	'sourcePoint' => $sourcePoint,
 	'interests' => $interests,
