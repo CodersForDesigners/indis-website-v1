@@ -90,8 +90,7 @@
 
 	<!--  ☠  MARKUP ENDS HERE  ☠  -->
 
-	<?php rera_disclaimer(); ?>
-	<?php // lazaro_disclaimer(); ?>
+	<?php echo BFS_ENV_PRODUCTION ? rera_disclaimer() : lazaro_disclaimer() ?>
 
 
 
