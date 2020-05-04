@@ -69,7 +69,7 @@ require_once __DIR__ . '/../inc/above.php';
 <!-- END: Gallery data -->
 
 <!-- Cover Section -->
-<section data-section="Cover" class="cover-section space-25-top space-50-bottom js_gallery_region" data-set="cover">
+<section data-section="Cover" data-id="cover" class="cover-section space-25-top space-50-bottom js_gallery_region" data-set="cover">
 	<div class="container">
 		<div class="row">
 			<div class="cover-image-container image-1 columns small-12 large-12">
@@ -117,7 +117,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- Intro Section -->
-<section data-section="Intro" class="intro-section">
+<section data-section="Intro" data-id="intro" class="intro-section">
 	<div class="container">
 		<div class="row">
 			<div class="columns small-12 medium-10 large-6 large-offset-1">
@@ -230,7 +230,7 @@ require_once __DIR__ . '/../inc/above.php';
 		<?php endif; ?>
 	<?php endforeach; ?>
 </script>
-<div data-section="Spotlight" id="spotlight" class="carousel spotlight indis-carousel js_carousel_container">
+<div data-section="Spotlight" data-id="spotlight" id="spotlight" class="carousel spotlight indis-carousel js_carousel_container">
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
 			<div class="carousel-title h2 strong">
@@ -392,7 +392,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- Location Section -->
-<section data-section="Location" id="location" class="location-section space-50-top-bottom">
+<section data-section="Location" data-id="location" id="location" class="location-section space-50-top-bottom">
 	<div class="container">
 		<div class="row">
 			<div class="location-image-container columns small-12 large-12">
@@ -435,7 +435,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 <!-- Engineering Section : Concrete -->
 <?php if( ! empty( $showEngineeringConcrete ) ) : ?>
-<section data-section="Engineering — High-rise" class="engineering-section concrete space-50-top-bottom">
+<section data-section="Engineering — High-rise" data-id="engineering-high-rise" class="engineering-section concrete space-50-top-bottom">
 	<div class="container">
 		<div class="row row-1">
 			<div class="section-label columns small-12 xlarge-10 xlarge-offset-1 space-25-bottom">
@@ -502,7 +502,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 <!-- Carousel Mini: Affiliates Section -->
 <?php if ( ! empty( $engineeringPartners ) ) : ?>
-<section data-section="Affiliates" class="affiliates-section space-50-bottom js_tab_container">
+<section data-section="Affiliates" data-id="affiliates" class="affiliates-section space-50-bottom js_tab_container">
 	<div class="row">
 		<div class="container">
 			<div class="columns small-12 text-center space-25-bottom">
@@ -548,7 +548,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 <!-- Plans Section -->
 <?php if ( ! empty( $planGroups ) ) : ?>
-<section data-section="Masterplans" id="plans" class="plans-section space-100-top space-75-bottom fill-dark js_tab_container">
+<section data-section="Masterplans" data-id="masterplans" id="plans" class="plans-section space-100-top space-75-bottom fill-dark js_tab_container">
 	<div class="container">
 		<div class="plans-intro row space-25-bottom">
 			<div class="heading h2 strong text-lowercase columns small-12">
@@ -642,7 +642,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 <!-- Amenities Section -->
 <?php if ( ! empty( $amenities ) ) : ?>
-<section data-section="Amenities" id="amenities" class="amenities-section space-75-top space-100-bottom fill-dark js_tab_container">
+<section data-section="Amenities" data-id="amenities" id="amenities" class="amenities-section space-75-top space-100-bottom fill-dark js_tab_container">
 	<div class="container">
 		<div class="amenities-intro row space-25-bottom">
 			<div class="heading h2 strong text-lowercase columns small-12">
@@ -700,7 +700,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 <!-- Engineering Section : Railing -->
 <?php if( ! empty( $showEngineeringRailing ) ) : ?>
-<section data-section="Engineering — Railing" class="engineering-section railing space-50-top-bottom">
+<section data-section="Engineering — Railing" data-id="engineering-railing" class="engineering-section railing space-50-top-bottom">
 	<div class="container">
 		<div class="row row-1">
 			<div class="section-label columns small-12 xlarge-11 xlarge-offset-1 space-25-bottom">
@@ -747,7 +747,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 <!-- Engineering Section : Fire -->
 <?php if( ! empty( $showEngineeringFire ) ) : ?>
-<section data-section="Engineering — Fire" class="engineering-section fire space-50-top-bottom">
+<section data-section="Engineering — Fire" data-id="engineering-fire" class="engineering-section fire space-50-top-bottom">
 	<div class="container">
 		<div class="row row-1">
 			<div class="section-label columns small-12 xlarge-10 xlarge-offset-1 space-25-bottom">
@@ -831,7 +831,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 <!-- Engineering Section : Fire 2 -->
 <?php if( ! empty( $showEngineeringFire2 ) ) : ?>
-<section data-section="Engineering — Fire" class="engineering-section fire fire-2 space-50-top-bottom">
+<section data-section="Engineering — Fire" data-id="engineering-fire" class="engineering-section fire fire-2 space-50-top-bottom">
 	<div class="container">
 		<div class="row row-1">
 			<div class="section-label columns small-12 xlarge-10 xlarge-offset-1 space-25-bottom">
@@ -906,7 +906,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 <!-- Updates Section -->
 <?php if ( ! empty( $constructionUpdateGroups ) ) : ?>
-<section data-section="Construction Updates" id="updates" class="updates-section space-75-top space-100-bottom fill-dark js_section_construction_updates js_tab_container">
+<section data-section="Construction Updates" data-id="construction-updates" id="updates" class="updates-section space-75-top space-100-bottom fill-dark js_section_construction_updates js_tab_container">
 	<div class="container">
 		<div class="updates-intro row space-25-bottom">
 			<div class="heading h2 strong text-lowercase columns small-12">
@@ -1007,7 +1007,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 <!-- Carousel: Events -->
 <?php if ( ! empty( $events ) ) : ?>
-<div data-section="Events" class="carousel events indis-carousel js_carousel_container space-75-bottom">
+<div data-section="Events" data-id="events" class="carousel events indis-carousel js_carousel_container space-75-bottom">
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
 			<div class="carousel-title h2 strong text-lowercase">
