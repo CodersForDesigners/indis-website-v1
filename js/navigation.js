@@ -205,7 +205,10 @@ var thingsToDoOnEveryInterval = function () {
 }();
 
 
-executeEvery( intervalToCheckForEngagement, thingsToDoOnEveryInterval )
+executeEvery(
+	intervalToCheckForEngagement / 1000,
+	thingsToDoOnEveryInterval
+).start();
 
 
 

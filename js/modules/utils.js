@@ -22,12 +22,35 @@ function waitFor ( seconds ) {
  *
  */
 function executeEvery ( interval, fn ) {
-	window.setTimeout( function () {
-		window.requestAnimationFrame( function () {
-			fn();
-			executeEvery( interval, fn );
-		} );
-	}, interval );
+
+	interval = ( interval || 1 ) * 1000;
+
+	var timeoutId;
+	var running = false;
+
+	return {
+		_schedule: function () {
+			var _this = this;
+			timeoutId = setTimeout( function () {
+				window.requestAnimationFrame( function () {
+					fn();
+					_this._schedule()
+				} );
+			}, interval );
+		},
+		start: function () {
+			if ( running )
+				return;
+			running = true;
+			this._schedule();
+		},
+		stop: function () {
+			clearTimeout( timeoutId );
+			timeoutId = null;
+			running = false;
+		}
+	}
+
 }
 
 
