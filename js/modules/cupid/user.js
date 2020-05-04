@@ -505,7 +505,7 @@ function getUser () {
 	if ( __.user )
 		return __.user;
 
-	var user = utils.getCookie( "cupid-user" );
+	var user = utils.getCookie( "cupid-user-20200430" );
 	if ( user ) {
 		__.user = new Person( user.phoneNumber );
 		return __.user;
@@ -555,7 +555,7 @@ function getUserByPhoneNumber ( phoneNumber, options ) {
 // TODO: Remove
 function getUser__FromLocalStorage ( identifyingAttribute, by, options ) {
 
-	var user = utils.getCookie( "cupid-user" );
+	var user = utils.getCookie( "cupid-user-20200430" );
 
 	if ( ! user )
 		return Promise.reject( null );
@@ -586,7 +586,7 @@ function getUser__FromDB ( identifyingAttribute, by, options ) {
 
 		ajaxRequest.done( function ( response ) {
 			var user = response.data;
-			utils.setCookie( "cupid-user", user );
+			utils.setCookie( "cupid-user-20200430", user );
 			resolve( user );
 		} );
 		ajaxRequest.fail( function ( jqXHR, textStatus, e ) {

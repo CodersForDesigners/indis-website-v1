@@ -61,7 +61,7 @@ function trackConversion ( loginPrompt ) {
 function onLogin () {
 	var loginPrompt = this;
 	// Set cookie ( for a month )
-	__.utils.setCookie( "cupid-user", __.user, 31 * 24 * 60 * 60 );
+	__.utils.setCookie( "cupid-user-20200430", __.user, 31 * 24 * 60 * 60 );
 	function restoreTriggerRegion () {
 		// Bring back the trigger element
 		$( loginPrompt.triggerRegion ).slideDown( 500, function () {
