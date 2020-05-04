@@ -18,51 +18,73 @@
  * @package WordPress
  */
 
-/*
+/**
+ * Project configuration
  *
- * Pull in the environment configuration
- *
+ * Pull the configuration file from the project root
  */
 require_once __DIR__ . '/../conf.php';
 
 
+if ( HTTPS_SUPPORT )
+	$httpProtocol = 'https';
+else
+	$httpProtocol = 'http';
 
-if ( ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] ) !== 'indis.wip.lazaro.in' )
-	if ( strpos( $_SERVER[ 'REQUEST_URI' ], '/content/cms/' ) !== false )
-		return header( 'Location: https://indis.wip.lazaro.in' . $_SERVER[ 'REQUEST_URI' ], true, 302 );
+$hostName = $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ];
+
+
 
 /**
- * (Permalink) URLs in WordPress
+ * Routing
  *
- * Allow the host/domain name to be contextual to the environment
  */
-if ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] === 'localhost' ) {
-	define( 'WP_HOME', 'http://localhost' );
-	define( 'WP_SITEURL', 'http://localhost/cms' );
-}
-else {
-	define( 'WP_HOME', 'https://' . ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] ) );
-	define( 'WP_SITEURL', 'https://' . ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] ) . '/cms' );
-}
+// Fetch media files from the WIP server
+if ( CMS_FETCH_MEDIA_REMOTELY )
+	if ( $hostName !== CMS_REMOTE_ADDRESS )
+		if ( strpos( $_SERVER[ 'REQUEST_URI' ], '/content/cms/' ) !== false )
+			return header( 'Location: ' . $httpProtocol . '://' . CMS_REMOTE_ADDRESS . $_SERVER[ 'REQUEST_URI' ], true, 302 );
+
+
+
+/**
+ * WordPress Locations (Frontend and Backend)
+ *
+ * Set it such that it is contextual to the domain that the site is hosted behind
+ */
+define( 'WP_HOME', $httpProtocol . '://' . $hostName );
+if ( ! defined( 'WP_SITEURL' ) )
+	define( 'WP_SITEURL', $httpProtocol . '://' . $hostName . '/cms' );
+
+
+
+/**
+ * Database
+ *
+ */
+// SQLite
+define( 'USE_MYSQL', ! CMS_USE_SQLITE );
+define( 'DB_DIR', $_SERVER[ 'DOCUMENT_ROOT' ] . '/data/' );
+define( 'DB_FILE', 'cms.db.sqlite' );
 
 // ** MySQL settings ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'indis');
+define( 'DB_NAME', CMS_DB_NAME );
 
 /** MySQL database username */
-define('DB_USER', 'remotelazaro');
+define( 'DB_USER', CMS_DB_USER );
 
 /** MySQL database password */
-define('DB_PASSWORD', 't34m,l4z4r0,2');
+define( 'DB_PASSWORD', CMS_DB_PASSWORD );
 
 /** MySQL hostname */
-define('DB_HOST', '139.59.39.166');
+define( 'DB_HOST', CMS_DB_HOST );
 
 /** Database Charset to use in creating database tables. */
-define('DB_CHARSET', 'utf8');
+define( 'DB_CHARSET', 'utf8' );
 
 /** The Database Collate type. Don't change this if in doubt. */
-define('DB_COLLATE', '');
+define( 'DB_COLLATE', '' );
 
 /**
  * Authentication Unique Keys and Salts.
@@ -95,19 +117,16 @@ $table_prefix = 'wp_';
 /**
  * Debug Logging
  */
-define( 'WP_DEBUG', true );
-define( 'WP_DEBUG_LOG', true );
+define( 'WP_DEBUG', CMS_DEBUG_MODE );
+define( 'WP_DEBUG_LOG', CMS_DEBUG_LOG_TO_FILE );
+define( 'WP_DEBUG_DISPLAY', CMS_DEBUG_LOG_TO_FRONTEND );
+ini_set( 'display_errors', CMS_DEBUG_LOG_TO_FRONTEND ? '1' : '0' );
+
 /**
- * Disable auto-updates
+ * WordPress Updates
+ *
  */
-define( 'WP_AUTO_UPDATE_CORE', false );
-/**
- * Database
- */
-// SQLite
-define( 'USE_MYSQL', true );
-define( 'DB_DIR', '/Users/lazaro/Dropbox (Lazaro)/Indis/04 Development/01 Build/indis-website-v1/adi/data/' );
-define( 'DB_FILE', 'cms.db.sqlite' );
+define( 'WP_AUTO_UPDATE_CORE', CMS_AUTO_UPDATE );
 
 
 
@@ -115,14 +134,15 @@ define( 'DB_FILE', 'cms.db.sqlite' );
  * Media and Uploads
  *
  */
-define( 'UPLOADS', '../content/cms' );	# this one is relative to `ABSPATH`
+if ( ! defined( 'UPLOADS' ) )
+	define( 'UPLOADS', '../content/cms' );	# this one is relative to `ABSPATH`
 
 
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
-if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
+if ( ! defined( 'ABSPATH' ) )
+	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
 
 /** Sets up WordPress vars and included files. */
-require_once(ABSPATH . 'wp-settings.php');
+require_once( ABSPATH . 'wp-settings.php' );
