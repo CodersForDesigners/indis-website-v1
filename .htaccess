@@ -10,6 +10,11 @@
 RewriteEngine On
 
 # Serve from the cache (if present)
+	# Home page
+RewriteCond %{REQUEST_URI} ^/?$
+RewriteCond %{DOCUMENT_ROOT}/_cache/home\.html -f
+RewriteRule ^ %{DOCUMENT_ROOT}/_cache/home.html [L]
+	# Other pages
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{DOCUMENT_ROOT}/_cache%{REQUEST_URI}\.html -f
 RewriteRule ^ %{DOCUMENT_ROOT}/_cache%{REQUEST_URI}.html [L]
