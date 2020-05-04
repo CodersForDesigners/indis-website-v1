@@ -21,7 +21,8 @@ var utils = __.utils;
 
 
 
-function LoginPrompt ( context, $site ) {
+function LoginPrompt ( id, context, $site ) {
+	this.id = id;
 	this.context = context;
 	this.$site = $site || $( document );
 	this.$phoneForm = $site.find( "form.js_phone_form" );
@@ -31,7 +32,7 @@ function LoginPrompt ( context, $site ) {
 	// Store all instances of logins
 	if ( ! LoginPrompt._instances )
 		LoginPrompt._instances = { };
-	LoginPrompt._instances[ context ] = this;
+	LoginPrompt._instances[ id ] = this;
 
 	// Trigger events on actions
 	var loginPrompt = this;

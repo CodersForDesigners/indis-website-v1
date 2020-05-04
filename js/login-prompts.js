@@ -105,7 +105,7 @@ var loginPrompts = { };
 /*
  * 1. Get in Touch section
  */
-loginPrompts.getInTouch = new __.LoginPrompt( "Get in Touch", $( ".qpid_login_site.js_get_in_touch_section" ) );
+loginPrompts.getInTouch = new __.LoginPrompt( "get-in-touch", "Get in Touch", $( ".qpid_login_site.js_get_in_touch_section" ) );
 loginPrompts.getInTouch.triggerFlowOn( "submit", ".js_get_in_touch_form" );
 // Skip the phone form because it is already integrated with the form
 loginPrompts.getInTouch.on( "requirePhone", function ( event ) {
@@ -300,7 +300,7 @@ function onOTPError__Spotlight ( e ) {
 $( ".qpid_login_site.js_spotlight" ).each( function ( _i, domEl ) {
 	var index = _i + 1;
 	var spotlightId = $( domEl ).find( "#spotlight-" + index + "-enquire" ).attr( "id" );
-	loginPrompts[ spotlightId ] = new __.LoginPrompt( "Spotlight" + index, $( domEl ) );
+	loginPrompts[ spotlightId ] = new __.LoginPrompt( "spotlight-" + index, "Spotlight", $( domEl ) );
 	loginPrompts[ spotlightId ].triggerFlowOn( "click", "#" + spotlightId );
 	loginPrompts[ spotlightId ].on( "requirePhone", onRequirePhone__Spotlight );
 	loginPrompts[ spotlightId ].on( "phoneSubmit", onPhoneSubmit__Spotlight );
@@ -311,20 +311,13 @@ $( ".qpid_login_site.js_spotlight" ).each( function ( _i, domEl ) {
 	loginPrompts[ spotlightId ].on( "OTPError", onOTPError__Spotlight );
 	loginPrompts[ spotlightId ].on( "OTPVerified", onOTPVerified );
 	// When the user is logged in
-		// Okay, this part looks dumb, bear with it
-	loginPrompts[ spotlightId ].on( "login", function () {
-		this.context = "Spotlight"
-	} );
 	loginPrompts[ spotlightId ].on( "login", onLogin );
-	loginPrompts[ spotlightId ].on( "login", function () {
-		this.context = "Spotlight" + index;
-	} );
 } );
 
 /*
  * 2.2 Project Spotlights Dedicated Prompt
  */
-loginPrompts.spotlightDedicated = new __.LoginPrompt( "Spotlight", $( ".qpid_login_site.js_spotlight_unlock_form_section" ) );
+loginPrompts.spotlightDedicated = new __.LoginPrompt( "spotlight-dedicated", "Spotlight", $( ".qpid_login_site.js_spotlight_unlock_form_section" ) );
 loginPrompts.spotlightDedicated.triggerFlowOn( "submit", ".js_spotlights_unlock_form" );
 // Skip the phone form because it is already integrated with the contact form
 loginPrompts.spotlightDedicated.on( "requirePhone", function ( event ) {
@@ -428,7 +421,6 @@ loginPrompts.spotlightDedicated.on( "OTPError", function ( e ) {
 loginPrompts.spotlightDedicated.on( "OTPVerified", onOTPVerified );
 // When the user is logged in
 loginPrompts.spotlightDedicated.on( "login", onLogin );
-loginPrompts.spotlightDedicated.on( "login", onLogin );
 
 
 
@@ -443,7 +435,7 @@ loginPrompts.spotlightDedicated.on( "login", onLogin );
 /*
  * 3. Book a Site Visit
  */
-loginPrompts.bookSiteVisit = new __.LoginPrompt( "Book Site Visit", $( ".qpid_login_site.js_book_site_visit_section" ) );
+loginPrompts.bookSiteVisit = new __.LoginPrompt( "book-site-visit", "Book Site Visit", $( ".qpid_login_site.js_book_site_visit_section" ) );
 loginPrompts.bookSiteVisit.triggerFlowOn( "submit", ".js_book_site_visit_form" );
 // Skip the phone form because it is already integrated with the contact form
 loginPrompts.bookSiteVisit.on( "requirePhone", function ( event ) {
