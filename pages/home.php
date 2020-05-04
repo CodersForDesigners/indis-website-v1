@@ -44,7 +44,7 @@ $numberOfSpotlights = str_pad( count( $featuredSpotlights ), 2, '0', STR_PAD_LEF
 
 
 <!-- Project List Section -->
-<section data-section="Projects List" class="project-list-section space-25-top space-100-bottom">
+<section data-section="Project List" data-id="project-list" class="project-list-section space-25-top space-100-bottom">
 	<div class="container">
 		<div class="project-list row">
 			<div class="project-item-container columns small-12 medium-6 large-4">
@@ -77,7 +77,7 @@ $numberOfSpotlights = str_pad( count( $featuredSpotlights ), 2, '0', STR_PAD_LEF
 
 <!-- Carousel: Spotlights -->
 <?php if ( ! empty( $featuredSpotlights ) ) : ?>
-<div data-section="Spotlight" id="spotlight" class="carousel spotlight indis-carousel js_carousel_container">
+<div data-section="Spotlight" data-id="spotlight" id="spotlight" class="carousel spotlight indis-carousel js_carousel_container">
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
 			<div class="carousel-title h2 strong">
