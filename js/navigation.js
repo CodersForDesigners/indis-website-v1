@@ -190,7 +190,7 @@ var thingsToDoOnEveryInterval = function () {
 				( currentScrollTop <= sectionScrollTop + $currentSection.height() + viewportHeight / 2 )
 			) {
 				currentSectionName = $currentSection.data( "section" );
-				currentSectionId = $currentSection.data( "section-id" );
+				currentSectionId = $currentSection.data( "id" );
 				currentSectionDOMId = $currentSection.attr( "id" );
 				break;
 			}
@@ -206,7 +206,7 @@ var thingsToDoOnEveryInterval = function () {
 		 * If the previous and the current section are the same, then add time
 		 * Else, reset the "time spent on a section" counter
 		 */
-		if ( currentSectionName == previousSectionName ) {
+		if ( currentSectionId && currentSectionName == previousSectionName ) {
 			timeSpentOnASection += intervalToCheckForEngagement
 			if ( timeSpentOnASection >= thresholdTimeForEngagement ) {
 				if ( currentSectionName != lastRecordedSection ) {
