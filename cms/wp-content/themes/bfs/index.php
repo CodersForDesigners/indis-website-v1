@@ -11,18 +11,20 @@
  * @since 1.0.0
  */
 
+require_once __DIR__ . '/../../../../conf.php';
+
 # A convenient redirect to the login page
 $requestURI = $_SERVER[ 'REQUEST_URI' ];
 $theURLEndsWithCMS = preg_match( '/\/+cms\/+$/', $requestURI );
 if ( $theURLEndsWithCMS ) {
 	$adminPageURL = preg_replace( '/\/+/', '/', $requestURI . '/wp-admin' );
 	$domainName = ( $_SERVER[ 'HTTP_HOST' ] ?: $_SERVER[ 'SERVER_NAME' ] );
-	if ( $domainName !== 'indis.wip.lazaro.in' ) {
+	if ( ( ! empty( CMS_REMOTE_ADDRESS ) ) and ( $domainName !== CMS_REMOTE_ADDRESS ) ) {
 		if ( $_SERVER[ 'SERVER_PORT' ] === 443 )
 			$protocol = 'https://';
 		else
 			$protocol = 'http://';
-		return header( 'Location: ' . $protocol . 'indis.wip.lazaro.in/' . $adminPageURL, true, 302 );
+		return header( 'Location: ' . $protocol . CMS_REMOTE_ADDRESS . '/' . $adminPageURL, true, 302 );
 	}
 	return header( 'Location: ' . $adminPageURL );
 }
