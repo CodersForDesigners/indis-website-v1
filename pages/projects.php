@@ -1053,7 +1053,7 @@ require_once __DIR__ . '/../inc/above.php';
 					<span class="text-red-2">Site Visit</span>
 				</div>
 				<div class="description h5 condensed text-neutral-4">
-					Register for pick up and drop from your location.
+					Schedule an appointment for a detailed presentation of the property.
 				</div>
 			</div>
 			<div class="action-form columns small-10 medium-8 medium-offset-1 large-6 large-offset-0">
