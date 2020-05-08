@@ -19,3 +19,5 @@
 
 # Cache
 /_cache
+/cms/wp-content/cache
+/cms/wp-content/w3tc-config
