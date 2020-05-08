@@ -59,6 +59,23 @@ if ( ! defined( 'WP_SITEURL' ) )
 
 
 /**
+ * Cron
+ *
+ */
+if ( BFS_ENV_PRODUCTION )
+	define( 'DISABLE_WP_CRON', true );
+
+
+
+/**
+ * Caching
+ *
+ */
+define( 'WP_CACHE', true );
+
+
+
+/**
  * Database
  *
  */
