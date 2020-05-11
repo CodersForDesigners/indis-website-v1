@@ -297,6 +297,8 @@ $( document ).on( "submit", ".js_spotlights_unlock_form", function ( event ) {
 	// /* -----
 	//  * Update the person's information
 	//  ----- */
+	var projectName = window.__BFS.content.project.name;
+	__.user.isInterestedIn( projectName );
 	__.user.update();
 
 } );
