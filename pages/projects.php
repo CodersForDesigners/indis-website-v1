@@ -745,6 +745,11 @@ require_once __DIR__ . '/../inc/above.php';
 <!-- END: Engineering Section : Railing -->
 
 
+<!-- NPS Section -->
+<?php // require_once __DIR__ . '/../inc/nps.php'; ?>
+<!-- END: NPS Section -->
+
+
 <!-- Engineering Section : Fire -->
 <?php if( ! empty( $showEngineeringFire ) ) : ?>
 <section data-section="Engineering — Fire" data-id="engineering-fire" class="engineering-section fire space-50-top-bottom">
