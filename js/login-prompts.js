@@ -145,7 +145,8 @@ loginPrompts.getInTouch.on( "phoneSubmit", function ( event ) {
 	var phoneNumber = formData[ 1 ].value.join( "" );
 
 	// Create a new (but temporary) Person object
-	__.tempUser = new __.Person( phoneNumber, loginPrompt.context );
+	var projectName = window.__BFS.content.project.name;
+	__.tempUser = new __.Person( phoneNumber, projectName + ": " + loginPrompt.context );
 		// Set the device id
 	__.utils.getAnalyticsId()
 		.then( function ( deviceId ) {
@@ -168,6 +169,13 @@ loginPrompts.getInTouch.on( "phoneSubmit", function ( event ) {
 					if ( person instanceof Error || ! person )
 						trackConversion( loginPrompt );
 					return __.tempUser.add()
+						.then( function () {
+							return waitFor( 1.5 );
+						} )
+						.then( function () {
+							__.tempUser.isInterestedIn( projectName + ": " + loginPrompt.context );
+							return __.tempUser.update();
+						} )
 						.then( function () {
 							loginPrompt.trigger( "requireOTP" );
 						} )
@@ -245,7 +253,8 @@ function onPhoneSubmit__Spotlight ( event ) {
 	var phoneNumber = formData[ 0 ].value.join( "" );
 
 	// Create a new (but temporary) Person object
-	__.tempUser = new __.Person( phoneNumber, "Spotlight" );
+	var projectName = window.__BFS.content.project.name;
+	__.tempUser = new __.Person( phoneNumber, projectName + ": Spotlight" );
 		// Set the device id
 	__.utils.getAnalyticsId()
 		.then( function ( deviceId ) {
@@ -268,6 +277,13 @@ function onPhoneSubmit__Spotlight ( event ) {
 					if ( person instanceof Error || ! person )
 						trackConversion( loginPrompt );
 					return __.tempUser.add()
+						.then( function () {
+							return waitFor( 1.5 );
+						} )
+						.then( function () {
+							__.tempUser.isInterestedIn( projectName );
+							return __.tempUser.update();
+						} )
 						.then( function () {
 							loginPrompt.trigger( "requireOTP" );
 						} )
@@ -362,7 +378,8 @@ loginPrompts.spotlightDedicated.on( "phoneSubmit", function ( event ) {
 	var phoneNumber = formData[ 2 ].value.join( "" );
 
 	// Create a new (but temporary) Person object
-	__.tempUser = new __.Person( phoneNumber, "Spotlight" );
+	var projectName = window.__BFS.content.project.name;
+	__.tempUser = new __.Person( phoneNumber, projectName + ": Spotlight" );
 		// Set the device id
 	__.utils.getAnalyticsId()
 		.then( function ( deviceId ) {
@@ -385,6 +402,13 @@ loginPrompts.spotlightDedicated.on( "phoneSubmit", function ( event ) {
 					if ( person instanceof Error || ! person )
 						trackConversion( loginPrompt );
 					return __.tempUser.add()
+						.then( function () {
+							return waitFor( 1.5 );
+						} )
+						.then( function () {
+							__.tempUser.isInterestedIn( projectName );
+							return __.tempUser.update();
+						} )
 						.then( function () {
 							loginPrompt.trigger( "requireOTP" );
 						} )
@@ -480,7 +504,8 @@ loginPrompts.bookSiteVisit.on( "phoneSubmit", function ( event ) {
 	var phoneNumber = formData[ 2 ].value.join( "" );
 
 	// Create a new (but temporary) Person object
-	__.tempUser = new __.Person( phoneNumber, loginPrompt.context );
+	var projectName = window.__BFS.content.project.name;
+	__.tempUser = new __.Person( phoneNumber, projectName + ": " + loginPrompt.context );
 		// Set the device id
 	__.utils.getAnalyticsId()
 		.then( function ( deviceId ) {
@@ -503,6 +528,13 @@ loginPrompts.bookSiteVisit.on( "phoneSubmit", function ( event ) {
 					if ( person instanceof Error || ! person )
 						trackConversion( loginPrompt );
 					return __.tempUser.add()
+						.then( function () {
+							return waitFor( 1.5 );
+						} )
+						.then( function () {
+							__.tempUser.isInterestedIn( projectName + ": " + loginPrompt.context );
+							return __.tempUser.update();
+						} )
 						.then( function () {
 							loginPrompt.trigger( "requireOTP" );
 						} )
