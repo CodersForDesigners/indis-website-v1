@@ -10,73 +10,73 @@
 <style>
 .nps-section {}
 
-.nps-answer {
+.nps-option {
 	font-size: 0;
 }
 
-.nps-answer .nps-input {
+.nps-option .nps-input {
 	margin-right: 2px;
 	margin-bottom: 2px;
 }
-.nps-answer .nps-input:last-child {
+.nps-option .nps-input:last-child {
 	margin-right: 0;
 }
 
-.nps-answer .nps-input input + .label {
+.nps-option .nps-input input + .label {
 	background-color: var(--dark);
 	text-align: center;
 }
 
-.nps-answer .nps-input input:checked + .label{
+.nps-option .nps-input input:checked + .label{
 	background-color: var(--red-2);
 }
 
 @media( min-width: 640px )  {
-	.nps-answer .nps-input {
+	.nps-option .nps-input {
 		margin-right: 4px;
 		margin-bottom: 4px;
 	}
 }
 
 @media( min-width: 1040px ) {
-	.nps-answer .nps-input {
+	.nps-option .nps-input {
 		margin-right: 5px;
 		margin-bottom: 5px;
 	}
 }
 
 @media( min-width: 1480px ) {
-	.nps-answer .nps-input {
+	.nps-option .nps-input {
 		margin-right: 7px;
 		margin-bottom: 7px;
 	}
 }
 
 /* -- NPS Rating -- */
-.nps-answer .nps-rating input + .label {
+.nps-option .nps-rating input + .label {
 	padding: 0;
 	min-width: calc(var(--space-min) * 2.5);
 }
 @media( min-width: 640px )  {
-	.nps-answer .nps-rating input + .label {
+	.nps-option .nps-rating input + .label {
 		min-width: var(--space-75);
 	}
 }
 @media( min-width: 1040px ) {
-	.nps-answer .nps-rating input + .label {
+	.nps-option .nps-rating input + .label {
 		min-width: var(--space-50);
 	}
 }
 @media( min-width: 1480px ) {}
 
 /* -- Text Input -- */
-.nps-answer .text-input textarea {
+.nps-option .text-input textarea {
 	width: calc( var(--space-100) * 6 );
 	height: calc( var(--space-75) * 3 );
 }
 @media( min-width: 640px )  {}
 @media( min-width: 1040px ) {
-	.nps-answer .text-input textarea {
+	.nps-option .text-input textarea {
 		height: calc( var(--space-50) * 3 );
 	}
 }
@@ -95,7 +95,7 @@
 				<div class="label strong text-uppercase text-neutral-2 space-min-bottom">Give us your feedback</div>
 				<div class="h4 strong space-25-bottom">How likely are <span class="text-red-2">you</span> to recommend INDIS to a friend or colleague?</div>
 			</div>
-			<div class="nps-answer columns small-12 xlarge-offset-1 xlarge-10">
+			<div class="nps-option columns small-12 xlarge-offset-1 xlarge-10">
 				<!-- NPS Rating -->
 				<label class="nps-input nps-rating cursor-pointer inline">
 					<input class="visuallyhidden" type="radio" name="nps-rating" value="0">
@@ -152,7 +152,7 @@
 			<div class="nps-question columns small-12 xlarge-offset-1 xlarge-10">
 				<div class="h4 strong space-25-bottom">Please <span class="text-red-2">pick 2 things</span> that INDIS can improve.</div>
 			</div>
-			<div class="nps-answer columns small-12 xlarge-offset-1 xlarge-10">
+			<div class="nps-option columns small-12 xlarge-offset-1 xlarge-10">
 				<!-- Multi Select -->
 				<label class="nps-input single-select cursor-pointer inline">
 					<input class="visuallyhidden" type="checkbox" name="multi-select" value="pricing too high">
@@ -186,7 +186,7 @@
 				<div class="h4 strong space-min-bottom">That was super helpful!</div>
 				<div class="h5 space-25-bottom">We have a couple of new ideas in the making. Can we contact you on the phone to pick your brains?</div>
 			</div>
-			<div class="nps-answer columns small-12 xlarge-offset-1 xlarge-10">
+			<div class="nps-option columns small-12 xlarge-offset-1 xlarge-10">
 				<!-- Single Select -->
 				<label class="nps-input single-select cursor-pointer inline">
 					<input class="visuallyhidden" type="radio" name="single-select" value="yes">
@@ -205,7 +205,7 @@
 			<div class="nps-question columns small-12 xlarge-offset-1 xlarge-10">
 				<div class="h4 strong space-25-bottom">Thank you!! What did <span class="text-red-2">you</span> like about INDIS?</div>
 			</div>
-			<div class="nps-answer columns small-12 xlarge-offset-1 xlarge-10">
+			<div class="nps-option columns small-12 xlarge-offset-1 xlarge-10">
 				<!-- Text Input -->
 				<label class="nps-input text-input cursor-pointer inline">
 					<!-- <input class="visuallyhidden" type="radio" name="single-select" value="no"> -->
@@ -223,7 +223,7 @@
 			<div class="nps-question columns small-12 xlarge-offset-1 xlarge-10">
 				<div class="h4 strong space-25-bottom">Enter your <span class="text-red-2">phone number</span>.</div>
 			</div>
-			<div class="nps-answer columns small-12 xlarge-offset-1 xlarge-10">
+			<div class="nps-option columns small-12 xlarge-offset-1 xlarge-10">
 				<!-- Phone Trap -->
 				<div class="nps-input phone-trap columns small-12 medium-6 large-3">
 					<div class="row">
@@ -249,7 +249,7 @@
 			<div class="nps-question columns small-12 xlarge-offset-1 xlarge-10">
 				<div class="h4 strong space-25-bottom">Enter the <span class="text-red-2">OTP</span>.</div>
 			</div>
-			<div class="nps-answer columns small-12 xlarge-offset-1 xlarge-10">
+			<div class="nps-option columns small-12 xlarge-offset-1 xlarge-10">
 				<!-- Phone OTP -->
 				<div class="nps-input phone-otp columns small-12 medium-6 large-3">
 					<div class="row">

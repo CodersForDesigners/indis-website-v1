@@ -31,7 +31,7 @@ $options = $input[ 'options' ];
 	<div class="nps-question columns small-12 xlarge-offset-1 xlarge-10">
 		<?= $question ?>
 	</div>
-	<div class="nps-answer columns small-12 xlarge-offset-1 xlarge-10">
+	<div class="nps-option columns small-12 xlarge-offset-1 xlarge-10">
 
 		<?php if ( $type === 'nps_range' ) : ?>
 			<!-- NPS Rating -->
