@@ -1,8 +1,22 @@
 <?php
 
+/* ------------------------------- \
+ * Script Bootstrapping
+ \-------------------------------- */
 # * - Error Reporting
 ini_set( 'display_errors', 1 );
 ini_set( 'error_reporting', E_ALL );
+
+
+
+/* ------------------------------- \
+ * Response Preparation
+ \-------------------------------- */
+# Set Headers
+header_remove( 'X-Powered-By' );
+header( 'Content-Type: text/html; charset=UTF-8' );
+
+
 
 /* ------------------------------- \
  * Request Parsing
@@ -23,7 +37,7 @@ catch ( \Exception $e ) {
 $question = $input[ 'question' ];
 $index = $input[ 'index' ];
 $type = $input[ 'type' ];
-$options = $input[ 'options' ];
+$options = $input[ 'options' ] ?? [ ];
 
 ?>
 
@@ -31,13 +45,13 @@ $options = $input[ 'options' ];
 	<div class="nps-question columns small-12 xlarge-offset-1 xlarge-10">
 		<?= $question ?>
 	</div>
-	<div class="nps-option columns small-12 xlarge-offset-1 xlarge-10">
+	<form class="nps-option columns small-12 xlarge-offset-1 xlarge-10 js_nps_answer" data-type="<?= $type ?>">
 
 		<?php if ( $type === 'nps_range' ) : ?>
 			<!-- NPS Rating -->
 			<?php foreach ( $options as $option ) : ?>
 				<label class="nps-input nps-rating cursor-pointer inline">
-					<input class="visuallyhidden" type="radio" name="q<?= $index ?>" value="<?= strtolower( $option ) ?>">
+					<input class="visuallyhidden" type="radio" name="q<?= $index ?>" value="<?= $option ?>">
 					<span class="label button strong"><?= $option ?></span>
 				</label>
 			<?php endforeach; ?>
@@ -46,7 +60,7 @@ $options = $input[ 'options' ];
 
 		<?php if ( $type === 'text_input' ) : ?>
 			<!-- Text Input -->
-			<textarea class="fill-dark block" name="q<?= $index ?>" placeholder="Type your message here!"></textarea>
+			<textarea class="fill-dark block" name="q<?= $index ?>" placeholder="Type your message here!" maxlength="500" required></textarea>
 			<!-- END: Text Input -->
 		<?php endif; ?>
 
@@ -54,7 +68,7 @@ $options = $input[ 'options' ];
 			<!-- Single Select -->
 			<?php foreach ( $options as $option ) : ?>
 				<label class="nps-input single-select cursor-pointer inline">
-					<input class="visuallyhidden" type="radio" name="q<?= $index ?>" value="<?= strtolower( $option ) ?>">
+					<input class="visuallyhidden" type="radio" name="q<?= $index ?>" value="<?= $option ?>" required>
 					<span class="label button"><?= $option ?></span>
 				</label>
 			<?php endforeach; ?>
@@ -65,7 +79,7 @@ $options = $input[ 'options' ];
 			<!-- Multi Select -->
 			<?php foreach ( $options as $option ) : ?>
 				<label class="nps-input single-select cursor-pointer inline">
-					<input class="visuallyhidden" type="checkbox" name="q<?= $index ?>" value="<?= strtolower( $option ) ?>">
+					<input class="visuallyhidden" type="checkbox" name="q<?= $index ?>" value="<?= $option ?>" required>
 					<span class="label button"><?= $option ?></span>
 				</label>
 			<?php endforeach; ?>
@@ -94,7 +108,7 @@ $options = $input[ 'options' ];
 		<?php endif; ?>
 
 		<div class="nps-submit space-25-top">
-			<button class="fill-neutral-1 strong">Submit</button>
+			<button type="submit" class="fill-neutral-1 strong">Submit</button>
 		</div>
-	</div>
+	</form>
 </div>
