@@ -120,10 +120,19 @@
 	<script type="text/javascript" src="/js/login-prompts.js<?= $ver ?>"></script>
 	<script type="text/javascript" src="/js/forms.js<?= $ver ?>"></script>
 
+	<!-- NPS -->
+	<script type="text/javascript" src="/plugins/SheetJS/xlsx-core-v0.16.0.min.js<?= $ver ?>"></script>
+	<script type="text/javascript" src="/plugins/xlsx-calc/xlsx-calc-v0.4.1.js<?= $ver ?>"></script>
+	<script type="text/javascript" src="/js/modules/spreadsheet-formulae.js<?= $ver ?>"></script>
+	<script type="text/javascript" src="/js/modules/cupid/nps.js<?= $ver ?>"></script>
+
+
 	<script type="text/javascript">
 
+		/*
+		 *	CUPID: Record Website Visits
+		 */
 		$( function () {
-
 			var user = __CUPID.utils.getUser();
 			if ( user ) {
 				setTimeout( function () {
@@ -137,6 +146,17 @@
 
 		} );
 
+		/*
+		 *	NPS: Start the questionnaire
+		 */
+		 $( function main () {
+		 	fetchQuestionnaireSpreadsheet()
+		 		.then( initQuestionnaire )
+		 		.then( function () {
+		 			$( document ).trigger( "nps/question/ask" );
+		 		} );
+		 } );
+		 
 	</script>
 
 	<!-- Other Modules -->

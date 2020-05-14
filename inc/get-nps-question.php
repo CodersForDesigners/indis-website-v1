@@ -42,7 +42,7 @@ $options = $input[ 'options' ] ?? [ ];
 ?>
 
 <div class="row js_nps_card">
-	<div class="nps-question columns small-12 xlarge-offset-1 xlarge-10">
+	<div class="nps-question columns small-12 xlarge-offset-1 xlarge-10 space-25-bottom">
 		<?= $question ?>
 	</div>
 	<form class="nps-option columns small-12 xlarge-offset-1 xlarge-10 js_nps_answer" data-type="<?= $type ?>">
@@ -60,7 +60,9 @@ $options = $input[ 'options' ] ?? [ ];
 
 		<?php if ( $type === 'text_input' ) : ?>
 			<!-- Text Input -->
-			<textarea class="fill-dark block" name="q<?= $index ?>" placeholder="Type your message here!" maxlength="500" required></textarea>
+			<label class="nps-input text-input cursor-pointer inline">
+				<textarea class="fill-dark block" name="q<?= $index ?>" placeholder="Type your message here!" maxlength="500" required></textarea>
+			</label>
 			<!-- END: Text Input -->
 		<?php endif; ?>
 
@@ -78,7 +80,7 @@ $options = $input[ 'options' ] ?? [ ];
 		<?php if ( $type === 'multi_select' ) : ?>
 			<!-- Multi Select -->
 			<?php foreach ( $options as $option ) : ?>
-				<label class="nps-input single-select cursor-pointer inline">
+				<label class="nps-input multi-select cursor-pointer inline">
 					<input class="visuallyhidden" type="checkbox" name="q<?= $index ?>" value="<?= $option ?>">
 					<span class="label button"><?= $option ?></span>
 				</label>
