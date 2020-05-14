@@ -79,7 +79,7 @@ function initQuestionnaire () {
 				question[ "Options" ] = question[ "Options" ].split( "\n" )
 			return {
 				index: _index,
-				question: question[ "Question in markdown" ],
+				question: question[ "Question" ],
 				type: question[ "Option Type" ],
 				options: question[ "Options" ],
 			};

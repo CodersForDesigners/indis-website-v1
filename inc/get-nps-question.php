@@ -79,7 +79,7 @@ $options = $input[ 'options' ] ?? [ ];
 			<!-- Multi Select -->
 			<?php foreach ( $options as $option ) : ?>
 				<label class="nps-input single-select cursor-pointer inline">
-					<input class="visuallyhidden" type="checkbox" name="q<?= $index ?>" value="<?= $option ?>" required>
+					<input class="visuallyhidden" type="checkbox" name="q<?= $index ?>" value="<?= $option ?>">
 					<span class="label button"><?= $option ?></span>
 				</label>
 			<?php endforeach; ?>
