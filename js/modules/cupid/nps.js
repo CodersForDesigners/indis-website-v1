@@ -4,6 +4,11 @@ window.__CUPID.nps = { };
 
 XLSX_CALC.import_functions( window.spreadsheetFormulae );
 
+/*
+ *
+ * Fetch the questionnaire
+ *
+ */
 function fetchQuestionnaireSpreadsheet () {
 
 	var url = "/content/data/nps.xlsx" + "?t=" + ( new Date() ).getTime();
@@ -39,59 +44,149 @@ function fetchQuestionnaireSpreadsheet () {
 
 }
 
+
+/*
+ *
+ * Get the list of **current** queue statuses of all the questions
+ *
+ */
 function getQueue () {
 	var rowCount = __CUPID.nps.workbook.Sheets.Que[ "!ref" ].match( /\d+$/ )[ 0 ];
 	var range = "A1:A" + rowCount;
 	return XLSX.utils.sheet_to_json( __CUPID.nps.workbook.Sheets.Que, { raw: true, range: range } );
 }
 
-function initQuestionnaire () {
 
-	return fetchQuestionnaireSpreadsheet().then( function ( workbook ) {
-		// Store a reference to the workbook
-		window.__CUPID.nps.workbook = workbook;
+/*
+ *
+ * Prune out unsupported formulaes so that they don't error out the calculation process.
+ * 	Also, remove the padding that Google Sheets add in for formulaes that **it** thinks are not supported, when in fact **we** support them.
+ *
+ */
+var sanitizeUnsupportedFormulae = function () {
+	var unsupportedFormulaes = [ "VOID" ];
+	var unsupportedFormulaesRegex = new RegExp( "(" + unsupportedFormulaes.join( "|" ) + ")\\(" );
+	return function sanitizeUnsupportedFormulae ( formulae ) {
+		if ( ! formulae )
+			return;
 
-		// Prune out all the unsupported formulaes
-		var unsupportedFormulaes = [ "VOID" ];
-		var unsupportedFormulaesRegex = new RegExp( "(" + unsupportedFormulaes.join( "|" ) + ")\\(" );
-		var sheetName
-		for ( sheetName in workbook.Sheets ) {
-			var sheet = workbook.Sheets[ sheetName ];
-			for ( _cellName in sheet ) {
-				cell = sheet[ _cellName ];
-				if ( cell.f && cell.f.startsWith( "IFERROR(__xludf.DUMMYFUNCTION" ) ) {
-					console.log( _cellName )
-					if ( unsupportedFormulaesRegex.test( cell.f ) )
-						cell.f = "";
-					else
-						cell.f = cell.f
-									.replace( "IFERROR(__xludf.DUMMYFUNCTION(\"", "" )
-									.replace( /\n/g, "" )
-									.replace( /""/g, "\"" )
-									.replace( /"\),(TRUE|FALSE)\)$/, "" );
-				}
-			}
-		}
+		if ( ! formulae.startsWith( "IFERROR(__xludf.DUMMYFUNCTION" ) )
+			return formulae;
 
-		// Parse the build the questionnaire object
-		window.__CUPID.nps.questionnaire = XLSX.utils.sheet_to_json( workbook.Sheets.Que, { raw: true } ).map( function ( question, _index ) {
-			if ( question[ "Options" ] )
-				question[ "Options" ] = question[ "Options" ].split( "\n" )
-			return {
-				index: _index,
-				question: question[ "Question" ],
-				type: question[ "Option Type" ],
-				options: question[ "Options" ],
-			};
+		if ( unsupportedFormulaesRegex.test( formulae ) )
+			return "";
+
+		// If the formulae is supported but is enclosed in all nonsense, then trim it out
+		return formulae
+			.replace( "IFERROR(__xludf.DUMMYFUNCTION(\"", "" )
+			.replace( /\n/g, "" )
+			.replace( /""/g, "\"" )
+			.replace( /"\),(TRUE|FALSE)\)$/, "" )
+	};
+}();
+
+
+
+/*
+ *
+ * Get the markup for a question
+ *
+ */
+function getQuestionMarkup ( question ) {
+
+	var ajaxRequest = $.ajax( {
+		url: "/inc/get-nps-question.php",
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+			"Accept": "text/html; charset=UTF-8"
+		},
+		data: JSON.stringify( question )
+	} );
+
+	return new Promise( function ( resolve, reject ) {
+		ajaxRequest.done( function ( response ) {
+			resolve( response );
 		} );
-
-		window.__CUPID.nps.currentQuestionIndex = -1;
-
-	} )
+		ajaxRequest.fail( function ( jqXHR, textStatus, e ) {
+			var errorResponse = __CUPID.utils.getErrorResponse( jqXHR, textStatus, e );
+			reject( errorResponse );
+		} );
+	} );
 
 }
 
-$( document ).on( "nps/question/render", function () {
+
+
+/*
+ *
+ * Render the question on the page
+ *
+ */
+function renderQuestion ( questionMarkup ) {
+	var $question = $( questionMarkup );
+	$question.css( "display", "none" );
+	var $nps = $( ".js_nps_section" );
+	var $existingQuestion = $nps.find( ".js_nps_card" );
+
+	$existingQuestion
+		.fadeOut( {
+			complete: function () {
+				$nps.append( $question );
+				$question.fadeIn( {
+					complete: function () {
+						$existingQuestion.remove();
+					}
+				} );
+			}
+		} );
+}
+
+
+
+/*
+ *
+ * Interpret the spreadsheet and build the questionnaire data structure
+ *
+ */
+function initQuestionnaire ( workbook ) {
+
+	// Store a reference to the workbook
+	window.__CUPID.nps.workbook = workbook;
+
+	// Prune out all the unsupported formulaes
+	var unsupportedFormulaes = [ "VOID" ];
+	var unsupportedFormulaesRegex = new RegExp( "(" + unsupportedFormulaes.join( "|" ) + ")\\(" );
+	var sheetName
+	for ( sheetName in workbook.Sheets ) {
+		var sheet = workbook.Sheets[ sheetName ];
+		for ( _cellName in sheet ) {
+			cell = sheet[ _cellName ];
+			if ( cell.f )
+				cell.f = sanitizeUnsupportedFormulae( cell.f )
+		}
+	}
+
+	// Parse the build the questionnaire object
+	window.__CUPID.nps.questionnaire = XLSX.utils.sheet_to_json( workbook.Sheets.Que, { raw: true } ).map( function ( question, _index ) {
+		if ( question[ "Options" ] )
+			question[ "Options" ] = question[ "Options" ].split( "\n" )
+		return {
+			index: _index,
+			question: question[ "Question" ],
+			type: question[ "Option Type" ],
+			options: question[ "Options" ],
+		};
+	} );
+
+	// Initialise the current question index (it'll become 0 eventually)
+	window.__CUPID.nps.currentQuestionIndex = -1;
+
+}
+
+
+
+$( document ).on( "nps/question/ask", function () {
 	var questionnaire = window.__CUPID.nps.questionnaire;
 	var queue = getQueue();
 	console.table( queue )
@@ -186,86 +281,6 @@ $( document ).on( "submit", ".js_nps_answer", function ( event ) {
 	/* -----
 	 *  Render the next question in the sequence
 	 ----- */
-	$( document ).trigger( "nps/question/render" );
+	$( document ).trigger( "nps/question/ask" );
 
 } );
-
-
-
-/*
- *
- * The questionnaire structure
- *
- */
-// 	var questionnaire = [
-// 		{
-// 			// inQueue: true,
-// 			question: `<div class="label strong text-uppercase text-neutral-2 space-min-bottom">Give us your feedback</div>
-// <div class="h4 strong space-25-bottom">How likely are <span class="text-red-2">you</span> to recommend INDIS to a friend or colleague?</div>`,
-// 			type: "",
-// 			options: [ ],
-// 			answer: ""
-// 		},
-// 		{
-// 			// inQueue: false,
-// 			question: `<h1>Thank you!! What did <strong>you</strong> like about Guesture?</h1>`,
-// 			type: "",
-// 			options: [ ],
-// 			answer: ""
-// 		},
-// 	];
-
-
-
-/*
- *
- * Get the markup for a question
- *
- */
-function getQuestionMarkup ( question ) {
-
-	var ajaxRequest = $.ajax( {
-		url: "/inc/get-nps-question.php",
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-			"Accept": "text/html; charset=UTF-8"
-		},
-		data: JSON.stringify( question )
-	} );
-
-	return new Promise( function ( resolve, reject ) {
-		ajaxRequest.done( function ( response ) {
-			resolve( response );
-		} );
-		ajaxRequest.fail( function ( jqXHR, textStatus, e ) {
-			var errorResponse = __CUPID.utils.getErrorResponse( jqXHR, textStatus, e );
-			reject( errorResponse );
-		} );
-	} );
-
-}
-
-/*
- *
- * Render the question on the page
- *
- */
-function renderQuestion ( questionMarkup ) {
-	var $question = $( questionMarkup );
-	$question.css( "display", "none" );
-	var $nps = $( ".js_nps_section" );
-	var $existingQuestion = $nps.find( ".js_question_card" );
-
-	$existingQuestion
-		.fadeOut( {
-			complete: function () {
-				$nps.append( $question );
-				$question.fadeIn( {
-					complete: function () {
-						$existingQuestion.remove();
-					}
-				} );
-			}
-		} );
-}

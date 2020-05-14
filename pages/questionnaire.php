@@ -17,7 +17,7 @@ require_once __DIR__ . '/../inc/nps.php';
 
 <section class="nps-section space-50-top-bottom">
 	<div class="container js_nps_section">
-		<div class="row js_question_card">
+		<div class="row js_nps_card">
 		</div>
 	</div>
 </section>
@@ -39,9 +39,11 @@ require_once __DIR__ . '/../inc/nps.php';
 	 *
 	 */
 	$( function main () {
-		initQuestionnaire().then( function () {
-			$( document ).trigger( "nps/question/render" );
-		} )
+		fetchQuestionnaireSpreadsheet()
+			.then( initQuestionnaire )
+			.then( function () {
+				$( document ).trigger( "nps/question/ask" );
+			} );
 	} );
 
 </script>

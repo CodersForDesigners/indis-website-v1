@@ -41,7 +41,7 @@ $options = $input[ 'options' ] ?? [ ];
 
 ?>
 
-<div class="row js_question_card">
+<div class="row js_nps_card">
 	<div class="nps-question columns small-12 xlarge-offset-1 xlarge-10">
 		<?= $question ?>
 	</div>
@@ -107,8 +107,18 @@ $options = $input[ 'options' ] ?? [ ];
 		<?php if ( $type === 'phone_otp' ) : ?>
 		<?php endif; ?>
 
-		<div class="nps-submit space-25-top">
-			<button type="submit" class="fill-neutral-1 strong">Submit</button>
-		</div>
+		<?php
+			/*
+			 *
+			 * Place a submit button whenever there's input that needs to be accepted
+			 *
+			 */
+		?>
+		<?php if ( $type !== 'message' ) : ?>
+			<div class="nps-submit space-25-top">
+				<button type="submit" class="fill-neutral-1 strong">Submit</button>
+			</div>
+		<?php endif; ?>
+
 	</form>
 </div>
