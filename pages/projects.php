@@ -239,7 +239,7 @@ require_once __DIR__ . '/../inc/above.php';
 			</div>
 		</div>
 		<?php foreach ( $spotlights as $index => $spotlight ) : ?>
-			<div class="carousel-list-item js_carousel_item js_gallery_region qpid_login_site js_spotlight <?php if ( $index >= 4 ) echo 'hidden' ?>" data-set="spotlight<?= $index + 1 ?>">
+			<div class="carousel-list-item js_carousel_item js_gallery_region qpid_login_site js_spotlight <?php if ( $index >= 3 ) echo 'hidden' ?>" data-set="spotlight<?= $index + 1 ?>">
 				<div class="card-index text-neutral-2">
 					<div class="count h3 inline-bottom"><?= str_pad( $index + 1, 2, '0', STR_PAD_LEFT ) ?></div>
 					<div class="total label strong text-uppercase inline-bottom"><?= $numberOfSpotlight ?></div>
@@ -586,7 +586,7 @@ require_once __DIR__ . '/../inc/above.php';
 						</select>
 					</div>
 					<?php foreach ( $group[ 'plan_group' ] as $index => $plan ) : ?>
-						<div class="plan-viewer js_tab <?php if ( $index ) echo 'hidden' ?>" data-tab="<?= $plan[ 'plan_name' ] ?>">
+						<div class="plan-viewer zoom-tooltip js_tab <?php if ( $index ) echo 'hidden' ?>" data-tab="<?= $plan[ 'plan_name' ] ?>">
 							<iframe class="plan-embed js_plan_embed" src="<?= $plan[ 'plan_image' ] ?>" frameborder="0"></iframe>
 							<?php if ( ! empty( $plan[ 'compass_offset' ] ) or $plan[ 'compass_offset' ] === '0' ) : ?>
 								<div class="icon-compass" style="transform: rotate(<?= $plan[ 'compass_offset' ] ?>deg);"><img class="block" src="../media/icon/icon-compass.svg<?php echo $ver ?>"></div>
@@ -746,7 +746,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- NPS Section -->
-<?php require_once __DIR__ . '/../inc/nps.php'; ?>
+<?php //require_once __DIR__ . '/../inc/nps.php'; ?>
 <!-- END: NPS Section -->
 
 
