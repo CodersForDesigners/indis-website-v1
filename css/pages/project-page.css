@@ -1003,7 +1003,8 @@
 	overflow-y: hidden;
 	max-width: 100%;
 	-webkit-overflow-scrolling: touch;
-	scroll-snap-type: x mandatory;
+	scroll-snap-type: both mandatory;
+	max-height: calc( ( var(--space-100) * 4 ) + 5px );
 }
 
 .tab-menu + .scroll-controls {
@@ -1019,6 +1020,36 @@
 	visibility: visible;
 	transition: opacity 0.1s ease-in;
 }
+
+.tab-menu + .scroll-controls.scroll-y {
+	margin-top: var(--space-75);
+	height: calc( ( var(--space-100) * 4 ) + 5px );
+}
+
+.tab-menu + .scroll-controls.scroll-y .prev,
+.tab-menu + .scroll-controls.scroll-y .next {
+	position: absolute;
+	right: 0;
+	width: 100%;
+}
+.tab-menu + .scroll-controls.scroll-y .prev {
+	top: 0;
+}
+.tab-menu + .scroll-controls.scroll-y .next {
+	bottom: 0;
+}
+
+.tab-menu + .scroll-controls.scroll-y .prev button,
+.tab-menu + .scroll-controls.scroll-y .next button {
+	content: 'more';
+	width: 100%;
+}
+
+.tab-menu + .scroll-controls.scroll-y .prev button img,
+.tab-menu + .scroll-controls.scroll-y .next button img {
+	transform: rotate( 90deg );
+}
+
 
 .fill-dark .tab-menu {
 	border: 0px solid var(--neutral-4);
@@ -1097,7 +1128,15 @@
 		text-align: center;
 	}
 }
-@media( min-width: 1480px ) {}
+@media( min-width: 1480px ) {
+	.tab-menu {
+		max-height: calc( ( var(--space-100) * 4 ) + 10px );
+	}
+
+	.tab-menu + .scroll-controls.scroll-y {
+		height: calc( ( var(--space-100) * 4 ) + 10px );
+	}
+}
 
 /* -- Affiliates Carousel Menu Overwrites -- */
 .affiliates-carousel-menu {}
@@ -1271,6 +1310,7 @@
 	}
 
 	.updates-menu-1 {
+		position: relative;
 		padding-top: var(--space-75);
 		text-align: right;
 	}

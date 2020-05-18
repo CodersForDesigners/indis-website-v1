@@ -920,13 +920,16 @@ require_once __DIR__ . '/../inc/above.php';
 			</div>
 		</div>
 		<div class="updates row">
-			<div class="updates-menu-1 columns small-12 large-2">
+			<div class="updates-menu-1 js_construction_update_heading_carousel columns small-12 large-2">
 				<div class="tab-menu hide-for-medium text-right js_tab_headings">
 					<?php foreach ( $constructionUpdateGroups as $group ) : ?>
 						<div tabindex="-1" class="h5 tab-button tab-button-large js_tab_heading js_vertical_tab_heading"><?= $group[ 'update_group_title' ] ?></div>
 					<?php endforeach; ?>
 				</div>
-
+				<div class="scroll-controls scroll-y clearfix">
+					<div class="prev float-left"><button class="button fill-neutral-4 js_pager" data-dir="left"><img class="block" src="../media/icon/icon-left-triangle-light.svg<?php echo $ver ?>"></button></div>
+					<div class="next float-right"><button class="button fill-neutral-4 fade-in js_pager" data-dir="right"><img class="block" src="../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>"></button></div>
+				</div>
 				<select class="select-menu button strong fill-red-2 show-for-medium js_tab_headings">
 					<?php foreach ( $constructionUpdateGroups as $group ) : ?>
 						<option><?= $group[ 'update_group_title' ] ?></option>
