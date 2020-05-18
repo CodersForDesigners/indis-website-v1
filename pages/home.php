@@ -64,7 +64,7 @@ $numberOfSpotlights = str_pad( count( $featuredSpotlights ), 2, '0', STR_PAD_LEF
 							<div class="location label strong text-uppercase text-red-2"><?= getContent( '', 'location', $project[ 'ID' ] ) ?></div>
 							<hr class="dash">
 							<div class="type h6 strong space-25-top"><?= getContent( '', 'type', $project[ 'ID' ] ) ?></div>
-							<div class="price h5 condensed text-neutral-4"><?= getContent( '', 'price', $project[ 'ID' ] ) ?></div>
+							<div class="price h5 condensed text-neutral-3"><?= getContent( '', 'price', $project[ 'ID' ] ) ?></div>
 						</div>
 					</a>
 				</div>
