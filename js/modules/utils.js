@@ -64,15 +64,20 @@ function eventually ( fn, timeout ) {
 
 	var timeout = ( timeout || 1 ) * 1000;
 	var timeoutId = null;
+	var emptyFunction = function () {};
+	var rejectPromise = emptyFunction;
 
 	return function ( event ) {
 
+		rejectPromise();
 		clearTimeout( timeoutId );
 
 		return new Promise( function ( resolve, reject ) {
 			timeoutId = setTimeout( resolve, timeout );
+			rejectPromise = reject;
 		} )
 			.then( fn )
+			.catch( emptyFunction )
 
 	};
 
