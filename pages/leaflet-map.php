@@ -61,7 +61,7 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 			content: '';
 			display: block;
 			position: absolute;
-			z-index: 998;
+			z-index: 9998;
 			bottom: 72px;
 			right: 10px;
 			background: transparent;
@@ -75,7 +75,7 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 			content: '';
 			display: block;
 			position: absolute;
-			z-index: 999;
+			z-index: 9999;
 			bottom: 98px;
 			right: 36px;
 			width: 180px;
@@ -103,6 +103,25 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 				right: 44px;
 				transform: translate(50%, 50%) scale(1.25);
 			}
+		}
+
+
+		/*
+		 * The zoom tooltip Embeded
+		 */
+		.zoom-tooltip.embeded:before {
+			bottom: 98px;
+		}
+		.zoom-tooltip.embeded:after {
+			bottom: 124px;
+		}
+		@supports (-webkit-touch-callout: none) or (-moz-appearance:none) {
+			.zoom-tooltip.embeded:before {
+				bottom: 114px;
+			}
+
+			.zoom-tooltip.embeded:after {
+				bottom: 147px;
 		}
 
 
