@@ -62,7 +62,7 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 			display: block;
 			position: absolute;
 			z-index: 9998;
-			bottom: 72px;
+			bottom: 46px;
 			right: 10px;
 			background: transparent;
 			width: 26px;
@@ -76,7 +76,7 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 			display: block;
 			position: absolute;
 			z-index: 9999;
-			bottom: 98px;
+			bottom: 72px;
 			right: 36px;
 			width: 180px;
 			height: 120px;
@@ -92,14 +92,14 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 		/* -- Exception for firefox because leaflet thinks it's touch supported -- */
 		@supports (-webkit-touch-callout: none) or (-moz-appearance:none) {
 			.zoom-tooltip:before {
-				bottom: 84px;
+				bottom: 54px;
 				right: 10px;
 				width: 34px;
 				height: 65px;
 			}
 
 			.zoom-tooltip:after {
-				bottom: 117px;
+				bottom: 87px;
 				right: 44px;
 				transform: translate(50%, 50%) scale(1.25);
 			}
@@ -110,18 +110,18 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 		 * The zoom tooltip Embeded
 		 */
 		.zoom-tooltip.embeded:before {
-			bottom: 98px;
+			bottom: 72px;
 		}
 		.zoom-tooltip.embeded:after {
-			bottom: 124px;
+			bottom: 98px;
 		}
 		@supports (-webkit-touch-callout: none) or (-moz-appearance:none) {
 			.zoom-tooltip.embeded:before {
-				bottom: 114px;
+				bottom: 84px;
 			}
 
 			.zoom-tooltip.embeded:after {
-				bottom: 147px;
+				bottom: 117px;
 		}
 
 
