@@ -704,56 +704,6 @@
 	background-color: var(--light);
 	overflow: hidden;
 }
-	
-.plans-section .plans .plan .plan-viewer.zoom-tooltip:before {
-	content: '';
-	display: block;
-	position: absolute;
-	z-index: 8;
-	bottom: 72px;
-	right: 10px;
-	background: transparent;
-	width: 26px;
-	height: 53px;
-	border-radius: 4px;
-	box-shadow: 0 0 300px 200px rgba(192, 52, 60, .25), 0 0 100px 50px rgba(192, 52, 60, .25);
-	pointer-events: none;
-}
-
-.plans-section .plans .plan .plan-viewer.zoom-tooltip:after {
-	content: '';
-	display: block;
-	position: absolute;
-	z-index: 9;
-	bottom: 98px;
-	right: 36px;
-	width: 180px;
-	height: 120px;
-	pointer-events: none;
-	transform: translate(50%, 50%);
-	background-image: url('../../media/icon/zoom-tooltip.svg');
-	background-repeat: no-repeat;
-	background-size: 180px 120px;
-	background-position: center center;
-}
-
-/* -- Exception for touch supported buttons -- */
-/* -- Exception for firefox because leaflet thinks it's touch supported -- */
-@supports (-webkit-touch-callout: none) or 
-		(-moz-appearance:none) {
-	.plans-section .plans .plan .plan-viewer.zoom-tooltip:before {
-		bottom: 84px;
-		right: 10px;
-		width: 34px;
-		height: 65px;
-	}
-
-	.plans-section .plans .plan .plan-viewer.zoom-tooltip:after {
-		bottom: 117px;
-		right: 44px;
-		transform: translate(50%, 50%) scale(1.25);
-	}
-}
 
 .plans-section .plans .plan .plan-viewer iframe.plan-embed {
 	display: block;
@@ -1456,7 +1406,7 @@
 	background-repeat: no-repeat;
 	background-position: center center;
 }
-	
+
 .events .carousel-list .carousel-list-item .carousel-card .info {
 	z-index: 3;
 	height: 130px;
@@ -1609,7 +1559,7 @@
 .spotlight .carousel-list .carousel-list-item:not(:first-child) .info .info-box .title:after {
 	content: '\00a0';
 }
-	
+
 .spotlight .carousel-list .carousel-list-item:not(:first-child) .info .info-box .description {
 	line-height: 20px;
 }
@@ -1687,7 +1637,7 @@
 		font-size: 2.2rem;
 		line-height: 23px;
 	}
-		
+
 	.spotlight .carousel-list .carousel-list-item:not(:first-child) .info .info-box .description {
 		font-size: 1.6rem;
 		line-height: 21px;

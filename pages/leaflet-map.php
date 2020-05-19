@@ -54,6 +54,58 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 			background-image: url( "/media/leaflet/launch.svg" );
 		}
 
+		/*
+		 * The zoom tooltip
+		 */
+		.zoom-tooltip:before {
+			content: '';
+			display: block;
+			position: absolute;
+			z-index: 998;
+			bottom: 72px;
+			right: 10px;
+			background: transparent;
+			width: 26px;
+			height: 53px;
+			border-radius: 4px;
+			box-shadow: 0 0 300px 200px rgba(192, 52, 60, .25), 0 0 100px 50px rgba(192, 52, 60, .25);
+			pointer-events: none;
+		}
+		.zoom-tooltip:after {
+			content: '';
+			display: block;
+			position: absolute;
+			z-index: 999;
+			bottom: 98px;
+			right: 36px;
+			width: 180px;
+			height: 120px;
+			pointer-events: none;
+			transform: translate(50%, 50%);
+			background-image: url( '/media/icon/zoom-tooltip.svg' );
+			background-repeat: no-repeat;
+			background-size: 180px 120px;
+			background-position: center center;
+		}
+
+		/* -- Exception for touch supported buttons -- */
+		/* -- Exception for firefox because leaflet thinks it's touch supported -- */
+		@supports (-webkit-touch-callout: none) or (-moz-appearance:none) {
+			.zoom-tooltip:before {
+				bottom: 84px;
+				right: 10px;
+				width: 34px;
+				height: 65px;
+			}
+
+			.zoom-tooltip:after {
+				bottom: 117px;
+				right: 44px;
+				transform: translate(50%, 50%) scale(1.25);
+			}
+		}
+
+
 	</style>
 	<link rel="stylesheet" type="text/css" href="/plugins/leaflet/leaflet-v1.6.css">
 	<link rel="stylesheet" type="text/css" href="/plugins/leaflet/leaflet-easybutton-v2.4.0.css">
@@ -100,6 +152,8 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 		var fitToViewportControl = L.easyButton( "<span class=\"icon fit-to-view\"></span>", function ( control, map ) {
 			// Get the zoom level at which the map (image) fits the map container
 			map.setZoom( map.getBoundsZoom( imageBoundCoordinates ) );
+			// Hide the overlay on the parent page once the map is interacted with
+			hideZoomTooltipOverlay();
 		}, "Reset View" );
 		additionalControls.push( fitToViewportControl );
 
@@ -107,6 +161,8 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 		if ( window.parent.location !== window.location ) {
 			var launchInNewWindowControl = L.easyButton( "<span class=\"icon launch\"></span>", function ( control, map ) {
 				window.open( "<?= $_SERVER[ 'REQUEST_URI' ] ?>", "<?= $readableMapName ?> | INDIS" );
+				// Hide the overlay on the parent page once the map is interacted with
+				hideZoomTooltipOverlay();
 			}, "Open in new tab" );
 			additionalControls.push( launchInNewWindowControl );
 		}
@@ -124,6 +180,39 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 			setTimeout( function () {
 				map.setZoom( map.getBoundsZoom( imageBoundCoordinates ) );
 			}, 1000 );
+		} );
+
+
+		/*
+		 *
+		 * The Zoom Tool-tip Overlay
+		 *
+		 * This shows up initially but goes away once the map is interacted with
+		 *
+		 */
+		var overlayIsHidden = false;
+		function hideZoomTooltipOverlay () {
+			if ( overlayIsHidden )
+				return;
+
+			document.getElementById( "map" ).classList.remove( "zoom-tooltip" );
+			overlayIsHidden = true;
+		}
+
+		// Add the zoom tooltip overlay, once the initial to zoom to viewport is done
+		map.once( "zoomend", function () {
+			document.getElementById( "map" ).classList.add( "zoom-tooltip" );
+		} );
+
+		// Hide the overlay on the parent page once the map is interacted with
+		map.once( "click", function () {
+			hideZoomTooltipOverlay();
+		} );
+		// Hide the overlay on the parent page once the map is interacted with
+		map.once( "zoomstart", function () {
+			map.once( "zoomstart", function () {
+				hideZoomTooltipOverlay();
+			} );
 		} );
 
 	</script>
