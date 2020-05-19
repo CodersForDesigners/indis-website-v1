@@ -921,14 +921,14 @@ require_once __DIR__ . '/../inc/above.php';
 		</div>
 		<div class="updates row">
 			<div class="updates-menu-1 js_construction_update_heading_carousel columns small-12 large-2">
-				<div class="tab-menu hide-for-medium text-right js_tab_headings">
+				<div class="tab-menu hide-for-medium text-right js_tab_headings js_construction_update_heading_column">
 					<?php foreach ( $constructionUpdateGroups as $group ) : ?>
 						<div tabindex="-1" class="h5 tab-button tab-button-large js_tab_heading js_vertical_tab_heading"><?= $group[ 'update_group_title' ] ?></div>
 					<?php endforeach; ?>
 				</div>
-				<div class="scroll-controls scroll-y clearfix">
-					<div class="prev float-left"><button class="button fill-neutral-4 js_pager" data-dir="left"><img class="block" src="../media/icon/icon-left-triangle-light.svg<?php echo $ver ?>"></button></div>
-					<div class="next float-right"><button class="button fill-neutral-4 fade-in js_pager" data-dir="right"><img class="block" src="../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>"></button></div>
+				<div class="scroll-controls scroll-y clearfix js_construction_update_column_heading_controls">
+					<div class="prev float-left"><button class="button fill-neutral-4 js_pager" data-dir="top"><img class="block" src="../media/icon/icon-left-triangle-light.svg<?php echo $ver ?>"></button></div>
+					<div class="next float-right"><button class="button fill-neutral-4 js_pager" data-dir="bottom"><img class="block" src="../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>"></button></div>
 				</div>
 				<select class="select-menu button strong fill-red-2 show-for-medium js_tab_headings">
 					<?php foreach ( $constructionUpdateGroups as $group ) : ?>
@@ -1185,11 +1185,11 @@ require_once __DIR__ . '/../inc/above.php';
 
 	/*
 	 *
-	 * The Construction Updates row heading carousel
+	 * The Construction Updates Row / Column Heading carousels
 	 *
 	 */
-
-	// This function hides/shows the carousel's arrow button when necessary
+	// Heading Row
+	// Hide/show the carousel's arrow button when necessary
 	var adjustConstructionUpdateRowHeadingCarousel = function () {
 			var $tabHeadings = $( ".js_section_construction_updates .js_vertical_tab_heading" );
 			var $tabs = $( ".js_section_construction_updates .js_tab_container[ data-tab ]" );
@@ -1203,8 +1203,6 @@ require_once __DIR__ . '/../inc/above.php';
 				$tabs.not( $tab ).find( ".js_construction_update_heading_controls .js_pager" ).removeClass( "fade-in" );
 				// 3. Hide/show the arrow buttons depending on how the width of row heading compares to the content it encloses
 				if ( domHeadingRow.offsetWidth < domHeadingRow.scrollWidth ) {
-					// $carouselControls.removeClass( "hidden" );
-
 					if ( domHeadingRow.scrollLeft < 15 )
 						$carouselControls.find( "[ data-dir = 'left' ]" ).removeClass( "fade-in" );
 					else
@@ -1217,15 +1215,42 @@ require_once __DIR__ . '/../inc/above.php';
 						$carouselControls.find( "[ data-dir = 'right' ]" ).addClass( "fade-in" );
 				}
 				else {
-					// $carouselControls.addClass( "hidden" );
 					$carouselControls.find( "[ data-dir ]" ).hide();
 				}
 			}, 0.5 );
 	}();
+
+	// Heading Column
+	// Hide/show the carousel's arrow button when necessary
+	var adjustConstructionUpdateColumnHeadingCarousel = function () {
+			var domHeadingColumn = $( ".js_construction_update_heading_column" ).get( 0 );
+			var $carouselControls = $( ".js_construction_update_column_heading_controls" );
+			return eventually( function () {
+				// Hide/show the arrow buttons depending on how the height of column heading compares to the content it encloses
+				if ( domHeadingColumn.offsetHeight < domHeadingColumn.scrollHeight ) {
+					if ( domHeadingColumn.scrollTop < 15 )
+						$carouselControls.find( "[ data-dir = 'top' ]" ).removeClass( "fade-in" );
+					else
+						$carouselControls.find( "[ data-dir = 'top' ]" ).addClass( "fade-in" );
+
+					var maximumScrollBottom = domHeadingColumn.scrollHeight - domHeadingColumn.offsetHeight;
+					if ( maximumScrollBottom - domHeadingColumn.scrollTop < 15 )
+						$carouselControls.find( "[ data-dir = 'bottom' ]" ).removeClass( "fade-in" );
+					else
+						$carouselControls.find( "[ data-dir = 'bottom' ]" ).addClass( "fade-in" );
+				}
+				else {
+					$carouselControls.find( "[ data-dir ]" ).hide();
+				}
+			}, 0.5 );
+	}();
+	// Check to see if the carousel navigation arrows need to be shown (or not)
+		// when they are interacted with
 	$( document ).on( "click", ".js_section_construction_updates .js_vertical_tab_heading", adjustConstructionUpdateRowHeadingCarousel );
+		// or when the window resizes
 	$( window ).on( "resize", adjustConstructionUpdateRowHeadingCarousel );
 
-	// This handler scrolls the tab headings when the arrow buttons are hit
+	// This handler scrolls the ROW tab headings when the arrow buttons are hit
 	$( document ).on( "click", ".js_construction_update_heading_controls .js_pager", function ( event ) {
 
 		/*
@@ -1238,7 +1263,7 @@ require_once __DIR__ . '/../inc/above.php';
 					.get( 0 );
 
 		/*
-		 * 2. Get the amount of scroll that has to be done to center the next item
+		 * 2. Calculate the offset to scroll by
 		 */
 		var scrollDirection = $carouselArrowButton.data( "dir" );
 		var scrollOffset = domCarouselContent.scrollLeft;
@@ -1259,6 +1284,43 @@ require_once __DIR__ . '/../inc/above.php';
 		adjustConstructionUpdateRowHeadingCarousel();
 
 	} );
+
+	// This handler scrolls the COLUMN tab headings when the arrow buttons are hit
+	$( document ).on( "click", ".js_construction_update_column_heading_controls .js_pager", function ( event ) {
+
+		/*
+		 * 1. Get references to all the relevant elements
+		 */
+		var $carouselArrowButton = $( event.currentTarget );
+		var domCarouselContent = $carouselArrowButton
+					.closest( ".js_construction_update_heading_carousel" )
+					.find( ".js_construction_update_heading_column" )
+					.get( 0 );
+
+		/*
+		 * 2. Calculate the offset to scroll by
+		 */
+		var scrollDirection = $carouselArrowButton.data( "dir" );
+		var scrollOffset = domCarouselContent.scrollTop;
+		if ( scrollDirection == "top" )
+			scrollOffset -= domCarouselContent.offsetHeight / 3;
+		else
+			scrollOffset += domCarouselContent.offsetHeight / 3;
+
+		/*
+		 * 3. Finally, scroll the carousel.
+		 */
+		try {
+			domCarouselContent.scrollTo( { top: scrollOffset, behavior: "smooth" } );
+		}
+		catch ( e ) {
+			domCarouselContent.scrollTo( 0, scrollOffset );
+		}
+		adjustConstructionUpdateColumnHeadingCarousel();
+
+	} );
+	// Run this function once to set the default state
+	adjustConstructionUpdateColumnHeadingCarousel();
 
 
 	/*
