@@ -105,22 +105,21 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 			}
 		}
 
-
 		/*
-		 * The zoom tooltip Embeded
+		 * The zoom tooltip (embedded version)
 		 */
-		.zoom-tooltip.embeded:before {
+		.zoom-tooltip.embedded:before {
 			bottom: 72px;
 		}
-		.zoom-tooltip.embeded:after {
+		.zoom-tooltip.embedded:after {
 			bottom: 98px;
 		}
 		@supports (-webkit-touch-callout: none) or (-moz-appearance:none) {
-			.zoom-tooltip.embeded:before {
+			.zoom-tooltip.embedded:before {
 				bottom: 84px;
 			}
 
-			.zoom-tooltip.embeded:after {
+			.zoom-tooltip.embedded:after {
 				bottom: 117px;
 		}
 
@@ -202,6 +201,7 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 		} );
 
 
+
 		/*
 		 *
 		 * The Zoom Tool-tip Overlay
@@ -215,12 +215,18 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 				return;
 
 			document.getElementById( "map" ).classList.remove( "zoom-tooltip" );
+			document.getElementById( "map" ).classList.remove( "embedded" );
 			overlayIsHidden = true;
+		}
+		function addZoomTooltipOverlay () {
+			document.getElementById( "map" ).classList.add( "zoom-tooltip" );
+			if ( window.parent.location !== window.location )
+				document.getElementById( "map" ).classList.add( "embedded" );
 		}
 
 		// Add the zoom tooltip overlay, once the initial to zoom to viewport is done
 		map.once( "zoomend", function () {
-			document.getElementById( "map" ).classList.add( "zoom-tooltip" );
+			addZoomTooltipOverlay();
 		} );
 
 		// Hide the overlay on the parent page once the map is interacted with
