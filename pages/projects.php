@@ -1296,6 +1296,7 @@ require_once __DIR__ . '/../inc/above.php';
 					.closest( ".js_construction_update_heading_carousel" )
 					.find( ".js_construction_update_heading_column" )
 					.get( 0 );
+		var tabHeadingHeight = $( ".js_vertical_tab_heading" ).first().get( 0 ).offsetHeight;
 
 		/*
 		 * 2. Calculate the offset to scroll by
@@ -1303,9 +1304,9 @@ require_once __DIR__ . '/../inc/above.php';
 		var scrollDirection = $carouselArrowButton.data( "dir" );
 		var scrollOffset = domCarouselContent.scrollTop;
 		if ( scrollDirection == "top" )
-			scrollOffset -= domCarouselContent.offsetHeight / 3;
+			scrollOffset -= tabHeadingHeight;
 		else
-			scrollOffset += domCarouselContent.offsetHeight / 3;
+			scrollOffset += tabHeadingHeight;
 
 		/*
 		 * 3. Finally, scroll the carousel.
