@@ -22,7 +22,7 @@
 						</div>
 					</div>
 					<div class="logo columns small-8 medium-6 large-4 xlarge-3 xlarge-offset-1">
-						<img class="block" src="../media/indis-group-logo-color.svg<?php echo $ver ?>">
+						<img class="block" src="../media/indis-group-logo-old-color.svg<?php echo $ver ?>">
 					</div>
 				</div>
 			</div>
