@@ -1,6 +1,6 @@
 
 window.__CUPID = window.__CUPID || { };
-window.__CUPID.nps = { };
+window.__CUPID.NPS = { };
 
 XLSX_CALC.import_functions( window.spreadsheetFormulae );
 
@@ -51,9 +51,9 @@ function fetchQuestionnaireSpreadsheet () {
  *
  */
 function getQueue () {
-	var rowCount = __CUPID.nps.workbook.Sheets.Que[ "!ref" ].match( /\d+$/ )[ 0 ];
+	var rowCount = __CUPID.NPS.workbook.Sheets.Que[ "!ref" ].match( /\d+$/ )[ 0 ];
 	var range = "A1:A" + rowCount;
-	return XLSX.utils.sheet_to_json( __CUPID.nps.workbook.Sheets.Que, { raw: true, range: range } );
+	return XLSX.utils.sheet_to_json( __CUPID.NPS.workbook.Sheets.Que, { raw: true, range: range } );
 }
 
 
@@ -106,7 +106,7 @@ function getQuestionMarkup ( question ) {
 
 	return new Promise( function ( resolve, reject ) {
 		ajaxRequest.done( function ( response ) {
-			resolve( response );
+			resolve( $( response ) );
 		} );
 		ajaxRequest.fail( function ( jqXHR, textStatus, e ) {
 			var errorResponse = __CUPID.utils.getErrorResponse( jqXHR, textStatus, e );
@@ -123,8 +123,7 @@ function getQuestionMarkup ( question ) {
  * Render the question on the page
  *
  */
-function renderQuestion ( questionMarkup ) {
-	var $question = $( questionMarkup );
+function renderQuestion ( $question ) {
 	$question.css( "display", "none" );
 	var $nps = $( ".js_nps_section" );
 	var $existingQuestion = $nps.find( ".js_nps_card" );
@@ -140,6 +139,8 @@ function renderQuestion ( questionMarkup ) {
 				} );
 			}
 		} );
+
+	return $question;
 }
 
 
@@ -152,72 +153,157 @@ function renderQuestion ( questionMarkup ) {
 function initQuestionnaire ( workbook ) {
 
 	// Store a reference to the workbook
-	window.__CUPID.nps.workbook = workbook;
+	window.__CUPID.NPS.workbook = workbook;
 
 	// Prune out all the unsupported formulaes
-	var unsupportedFormulaes = [ "VOID" ];
-	var unsupportedFormulaesRegex = new RegExp( "(" + unsupportedFormulaes.join( "|" ) + ")\\(" );
-	var sheetName
+	var sheetName;
+	var _cellName;
 	for ( sheetName in workbook.Sheets ) {
 		var sheet = workbook.Sheets[ sheetName ];
 		for ( _cellName in sheet ) {
-			cell = sheet[ _cellName ];
+			var cell = sheet[ _cellName ];
 			if ( cell.f )
 				cell.f = sanitizeUnsupportedFormulae( cell.f )
 		}
 	}
 
 	// Parse the build the questionnaire object
-	window.__CUPID.nps.questionnaire = XLSX.utils.sheet_to_json( workbook.Sheets.Que, { raw: true } ).map( function ( question, _index ) {
+	window.__CUPID.NPS.questionnaire = XLSX.utils.sheet_to_json( workbook.Sheets.Que, { raw: true } ).map( function ( question, _index ) {
 		if ( question[ "Options" ] )
 			question[ "Options" ] = question[ "Options" ].split( "\n" )
 		return {
-			index: _index,
+			index: _index + 1,
 			question: question[ "Question" ],
 			type: question[ "Option Type" ],
 			options: question[ "Options" ],
 		};
 	} );
 
+	window.__CUPID.NPS.questionnaireSettings = getSpreadsheetKeysAndValues( workbook, "Settings" );
+
 	// Initialise the current question index (it'll become 0 eventually)
-	window.__CUPID.nps.currentQuestionIndex = -1;
+	// window.__CUPID.NPS.currentQuestionIndex = -1;
 
 }
 
 
 
-$( document ).on( "nps/question/ask", function () {
-	var questionnaire = window.__CUPID.nps.questionnaire;
-	var queue = getQueue();
-	console.table( queue )
+function getSpreadsheetKeysAndValues ( workbook, sheetName ) {
 
-	/*
-	 *
-	 * Determine the next question in the sequence
-	 *
-	 */
-	// Get the index of the next question
+	var sheet = workbook.Sheets[ sheetName ];
+	var startAndEndCells = sheet[ "!ref" ].split( ":" );
+	var firstRow = parseInt( startAndEndCells[ 0 ].match( /\d+/ )[ 0 ], 10 );
+	var lastRow = parseInt( startAndEndCells[ 1 ].match( /\d+/ )[ 0 ], 10 );
+	var lastColumn = startAndEndCells[ 1 ].match( /[A-Z]+/ )[ 0 ];
+
+	keyValuePairs = { };
+	var currentRow, key, value;
+	for ( currentRow = firstRow; currentRow <= lastRow; currentRow += 1 ) {
+		if ( ! sheet[ "A" + currentRow ] )
+			continue;
+		key = sheet[ "A" + currentRow ].v
+		value = sheet[ "B" + currentRow ] ? sheet[ "B" + currentRow ].v : "";
+		keyValuePairs[ key ] = value
+	}
+
+	return keyValuePairs;
+
+}
+
+
+/*
+ *
+ * Write answers to the questionnaire and evaluate
+ *
+ */
+function setAnswers ( answers, fromIndex ) {
+
+	fromIndex = fromIndex || 0;
+	// An answer can be a string or an array.
+	// First, we determine if we've been given a single answer or multiple answers
+	var inputDataStructure;
+
+	if ( typeof answers === "string" || typeof answers === "number" )
+		inputDataStructure = [ [ answers ] ];
+	else if ( Array.isArray( answers ) ) {
+		var multipleAnswersHaveBeenProvided = Array.isArray( answers.find( function ( answer ) {
+			return Array.isArray( answer )
+		} ) );
+		if ( multipleAnswersHaveBeenProvided ) {
+			var formattedAnswers = answers.map( function ( answer ) {
+				if ( ! answer )
+					answer = "";
+				else if ( Array.isArray( answer ) )
+					answer = answer.join( "\n" );
+				return [ answer ];
+			} );
+			inputDataStructure = formattedAnswers;
+		}
+		else
+			inputDataStructure = [ [ answers.join( "\n" ) ] ];
+	}
+	else
+		return;
+
+	var inputSheet = window.__CUPID.NPS.workbook.Sheets.Que;
+	var origin = "E" + ( fromIndex + 2 );
+	XLSX.utils.sheet_add_aoa( inputSheet, inputDataStructure, { origin: origin } );
+	XLSX_CALC( window.__CUPID.NPS.workbook );
+
+}
+window.__CUPID.NPS.setAnswers = setAnswers;
+
+/*
+ *
+ * Get the index of the next question
+ *
+ */
+function getNextQuestionIndex ( currentQuestionIndex ) {
+	var questionnaire = window.__CUPID.NPS.questionnaire;
+	var queue = getQueue();
+
 	var nextQuestionIndex;
-	for ( let _i = window.__CUPID.nps.currentQuestionIndex + 1; _i < queue.length; _i += 1 ) {
+	for ( let _i = currentQuestionIndex + 1; _i < queue.length; _i += 1 ) {
 		if ( queue[ _i ].Que ) {
 			nextQuestionIndex = _i;
 			break;
 		}
 	}
-	var nextQuestion = questionnaire[ nextQuestionIndex ];
+
+	return nextQuestionIndex;
+}
+window.__CUPID.NPS.getNextQuestionIndex = getNextQuestionIndex;
+
+
+
+function askQuestion ( questionIndex ) {
+
+	questionIndex = questionIndex || 0;
+	var questionnaire = window.__CUPID.NPS.questionnaire;
+	var question = questionnaire[ questionIndex ];
 
 	/*
 	 *
 	 * Render the question
 	 *
 	 */
-	getQuestionMarkup( nextQuestion )
+	// But first, if there is no NPS spot on the page, do nothing, just abort
+	var $nps = $( ".js_nps_section" );
+	if ( ! $nps.length )
+		return;
+
+	getQuestionMarkup( question )
 		.then( renderQuestion )
-		.then( function () {
-			window.__CUPID.nps.currentQuestionIndex = nextQuestionIndex;
+		.then( function ( $question ) {
+			// Advance the current question index pointer
+			window.__CUPID.NPS.currentQuestionIndex = questionIndex;
+			// If the end of the questionnaire has been reached, acknowledge and store that fact
+			if ( ! $question.find( "[ type = 'submit' ]" ).length )
+				acknowledgeQuestionnaireCompletion();
 		} )
 
-} );
+}
+window.__CUPID.NPS.askQuestion = askQuestion;
 
 
 
@@ -239,48 +325,189 @@ $( document ).on( "submit", ".js_nps_answer", function ( event ) {
 
 
 	/* -----
+	 *  Pull data from the form and validate it
+	 ----- */
+	var type = $form.data( "type" );
+	var answer;
+	var providedInputIsInvalid = false;
+	var invalidInputMessage;
+	if ( type === 'nps_range' ) {
+		answer = parseInt( $form.find( "input:checked" ).val(), 10 );
+		if ( ! $form.find( "input:checked" ).length ) {
+			providedInputIsInvalid = true;
+			invalidInputMessage = "Kindly select a score."
+		}
+	}
+	else if ( type === 'text_input' ) {
+		answer = $form.find( "textarea" ).val().trim();
+		if ( answer.length < 2 ) {
+			providedInputIsInvalid = true;
+			invalidInputMessage = "Kindly fill in a response."
+		}
+	}
+	else if ( type === 'single_select' ) {
+		answer = $form.find( "input:checked" ).val()
+		if ( ! $form.find( "input:checked" ).length ) {
+			providedInputIsInvalid = true;
+			invalidInputMessage = "Kindly select an answer."
+		}
+	}
+	else if ( type === 'multi_select' ) {
+		answer = Array.prototype.slice.call( $form.find( "input:checked" ) ).map( el => el.value )
+		if ( ! answer.length ) {
+			providedInputIsInvalid = true;
+			invalidInputMessage = "Kindly select at least one answer."
+		}
+	}
+
+	if ( providedInputIsInvalid )
+		return alert( invalidInputMessage );
+
+
+	/* -----
 	 *  Disable the form and display feedback
 	 ----- */
 	disableForm( $form, "Sending....." );
 
-	/* -----
-	 *  Pull data from the form
-	 ----- */
-	var type = $form.data( "type" );
-	var data = { };
-	if ( type === 'nps_range' )
-		data.answer = parseInt( $form.find( "input:checked" ).val(), 10 );
-	else if ( type === 'text_input' )
-		data.answer = $form.find( "textarea" ).val().trim();
-	else if ( type === 'single_select' )
-		data.answer = $form.find( "input:checked" ).val()
-	else if ( type === 'multi_select' )
-		data.answer = Array.prototype.slice.call( $form.find( "input:checked" ) ).map( el => el.value )
 
 
 	/* -----
-	 *  TODO: Send the data
+	 *  Send the data
 	 ----- */
+	// Trigger the send queue (asynchronously) (i.e. there can be more than one Q&A pairs that need to be synced)
+		// If the first one in the queue fails, do not move on to the next one (remember, they have to be synced in sequence)
+	var currentQuestionIndex = window.__CUPID.NPS.currentQuestionIndex;
+	var questionnaire = window.__CUPID.NPS.questionnaire
+	var currentQuestion = questionnaire[ currentQuestionIndex ];
+	var data = {
+		index: currentQuestion.index,
+		question: currentQuestion.question,
+		answer: answer
+	};
+	submitQAndA( data );
 
 
 
 	/* -----
-	 *  Write the answer back to the questionnaire and evaluate
+	 *  TODO: Append the stored data with this new answer; and sync all this to the cookie
 	 ----- */
-	// XLSX.utils.sheet_add_aoa( inputSheet, inputDataStructure, { origin: "C3" } );
-	var inputSheet = window.__CUPID.nps.workbook.Sheets.Que;
-	var answer = data.answer;
-	if ( Array.isArray( answer ) )
-		answer = answer.join( "\n" )
-	var inputDataStructure = [ [ answer ] ];
-	var origin = "E" + ( window.__CUPID.nps.currentQuestionIndex + 2 );
-	XLSX.utils.sheet_add_aoa( inputSheet, inputDataStructure, { origin: origin } );
-	XLSX_CALC( window.__CUPID.nps.workbook );
+	// But first, simply acknowledge that the questionnaire has been interacted with
+	var person = __CUPID.Person.get();
+	person.setQuestionnaireVersion( window.__CUPID.NPS.questionnaireSettings.Version );
+	person.answeredQuestion( currentQuestion.index, currentQuestion.question, answer );
+	person.saveLocally();
+
 
 
 	/* -----
-	 *  Render the next question in the sequence
+	 *  Present the next question in the sequence
 	 ----- */
-	$( document ).trigger( "nps/question/ask" );
+	setAnswers( answer, currentQuestionIndex );
+	var nextQuestionIndex = getNextQuestionIndex( currentQuestionIndex );
+	if ( questionnaire[ nextQuestionIndex ].type === "phone_number" )
+		if ( person.isRegistered() )
+			nextQuestionIndex = getNextQuestionIndex( nextQuestionIndex );
+	askQuestion( nextQuestionIndex );
 
 } );
+
+
+
+/*
+ *
+ * Submit a Q&A pair
+ *
+ */
+function submitQAndA ( data ) {
+
+	if ( ! data.index || ! data.question || ! data.answer )
+		return;
+
+	var questionnaireVersion = __CUPID.NPS.questionnaireSettings.Version.match( /\d+/ )[ 0 ];
+	var data = {
+		questionnaireVersion: questionnaireVersion,
+		index: data.index,
+		question: data.question,
+		answer: data.answer,
+		answeredOn: new Date
+	};
+
+	var person = __CUPID.Person.get();
+	data.client = person.client;
+	data.personClientId = person._tempClientId;
+	if ( person.isRegistered() )
+		data.phoneNumber = person.phoneNumber;
+
+	var apiEndpoint = __CUPID.settings.cupidApiEndpoint;
+	var url = apiEndpoint + "/v2/hooks/questionnaire/answered-a-question";
+
+	var ajaxRequest = $.ajax( {
+		url: url,
+		method: "POST",
+		data: JSON.stringify( data ),
+		contentType: "application/json",
+		dataType: "json",
+		// xhrFields: {
+		// 	withCredentials: true
+		// }
+	} );
+
+	return new Promise( function ( resolve, reject ) {
+		ajaxRequest.done( function ( response ) {
+			resolve( response );
+		} );
+		ajaxRequest.fail( function ( jqXHR, textStatus, e ) {
+			var errorResponse = __CUPID.utils.getErrorResponse( jqXHR, textStatus, e );
+			reject( errorResponse );
+		} );
+	} );
+
+}
+
+
+
+/*
+ *
+ * Acknowledge the end of the Questionnaire
+ *
+ */
+function acknowledgeQuestionnaireCompletion () {
+
+	var person = __CUPID.Person.get();
+	person.completedQuestionnaire();
+	person.saveLocally();
+
+	var data = {
+		client: person.client,
+		personClientId: person._tempClientId,
+		questionnaireVersion: __CUPID.NPS.questionnaireSettings.Version
+	};
+
+	if ( person.isRegistered() )
+		data.phoneNumber = person.phoneNumber;
+
+	var apiEndpoint = __CUPID.settings.cupidApiEndpoint;
+	var url = apiEndpoint + "/v2/hooks/questionnaire/completed";
+
+	var ajaxRequest = $.ajax( {
+		url: url,
+		method: "POST",
+		data: JSON.stringify( data ),
+		contentType: "application/json",
+		dataType: "json",
+		// xhrFields: {
+		// 	withCredentials: true
+		// }
+	} );
+
+	return new Promise( function ( resolve, reject ) {
+		ajaxRequest.done( function ( response ) {
+			resolve( response );
+		} );
+		ajaxRequest.fail( function ( jqXHR, textStatus, e ) {
+			var errorResponse = __CUPID.utils.getErrorResponse( jqXHR, textStatus, e );
+			reject( errorResponse );
+		} );
+	} );
+
+}
