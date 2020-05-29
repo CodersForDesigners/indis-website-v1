@@ -229,6 +229,59 @@ utils.waitFor = function waitFor ( seconds ) {
 
 /*
  *
+ * Return a provided function's arguments as a "regular" array
+ *
+ */
+utils.getArgumentsAsArray = function getArgumentsAsArray ( functionArguments ) {
+	return Array.prototype.slice.call( functionArguments );
+}
+
+
+
+/*
+ *
+ * Return a random id string
+ *
+ * Uses the code from the "ai/nanoid" library
+ * commit: df991f111547ac91ff9872a44f05cd893b40c360 (19/05/2020)
+ */
+utils.getRandomId = function getRandomId ( length ) {
+	length = parseInt( length, 10 );
+	if ( typeof length !== "number" || window.isNaN( length ) )
+		length = 21;
+
+	var e = "";
+	r = crypto.getRandomValues( new Uint8Array( length ) );
+	for ( ; length--; ) {
+		var n = 63 & r[ length ];
+		e += n < 36 ? n.toString( 36 ) : n < 62 ? ( n - 26 ).toString( 36 ).toUpperCase() : n < 63 ? "_" : "-"
+	}
+	return e;
+}
+
+
+
+/*
+ *
+ * Copy an object's **own** (non-function) properties to another
+ *
+ */
+utils.copyObjectProperties = function copyObjectProperties ( source, target ) {
+	var propertyNames = Object.getOwnPropertyNames( source )
+	var numberOfProperties = propertyNames.length;
+	var _i;
+	var key;
+	for ( _i = 0; _i < numberOfProperties; _i += 1 ) {
+		key = propertyNames[ _i ];
+		target[ key ] = source[ key ];
+	}
+	return target;
+}
+
+
+
+/*
+ *
  *
  * Get the current time and date stamp
  *	in Indian Standard Time
