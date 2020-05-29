@@ -343,16 +343,9 @@ Person.prototype.verifyOTP = function verifyOTP ( otp ) {
 
 	return new Promise( function ( resolve, reject ) {
 		ajaxRequest.done( function ( response ) {
-			if ( response.Status.toLowerCase() != "error" ) {
-				return person.verify()
-					.then( function () {
-						resolve( response );
-					} )
-					.catch( function () {
-						resolve( response );
-					} );
-			}
+			var verificationWasSuccessful = false;
 			var responseErrorMessage = response.Details.toLowerCase();
+
 			if ( /mismatch/.test( responseErrorMessage ) )
 				message = "OTP does not match. Please try again.";
 			else if ( /combination/.test( responseErrorMessage ) )
@@ -361,10 +354,22 @@ Person.prototype.verifyOTP = function verifyOTP ( otp ) {
 				message = "OTP has expired. Please try again.";
 			else if ( /missing/.test( responseErrorMessage ) )
 				message = "Please provide an OTP.";
+			else if ( response.Status.toLowerCase() != "error" )
+				verificationWasSuccessful = true;
 			else
 				message = response.Details;
 
-			reject( { code: 1, message: response.Details } );
+			if ( ! verificationWasSuccessful )
+				return reject( { code: 1, message: message } );
+
+			return person.verify()
+				.then( function () {
+					resolve( response );
+				} )
+				.catch( function () {
+					resolve( response );
+				} );
+
 		} );
 		ajaxRequest.fail( function ( jqXHR, textStatus, e ) {
 			var errorResponse = utils.getErrorResponse( jqXHR, textStatus, e );
