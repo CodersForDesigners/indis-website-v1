@@ -64,7 +64,7 @@ LoginPrompt.prototype.triggerFlowOn = function triggerFlowOn ( event, elementSel
 	let loginPrompt = this;
 	return $( elementSelector ).on( event, function ( event ) {
 
-		if ( getUser() ) {
+		if ( Person.get().isRegistered() ) {
 			// Restore any hyperlinks
 			loginPrompt.$site.find( "a" ).each( function ( _i, domAnchor ) {
 				var $anchor = $( domAnchor );
@@ -73,7 +73,7 @@ LoginPrompt.prototype.triggerFlowOn = function triggerFlowOn ( event, elementSel
 					$anchor.attr( "href", url );
 			} );
 			// Take any other preparatory action
-			loginPrompt.trigger( "prepare", getUser() );
+			loginPrompt.trigger( "prepare", Person.get() );
 			loginPrompt.off( "prepare" );
 			// Default to the default behavior
 			return;
@@ -120,7 +120,8 @@ function Person ( phoneNumber, sourcePoint ) {
 
 	this.client = __.settings.clientSlug;
 	this.source = { medium: __.settings.sourceMedium };
-	this.phoneNumber = phoneNumber;
+
+	this.hasPhoneNumber( phoneNumber );
 
 	if ( sourcePoint )
 		this.source.point = sourcePoint;
@@ -129,8 +130,85 @@ function Person ( phoneNumber, sourcePoint ) {
 // Make this function accessible on the Cupid namespace
 __.Person = Person;
 
+/*
+ *
+ * Return an instance of Person.
+ *
+ * This user object is built from whatever can be inferred from the environment, else an anonymous user is created and returned.
+ *
+ */
+Person.get = function get () {
+
+	var firstVisit;
+	if ( __.user )
+		firstVisit = __.user.firstVisit;
+
+	// TODO: Fetch from localStorage
+
+	// Fetch from cookie
+	var user = utils.getCookie( "cupid-user-20200430" );
+	if ( user ) {
+		__.user = new Person( user.phoneNumber );
+		if ( __.user.isAnonymous() )
+			__.user = new AnonymousPerson( user._tempClientId );
+		else
+			__.user = new RegisteredPerson( user.phoneNumber )
+		__.user = utils.copyObjectProperties( user, __.user );
+		__.user.firstVisit = firstVisit || false;
+		return __.user;
+	}
+
+	// If a user is not present, create an anonymous one
+	__.user = new AnonymousPerson();
+	__.user.firstVisit = true;
+	__.user.saveLocally();
+
+	return __.user;
+
+};
+
+Person.login = function login ( person ) {
+	__.user = person;
+	person.saveLocally();
+	return person;
+};
+
+Person.prototype.saveLocally = function saveLocally () {
+	var person = utils.copyObjectProperties( this, { } );
+	delete person.interests;
+	delete person.firstVisit;
+	// Set cookie ( for about a year )
+	utils.setCookie( "cupid-user-20200430", person, 360 * 24 * 60 * 60 );
+};
+
+Person.prototype.isAnonymous = function isAnonymous () {
+	return ! this.phoneNumber;
+};
+
+Person.prototype.isRegistered = function isRegistered () {
+	return !! this.phoneNumber;
+};
+
 Person.prototype.isVerified = function isVerified () {
 	return this.verification ? ( !! this.verification.isVerified ) : false;
+}
+
+Person.prototype.hasPhoneNumber = function hasPhoneNumber ( phoneNumber ) {
+	if ( typeof phoneNumber == "string" )
+		this.phoneNumber = phoneNumber;
+	return this;
+}
+
+Person.prototype.setSource = function setSource ( medium, point ) {
+	var source = this.source || { };
+	if ( typeof medium == "string" )
+		source.medium = medium;
+
+	if ( typeof point == "string" )
+		source.point = point;
+
+	this.source = source;
+	return this;
 }
 
 Person.prototype.hasDeviceId = function hasDeviceId ( id ) {
@@ -173,6 +251,56 @@ Person.prototype.isInterestedIn = function isInterestedIn ( things ) {
 }
 
 
+
+Person.prototype.getQuestionnaire = function getQuestionnaire () {
+	return this.questionnaire;
+}
+
+Person.prototype.setQuestionnaireVersion = function setQuestionnaireVersion ( version ) {
+	if ( typeof version === "number" && ! isNaN( version ) )
+		version = version + ""
+
+	if ( typeof version === "string" ) {
+		this.questionnaire = this.questionnaire || { completed: false };
+		this.questionnaire.version = version;
+	}
+	return this;
+}
+
+Person.prototype.answeredQuestion = function answeredQuestion ( index, question, answer ) {
+	this.questionnaire = this.questionnaire || { completed: false };
+	this.questionnaire.qAndAs = this.questionnaire.qAndAs || [ ];
+
+	var qAndAs = this.questionnaire.qAndAs;
+	var existingQAndA = qAndAs.find( function ( qAndA ) { return qAndA.index === index } );
+	if ( typeof existingQAndA === "object" )
+		return;
+
+	this.questionnaire.qAndAs = qAndAs.concat( {
+		index: index,
+		question: question,
+		answer: answer
+	} );
+	return this;
+}
+
+Person.prototype.hasCompletedQuestionnaire = function hasCompletedQuestionnaire ( version ) {
+	if ( typeof this.questionnaire !== "object" )
+		return false;
+	else if ( this.questionnaire.version === version )
+		return !! this.questionnaire.completed;
+	else
+		return false;
+}
+
+Person.prototype.completedQuestionnaire = function completedQuestionnaire () {
+	if ( typeof this.questionnaire === "object" )
+		this.questionnaire.completed = true;
+	return this;
+}
+
+
+
 /*
  * Fetch the person from the database
  */
@@ -199,15 +327,13 @@ Person.prototype.getFromDB = function getFromDB () {
 
 	return new Promise( function ( resolve, reject ) {
 		ajaxRequest.done( function ( response ) {
-			var person = response.data;
-			var sourcePoint = person.source && person.source.point;
-			var newPerson = new Person( person.phoneNumber, sourcePoint );
-			newPerson = Object.assign( newPerson, person );
-			if ( __.tempUser.name )
-				newPerson.name = __.tempUser.name;
-			if ( __.tempUser.emailAddress )
-				newPerson.emailAddress = __.tempUser.emailAddress;
-			newPerson.isInterestedIn( __.tempUser.interests );
+			var personFromDB = response.data;
+			delete personFromDB._id;	// this is the internal DB id
+			var person = Person.get();
+			var sourcePoint = personFromDB.source && personFromDB.source.point;
+			var newPerson = new RegisteredPerson( personFromDB.phoneNumber, sourcePoint );
+			newPerson = utils.copyObjectProperties( personFromDB, newPerson );
+			newPerson = utils.copyObjectProperties( person, newPerson );
 			resolve( newPerson );
 		} );
 		ajaxRequest.fail( function ( jqXHR, textStatus, e ) {
@@ -455,6 +581,42 @@ Person.prototype.update = function update () {
 
 }
 
+Person.prototype.associateClientId = function associateClientId () {
+
+	if ( typeof this._tempClientId !== "string" )
+		return;
+
+	var data = {
+		client: this.client,
+		phoneNumber: this.phoneNumber,
+		personClientId: this._tempClientId
+	};
+
+	var apiEndpoint = __.settings.cupidApiEndpoint;
+	var url = apiEndpoint + "/v2/people/associate-with-client-id";
+
+	var ajaxRequest = $.ajax( {
+		url: url,
+		method: "PUT",
+		data: JSON.stringify( data ),
+		contentType: "application/json",
+		dataType: "json",
+		// xhrFields: {
+		// 	withCredentials: true
+		// }
+	} );
+
+	return new Promise( function ( resolve, reject ) {
+		ajaxRequest.done( function ( response ) {
+			resolve( response );
+		} );
+		ajaxRequest.fail( function ( jqXHR, textStatus, e ) {
+			var errorResponse = utils.getErrorResponse( jqXHR, textStatus, e );
+			reject( errorResponse );
+		} );
+	} );
+
+};
 
 /*
  * Notifiy the Person's presence on the website
@@ -503,21 +665,27 @@ Person.prototype.isOnWebsite = function isOnWebsite ( place ) {
 
 /*
  *
- * Is a user logged in? Is there a user session present? If yes, then return it.
+ * Establish the variants of a Person
  *
  */
-function getUser () {
-	if ( __.user )
-		return __.user;
-
-	var user = utils.getCookie( "cupid-user-20200430" );
-	if ( user ) {
-		__.user = new Person( user.phoneNumber );
-		return __.user;
-	}
-	return user;
+function AnonymousPerson ( clientId ) {
+	Person.call( this );
+	this._tempClientId = clientId || utils.getRandomId( 19 );
 }
-utils.getUser = getUser;
+// Inherit from `Person`
+AnonymousPerson.prototype = Object.create( Person.prototype );
+AnonymousPerson.prototype.constructor = "AnonymousPerson";
+
+function RegisteredPerson ( phoneNumber, sourcePoint ) {
+	Person.call( this, phoneNumber, sourcePoint );
+}
+// Inherit from `Person`
+RegisteredPerson.prototype = Object.create( Person.prototype );
+RegisteredPerson.prototype.constructor = "RegisteredPerson";
+
+
+
+
 
 // TODO: Remove
 function getUserById ( id, options ) {
@@ -612,7 +780,7 @@ function authenticationRequired ( event ) {
 	var context = $trapSite.data( "context" );
 	var loginPrompt = LoginPrompt._instances[ context ];
 
-	if ( getUser() ) {
+	if ( Person.get().isRegistered() ) {
 		// Restore any hyperlinks
 		$trapSite.find( "a" ).each( function ( _i, domAnchor ) {
 			var $anchor = $( domAnchor );
