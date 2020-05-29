@@ -82,6 +82,10 @@
 }
 @media( min-width: 1480px ) {}
 
+.nps-submit {
+	transition: opacity 0.25s ease-in;
+}
+
 </style>
  
 <!-- 

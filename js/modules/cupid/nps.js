@@ -306,6 +306,36 @@ function askQuestion ( questionIndex ) {
 window.__CUPID.NPS.askQuestion = askQuestion;
 
 
+/*
+ *
+ * ----- Only show the submit button when the input provided is sufficient and valid
+ *
+ */
+function allowFormSubmitIfDataIsValid ( event ) {
+
+	var $form = $( event.target ).closest( "form" );
+	var type = $form.data( "type" );
+	var $submitButton = $form.find( "[ type = 'submit' ]" )
+	var inputIsValid = false;
+
+	if ( type === "nps_range" )
+		inputIsValid = !! $form.find( "input:checked" ).length;
+	else if ( type === "text_input" )
+		inputIsValid = $form.find( "textarea" ).val().trim().length > 1;
+	else if ( type === "single_select" )
+		inputIsValid = !! $form.find( "input:checked" ).length;
+	else if ( type === "multi_select" )
+		inputIsValid = !! $form.find( "input:checked" ).length;
+
+	if ( inputIsValid )
+		$submitButton.prop( "disabled", false ).removeClass( "invisible opacity-0" )
+	else
+		$submitButton.prop( "disabled", true ).addClass( "invisible opacity-0" )
+
+}
+$( document ).on( "change", ".js_nps_answer input", allowFormSubmitIfDataIsValid );
+$( document ).on( "input", ".js_nps_answer textarea", allowFormSubmitIfDataIsValid );
+
 
 /*
  *

@@ -155,7 +155,7 @@ $options = $input[ 'options' ] ?? [ ];
 		?>
 		<?php if ( $type !== 'message' ) : ?>
 			<div class="nps-submit space-25-top">
-				<button type="submit" class="fill-neutral-1 strong">Submit</button>
+				<button type="submit" class="fill-neutral-1 strong invisible opacity-0" disabled>Submit</button>
 			</div>
 		<?php endif; ?>
 
