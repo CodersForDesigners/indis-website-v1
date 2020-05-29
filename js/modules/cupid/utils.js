@@ -342,6 +342,9 @@ utils.setCookie = function setCookie ( name, data, duration ) {
 	var expiryTimestamp;
 	var cookieValue;
 
+	// Set the default duration to (about) a year
+	duration = duration || ( 360 * 24 * 60 * 60 );
+
 	if ( data === null )
 		duration = -1;
 	else
@@ -369,12 +372,12 @@ utils.setCookie = function setCookie ( name, data, duration ) {
 	// 3. Set the cookie as a third-party
 	// 		(in case the first-party one gets flushed out)
 	var apiEndpoint = __.settings.cupidApiEndpoint;
-	var path = "/cookie";
+	var path = "/server/set-cookie-async.php";
 	var queryString = "?";
 
 	queryString += "name=" + encodeURIComponent( name );
-	queryString += "&name=" + encodeURIComponent( duration );
-	queryString += "&data=" + encodeURIComponent( data );
+	queryString += "&duration=" + encodeURIComponent( duration );
+	queryString += "&data=" + encodeURIComponent( cookieValue );
 
 	var url = apiEndpoint + path + queryString;
 
