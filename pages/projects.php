@@ -1174,7 +1174,7 @@ require_once __DIR__ . '/../inc/above.php';
 	 *
 	 */
 	function unlockSpotlights () {
-		var user = __CUPID.utils.getUser();
+		var user = __CUPID.Person.get();
 		if ( ! user )
 			return;
 		$( ".js_spotlight" ).removeClass( "hidden" );

@@ -140,13 +140,13 @@
 		 *	CUPID: Record Website Visits
 		 */
 		$( function () {
-			var user = __CUPID.utils.getUser();
-			if ( user ) {
+			var person = __CUPID.Person.get();
+			if ( person.isRegistered() ) {
 				setTimeout( function () {
 					__CUPID.utils.getAnalyticsId()
 						.then( function ( deviceId ) {
-							user.hasDeviceId( deviceId );
-							user.isOnWebsite();
+							person.hasDeviceId( deviceId );
+							person.isOnWebsite();
 						} )
 				}, 1500 );
 			}
