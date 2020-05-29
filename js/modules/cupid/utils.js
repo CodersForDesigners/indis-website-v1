@@ -424,32 +424,32 @@ utils.setCookie = function setCookie ( name, data, duration ) {
 
 	// 3. Set the cookie as a third-party
 	// 		(in case the first-party one gets flushed out)
-	var apiEndpoint = __.settings.cupidApiEndpoint;
-	var path = "/server/set-cookie-async.php";
-	var queryString = "?";
+	// var apiEndpoint = __.settings.cupidApiEndpoint;
+	// var path = "/server/set-cookie-async.php";
+	// var queryString = "?";
 
-	queryString += "name=" + encodeURIComponent( name );
-	queryString += "&duration=" + encodeURIComponent( duration );
-	queryString += "&data=" + encodeURIComponent( cookieValue );
+	// queryString += "name=" + encodeURIComponent( name );
+	// queryString += "&duration=" + encodeURIComponent( duration );
+	// queryString += "&data=" + encodeURIComponent( cookieValue );
 
-	var url = apiEndpoint + path + queryString;
+	// var url = apiEndpoint + path + queryString;
 
-	var $iframe = $( "<iframe>" );
-	$iframe.attr( {
-		width: 0,
-		height: 0,
-		title: "Set cookie",
-		src: url,
-		style: "display:none;",
-		class: "js_iframe_cookie_setter"
-	} );
-	$( "body" ).append( $iframe );
+	// var $iframe = $( "<iframe>" );
+	// $iframe.attr( {
+	// 	width: 0,
+	// 	height: 0,
+	// 	title: "Set cookie",
+	// 	src: url,
+	// 	style: "display:none;",
+	// 	class: "js_iframe_cookie_setter"
+	// } );
+	// $( "body" ).append( $iframe );
 
-	// Remove the iframe afterwards,
-	// when we can safely that the page has been loaded and the cookie set
-	setTimeout( function () {
-		$iframe.remove()
-	}, 5000 );
+	// // Remove the iframe afterwards,
+	// // when we can safely that the page has been loaded and the cookie set
+	// setTimeout( function () {
+	// 	$iframe.remove()
+	// }, 5000 );
 
 }
 
