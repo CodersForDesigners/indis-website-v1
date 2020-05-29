@@ -36,9 +36,8 @@ function onOTPSubmit ( event ) {
 	}, { } );
 
 	// Now, verify the OTP
-	__.tempUser.verifyOTP( data.otp )
+	__.Person.get().verifyOTP( data.otp )
 		.then( function () {
-			__.user = __.tempUser;
 			loginPrompt.trigger( "OTPVerified" );
 		} )
 		.catch( function ( e ) {
@@ -58,10 +57,12 @@ function trackConversion ( loginPrompt ) {
 		throw new Error( "No coversion URL was attached to the login prompt trigger element." );
 	__.utils.trackPageVisit( conversionUrl );
 }
-function onLogin () {
+function onLogin ( person ) {
 	var loginPrompt = this;
-	// Set cookie ( for a month )
-	__.utils.setCookie( "cupid-user-20200430", __.user, 31 * 24 * 60 * 60 );
+
+	__.Person.login( person );
+	person.associateClientId();
+
 	function restoreTriggerRegion () {
 		// Bring back the trigger element
 		$( loginPrompt.triggerRegion ).slideDown( 500, function () {
@@ -81,9 +82,9 @@ function onLogin () {
 
 	__.utils.getAnalyticsId()
 		.then( function ( deviceId ) {
-			__.user.hasDeviceId( deviceId );
+			person.hasDeviceId( deviceId );
 			let page = document.title.split( "|" )[ 0 ].trim();
-			__.user.isOnWebsite( loginPrompt.context + ", " + page );
+			person.isOnWebsite( loginPrompt.context + ", " + page );
 		} )
 
 	if ( window.unlockSpotlights )
@@ -101,6 +102,186 @@ function onLogin () {
  */
 var __ = window.__CUPID;
 var loginPrompts = { };
+
+/*
+ * 0. NPS Questionnaires
+ */
+loginPrompts.nps = new __.LoginPrompt( "nps", "NPS", $( "head" ) );
+$( document ).on( "submit", ".js_nps_card .js_phone_form", function ( event ) {
+	event.preventDefault();
+
+	var loginPrompt = loginPrompts.nps;
+	var $form = $( event.target ).closest( "form" );
+
+	// Pull data from the form
+	var formData;
+	try {
+		formData = getFormData( $form, {
+			phoneNumber: { type: "phone number", $: ".js_phone_country_code, [ name = 'phone-number' ]" }
+		} );
+	}
+	catch ( e ) {
+		// Reflect back sanitized values to the form
+		setFormData( $form, e );
+		// Report the message
+		alert( "Please provide a valid phone number." );
+		return;
+	}
+
+	// Reflect back sanitized values to the form
+	setFormData( $form, formData );
+
+	// Get the relevant data
+	var phoneNumber = formData[ 0 ].value.join( "" );
+
+	// Set data on the Person object
+	var projectName = window.__BFS.content.project.name;
+	var user = __.Person.get();
+	user.hasPhoneNumber( phoneNumber );
+	var sourcePoint = projectName + ": " + loginPrompt.context;
+
+		// Set the device id
+	__.utils.getAnalyticsId()
+		.then( function ( deviceId ) {
+			user.hasDeviceId( deviceId );
+		} )
+		// Attempt to find the person in the database
+		.then( function () {
+			return user.getFromDB()
+				// If the person exists, log in
+				.then( function ( person ) {
+					person.name = user.name || person.name;
+					person.emailAddress = user.emailAddress || person.emailAddress;
+					person.isInterestedIn( user.interests );
+
+					if ( person.isVerified() )
+						loginPrompt.trigger( "login", person );
+					else
+						throw person;
+				} )
+				// If the person don't exist, add the person, and send an OTP
+				.catch( function ( person ) {
+					user.setSource( null, sourcePoint );
+					if ( person instanceof Error || ! person )
+						trackConversion( loginPrompt );
+					return user.add()
+						.then( function () {
+							return waitFor( 1.5 );
+						} )
+						.then( function () {
+							user.isInterestedIn( projectName );
+							return user.update();
+						} )
+						.then( function () {
+							return user.associateClientId();
+						} )
+						.then( function () {
+							loginPrompt.trigger( "requireOTP" );
+						} )
+						.catch( function () {
+							loginPrompt.trigger( "phoneError" );
+						} );
+				} )
+		} );
+
+} );
+loginPrompts.nps.on( "requireOTP", function () {
+	var loginPrompt = loginPrompts.nps;
+	var $phoneForms = $( ".js_nps_card .js_phone_form" );
+	var $otpForms = $( ".js_nps_card .js_otp_form" );
+	disableForm( $phoneForms );
+	__.Person.get().requestOTP( loginPrompt.context )
+		.then( function ( otpSessionId ) {
+			__.Person.get().otpSessionId = otpSessionId;
+			// Show OTP form, after hiding the phone form
+			$phoneForms.slideUp( 500, function () {
+				$otpForms.slideDown();
+			} );
+		} )
+		.catch( function ( e ) {
+			alert( e.message );
+			enableForm( $phoneForms );
+		} )
+} );
+$( document ).on( "submit", ".js_nps_card .js_otp_form", function ( event ) {
+	event.preventDefault();
+
+	var loginPrompt = loginPrompts.nps;
+	var $form = $( event.target ).closest( ".js_otp_form" );
+
+	// Fetch the OTP value from the form
+	var formData;
+	try {
+		formData = getFormData( $form, {
+			otp: { type: "OTP", $: "[ name = 'otp' ]" }
+		} );
+	}
+	catch ( e ) {
+		// Reflect back sanitized values to the form
+		setFormData( $form, e );
+		// Trigger the OTP Error event
+		loginPrompt.trigger( "OTPError", {
+			message: "Please provide a valid OTP."
+		} );
+		return;
+	}
+
+	// Reflect back sanitized values to the form
+	setFormData( $form, formData );
+
+	// Convert the form-data array to an object
+	var data = formData.reduce( function ( acc, f ) {
+		acc[ f.name ] = f.value;
+		return acc;
+	}, { } );
+
+	// Now, verify the OTP
+	__.Person.get().verifyOTP( data.otp )
+		.then( function () {
+			loginPrompt.trigger( "OTPVerified" );
+		} )
+		.catch( function ( e ) {
+			loginPrompt.trigger( "OTPError", e );
+		} );
+
+} );
+loginPrompts.nps.on( "OTPError", function ( e ) {
+	alert( e.message );
+} );
+loginPrompts.nps.on( "OTPVerified", function () {
+	var loginPrompt = loginPrompts.nps;
+	loginPrompt.trigger( "login" );
+} );
+// When the user is logged in
+loginPrompts.nps.on( "login", function ( person ) {
+	var loginPrompt = loginPrompts.nps;
+
+	var person = __.Person.get();
+	__.Person.login( person );
+	person.associateClientId();
+
+	var $phoneForms = $( ".js_nps_card .js_phone_form" );
+	var $otpForms = $( ".js_nps_card .js_otp_form" );
+
+	$phoneForms.slideUp();
+	$otpForms.slideUp();
+
+	__.utils.getAnalyticsId()
+		.then( function ( deviceId ) {
+			person.hasDeviceId( deviceId );
+			let page = document.title.split( "|" )[ 0 ].trim();
+			person.isOnWebsite( loginPrompt.context + ", " + page );
+		} )
+
+	if ( window.unlockSpotlights )
+		unlockSpotlights();
+
+	// Present the next question
+	var currentQuestionIndex = window.__CUPID.NPS.currentQuestionIndex;
+	var nextQuestionIndex = window.__CUPID.NPS.getNextQuestionIndex( currentQuestionIndex );
+	window.__CUPID.NPS.askQuestion( nextQuestionIndex );
+
+} );
 
 /*
  * 1. Get in Touch section
@@ -144,37 +325,46 @@ loginPrompts.getInTouch.on( "phoneSubmit", function ( event ) {
 	// Get the relevant data
 	var phoneNumber = formData[ 1 ].value.join( "" );
 
-	// Create a new (but temporary) Person object
+	// Set data on the Person object
 	var projectName = window.__BFS.content.project.name;
-	__.tempUser = new __.Person( phoneNumber, projectName + ": " + loginPrompt.context );
+	var user = __.Person.get();
+	user.hasPhoneNumber( phoneNumber );
+
 		// Set the device id
 	__.utils.getAnalyticsId()
 		.then( function ( deviceId ) {
-			__.tempUser.hasDeviceId( deviceId );
+			user.hasDeviceId( deviceId );
 		} )
 		// Attempt to find the person in the database
 		.then( function () {
-			return __.tempUser.getFromDB()
+			return user.getFromDB()
 				// If the person exists, log in
 				.then( function ( person ) {
-					if ( person.isVerified() ) {
-						__.user = person;
+					person.name = user.name || person.name;
+					person.emailAddress = user.emailAddress || person.emailAddress;
+					person.isInterestedIn( user.interests );
+
+					if ( person.isVerified() )
 						loginPrompt.trigger( "login", person );
-					}
 					else
 						throw person;
 				} )
 				// If the person don't exist, add the person, and send an OTP
 				.catch( function ( person ) {
+					var sourcePoint = projectName + ": " + loginPrompt.context;
+					user.setSource( null, sourcePoint );
 					if ( person instanceof Error || ! person )
 						trackConversion( loginPrompt );
-					return __.tempUser.add()
+					return user.add()
 						.then( function () {
 							return waitFor( 1.5 );
 						} )
 						.then( function () {
-							__.tempUser.isInterestedIn( projectName + ": " + loginPrompt.context );
-							return __.tempUser.update();
+							user.isInterestedIn( projectName + ": " + loginPrompt.context );
+							return user.update();
+						} )
+						.then( function () {
+							return user.associateClientId();
 						} )
 						.then( function () {
 							loginPrompt.trigger( "requireOTP" );
@@ -191,9 +381,9 @@ loginPrompts.getInTouch.on( "requireOTP", function ( event, phoneNumber ) {
 	var loginPrompt = this;
 	var $form = loginPrompt.$site.find( ".js_get_in_touch_form" );
 	disableForm( $form );
-	__.tempUser.requestOTP( loginPrompt.context )
+	__.Person.get().requestOTP( loginPrompt.context )
 		.then( function ( otpSessionId ) {
-			__.tempUser.otpSessionId = otpSessionId;
+			__.Person.get().otpSessionId = otpSessionId;
 			// Show OTP form, after hiding the Contact form
 			$form.slideUp( 500, function () {
 				loginPrompt.$OTPForm.slideDown();
@@ -254,35 +444,44 @@ function onPhoneSubmit__Spotlight ( event ) {
 
 	// Create a new (but temporary) Person object
 	var projectName = window.__BFS.content.project.name;
-	__.tempUser = new __.Person( phoneNumber, projectName + ": Spotlight" );
+	var user = __.Person.get();
+	user.hasPhoneNumber( phoneNumber );
+
 		// Set the device id
 	__.utils.getAnalyticsId()
 		.then( function ( deviceId ) {
-			__.tempUser.hasDeviceId( deviceId );
+			user.hasDeviceId( deviceId );
 		} )
 		// Attempt to find the person in the database
 		.then( function () {
-			return __.tempUser.getFromDB()
+			return user.getFromDB()
 				// If the person exists, log in
 				.then( function ( person ) {
-					if ( person.isVerified() ) {
-						__.user = person;
+					person.name = user.name || person.name;
+					person.emailAddress = user.emailAddress || person.emailAddress;
+					person.isInterestedIn( user.interests );
+
+					if ( person.isVerified() )
 						loginPrompt.trigger( "login", person );
-					}
 					else
 						throw person;
 				} )
 				// If the person don't exist, add the person, and send an OTP
 				.catch( function ( person ) {
+					var sourcePoint = projectName + ": Spotlight";
+					user.setSource( null, sourcePoint );
 					if ( person instanceof Error || ! person )
 						trackConversion( loginPrompt );
-					return __.tempUser.add()
+					return user.add()
 						.then( function () {
 							return waitFor( 1.5 );
 						} )
 						.then( function () {
-							__.tempUser.isInterestedIn( projectName );
-							return __.tempUser.update();
+							user.isInterestedIn( projectName );
+							return user.update();
+						} )
+						.then( function () {
+							return user.associateClientId();
 						} )
 						.then( function () {
 							loginPrompt.trigger( "requireOTP" );
@@ -297,9 +496,9 @@ function onPhoneSubmit__Spotlight ( event ) {
 function onRequireOTP__Spotlight ( event, phoneNumber ) {
 	var loginPrompt = this;
 	disableForm( loginPrompt.$phoneForm );
-	__.tempUser.requestOTP( loginPrompt.context )
+	__.Person.get().requestOTP( loginPrompt.context )
 		.then( function ( otpSessionId ) {
-			__.tempUser.otpSessionId = otpSessionId;
+			__.Person.get().otpSessionId = otpSessionId;
 			// Show OTP form, after hiding the phone form
 			loginPrompt.$phoneForm.slideUp( 500, function () {
 				loginPrompt.$OTPForm.slideDown();
@@ -379,35 +578,44 @@ loginPrompts.spotlightDedicated.on( "phoneSubmit", function ( event ) {
 
 	// Create a new (but temporary) Person object
 	var projectName = window.__BFS.content.project.name;
-	__.tempUser = new __.Person( phoneNumber, projectName + ": Spotlight" );
+	var user = __.Person.get();
+	user.hasPhoneNumber( phoneNumber );
+
 		// Set the device id
 	__.utils.getAnalyticsId()
 		.then( function ( deviceId ) {
-			__.tempUser.hasDeviceId( deviceId );
+			user.hasDeviceId( deviceId );
 		} )
 		// Attempt to find the person in the database
 		.then( function () {
-			return __.tempUser.getFromDB()
+			return user.getFromDB()
 				// If the person exists, log in
 				.then( function ( person ) {
-					if ( person.isVerified() ) {
-						__.user = person;
+					person.name = user.name || person.name;
+					person.emailAddress = user.emailAddress || person.emailAddress;
+					person.isInterestedIn( user.interests );
+
+					if ( person.isVerified() )
 						loginPrompt.trigger( "login", person );
-					}
 					else
 						throw person;
 				} )
 				// If the person don't exist, add the person, and send an OTP
 				.catch( function ( person ) {
+					var sourcePoint = projectName + ": Spotlight";
+					user.setSource( null, sourcePoint );
 					if ( person instanceof Error || ! person )
 						trackConversion( loginPrompt );
-					return __.tempUser.add()
+					return user.add()
 						.then( function () {
 							return waitFor( 1.5 );
 						} )
 						.then( function () {
-							__.tempUser.isInterestedIn( projectName );
-							return __.tempUser.update();
+							user.isInterestedIn( projectName );
+							return user.update();
+						} )
+						.then( function () {
+							return user.associateClientId();
 						} )
 						.then( function () {
 							loginPrompt.trigger( "requireOTP" );
@@ -424,9 +632,9 @@ loginPrompts.spotlightDedicated.on( "requireOTP", function ( event, phoneNumber 
 	var loginPrompt = this;
 	var $form = loginPrompt.$site.find( ".js_spotlights_unlock_form" );
 	disableForm( $form );
-	__.tempUser.requestOTP( loginPrompt.context )
+	__.Person.get().requestOTP( loginPrompt.context )
 		.then( function ( otpSessionId ) {
-			__.tempUser.otpSessionId = otpSessionId;
+			__.Person.get().otpSessionId = otpSessionId;
 			// Show OTP form, after hiding the Contact form
 			$form.slideUp( 500, function () {
 				loginPrompt.$OTPForm.slideDown();
@@ -505,35 +713,44 @@ loginPrompts.bookSiteVisit.on( "phoneSubmit", function ( event ) {
 
 	// Create a new (but temporary) Person object
 	var projectName = window.__BFS.content.project.name;
-	__.tempUser = new __.Person( phoneNumber, projectName + ": " + loginPrompt.context );
+	var user = __.Person.get();
+	user.hasPhoneNumber( phoneNumber );
+
 		// Set the device id
 	__.utils.getAnalyticsId()
 		.then( function ( deviceId ) {
-			__.tempUser.hasDeviceId( deviceId );
+			user.hasDeviceId( deviceId );
 		} )
 		// Attempt to find the person in the database
 		.then( function () {
-			return __.tempUser.getFromDB()
+			return user.getFromDB()
 				// If the person exists, log in
 				.then( function ( person ) {
-					if ( person.isVerified() ) {
-						__.user = person;
+					person.name = user.name || person.name;
+					person.emailAddress = user.emailAddress || person.emailAddress;
+					person.isInterestedIn( user.interests );
+
+					if ( person.isVerified() )
 						loginPrompt.trigger( "login", person );
-					}
 					else
 						throw person;
 				} )
 				// If the person don't exist, add the person, and send an OTP
 				.catch( function ( person ) {
+					var sourcePoint = projectName + ": " + loginPrompt.context;
+					user.setSource( null, sourcePoint );
 					if ( person instanceof Error || ! person )
 						trackConversion( loginPrompt );
-					return __.tempUser.add()
+					return user.add()
 						.then( function () {
 							return waitFor( 1.5 );
 						} )
 						.then( function () {
-							__.tempUser.isInterestedIn( projectName + ": " + loginPrompt.context );
-							return __.tempUser.update();
+							user.isInterestedIn( projectName + ": " + loginPrompt.context );
+							return user.update();
+						} )
+						.then( function () {
+							return user.associateClientId();
 						} )
 						.then( function () {
 							loginPrompt.trigger( "requireOTP" );
@@ -550,9 +767,9 @@ loginPrompts.bookSiteVisit.on( "requireOTP", function ( event, phoneNumber ) {
 	var loginPrompt = this;
 	var $form = loginPrompt.$site.find( ".js_book_site_visit_form" );
 	disableForm( $form );
-	__.tempUser.requestOTP( loginPrompt.context )
+	__.Person.get().requestOTP( loginPrompt.context )
 		.then( function ( otpSessionId ) {
-			__.tempUser.otpSessionId = otpSessionId;
+			__.Person.get().otpSessionId = otpSessionId;
 			// Show OTP form, after hiding the phone form
 			$form.slideUp( 500, function () {
 				loginPrompt.$OTPForm.slideDown();
