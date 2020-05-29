@@ -11,6 +11,7 @@
 .nps-section {}
 
 .nps-option {
+	position: relative;
 	font-size: 0;
 }
 
@@ -53,11 +54,41 @@
 }
 
 /* -- NPS Rating -- */
+.nps-option .nps-rating {
+	position: relative;
+	overflow-x: visible;
+	padding-top: 16px;
+}
+.nps-option .nps-rating:nth-child(1):before,
+.nps-option .nps-rating:nth-child(11):before {
+	font-size: 12px;
+	line-height: 1;
+	position: absolute;
+	top: 0;
+	white-space: nowrap;
+}
+.nps-option .nps-rating:nth-child(1):before { 
+	content: 'Not likely at all';
+	left: 0; 
+}
+.nps-option .nps-rating:nth-child(11):before { 
+	content: 'Extremely Likely';
+	right: 0; 
+}
+
 .nps-option .nps-rating input + .label {
 	padding: 0;
 	min-width: calc(var(--space-min) * 2.5);
 }
 @media( min-width: 640px )  {
+	.nps-option .nps-rating {
+		padding-top: 20px;
+	}
+	.nps-option .nps-rating:nth-child(1):before,
+	.nps-option .nps-rating:nth-child(11):before {
+		font-size: 15px;
+	}
+
 	.nps-option .nps-rating input + .label {
 		min-width: var(--space-75);
 	}
@@ -67,7 +98,16 @@
 		min-width: var(--space-50);
 	}
 }
-@media( min-width: 1480px ) {}
+@media( min-width: 1480px ) {
+	.nps-option .nps-rating {
+		padding-top: 24px;
+	}
+	.nps-option .nps-rating:nth-child(1):before,
+	.nps-option .nps-rating:nth-child(11):before {
+		font-size: 18px;
+	}
+
+}
 
 /* -- Text Input -- */
 .nps-option .text-input textarea {
