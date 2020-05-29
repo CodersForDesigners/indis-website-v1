@@ -156,14 +156,35 @@
 		/*
 		 *	NPS: Start the questionnaire
 		 */
-		 $( function main () {
-		 	fetchQuestionnaireSpreadsheet()
-		 		.then( initQuestionnaire )
-		 		.then( function () {
-		 			$( document ).trigger( "nps/question/ask" );
-		 		} );
-		 } );
-		 
+		$( function main () {
+			fetchQuestionnaireSpreadsheet().then( initQuestionnaire ).then( function () {
+				var person = __CUPID.Person.get();
+				var version = window.__CUPID.NPS.questionnaireSettings.Version;
+				if ( person.hasCompletedQuestionnaire( version ) )
+					return;
+				var questionnaire = person.getQuestionnaire();
+
+				// If even one question was answered, don't present the questionnaire
+				if ( questionnaire && questionnaire.version === version && questionnaire.qAndAs.length )
+					return;
+
+				if ( ! questionnaire || ! questionnaire.qAndAs || ! questionnaire.qAndAs.length )
+					return __CUPID.NPS.askQuestion();
+
+				/*
+				 * Resume the questionnaire
+				 */
+				// var currentQuestionIndex = questionnaire.qAndAs.slice( -1 )[ 0 ].index - 1;
+				// var answers = questionnaire.qAndAs.map( function ( qAndA ) { return [ qAndA.answer ] } );
+				// __CUPID.NPS.setAnswers( answers );
+				// var nextQuestionIndex = __CUPID.NPS.getNextQuestionIndex( currentQuestionIndex );
+				// if ( __CUPID.NPS.questionnaire[ nextQuestionIndex ].type === "phone_number" )
+				// 	if ( person.isRegistered() )
+				// 		nextQuestionIndex = __CUPID.NPS.getNextQuestionIndex( nextQuestionIndex );
+				// __CUPID.NPS.askQuestion( nextQuestionIndex );
+			} );
+		} );
+
 	</script>
 
 	<!-- Other Modules -->

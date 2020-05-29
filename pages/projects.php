@@ -746,7 +746,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- NPS Section -->
-<?php //require_once __DIR__ . '/../inc/nps.php'; ?>
+<?php require_once __DIR__ . '/../inc/nps.php'; ?>
 <!-- END: NPS Section -->
 
 
