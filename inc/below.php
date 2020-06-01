@@ -72,14 +72,26 @@
 					</div>
 				</div>
 			</div>
-			<!-- Footer Menu -->
+			
 			<div class="row space-25-top-bottom">
 				<div class="container">
+					<!-- Social Media Icons -->
+					<div class="social-media-icons columns small-12 space-25-bottom">
+						<a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="" ><?php require_once __DIR__ . '/../../media/icon/social/icon-twitter.svg'; ?></a>
+						<a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="" ><?php require_once __DIR__ . '/../../media/icon/social/icon-facebook.svg'; ?></a>
+						<a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="" ><?php require_once __DIR__ . '/../../media/icon/social/icon-youtube.svg'; ?></a>
+						<a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="" ><?php require_once __DIR__ . '/../../media/icon/social/icon-instagram.svg'; ?></a>
+						<a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="" ><?php require_once __DIR__ . '/../../media/icon/social/icon-whatsapp.svg'; ?></a>
+						<a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="" ><?php require_once __DIR__ . '/../../media/icon/social/icon-linkedin.svg'; ?></a>
+					</div>
+
+					<!-- Footer Menu -->
 					<div class="footer-menu columns small-12 large-8">
 						<?php foreach ( $footerNavigation as $item ) : ?>
 							<a class="link h6 strong text-red-1" tabindex="-1" href="<?= $item[ 'url' ] ?>"><?= $item[ 'label' ] ?></a>
 						<?php endforeach; ?>
 					</div>
+
 				</div>
 			</div>
 			<!-- End: Footer Menu -->
