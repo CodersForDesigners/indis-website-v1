@@ -256,19 +256,29 @@ Person.prototype.getQuestionnaire = function getQuestionnaire () {
 	return this.questionnaire;
 }
 
+Person.prototype.initializeQuestionnaire = function initializeQuestionnaire () {
+	if ( this.questionnaire )
+		return this.questionnaire;
+	this.questionnaire = {
+		completed: false,
+		context: window.location.pathname
+	};
+	return this.questionnaire;
+}
+
 Person.prototype.setQuestionnaireVersion = function setQuestionnaireVersion ( version ) {
 	if ( typeof version === "number" && ! isNaN( version ) )
 		version = version + ""
 
 	if ( typeof version === "string" ) {
-		this.questionnaire = this.questionnaire || { completed: false };
+		this.questionnaire = this.questionnaire || this.initializeQuestionnaire();
 		this.questionnaire.version = version;
 	}
 	return this;
 }
 
 Person.prototype.answeredQuestion = function answeredQuestion ( index, question, answer ) {
-	this.questionnaire = this.questionnaire || { completed: false };
+	this.questionnaire = this.questionnaire || this.initializeQuestionnaire();
 	this.questionnaire.qAndAs = this.questionnaire.qAndAs || [ ];
 
 	var qAndAs = this.questionnaire.qAndAs;
