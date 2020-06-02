@@ -86,6 +86,7 @@
 	transition: .3s ease-out;
 	transform: translateX(-100%);
 }
+.footer-section .social-media-icons .social-icon:focus svg .bg-color,
 .footer-section .social-media-icons .social-icon:hover svg .bg-color {
 	transform: translateX(0);
 }
