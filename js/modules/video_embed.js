@@ -67,7 +67,7 @@ function setupYoutubeIframeAPI () {
 
 	// When the YouTube video player is ready, this function is run
 	function onPlayerReady ( event ) {
-		var $videoContainer = $( event.target.a ).closest( ".js_video_get_player" );
+		var $videoContainer = $( event.target.getIframe() ).closest( ".js_video_get_player" );
 		$videoContainer.data( "player", event.target );
 		if ( $videoContainer.data( "autoplay" ) === true )
 			event.target.playVideo();
@@ -75,7 +75,7 @@ function setupYoutubeIframeAPI () {
 
 	// Whenever the YouTube video player's state changes, this function is run
 	function onPlayerStateChange ( event ) {
-		var domVideo = event.target.a;
+		var domVideo = event.target.getIframe();
 		var $video = $( domVideo );
 		var $videoContainer = $video.closest( ".js_video_get_player" );
 		var loopVideo = $videoContainer.data( "loop" ) === true;
