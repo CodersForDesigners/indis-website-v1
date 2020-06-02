@@ -56,7 +56,7 @@
 						<div class="title h6 strong text-uppercase space-min-bottom">Corporate Address :</div>
 						<div class="address h4 text-neutral-2 space-min-bottom">69, 70, Kavuri Hills, <br>Madhapur, Hyderabad, <br>Telangana — 500033.</div>
 						<a href="https://goo.gl/maps/jFcbmAJ1rhwwh5Wo6" target="_blank" class="hidden link label strong text-red-2 text-uppercase inline-middle">Open in Google Maps <img class="link-icon inline-middle" src="../media/icon/icon-location-color.svg<?php echo $ver ?>"></a>
-						
+
 						<a href="mailto:cs@indis.co.in" target="_blank" class="label strong text-neutral-4 inline-middle">
 							cs@indis.co.in
 							<span class="small strong text-uppercase text-neutral-2">for Corporate Enquiries</span>
@@ -78,12 +78,12 @@
 					<!-- Social Media Icons -->
 					<?php if( !empty ( $twitter_link ) | !empty ( $facebook_link ) | !empty ( $youtube_link ) | !empty ( $instagram_link ) | !empty ( $whatsapp_link ) | !empty ( $linkedin_link ) ) : ?>
 					<div class="social-media-icons columns small-12 space-25-bottom">
-						<?php if(!empty ( $twitter_link)) : ?> <a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $twitter_link ?>"><?php require_once __DIR__ . '/../../media/icon/social/icon-twitter.svg'; ?></a><?php endif; ?>
-						<?php if(!empty ( $facebook_link)) : ?> <a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $facebook_link ?>"><?php require_once __DIR__ . '/../../media/icon/social/icon-facebook.svg'; ?></a><?php endif; ?>
-						<?php if(!empty ( $youtube_link)) : ?> <a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $youtube_link ?>"><?php require_once __DIR__ . '/../../media/icon/social/icon-youtube.svg'; ?></a><?php endif; ?>
-						<?php if(!empty ( $instagram_link)) : ?> <a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $instagram_link ?>"><?php require_once __DIR__ . '/../../media/icon/social/icon-instagram.svg'; ?></a><?php endif; ?>
-						<?php if(!empty ( $whatsapp_link)) : ?> <a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $whatsapp_link ?>"><?php require_once __DIR__ . '/../../media/icon/social/icon-whatsapp.svg'; ?></a><?php endif; ?>
-						<?php if(!empty ( $linkedin_link)) : ?> <a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $linkedin_link ?>"><?php require_once __DIR__ . '/../../media/icon/social/icon-linkedin.svg'; ?></a><?php endif; ?>
+						<?php if(!empty ( $twitter_link)) : ?> <a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $twitter_link ?>"><?php require_once __DIR__ . '/../media/icon/social/icon-twitter.svg'; ?></a><?php endif; ?>
+						<?php if(!empty ( $facebook_link)) : ?> <a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $facebook_link ?>"><?php require_once __DIR__ . '/../media/icon/social/icon-facebook.svg'; ?></a><?php endif; ?>
+						<?php if(!empty ( $youtube_link)) : ?> <a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $youtube_link ?>"><?php require_once __DIR__ . '/../media/icon/social/icon-youtube.svg'; ?></a><?php endif; ?>
+						<?php if(!empty ( $instagram_link)) : ?> <a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $instagram_link ?>"><?php require_once __DIR__ . '/../media/icon/social/icon-instagram.svg'; ?></a><?php endif; ?>
+						<?php if(!empty ( $whatsapp_link)) : ?> <a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $whatsapp_link ?>"><?php require_once __DIR__ . '/../media/icon/social/icon-whatsapp.svg'; ?></a><?php endif; ?>
+						<?php if(!empty ( $linkedin_link)) : ?> <a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $linkedin_link ?>"><?php require_once __DIR__ . '/../media/icon/social/icon-linkedin.svg'; ?></a><?php endif; ?>
 					</div>
 				<?php endif; ?>
 
