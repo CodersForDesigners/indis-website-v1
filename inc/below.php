@@ -183,9 +183,11 @@
 				if ( ! questionnaire || ! questionnaire.qAndAs || ! questionnaire.qAndAs.length )
 					return __CUPID.NPS.askQuestion();
 
+				<?php
 				/*
 				 * Resume the questionnaire
 				 */
+				/*
 				// var currentQuestionIndex = questionnaire.qAndAs.slice( -1 )[ 0 ].index - 1;
 				// var answers = questionnaire.qAndAs.map( function ( qAndA ) { return [ qAndA.answer ] } );
 				// __CUPID.NPS.setAnswers( answers );
@@ -194,6 +196,8 @@
 				// 	if ( person.isRegistered() )
 				// 		nextQuestionIndex = __CUPID.NPS.getNextQuestionIndex( nextQuestionIndex );
 				// __CUPID.NPS.askQuestion( nextQuestionIndex );
+				*/
+				?>
 			} );
 		} );
 
