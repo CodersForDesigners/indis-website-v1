@@ -35,13 +35,7 @@ $showEngineeringRailing = getContent( [ ], 'engineering_section_railing' );
 $showEngineeringFire = getContent( [ ], 'engineering_section_fire' );
 $showEngineeringFire2 = getContent( [ ], 'engineering_section_fire_2' );
 
-/* -- Social Media Links -- */
-$twitter_link = getContent( '', 'twitter_link' );
-$facebook_link = getContent( '', 'facebook_link' );
-$youtube_link = getContent( '', 'youtube_link' );
-$instagram_link = getContent( '', 'instagram_link' );
 $whatsapp_link = getContent( '', 'whatsapp_link' );
-$linkedin_link = getContent( '', 'linkedin_link' );
 
 require_once __DIR__ . '/../inc/above.php';
 

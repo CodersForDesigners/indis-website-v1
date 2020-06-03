@@ -81,6 +81,15 @@ $navigationMenuName = $postType === 'projects' ? 'Projects' : 'Primary';
 $navigationMenuItems = getNavigationMenu( $navigationMenuName );
 $footerNavigation = getNavigationMenu( 'Footer' );
 
+
+/* -- Social Media Links -- */
+$twitter_link = getContent( '', 'twitter_link' );
+$facebook_link = getContent( '', 'facebook_link' );
+$youtube_link = getContent( '', 'youtube_link' );
+$instagram_link = getContent( '', 'instagram_link' );
+$whatsapp_link = getContent( '', 'whatsapp_link' );
+$linkedin_link = getContent( '', 'linkedin_link' );
+
 ?>
 
 <!DOCTYPE html>
