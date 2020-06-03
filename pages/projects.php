@@ -35,7 +35,6 @@ $showEngineeringRailing = getContent( [ ], 'engineering_section_railing' );
 $showEngineeringFire = getContent( [ ], 'engineering_section_fire' );
 $showEngineeringFire2 = getContent( [ ], 'engineering_section_fire_2' );
 
-$whatsapp_link = getContent( '', 'whatsapp_link' );
 
 require_once __DIR__ . '/../inc/above.php';
 
