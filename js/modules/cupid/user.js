@@ -64,7 +64,7 @@ LoginPrompt.prototype.triggerFlowOn = function triggerFlowOn ( event, elementSel
 	let loginPrompt = this;
 	return $( elementSelector ).on( event, function ( event ) {
 
-		if ( Person.get().isRegistered() ) {
+		if ( Person.get().isRegistered() && Person.get().isVerified() ) {
 			// Restore any hyperlinks
 			loginPrompt.$site.find( "a" ).each( function ( _i, domAnchor ) {
 				var $anchor = $( domAnchor );
@@ -799,7 +799,7 @@ function authenticationRequired ( event ) {
 	var context = $trapSite.data( "context" );
 	var loginPrompt = LoginPrompt._instances[ context ];
 
-	if ( Person.get().isRegistered() ) {
+	if ( Person.get().isRegistered() && Person.get().isVerified() ) {
 		// Restore any hyperlinks
 		$trapSite.find( "a" ).each( function ( _i, domAnchor ) {
 			var $anchor = $( domAnchor );
