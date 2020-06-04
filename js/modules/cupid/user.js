@@ -523,14 +523,15 @@ Person.prototype.verifyOTP = function verifyOTP ( otp ) {
  * Mark a person as "verified"
  * TODO: This is temporary
  */
-Person.prototype.verify = function verify () {
+Person.prototype.verify = function verify ( method ) {
 
+	method = method || "OTP";
 	var apiEndpoint = __.settings.cupidApiEndpoint;
 	var url = apiEndpoint + "/v2/people/verify";
 	var data = {
 		client: __.settings.clientSlug,
 		phoneNumbers: [ this.phoneNumber ],
-		verificationMethod: "OTP"
+		verificationMethod: method
 	};
 
 	var ajaxRequest = $.ajax( {
