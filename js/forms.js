@@ -196,20 +196,22 @@ $( document ).on( "submit", ".js_get_in_touch_form", function ( event ) {
 	 * Process and Assemble the data
 	 ----- */
 	var __ = window.__CUPID;
+	var person = __.Person.get();
 	// Get the data in an key-value structure
 	var data = formData.reduce( function ( acc, f ) {
 		acc[ f.name ] = f.value;
 		return acc;
 	}, { } );
-	__.user.name = data.name;
+	person.name = data.name;
 
 
 	// /* -----
 	//  * Update the person's information
 	//  ----- */
 	var projectName = window.__BFS.content.project.name;
-	__.user.isInterestedIn( projectName + ": Getting in Touch" );
-	__.user.update();
+	person.isInterestedIn( projectName + ": Getting in Touch" );
+	person.update();
+	person.saveLocally();
 
 	// /* -----
 	//  * Give feedback to the user
@@ -285,21 +287,23 @@ $( document ).on( "submit", ".js_spotlights_unlock_form", function ( event ) {
 	 * Process and Assemble the data
 	 ----- */
 	var __ = window.__CUPID;
+	var person = __.Person.get();
 	// Get the data in an key-value structure
 	var data = formData.reduce( function ( acc, f ) {
 		acc[ f.name ] = f.value;
 		return acc;
 	}, { } );
-	__.user.name = data.name;
-	__.user.emailAddress = data.emailAddress;
+	person.name = data.name;
+	person.emailAddress = data.emailAddress;
 
 
 	// /* -----
 	//  * Update the person's information
 	//  ----- */
 	var projectName = window.__BFS.content.project.name;
-	__.user.isInterestedIn( projectName );
-	__.user.update();
+	person.isInterestedIn( projectName );
+	person.update();
+	person.saveLocally();
 
 } );
 
@@ -322,8 +326,10 @@ $( document ).on( "click", ".js_spotlight_enquire", function ( event ) {
 
 	var deal = $button.data( "spotlight" );
 	var projectName = window.__BFS.content.project.name;
-	__.user.isInterestedIn( projectName + ": " + deal );
-	__.user.update();
+	var person = __.Person.get();
+	person.isInterestedIn( projectName + ": " + deal );
+	person.update();
+	person.saveLocally();
 } );
 
 
@@ -389,21 +395,23 @@ $( document ).on( "submit", ".js_book_site_visit_form", function ( event ) {
 	 * Process and Assemble the data
 	 ----- */
 	var __ = window.__CUPID;
+	var person = __.Person.get();
 	// Get the data in an key-value structure
 	var data = formData.reduce( function ( acc, f ) {
 		acc[ f.name ] = f.value;
 		return acc;
 	}, { } );
-	__.user.name = data.name;
-	__.user.emailAddress = data.emailAddress;
+	person.name = data.name;
+	person.emailAddress = data.emailAddress;
 
 
 	// /* -----
 	//  * Update the person's information
 	//  ----- */
 	var projectName = window.__BFS.content.project.name;
-	__.user.isInterestedIn( projectName + ": Site Visit" );
-	__.user.update();
+	person.isInterestedIn( projectName + ": Site Visit" );
+	person.update();
+	person.saveLocally();
 
 	// /* -----
 	//  * Give feedback to the user
