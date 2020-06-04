@@ -465,7 +465,7 @@ function submitQAndA ( data ) {
 	var person = __CUPID.Person.get();
 	data.client = person.client;
 	data.personClientId = person._tempClientId;
-	data.context = person.questionnaire.context;
+	data.context = window.location.pathname;
 	if ( person.isRegistered() )
 		data.phoneNumber = person.phoneNumber;
 
