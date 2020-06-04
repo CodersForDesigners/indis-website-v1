@@ -211,6 +211,10 @@ Person.prototype.setSource = function setSource ( medium, point ) {
 	return this;
 }
 
+Person.prototype.getDeviceId = function getDeviceId () {
+	return this.deviceId;
+}
+
 Person.prototype.hasDeviceId = function hasDeviceId ( id ) {
 	if ( typeof id == "string" )
 		this.deviceId = id;
