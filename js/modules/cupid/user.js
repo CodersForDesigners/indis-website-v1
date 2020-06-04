@@ -401,11 +401,11 @@ Person.prototype.add = function add () {
  * Request an OTP to be sent to the person
  *
  */
-Person.prototype.requestOTP = function requestOTP ( product ) {
+Person.prototype.requestOTP = function requestOTP ( product, phoneNumber ) {
 
 	var data = {
 		client: this.client,
-		phoneNumber: this.phoneNumber,
+		phoneNumber: phoneNumber || this.phoneNumber,
 		product: product
 	};
 
