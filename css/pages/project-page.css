@@ -1575,6 +1575,10 @@
 	letter-spacing: .1rem;
 }
 
+.spotlight .carousel-list .carousel-list-item:not(:first-child) .info .location {
+	margin-top: 5px;
+}
+
 
 .spotlight .unlock-icon {
 	width: 120px;

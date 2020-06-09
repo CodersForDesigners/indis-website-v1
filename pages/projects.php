@@ -257,6 +257,7 @@ require_once __DIR__ . '/../inc/above.php';
 							<span class="series-id h6 strong fill-red-2"><?= $spotlight[ 'spotlight_series_id' ] ?></span>
 							<?php endif; ?>
 						</div>
+						<div class="location label text-red-2 strong text-uppercase"><?= getContent( '', 'location' ) ?></div>
 					</div>
 				</div>
 				<button id="spotlight-<?= $index + 1 ?>-enquire" class="button fill-neutral-4 text-light button-icon js_spotlight_enquire" data-c="/spotlight/<?= $urlSlug ?>" data-spotlight="<?= 'Spotlight - ' . $spotlight[ 'spotlight_series_id' ] ?>" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</button>
