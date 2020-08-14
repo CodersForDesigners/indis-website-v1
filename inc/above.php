@@ -127,7 +127,7 @@ $linkedin_link = getContent( '', 'linkedin_link' );
 								</div>
 								<div class="inline-middle">
 									<div class="title h5 strong"><?= $postType === 'projects' ? $thePost[ 'post_title' ] : 'INDIS' ?></div>
-									<div class="location label strong text-uppercase text-neutral-4"><?= getContent( 'Group INCOR', 'location' ) ?></div>
+									<div class="location label strong text-uppercase text-neutral-4"><?= getContent( 'Welcome', 'location' ) ?></div>
 								</div>
 							</div>
 						</div>
