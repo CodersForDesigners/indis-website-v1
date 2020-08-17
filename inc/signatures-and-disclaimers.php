@@ -293,7 +293,7 @@ if ( strstr($_SERVER['REQUEST_URI'], 'cherry-on-top') ){
 .rera-disclaimer .message p {
 	display: block;
 	margin-bottom: 8px;
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	line-height: 1.25;
 }
 
@@ -325,6 +325,7 @@ if ( strstr($_SERVER['REQUEST_URI'], 'cherry-on-top') ){
 	.rera-disclaimer .message p {
 		margin-bottom: 15px;
 		line-height: 1.5;
+		font-size: 1.2rem;
 	}
 
 }
