@@ -244,7 +244,7 @@ if ( strstr($_SERVER['REQUEST_URI'], 'cherry-on-top') ){
 	height: auto;
 	min-height: 100vh;
 
-	padding: 60px 0 240px;
+	padding: 30px 0 240px;
 
 	position: fixed;
 	top: 0;
@@ -269,7 +269,7 @@ if ( strstr($_SERVER['REQUEST_URI'], 'cherry-on-top') ){
 
 .rera-disclaimer .heading {
 	text-align: center;
-	margin-bottom: 15px;
+	margin-bottom: 8px;
 
 	/*font-size: 2rem;*/
 	letter-spacing: 0.05rem;
@@ -278,8 +278,8 @@ if ( strstr($_SERVER['REQUEST_URI'], 'cherry-on-top') ){
 .rera-disclaimer .heading i { color: #FFD117; }
 
 .rera-disclaimer .message {
-	padding: 20px;
-	text-align: center;
+	padding: 10px;
+	text-align:	center;
 	line-height: 0;
 
 	-webkit-column-count: 1;
@@ -292,12 +292,15 @@ if ( strstr($_SERVER['REQUEST_URI'], 'cherry-on-top') ){
 
 .rera-disclaimer .message p {
 	display: block;
-	margin-bottom: 15px;
-	/*font-size: 1.5rem;*/
-	line-height: 1.5;
+	margin-bottom: 8px;
+	font-size: 1.2rem;
+	line-height: 1.25;
 }
 
 @media ( min-width: 640px ) {
+	.rera-disclaimer {
+		padding: 60px 0 240px;
+	}
 
 	.rera-disclaimer .logo { margin-bottom: 40px; }
 	.rera-disclaimer .heading {
@@ -317,6 +320,11 @@ if ( strstr($_SERVER['REQUEST_URI'], 'cherry-on-top') ){
 		-moz-column-gap:      25px;
 		column-count:         2;
 		column-gap:           25px;
+	}
+
+	.rera-disclaimer .message p {
+		margin-bottom: 15px;
+		line-height: 1.5;
 	}
 
 }
@@ -347,7 +355,7 @@ if ( strstr($_SERVER['REQUEST_URI'], 'cherry-on-top') ){
 		column-count:         2;
 		column-gap:           80px;
 	}
-	/*.rera-disclaimer .message p { font-size: 2rem; }*/
+	.rera-disclaimer .message p { font-size: 1.5rem; }
 }
 
 </style>
@@ -356,7 +364,7 @@ if ( strstr($_SERVER['REQUEST_URI'], 'cherry-on-top') ){
 <section class="rera-disclaimer" id="js_laz_disclaimer_markup" style="display: none">
 	<div class="container">
 		<div class="row">
-			<div class="columns small-6 small-offset-4 medium-3 medium-offset-1 large-2 xlarge-3">
+			<div class="columns small-5 small-offset-4 medium-3 medium-offset-1 large-2 xlarge-3">
 				<div class="logo">
 					<img class="block" src="../media/indis-logo-light.svg">
 				</div>
@@ -367,14 +375,14 @@ if ( strstr($_SERVER['REQUEST_URI'], 'cherry-on-top') ){
 			<div class="columns small-10 small-offset-1">
 				<div class="heading">
 					<!-- <i class="material-icons inline-middle">error</i> -->
-					<span class="h3 strong inline-middle" style="color: #ffd777">DISCLAIMER</span>
+					<span class="h4 strong inline-middle" style="color: #ffd777">DISCLAIMER</span>
 				</div>
 
 				<div class="message row fill-red gradient-red-45">
-					<p class="p">The disclaimer provided below applies to our website and by proceeding further, you acknowledge and agree to the terms and conditions set out in this disclaimer.</p>
-					<p class="p">Our website is being developed and upgraded to conform to the applicable requirements under the Real Estate (Regulation and Development) Act, 2016.</p>
-					<p class="p">By proceeding further and accessing the website, you agree, confirm and acknowledge that all the information provided (including any images, brochures, plans etc.) is for informational purposes only and that you will not rely or depend on such information for the purposes of making any purchase in any of our projects. You agree and acknowledge that the information available on this website does not constitute an invitation to purchase, advertisement, marketing or offer for sale of any of the units in our projects. Neither the Company nor the Company's promoters, employees etc. are responsible for any action or decision taken by you by relying on the information provided on this website.</p>
-					<p class="p">The Company or its promoters, employees etc. will not be liable in any manner whatsoever for any claims, losses, damages, etc. that may arise in connection with the use of the website.</p>
+					<p>The disclaimer provided below applies to our website and by proceeding further, you acknowledge and agree to the terms and conditions set out in this disclaimer.</p>
+					<p>Our website is being developed and upgraded to conform to the applicable requirements under the Real Estate (Regulation and Development) Act, 2016.</p>
+					<p>By proceeding further and accessing the website, you agree, confirm and acknowledge that all the information provided (including any images, brochures, plans etc.) is for informational purposes only and that you will not rely or depend on such information for the purposes of making any purchase in any of our projects. You agree and acknowledge that the information available on this website does not constitute an invitation to purchase, advertisement, marketing or offer for sale of any of the units in our projects. Neither the Company nor the Company's promoters, employees etc. are responsible for any action or decision taken by you by relying on the information provided on this website.</p>
+					<p>The Company or its promoters, employees etc. will not be liable in any manner whatsoever for any claims, losses, damages, etc. that may arise in connection with the use of the website.</p>
 				</div>
 			</div>
 		</div>
