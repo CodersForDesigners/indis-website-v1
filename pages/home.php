@@ -68,8 +68,8 @@ $numberOfSpotlights = str_pad( count( $featuredSpotlights ), 2, '0', STR_PAD_LEF
 							<div class="price h5 condensed text-neutral-3"><?= getContent( '', 'price', $project[ 'ID' ] ) ?></div>
 						</div>
 						<div class="tag">
-							<span class="project h6 strong fill-light"><?= getContent( '', 'tag_label', $project[ 'ID' ] ) ?></span>
-							<span class="series-id h6 strong fill-red-2"><?= getContent( '', 'tag_value', $project[ 'ID' ] ) ?></span>
+							<?php if( getContent( '', 'tag_label', $project[ 'ID' ] ) ) : ?><span class="project h6 strong fill-light"><?= getContent( '', 'tag_label', $project[ 'ID' ] ) ?></span><?php endif; ?>
+							<?php if( getContent( '', 'tag_value', $project[ 'ID' ] ) ) : ?><span class="series-id h6 strong fill-red-2"><?= getContent( '', 'tag_value', $project[ 'ID' ] ) ?></span><?php endif; ?>
 						</div>
 					</a>
 				</div>
