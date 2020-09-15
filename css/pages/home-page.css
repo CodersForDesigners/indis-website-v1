@@ -3,7 +3,7 @@
  */
 
 /* -- Project List Section -- */
-.project-list-section .project-list .project-list-item {}
+.project-list-section .project-list .project-item {}
 
 .project-list-section .project-list .project-list-intro .logo {
 	width: 100px;
@@ -191,3 +191,45 @@
 		padding-right: 0;
 	}
 }
+
+
+
+
+
+
+/*
+ * Project List Tag
+ */
+
+.project-list-section .project-list .project-item .tag {
+	display: inline-block;
+	position: absolute;
+	z-index: 2;
+	left: var(--space-25);
+	bottom: var(--space-25);
+	font-size: 0;
+	background-color: peachpuff;
+	max-width: calc( (var(--space-100) * 4) - var(--space-25) );
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.project-list-section .project-list .project-item .tag span {
+	display: inline-block;
+	line-height: 1;
+	padding: 3px 5px;
+}
+
+@media( min-width: 640px )  {}
+@media( min-width: 1040px ) {
+	.project-list-section .project-list .project-item .tag {
+		max-width: calc( (var(--space-100) * 2.5) - var(--space-25) );
+	}
+
+	.project-list-section .project-list .project-item-container:nth-child(2) .project-item .tag {
+		left: auto;
+		right: var(--space-25);
+	}
+}
+@media( min-width: 1480px ) {}
