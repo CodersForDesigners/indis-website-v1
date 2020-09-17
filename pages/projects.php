@@ -34,6 +34,7 @@ $showEngineeringConcrete = getContent( [ ], 'engineering_section_concrete' );
 $showEngineeringRailing = getContent( [ ], 'engineering_section_railing' );
 $showEngineeringFire = getContent( [ ], 'engineering_section_fire' );
 $showEngineeringFire2 = getContent( [ ], 'engineering_section_fire_2' );
+$showPricingTrap = getContent( [ ], 'pricing_trap' );
 
 
 require_once __DIR__ . '/../inc/above.php';
@@ -435,6 +436,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- Pricing Section -->
+<?php// if( ! empty( $showPricingTrap ) ) : ?>
 <section class="pricing-section fill-dark space-50-top space-25-bottom">
 	<div class="container">
 		<div class="row">
@@ -449,12 +451,13 @@ require_once __DIR__ . '/../inc/above.php';
 				</div>
 			</div>
 			<div class="columns small-12 medium-10 large-1 space-25-bottom inline-bottom">
-				<div class="p strong text-red-2">Lorem ipsum dolor sit amet</div>
-				<div class="label space-min-bottom">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, perferendis.</div>
+				<div class="label-heading p strong text-red-2">Lorem ipsum dolor sit amet</div>
+				<div class="label-description label space-min-bottom">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, perferendis.</div>
 			</div>
 		</div>
 	</div>
 </section>
+<?php// endif; ?>
 <!-- END: Pricing Section -->
 
 
