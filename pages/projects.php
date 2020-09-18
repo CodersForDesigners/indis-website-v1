@@ -34,8 +34,14 @@ $showEngineeringConcrete = getContent( [ ], 'engineering_section_concrete' );
 $showEngineeringRailing = getContent( [ ], 'engineering_section_railing' );
 $showEngineeringFire = getContent( [ ], 'engineering_section_fire' );
 $showEngineeringFire2 = getContent( [ ], 'engineering_section_fire_2' );
-$showPricingTrap = getContent( [ ], 'pricing_trap' );
 
+$showPricingTrap = getContent( [ ], 'pricing_trap' );
+$pricingTitle = getContent( [ ], 'pricing_title' );
+$pricingButtonText = getContent( [ ], 'pricing_button_text' );
+$pricingVideoLoop = getContent( [ ], 'pricing_video_loop' );
+$pricingVideoFallbackImage = getContent( '', 'pricing_video_fallback_image -> sizes -> medium' );
+$pricingLabelHeading = getContent( [ ], 'pricing_label_heading' );
+$pricingLabelDescription = getContent( [ ], 'pricing_label_description' );
 
 require_once __DIR__ . '/../inc/above.php';
 
@@ -436,28 +442,28 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- Pricing Section -->
-<?php// if( ! empty( $showPricingTrap ) ) : ?>
+<?php if( ! empty( $showPricingTrap ) ) : ?>
 <section class="pricing-section fill-dark space-50-top space-25-bottom">
 	<div class="container">
 		<div class="row">
 			<div class="columns small-12 medium-10 large-5 xlarge-4 xlarge-offset-1 space-25-bottom">
-				<div class="title h3 strong text-lowercase space-25-bottom">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea soluta consectetur nam aperiam delectus ullam officiis maxime!</div>
-				<a href="" target="_blank" class="button fill-red-2 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Get Detailed Price</a>
+				<div class="title h3 strong text-lowercase space-25-bottom"><?= $pricingTitle ?></div>
+				<a href="" target="_blank" class="button fill-red-2 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);"><?= $pricingButtonText ?></a>
 			</div>
 			<div class="columns small-12 medium-10 large-5 large-offset-1 space-25-right space-25-bottom inline-bottom">
 				<!-- Auto-playing version -->
-				<div class="video-embed video-embed-bg js_video_embed js_video_get_player" data-src="Fd1Xc6-6VVg" data-loop="true" data-autoplay="true">
-					<div class="video-embed-placeholder" style="background-image: url( https://via.placeholder.com/1500 );"></div>
+				<div class="video-embed video-embed-bg js_video_embed js_video_get_player" data-src="<?= $pricingVideoLoop ?>" data-loop="true" data-autoplay="true">
+					<div class="video-embed-placeholder" style="background-image: url( <?= $pricingVideoFallbackImage ?> );"></div>
 				</div>
 			</div>
 			<div class="columns small-12 medium-10 large-1 space-25-bottom inline-bottom">
-				<div class="label-heading p strong text-red-2">Lorem ipsum dolor sit amet</div>
-				<div class="label-description label space-min-bottom">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, perferendis.</div>
+				<div class="label-heading p strong text-red-2"><?= $pricingLabelHeading ?></div>
+				<div class="label-description label space-min-bottom"><?= $pricingLabelDescription ?></div>
 			</div>
 		</div>
 	</div>
 </section>
-<?php// endif; ?>
+<?php endif; ?>
 <!-- END: Pricing Section -->
 
 
