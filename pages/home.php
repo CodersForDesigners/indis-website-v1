@@ -10,6 +10,25 @@ require_once __DIR__ . '/../inc/above.php';
 // 	`allProjectsExcludingCurrent` literally refers to "all the projects"
 $projects = &$allProjectsExcludingCurrent;
 
+
+/*
+ * ----- Projects to Highlight
+ */
+$projectToHighlight1 = getContent( [ 'empty' ], 'project_hightlight_1' );
+$projectToHighlight2 = getContent( [ 'empty' ], 'project_hightlight_2' );
+$projectsToHighlight = [
+	$projectToHighlight1[ 'name' ] => $projectToHighlight1,
+	$projectToHighlight2[ 'name' ] => $projectToHighlight2
+];
+foreach ( $projects as &$project ) {
+	if ( ! in_array( $project[ 'ID' ], array_keys( $projectsToHighlight ) ) )
+		continue;
+	$project[ 'highlight' ] = [
+		'label' => $projectsToHighlight[ $project[ 'ID' ] ][ 'label' ],
+		'value' => $projectsToHighlight[ $project[ 'ID' ] ][ 'value' ]
+	];
+}
+
 // Consolidate the featured spotlights across all projects
 $featuredSpotlights = [ ];
 foreach ( $projects as $project ) {
@@ -67,10 +86,12 @@ $numberOfSpotlights = str_pad( count( $featuredSpotlights ), 2, '0', STR_PAD_LEF
 							<div class="type h6 strong space-25-top"><?= getContent( '', 'type', $project[ 'ID' ] ) ?></div>
 							<div class="price h5 condensed text-neutral-3"><?= getContent( '', 'price', $project[ 'ID' ] ) ?></div>
 						</div>
-						<div class="tag">
-							<?php if( getContent( '', 'tag_label', $project[ 'ID' ] ) ) : ?><span class="project h6 strong fill-light"><?= getContent( '', 'tag_label', $project[ 'ID' ] ) ?></span><?php endif; ?>
-							<?php if( getContent( '', 'tag_value', $project[ 'ID' ] ) ) : ?><span class="series-id h6 strong fill-red-2"><?= getContent( '', 'tag_value', $project[ 'ID' ] ) ?></span><?php endif; ?>
-						</div>
+						<?php if ( ! empty( $project[ 'highlight' ] ) ) : ?>
+							<div class="tag">
+								<span class="project h6 strong fill-light"><?= $project[ 'highlight' ][ 'label' ] ?></span>
+								<span class="series-id h6 strong fill-red-2"><?= $project[ 'highlight' ][ 'value' ] ?></span>
+							</div>
+						<?php endif; ?>
 					</a>
 				</div>
 			<?php endforeach; ?>
