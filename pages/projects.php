@@ -75,6 +75,20 @@ require_once __DIR__ . '/../inc/above.php';
 </script>
 <!-- END: Gallery data -->
 
+
+<!-- Sticky Call Section -->
+<section class="sticky-call-section show-for-small js_sticky_call">
+	<div class="container">
+		<div class="row">
+			<div class="columns small-12 text-center space-50-bottom">
+				<a href="tel:<?= $projectPhoneNumberUnformatted ?>" class="call-button button fill-dark"><span class="material-icons inline-middle">phone_in_talk</span> <span class="call-number inline-middle"><?= $projectPhoneNumberFormatted ?></span></a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Sticky Call Section -->
+
+
 <!-- Cover Section -->
 <section data-section="Cover" data-id="cover" class="cover-section space-25-top space-50-bottom js_gallery_region" data-set="cover">
 	<div class="container">

@@ -1683,3 +1683,50 @@
 }
 
 
+
+
+
+/*
+ * Sticky Call Section
+ */
+
+.sticky-call-section {
+	position: fixed;
+	z-index: 9;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	display: block;
+	height: auto;
+	pointer-events: none;
+	transform: translateY(0);
+	transition: .3s ease-out;
+}
+.sticky-call-section.hide {
+	transform: translateY(200%);
+}
+
+.sticky-call-section .call-button {
+	position: relative;
+	padding: 0 calc( var(--space-50)/2);
+	z-index: 1;
+	pointer-events: all;
+	height: var(--space-100);
+	font-size: 0;
+	line-height: 0;
+	border: solid 1px rgba(255,255,255,0.5);
+}
+.sticky-call-section .call-button .material-icons {
+	line-height: var(--space-100);
+	transform: translateY(-1px);
+}
+.sticky-call-section .call-button .call-number {
+	font-size: 1.5rem;
+	margin-left: 5px;
+	line-height: var(--space-100);
+	transform: translateY(-1px);
+}
+
+@media( min-width: 640px )  {}
+@media( min-width: 1040px ) {}
+@media( min-width: 1480px ) {}
