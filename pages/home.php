@@ -14,20 +14,22 @@ $projects = &$allProjectsExcludingCurrent;
 /*
  * ----- Projects to Highlight
  */
-$projectToHighlight1 = getContent( [ 'empty' ], 'project_hightlight_1' );
-$projectToHighlight2 = getContent( [ 'empty' ], 'project_hightlight_2' );
-$projectsToHighlight = [
-	$projectToHighlight1[ 'name' ] => $projectToHighlight1,
-	$projectToHighlight2[ 'name' ] => $projectToHighlight2
-];
-foreach ( $projects as &$project ) {
-	if ( ! in_array( $project[ 'ID' ], array_keys( $projectsToHighlight ) ) )
-		continue;
-	$project[ 'highlight' ] = [
-		'label' => $projectsToHighlight[ $project[ 'ID' ] ][ 'label' ],
-		'value' => $projectsToHighlight[ $project[ 'ID' ] ][ 'value' ]
-	];
-}
+$projectToHighlight1 = getContent( false, 'project_hightlight_1' );
+$projectToHighlight2 = getContent( false, 'project_hightlight_2' );
+$projectsToHighlight = [ ];
+if ( $projectToHighlight1 )
+	$projectsToHighlight[ $projectToHighlight1[ 'name' ] ] = $projectToHighlight1;
+if ( $projectToHighlight2 )
+	$projectsToHighlight[ $projectToHighlight2[ 'name' ] ] = $projectToHighlight2;
+if ( ! empty( $projectsToHighlight ) )
+	foreach ( $projects as &$project ) {
+		if ( ! in_array( $project[ 'ID' ], array_keys( $projectsToHighlight ) ) )
+			continue;
+		$project[ 'highlight' ] = [
+			'label' => $projectsToHighlight[ $project[ 'ID' ] ][ 'label' ],
+			'value' => $projectsToHighlight[ $project[ 'ID' ] ][ 'value' ]
+		];
+	}
 
 // Consolidate the featured spotlights across all projects
 $featuredSpotlights = [ ];
