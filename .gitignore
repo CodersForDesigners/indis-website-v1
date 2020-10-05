@@ -18,6 +18,4 @@
 /cms/wp-content/debug.log
 
 # Cache
-/_cache
 /cms/wp-content/cache
-/cms/wp-content/w3tc-config

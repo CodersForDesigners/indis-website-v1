@@ -1,9 +1,239 @@
 <?php
+
+require_once __DIR__ . '/hooks.php';
+
+
+
+
+
+function bfsBlockConstructionUpdateListingRenderCallback ( $attributes = [ ], $content = '' ) {
+
+	if ( ! class_exists( '\BFS\CMS' ) )
+		return '';
+
+	$posts = get_posts( [
+		'post_type' => 'update',
+		'post_parent' => \BFS\CMS::$currentQueriedPostId,
+		'post_status' => 'publish',
+		'numberposts' => -1,
+		'orderby' => 'date'
+	] );
+	wp_reset_postdata();
+
+	// Backup the existing value of the current ACF post data
+	$currentQueriedPostACF = \BFS\CMS::$currentQueriedPostACF;
+
+	foreach ( $posts as &$post ) {
+		\BFS\CMS::$currentQueriedPostACF = [ ];
+		$post->post_content = apply_filters( 'the_content', $post->post_content );
+		$post = [
+			'update_group_title' => date( 'F Y', strtotime( $post->post_date_gmt ) ),
+			'update_group' => \BFS\CMS::$currentQueriedPostACF[ 'update_group' ]
+		];
+	}
+	unset( $post );
+
+	// Restore the value of the current ACF post data
+	\BFS\CMS::$currentQueriedPostACF = $currentQueriedPostACF;
+	// Now, append to the existing current ACF post data
+	\BFS\CMS::$currentQueriedPostACF = array_merge( \BFS\CMS::$currentQueriedPostACF, [ 'updates' => $posts ] );
+
+	return '';
+
+}
+
+add_action( 'bfs/backend/on-editing-posts', function ( $postType ) {
+
+	/*
+	 *
+	 * Gutenberg
+	 *
+	 */
+
+	// Add a block that lists Construction Updates that are associated with a Project
+	if ( $postType === 'projects' ) {
+
+		wp_register_script( 'bfs-script-construction-update-listing',
+			get_template_directory_uri() . '/js/blocks/construction-update-listing.js',
+			[ 'wp-blocks', 'wp-components' ],
+			filemtime( get_template_directory() . '/js/blocks/construction-update-listing.js' )
+		);
+
+		register_block_type( 'bfs/construction-update-listing', [
+			'name' => 'Construction Update Listing',
+			'editor_script' => 'bfs-script-construction-update-listing',
+			'render_callback' => 'bfsBlockConstructionUpdateListingRenderCallback'
+		] );
+
+		add_editor_style( 'css/project-post-gutenberg-editor.css' );
+
+	}
+
+
+	// Add a sidebar panel that allows you to associate a construction update with a project
+	if ( $postType === 'update' ) {
+		wp_enqueue_script(
+			'bfs-associate-post-with-project',
+			get_template_directory_uri() . '/js/associate-post-with-project.js',
+			[ 'wp-i18n', 'wp-data', 'wp-components', 'wp-blocks', 'wp-edit-post', 'wp-plugins' ],
+			filemtime( get_template_directory() . '/js/associate-post-with-project.js' )
+		);
+		add_editor_style( 'css/construction-update-post-gutenberg-editor.css' );
+	}
+
+} );
+
+
+
+
 /*
  *
- * This script sets up a global-level settings page.
+ * Load the Gutenberg on the frontend as well
  *
  */
+add_action( 'bfs/init/frontend', function () {
+
+	register_block_type( 'bfs/construction-update-listing', [
+		'name' => 'Construction Update Listing',
+		'render_callback' => 'bfsBlockConstructionUpdateListingRenderCallback'
+	] );
+
+} );
+
+
+
+/*
+ *
+ * ----- Custom ACF Gutenberg blocks
+ *
+ */
+add_action( 'acf/init', function () {
+	if ( ! function_exists( 'acf_register_block_type' ) )
+		return;
+
+	// Project Essentials block
+	acf_register_block_type( [
+		'name' => 'bfs-project-essentials',
+		'title' => __( 'Project Essentials' ),
+		'description' => __( 'Project Essentials' ),
+		'category' => 'common',
+		'icon' => 'building',
+		'align' => 'wide',
+		'mode' => 'edit',
+		'supports' => [
+			'multiple' => false,
+			'align' => [ 'wide' ]
+		],
+		'render_callback' => 'acf_render_callback'
+	] );
+
+	// Project Engineering block
+	acf_register_block_type( [
+		'name' => 'bfs-project-engineering',
+		'title' => __( 'Project Engineering' ),
+		'description' => __( 'Project Engineering' ),
+		'category' => 'common',
+		'icon' => 'building',
+		'align' => 'wide',
+		'mode' => 'edit',
+		'supports' => [
+			'multiple' => false,
+			'align' => [ 'wide' ]
+		],
+		'render_callback' => 'acf_render_callback'
+	] );
+
+	// Project Spotlights block
+	acf_register_block_type( [
+		'name' => 'bfs-project-spotlights',
+		'title' => __( 'Project Spotlights' ),
+		'description' => __( 'Project Spotlights' ),
+		'category' => 'common',
+		'icon' => 'building',
+		'align' => 'wide',
+		'mode' => 'edit',
+		'supports' => [
+			'multiple' => false,
+			'align' => [ 'wide' ]
+		],
+		'render_callback' => 'acf_render_callback'
+	] );
+
+	// Project Events block
+	acf_register_block_type( [
+		'name' => 'bfs-project-events',
+		'title' => __( 'Project Events' ),
+		'description' => __( 'Project Events' ),
+		'category' => 'common',
+		'icon' => 'building',
+		'align' => 'wide',
+		'mode' => 'edit',
+		'supports' => [
+			'multiple' => false,
+			'align' => [ 'wide' ]
+		],
+		'render_callback' => 'acf_render_callback'
+	] );
+
+	// Project Construction Updates block
+	acf_register_block_type( [
+		'name' => 'bfs-project-construction-updates',
+		'title' => __( 'Project Construction Updates' ),
+		'description' => __( 'Project Construction Updates' ),
+		'category' => 'common',
+		'icon' => 'building',
+		'align' => 'wide',
+		'mode' => 'edit',
+		'supports' => [
+			'multiple' => false,
+			'align' => [ 'wide' ]
+		],
+		'render_callback' => 'acf_render_callback'
+	] );
+
+	// Social Media Links block
+	acf_register_block_type( [
+		'name' => 'bfs-social-media-links',
+		'title' => __( 'Social Media Links' ),
+		'description' => __( 'Social Media Links' ),
+		'category' => 'common',
+		'icon' => 'wordpress',
+		'align' => 'wide',
+		'mode' => 'edit',
+		'supports' => [
+			'multiple' => false,
+			'align' => [ 'wide' ]
+		],
+		'render_callback' => 'acf_render_callback'
+	] );
+
+	// Meta block
+	acf_register_block_type( [
+		'name' => 'bfs-meta',
+		'title' => __( 'Meta' ),
+		'description' => __( 'Meta' ),
+		'category' => 'common',
+		'icon' => 'wordpress',
+		'align' => 'wide',
+		'mode' => 'edit',
+		'supports' => [
+			'multiple' => false,
+			'align' => [ 'wide' ]
+		],
+		'render_callback' => 'acf_render_callback'
+	] );
+
+
+	function acf_render_callback ( $block, $content, $is_preview, $post_id ) {
+		if ( ! class_exists( '\BFS\CMS' ) )
+			return;
+
+		\BFS\CMS::$currentQueriedPostACF = array_merge( \BFS\CMS::$currentQueriedPostACF, get_fields() );
+
+	}
+
+
+} );
 
 /*
  *
@@ -11,9 +241,9 @@
  * 	This is because things break on the admin dashboard; you can't create/edit posts.
  *
  */
-add_filter( 'rest_url_prefix', function ( $prefix ) {
-	return substr( site_url(), strlen( home_url() ) + 1 ) . '/' . $prefix;
-} );
+// add_filter( 'rest_url_prefix', function ( $prefix ) {
+// 	return '?rest_route=';
+// } );
 
 
 
@@ -31,24 +261,6 @@ add_filter( 'redirect_canonical', function ( $redirectUrl ) {
 } );
 
 
-/*
- *
- * Show the Meta-data page if it exists
- *
- */
-if ( ! function_exists( 'acf_add_options_page' ) )
-	return;
-
-acf_add_options_page( [
-	'page_title' => 'Metadata',
-	'menu_title' => 'Metadata',
-	'menu_slug' => 'metadata',
-	'capability' => 'edit_posts',
-	'parent_slug' => '',
-	'position' => false,
-	'icon_url' => 'dashicons-info'
-] );
-
 
 function bfs_theme_setup () {
 
@@ -63,6 +275,12 @@ function bfs_theme_setup () {
 	// @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'menus' );
+	add_theme_support( 'editor-style' );
+	add_theme_support( 'editor-styles' );
+	add_theme_support( 'dark-editor-style' );
+	add_theme_support( 'wp-block-styles' );
+	add_theme_support( 'align-wide' );
+
 
 
 	/*
@@ -71,6 +289,58 @@ function bfs_theme_setup () {
 	 *
 	 */
 	add_image_size( 'small', 400, 400, false );
+
+
+
+	/*
+	 *
+	 * Templates for the various Post Types
+	 *
+	 */
+	add_filter( 'register_post_type_args', function ( $args, $postType ) {
+
+		if ( $postType === 'projects' ) {
+			$args[ 'template' ] = [
+				[ 'acf/bfs-project-essentials' ],
+				[ 'acf/bfs-project-spotlights' ],
+				[ 'acf/bfs-project-events' ],
+				[ 'acf/bfs-project-engineering' ],
+				[ 'bfs/construction-update-listing' ],
+				[ 'acf/bfs-social-media-links' ],
+				[ 'acf/bfs-meta' ]
+			];
+			$args[ 'template_lock' ] = 'all';
+		}
+
+		if ( $postType === 'update' ) {
+			$args[ 'template' ] = [
+				[ 'acf/bfs-project-construction-updates' ]
+			];
+			$args[ 'template_lock' ] = 'all';
+		}
+
+		return $args;
+
+	}, 20, 2 );
+
+
+
+	/*
+	 *
+	 * Show the Meta-data page if ACF is enabled
+	 *
+	 */
+	if ( function_exists( 'acf_add_options_page' ) ) {
+		acf_add_options_page( [
+			'page_title' => 'Metadata',
+			'menu_title' => 'Metadata',
+			'menu_slug' => 'metadata',
+			'capability' => 'edit_posts',
+			'parent_slug' => '',
+			'position' => false,
+			'icon_url' => 'dashicons-info'
+		] );
+	}
 
 }
 

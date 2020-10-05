@@ -1,0 +1,76 @@
+
+/*
+ *
+ * BFS Block
+ * Visually space it away from other blocks
+ *
+ */
+.block-editor-block-list__block[ data-type ^= "bfs" ]:before {
+	content: "";
+	display: block;
+	margin-top: 15rem;
+}
+
+.block-editor-block-list__block[ data-type ^= "acf" ]:before,
+.block-editor-block-list__block[ data-type ^= "acf" ]:after {
+
+	content: "   " attr( data-title ) "   ";
+	white-space: pre;
+
+	padding: 0.75rem 0;
+	/*border-bottom: 1px solid #adb2ad;*/
+
+	background-color: white;
+
+	font-family: inherit;
+	color: inherit;
+	font-size: 1.56em;
+	font-weight: 600;
+
+}
+
+.block-editor-block-list__block[ data-type ^= "acf" ]:before {
+
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+
+	display: flex;
+	flex-direction: row-reverse;
+	margin: 9rem auto 1rem;
+
+	box-shadow: 0 5px 9px -6px rgba( 0, 0, 0, 0.25 );
+
+	z-index: 5;
+}
+
+.block-editor-block-list__block[ data-type ^= "acf" ]:after {
+	bottom: auto;	/* the after element already inherits some style for Gutenberg */
+	z-index: 6;
+	box-shadow: 0 0 0 1rem white,
+				0 2rem rgba( 255, 255, 255, 0.65 )
+				!important;
+}
+.block-editor-block-list__block[ data-type ^= "acf" ]:focus:after {
+	background-color: inherit;
+}
+
+
+.block-editor-block-list__block[ data-type ^= "acf" ]:before,
+.block-editor-block-list__block[ data-type ^= "acf" ]:after {
+	max-width: 580px;
+}
+.block-editor-block-list__block[ data-type ^= "acf" ][ data-align = "wide" ]:before,
+.block-editor-block-list__block[ data-type ^= "acf" ][ data-align = "wide" ]:after {
+	max-width: 1100px;
+}
+.block-editor-block-list__block[ data-type ^= "acf" ][ data-align = "full" ]:before,
+.block-editor-block-list__block[ data-type ^= "acf" ][ data-align = "full" ]:after {
+	max-width: none;
+}
+
+
+/* Remove the border the ACF applies to its field groups */
+.acf-block-body .acf-block-fields {
+	border: none;
+}

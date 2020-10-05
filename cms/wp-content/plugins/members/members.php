@@ -3,7 +3,7 @@
  * Plugin Name: Members
  * Plugin URI:  https://memberpress.com/plugins/members
  * Description: A user and role management plugin that puts you in full control of your site's permissions. This plugin allows you to edit your roles and their capabilities, clone existing roles, assign multiple roles per user, block post content, or even make your site completely private.
- * Version:     3.0.2
+ * Version:     3.1.3
  * Author:      MemberPress
  * Author URI:  https://memberpress.com
  * Text Domain: members
@@ -217,6 +217,7 @@ final class Members_Plugin {
 			// General admin functions.
 			require_once( $this->dir . 'admin/functions-admin.php' );
 			require_once( $this->dir . 'admin/functions-help.php'  );
+			require_once( $this->dir . 'admin/class-review-prompt.php'  );
 
 			// Plugin settings.
 			require_once( $this->dir . 'admin/class-settings.php' );
@@ -323,6 +324,11 @@ final class Members_Plugin {
 				$role->add_cap( 'delete_roles' ); // Delete existing roles.
 				$role->add_cap( 'edit_roles'   ); // Edit existing roles/caps.
 			}
+		}
+
+		$flag = get_transient( 'members_30days_flag' );
+		if ( empty( $flag ) ) {
+			set_transient( 'members_30days_flag', true, 30 * DAY_IN_SECONDS );
 		}
 	}
 
@@ -442,7 +448,7 @@ final class Members_Plugin {
 	}
 
 	public function block_editor_assets() {
-		$active_addons = get_option( 'members_active_addons' );
+		$active_addons = get_option( 'members_active_addons', array() );
 		if ( ! in_array( 'members-block-permissions', $active_addons ) ) {
 			wp_enqueue_script( 'block-editor-mp-upsell', plugin_dir_url( __FILE__ ) . '/addons/members-block-permissions/public/js/upsell.js' , array(
 				'wp-compose',
