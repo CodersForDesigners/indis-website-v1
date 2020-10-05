@@ -20,12 +20,6 @@ $hide = 'hidden';
 $showMedium = 'show-for-medium';
 
 /*
- * Get all the links on the site
- */
-$defaultLinks = require __DIR__ . '/default-nav-links.php';
-$links = getContent( $defaultLinks, 'pages' );
-
-/*
  * Figure out the base URL
  * 	We diff the document root and the directory of this file to determine it
  */
