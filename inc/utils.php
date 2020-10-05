@@ -105,12 +105,12 @@ function getPostsOf ( $type, $limit = -1, $exclude = [ ] ) {
 			$exclude = [ $exclude ];
 
 	$posts = get_posts( [
-	    'post_type' => $type,
-	    'post_status' => 'publish',
-	    'numberposts' => $limit,
-	    // 'order' => 'ASC'
-	    'orderby' => 'date',
-	    'exclude' => $exclude
+		'post_type' => $type,
+		'post_status' => 'publish',
+		'numberposts' => $limit,
+		// 'order' => 'ASC'
+		'orderby' => 'date',
+		'exclude' => $exclude
 	] );
 
 	foreach ( $posts as &$post ) {
@@ -155,11 +155,11 @@ function getContent ( $fallback, $field, $context = null ) {
 				return $fallback;
 		}
 		else {
-			$page = get_page_by_path( $context, OBJECT, $postType ?: [ 'page', 'attachment' ] );
-			if ( empty( $page ) or empty( $page->ID ) )
+			$page = BFS\CMS::getPostBySlug( $context );
+			if ( empty( $page ) or empty( $page[ 'ID' ] ) )
 				$context = 'options';
 			else
-				$context = $page->ID;
+				$context = $page[ 'ID' ];
 		}
 	}
 
@@ -168,7 +168,18 @@ function getContent ( $fallback, $field, $context = null ) {
 		array_unshift( $contexts, $context );
 	$fieldParts = preg_split( '/\s*->\s*/' , $field );
 	foreach ( $contexts as $currentContext ) {
-		$content = get_field( $fieldParts[ 0 ], $currentContext );
+		if ( $currentContext === 'options' )
+			$content = get_field( $fieldParts[ 0 ], 'option' );
+		else {
+			$postCache = BFS\CMS::$cache[ $currentContext ] ?? BFS\CMS::getPostById( $currentContext ) ?? BFS\CMS::getPostBySlug( $currentContext );
+			if ( empty( $postCache ) )
+				continue;
+
+			if ( ! empty( $postCache[ 'acf' ] ) )
+				$content = $postCache[ 'acf' ][ $fieldParts[ 0 ] ] ?? get_field( $fieldParts[ 0 ], $postCache[ 'ID' ] ) ?? null;
+		}
+
+
 		// If no content was found, search in underlying native post object
 		if ( empty( $content ) and ! empty( $thePost ) ) {
 			if ( $currentContext and ( ! is_string( $currentContext ) ) )
@@ -184,14 +195,6 @@ function getContent ( $fallback, $field, $context = null ) {
 		if ( ! empty( $content ) )
 			break;
 	}
-
-	// $content = get_field( $fieldParts[ 0 ], $content );
-	// if ( count( $fieldParts ) > 1 ) {
-	// 	$content = get_field( $fieldParts[ 0 ], $content );
-	// 	$remainderFieldParts = array_slice( $fieldParts, 1 );
-	// 	foreach ( $remainderFieldParts as $namespace )
-	// 		$content = $content[ $namespace ];
-	// }
 
 	if ( empty( $content ) )
 		return $fallback;
@@ -209,7 +212,6 @@ function getContent ( $fallback, $field, $context = null ) {
  */
 function getNavigationMenu ( $name ) {
 	$menuItems = getContent( [ ], $name, 'navigation' );
-
 	foreach ( $menuItems as &$item ) {
 		$itemUrl = $item[ 'url' ];
 

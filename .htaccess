@@ -9,45 +9,27 @@
 
 RewriteEngine On
 
-# BEGIN W3TC Page Cache core
+# Serve from the cache (if present)
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{HTTPS} =on
-RewriteRule .* - [E=W3TC_SSL:_ssl]
-RewriteCond %{SERVER_PORT} =443
-RewriteRule .* - [E=W3TC_SSL:_ssl]
-RewriteCond %{HTTP:X-Forwarded-Proto} =https [NC]
-RewriteRule .* - [E=W3TC_SSL:_ssl]
-RewriteCond %{HTTP:Accept-Encoding} gzip
-RewriteRule .* - [E=W3TC_ENC:_gzip]
-RewriteCond %{HTTP_COOKIE} w3tc_preview [NC]
-RewriteRule .* - [E=W3TC_PREVIEW:_preview]
-RewriteCond %{REQUEST_METHOD} !=POST
-RewriteCond %{QUERY_STRING} =""
-RewriteCond %{HTTP_COOKIE} !(comment_author|wp\-postpass|w3tc_logged_out|wordpress_logged_in|wptouch_switch_toggle) [NC]
-RewriteCond "%{DOCUMENT_ROOT}/_cache/page_enhanced/%{HTTP_HOST}/%{REQUEST_URI}/_index%{ENV:W3TC_SSL}%{ENV:W3TC_PREVIEW}.html%{ENV:W3TC_ENC}" -f
-RewriteRule .* "/_cache/page_enhanced/%{HTTP_HOST}/%{REQUEST_URI}/_index%{ENV:W3TC_SSL}%{ENV:W3TC_PREVIEW}.html%{ENV:W3TC_ENC}" [L]
-# END W3TC Page Cache core
+RewriteRule .* - [E=BFS_HTTPS:s]
+RewriteCond %{HTTP_COOKIE} !(comment_author|wp\-postpass|wordpress_logged_in) [NC]
+RewriteCond "%{DOCUMENT_ROOT}/cms/wp-content/cache/cache-enabler/%{HTTP_HOST}/%{REQUEST_URI}/http%{ENV:BFS_HTTPS}-index\.html" -f
+RewriteRule ^ "%{DOCUMENT_ROOT}/cms/wp-content/cache/cache-enabler/%{HTTP_HOST}/%{REQUEST_URI}/http%{ENV:BFS_HTTPS}-index\.html" [L]
 
 # Certain *static* pages need to first be augmented with some code
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^/?(content/.*) https://indis.wip.lazaro.in/$1 [NC,QSA,R=302,L]
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule ^/?(content/.*) https://indis.wip.lazaro.in/$1 [NC,QSA,R=302,L]
 
 # Certain *static* pages (in the content folder) need to first be augmented with some code
 RewriteRule ^/?(content/virtual-tours/.+/index.htm) server/augment-static-page.php?path=$1&with[]=no-right-click&with[]=3d-vista-hide-context-menu&with[]=3d-vista-resize-handler [NC,QSA,L]
+
+# Correct REST API requests (since WordPress is accessible through a nested URL)
+RewriteRule ^/?wp\-json(/.*)$ "/cms/?rest_route=$1" [NC,QSA,L]
+
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . index.php [NC,QSA,L]
 
 </IfModule>
-
-# BEGIN WordPress
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteBase /
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
-</IfModule>
-
-# END WordPress
