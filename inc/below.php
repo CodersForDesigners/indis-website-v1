@@ -11,7 +11,7 @@
 			<div class="row space-50-top space-25-bottom">
 				<div class="container">
 					<div class="footer-info columns small-12 medium-10 large-8">
-						<div class="title h3 text-lowercase space-25-bottom">More than a decade and <?php echo getContent( [ ], 'total_units_sold'); ?> happy customers later, we are still obsessed with the engineering of a high-rise building.</div>
+						<div class="title h3 text-lowercase space-25-bottom">More than a decade and <?php echo getContent( '', 'total_units_sold'); ?> happy customers later, we are still obsessed with the engineering of a high-rise building.</div>
 						<div class="description p text-neutral-3 space-25-bottom">
 							<div class="p space-min-bottom">
 								INDIS has a long history. Its roots can be traced to an international partnership in 2006 with the formation of PBEL Property Development Private Limited. This began as a partnership between INCOR, the Indian partner and two Israeli companies, PBC and Electra. The vision was to provide high quality gated community lifestyles to Indian families. PBEL City was the flagship project that kicked off this partnership. They launched PBEL City projects across Hyderabad and Chennai which are successes in their respective geographies.
