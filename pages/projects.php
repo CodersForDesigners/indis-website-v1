@@ -18,6 +18,9 @@ $metaImage = $coverImages[ 0 ][ 'image' ] ?? [ ];
 
 $projectPhoneNumberFormatted = getContent( '', 'phone_number' );
 $projectPhoneNumberUnformatted = str_replace( [ '-', ' ' ], '', $projectPhoneNumberFormatted );
+
+$brochurePDF = getContent( false, 'brochure_pdf' );
+
 $planGroups = getContent( [ ], 'plans' );
 $amenities = getContent( [ ], 'amenity' );
 	$amenityImages = getContent( [ ], 'amenities_images' );
@@ -438,6 +441,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- Download Brochure -->
+<?php if ( $brochurePDF ) : ?>
 <section class="download-brochure">
 	<div class="container">
 		<div class="row">
@@ -446,12 +450,13 @@ require_once __DIR__ . '/../inc/above.php';
 			</div>
 			<div class="brochure-action fill-light columns small-10 small-offset-1 medium-7 medium-offset-0 large-6 inline-middle">
 				<div class="download-title h3 text-lowercase strong space-25-bottom">If you're in a hurry, <br>just <span class="text-red-2">download the <span class="text-uppercase">PDF</span> brochure</span></div>
-				<a href="<?= getContent( '', 'brochure_pdf' ) ?>" target="_blank" class="button fill-dark text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-4);">Download Now</a>
+				<a href="<?= getContent( false, 'brochure_pdf' ) ?>" target="_blank" class="button fill-dark text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-4);">Download Now</a>
 				<div class="courier-description p text-neutral-2 space-min-top <?= $hide ?>">Or, if you'd like a copy of the physical brochure couriered to your location. <br><a href="" target="_blank" class="text-red-2">Click Here</a></div>
 			</div>
 		</div>
 	</div>
 </section>
+<?php endif; ?>
 <!-- END: Download Brochure -->
 
 
