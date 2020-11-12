@@ -8,6 +8,8 @@ require_once __DIR__ . '/../inc/above.php';
 
 // Page-specific preparatory code goes here.
 
+$postContent = str_replace( ']]>', ']]&gt;', apply_filters( 'the_content', $thePost[ 'post_content' ] ) );
+
 ?>
 
 
@@ -31,7 +33,7 @@ require_once __DIR__ . '/../inc/above.php';
 				<div class="blog-title h1 strong text-lowercase space-50-top-bottom"><?= $thePost[ 'post_title' ] ?></div>
 			</div>
 			<div class="columns small-12 large-8 large-offset-2">
-				<div class="blog-content"><?= $thePost[ 'post_content' ] ?></div>
+				<div class="blog-content"><?= $postContent ?></div>
 			</div>
 		</div>
 	</div>
