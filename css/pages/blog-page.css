@@ -37,7 +37,7 @@
 
 
 
-.blog-page .blog-title {}
+.blog-page .blog-title { text-transform: none; }
 
 
 .blog-page .blog-content {
@@ -55,8 +55,6 @@
 .blog-page .blog-content h4 {
 	font-family: 'Barlow', 'Arial Black', Arial, sans-serif;
 	line-height: 1;
-	font-weight: 700;
-	text-transform: lowercase;
 }
 
 .blog-page .blog-content h1,
@@ -82,8 +80,22 @@
 	padding-bottom: var(--space-25);
 }
 	
-.blog-page .blog-content .wp-block-image figure {
+.blog-page .blog-content .wp-block-image {
 	margin: 0;
+}
+.blog-page .blog-content .wp-block-image img {
+	width: 100%;
+}
+
+.blog-page .blog-content .wp-block-image.alignfull {
+	width: 100vw;
+	margin-left: calc( ((100vw - 100%)/2) * -1 );
+}
+
+.blog-page .blog-content .wp-block-image.alignwide {
+	width: var(--container-width);
+	margin-left: 50%;
+	transform: translate(-50%);
 }
 
 @media( min-width: 640px )  {
