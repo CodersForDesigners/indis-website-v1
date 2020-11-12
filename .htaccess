@@ -18,8 +18,8 @@ RewriteCond "%{DOCUMENT_ROOT}/cms/wp-content/cache/cache-enabler/%{HTTP_HOST}/%{
 RewriteRule ^ "%{DOCUMENT_ROOT}/cms/wp-content/cache/cache-enabler/%{HTTP_HOST}/%{REQUEST_URI}/http%{ENV:BFS_HTTPS}-index\.html" [L]
 
 # Certain *static* pages need to first be augmented with some code
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteRule ^/?(content/.*) https://indis.wip.lazaro.in/$1 [NC,QSA,R=302,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^/?(content/.*) https://indis.co.in/$1 [NC,QSA,R=302,L]
 
 # Certain *static* pages (in the content folder) need to first be augmented with some code
 RewriteRule ^/?(content/virtual-tours/.+/index.htm) server/augment-static-page.php?path=$1&with[]=no-right-click&with[]=3d-vista-hide-context-menu&with[]=3d-vista-resize-handler [NC,QSA,L]
