@@ -60,7 +60,7 @@ if ( CMS_FETCH_MEDIA_REMOTELY )
  * Caching
  *
  */
-define( 'WP_CACHE', true );
+define( 'WP_CACHE', CMS_CACHE_PAGES );
 
 
 
