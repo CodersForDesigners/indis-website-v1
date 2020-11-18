@@ -76,16 +76,16 @@
 			<div class="row space-25-top-bottom">
 				<div class="container">
 					<!-- Social Media Icons -->
-					<?php if( !empty ( $twitter_link ) | !empty ( $facebook_link ) | !empty ( $youtube_link ) | !empty ( $instagram_link ) | !empty ( $whatsapp_link ) | !empty ( $linkedin_link ) ) : ?>
-					<div class="social-media-icons columns small-12 space-25-bottom">
-						<?php if(!empty ( $twitter_link)) : ?> <a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $twitter_link ?>"><?php require_once __DIR__ . '/../media/icon/social/icon-twitter.svg'; ?></a><?php endif; ?>
-						<?php if(!empty ( $facebook_link)) : ?> <a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $facebook_link ?>"><?php require_once __DIR__ . '/../media/icon/social/icon-facebook.svg'; ?></a><?php endif; ?>
-						<?php if(!empty ( $youtube_link)) : ?> <a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $youtube_link ?>"><?php require_once __DIR__ . '/../media/icon/social/icon-youtube.svg'; ?></a><?php endif; ?>
-						<?php if(!empty ( $instagram_link)) : ?> <a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $instagram_link ?>"><?php require_once __DIR__ . '/../media/icon/social/icon-instagram.svg'; ?></a><?php endif; ?>
-						<?php if(!empty ( $whatsapp_link)) : ?> <a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $whatsapp_link ?>"><?php require_once __DIR__ . '/../media/icon/social/icon-whatsapp.svg'; ?></a><?php endif; ?>
-						<?php if(!empty ( $linkedin_link)) : ?> <a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $linkedin_link ?>"><?php require_once __DIR__ . '/../media/icon/social/icon-linkedin.svg'; ?></a><?php endif; ?>
-					</div>
-				<?php endif; ?>
+					<?php if ( ! ( empty( $twitter_link ) and empty( $facebook_link ) and empty( $youtube_link ) and empty( $instagram_link ) and empty( $whatsapp_link ) and empty( $linkedin_link ) ) ) : ?>
+						<div class="social-media-icons columns small-12 space-25-bottom">
+							<?php if ( ! empty( $twitter_link ) ) : ?><a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $twitter_link ?>"><?php require_once __DIR__ . '/../media/icon/social/icon-twitter.svg'; ?></a><?php endif; ?>
+							<?php if ( ! empty( $facebook_link ) ) : ?><a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $facebook_link ?>"><?php require_once __DIR__ . '/../media/icon/social/icon-facebook.svg'; ?></a><?php endif; ?>
+							<?php if ( ! empty( $youtube_link ) ) : ?><a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $youtube_link ?>"><?php require_once __DIR__ . '/../media/icon/social/icon-youtube.svg'; ?></a><?php endif; ?>
+							<?php if ( ! empty( $instagram_link ) ) : ?><a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $instagram_link ?>"><?php require_once __DIR__ . '/../media/icon/social/icon-instagram.svg'; ?></a><?php endif; ?>
+							<?php if ( ! empty( $whatsapp_link ) ) : ?><a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $whatsapp_link ?>"><?php require_once __DIR__ . '/../media/icon/social/icon-whatsapp.svg'; ?></a><?php endif; ?>
+							<?php if ( ! empty( $linkedin_link ) ) : ?><a class="social-icon inline-middle fill-dark" tabindex="-1" target="_blank" href="<?= $linkedin_link ?>"><?php require_once __DIR__ . '/../media/icon/social/icon-linkedin.svg'; ?></a><?php endif; ?>
+						</div>
+					<?php endif; ?>
 
 					<!-- Footer Menu -->
 					<div class="footer-menu columns small-12 large-8">
