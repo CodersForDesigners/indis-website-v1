@@ -211,6 +211,12 @@
 
 	<?= getContent( '', 'arbitrary_code -> before_body_closing' ); ?>
 
+	<?php if ( CMS_ENABLED and is_user_logged_in() ) : ?>
+		<!-- Query Monitor -->
+		<script type="text/javascript" src="cms/wp-content/plugins/query-monitor/assets/query-monitor.js<?= $ver ?>"></script>
+	<?php endif; ?>
+
+
 </body>
 
 </html>
