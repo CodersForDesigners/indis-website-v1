@@ -49,6 +49,11 @@ add_action( 'bfs/backend/on-editing-posts', function ( $postType ) {
 	 * Gutenberg
 	 *
 	 */
+	wp_enqueue_style( 'bfs-gutenberg-editor',
+		get_template_directory_uri() . '/css/gutenberg-editor.css',
+		false,
+		filemtime( get_template_directory() . '/css/gutenberg-editor.css' )
+	);
 
 	// Add a block that lists Construction Updates that are associated with a Project
 	if ( $postType === 'projects' ) {
@@ -80,6 +85,16 @@ add_action( 'bfs/backend/on-editing-posts', function ( $postType ) {
 		);
 		add_editor_style( 'css/construction-update-post-gutenberg-editor.css' );
 	}
+
+
+
+	// Block Visibility
+	wp_enqueue_script(
+		'bfs-block-visibility',
+		get_template_directory_uri() . '/js/block-visibility.js',
+		[ 'wp-data', 'wp-edit-post' ],
+		filemtime( get_template_directory() . '/js/block-visibility.js' )
+	);
 
 } );
 
