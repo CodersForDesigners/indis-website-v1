@@ -87,6 +87,38 @@ add_action( 'bfs/backend/on-editing-posts', function ( $postType ) {
 	}
 
 
+	if ( $postType === 'post' or $postType === 'page' ) {
+
+		$colors = [
+			'light' => '#FFFFFF',
+			'neutral-1' => '#D3D7DD',
+			'neutral-2' => '#A8AFBC',
+			'neutral-3' => '#7C869B',
+			'neutral-4' => '#606879',
+			'neutral-5' => '#434957',
+			'dark' => '#262B35',
+			'black' => '#1C2028',
+			'red-1' => '#D9858A',
+			'red-2' => '#C0343C',
+			'red-3' => '#601A1E'
+		];
+		$colorEntries = [ ];
+		foreach ( $colors as $name => $hexNumber ) {
+			$humanReadableName = ucwords( preg_replace( '/-/', ' ', $name ) );
+			$colorEntries[ ] = [
+				'name' => $humanReadableName,
+				'slug' => $name,
+				'color' => $hexNumber
+			];
+		}
+
+		// Replace the default color palette with these ones
+		add_theme_support( 'editor-color-palette', $colorEntries );
+		// Disable custom color picker
+		add_theme_support( 'disable-custom-colors' );
+
+	}
+
 
 	// Block Visibility
 	wp_enqueue_script(
