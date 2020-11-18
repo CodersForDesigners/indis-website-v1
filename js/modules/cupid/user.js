@@ -548,6 +548,7 @@ Person.prototype.verify = function verify ( method ) {
 	return new Promise( function ( resolve, reject ) {
 		ajaxRequest.done( function ( response ) {
 			var person = __.Person.get();
+			person.verification = person.verification || { };
 			person.verification.isVerified = true;
 			person.verification.method = method;
 			person.saveLocally();

@@ -162,18 +162,23 @@ $( document ).on( "submit", ".js_nps_card .js_phone_form", function ( event ) {
 				} )
 				// If the person don't exist, add the person, and send an OTP
 				.catch( function ( person ) {
-					var promiseChain;
-					if ( typeof person === "object" && ! ( person instanceof Error ) ) {
+					var personDoesNotExistInDB = ( ! person ) || ( person instanceof Error && person.code === 404 );
+					var personExistsButIsNotVerified = typeof person === "object" && ! ( person instanceof Error );
+					// If this person doesn't exist, track this moment as a conversion
+					if ( personDoesNotExistInDB ) {
+						trackConversion( loginPrompt );
 						var sourcePoint = projectName + ": " + loginPrompt.context;
 						user.setSource( null, sourcePoint );
+					}
+					// Else, set the source (but why? that don't make sense, maybe the interest field? that could make sense)
+					// else if ( personExistsButIsNotVerified ) {
+					// }
+
+					var promiseChain;
+					if ( personDoesNotExistInDB )
+						promiseChain = user.add().then( function () { return waitFor( 1.5 ) } );
+					else if ( personExistsButIsNotVerified )
 						promiseChain = Promise.resolve();
-					}
-					if ( ! person ) {
-						trackConversion( loginPrompt );
-						promiseChain = user.add().then( function () {
-							return waitFor( 1.5 );
-						} );
-					}
 
 					return promiseChain
 						.then( function () {
@@ -365,18 +370,23 @@ loginPrompts.getInTouch.on( "phoneSubmit", function ( event ) {
 				} )
 				// If the person don't exist, add the person, and send an OTP
 				.catch( function ( person ) {
-					var promiseChain;
-					if ( typeof person === "object" && ! ( person instanceof Error ) ) {
+					var personDoesNotExistInDB = ( ! person ) || ( person instanceof Error && person.code === 404 );
+					var personExistsButIsNotVerified = typeof person === "object" && ! ( person instanceof Error );
+					// If this person doesn't exist, track this moment as a conversion
+					if ( personDoesNotExistInDB ) {
+						trackConversion( loginPrompt );
 						var sourcePoint = projectName + ": " + loginPrompt.context;
 						user.setSource( null, sourcePoint );
+					}
+					// Else, set the source (but why? that don't make sense, maybe the interest field? that could make sense)
+					// else if ( personExistsButIsNotVerified ) {
+					// }
+
+					var promiseChain;
+					if ( personDoesNotExistInDB )
+						promiseChain = user.add().then( function () { return waitFor( 1.5 ) } );
+					else if ( personExistsButIsNotVerified )
 						promiseChain = Promise.resolve();
-					}
-					if ( ! person ) {
-						trackConversion( loginPrompt );
-						promiseChain = user.add().then( function () {
-							return waitFor( 1.5 );
-						} );
-					}
 
 					return promiseChain
 						.then( function () {
@@ -495,18 +505,23 @@ function onPhoneSubmit__Spotlight ( event ) {
 				} )
 				// If the person don't exist, add the person, and send an OTP
 				.catch( function ( person ) {
-					var promiseChain;
-					if ( typeof person === "object" && ! ( person instanceof Error ) ) {
+					var personDoesNotExistInDB = ( ! person ) || ( person instanceof Error && person.code === 404 );
+					var personExistsButIsNotVerified = typeof person === "object" && ! ( person instanceof Error );
+					// If this person doesn't exist, track this moment as a conversion
+					if ( personDoesNotExistInDB ) {
+						trackConversion( loginPrompt );
 						var sourcePoint = projectName + ": Spotlight";
 						user.setSource( null, sourcePoint );
+					}
+					// Else, set the source (but why? that don't make sense, maybe the interest field? that could make sense)
+					// else if ( personExistsButIsNotVerified ) {
+					// }
+
+					var promiseChain;
+					if ( personDoesNotExistInDB )
+						promiseChain = user.add().then( function () { return waitFor( 1.5 ) } );
+					else if ( personExistsButIsNotVerified )
 						promiseChain = Promise.resolve();
-					}
-					if ( ! person ) {
-						trackConversion( loginPrompt );
-						promiseChain = user.add().then( function () {
-							return waitFor( 1.5 );
-						} );
-					}
 
 					return promiseChain
 						.then( function () {
@@ -642,18 +657,23 @@ loginPrompts.spotlightDedicated.on( "phoneSubmit", function ( event ) {
 				} )
 				// If the person don't exist, add the person, and send an OTP
 				.catch( function ( person ) {
-					var promiseChain;
-					if ( typeof person === "object" && ! ( person instanceof Error ) ) {
+					var personDoesNotExistInDB = ( ! person ) || ( person instanceof Error && person.code === 404 );
+					var personExistsButIsNotVerified = typeof person === "object" && ! ( person instanceof Error );
+					// If this person doesn't exist, track this moment as a conversion
+					if ( personDoesNotExistInDB ) {
+						trackConversion( loginPrompt );
 						var sourcePoint = projectName + ": Spotlight";
 						user.setSource( null, sourcePoint );
+					}
+					// Else, set the source (but why? that don't make sense, maybe the interest field? that could make sense)
+					// else if ( personExistsButIsNotVerified ) {
+					// }
+
+					var promiseChain;
+					if ( personDoesNotExistInDB )
+						promiseChain = user.add().then( function () { return waitFor( 1.5 ) } );
+					else if ( personExistsButIsNotVerified )
 						promiseChain = Promise.resolve();
-					}
-					if ( ! person ) {
-						trackConversion( loginPrompt );
-						promiseChain = user.add().then( function () {
-							return waitFor( 1.5 );
-						} );
-					}
 
 					return promiseChain
 						.then( function () {
@@ -790,18 +810,23 @@ loginPrompts.bookSiteVisit.on( "phoneSubmit", function ( event ) {
 				} )
 				// If the person don't exist, add the person, and send an OTP
 				.catch( function ( person ) {
-					var promiseChain;
-					if ( typeof person === "object" && ! ( person instanceof Error ) ) {
+					var personDoesNotExistInDB = ( ! person ) || ( person instanceof Error && person.code === 404 );
+					var personExistsButIsNotVerified = typeof person === "object" && ! ( person instanceof Error );
+					// If this person doesn't exist, track this moment as a conversion
+					if ( personDoesNotExistInDB ) {
+						trackConversion( loginPrompt );
 						var sourcePoint = projectName + ": " + loginPrompt.context;
 						user.setSource( null, sourcePoint );
+					}
+					// Else, set the source (but why? that don't make sense, maybe the interest field? that could make sense)
+					// else if ( personExistsButIsNotVerified ) {
+					// }
+
+					var promiseChain;
+					if ( personDoesNotExistInDB )
+						promiseChain = user.add().then( function () { return waitFor( 1.5 ) } );
+					else if ( personExistsButIsNotVerified )
 						promiseChain = Promise.resolve();
-					}
-					if ( ! person ) {
-						trackConversion( loginPrompt );
-						promiseChain = user.add().then( function () {
-							return waitFor( 1.5 );
-						} );
-					}
 
 					return promiseChain
 						.then( function () {
