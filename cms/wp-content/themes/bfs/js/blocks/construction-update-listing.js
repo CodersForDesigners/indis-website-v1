@@ -40,13 +40,13 @@ registerBlockType( "bfs/construction-update-listing", {
 	// save () { return null; }
 } );
 
-function PostsComponent ( { posts } ) {
+function PostsComponent ( { postId, posts } ) {
 
 	// Fallback UI if posts are being fetchec
 	if ( ! posts )
 		return el( "p", { }, "Fetching construction updates..." );
 
-	let AddUpdate = el( "p", { }, el( "a", { target: "_blank", href: location.origin + "/cms/wp-admin/post-new.php?post_type=update" }, "Add an update." ) );
+	let AddUpdate = el( "p", { }, el( "a", { target: "_blank", href: location.origin + "/cms/wp-admin/post-new.php?post_type=update" + ( postId ? `&parent=${ postId }` : "" ) }, "Add an update." ) );
 
 	// Fallback UI if no posts exist
 	if ( ! posts.length )
@@ -86,9 +86,9 @@ function PostsComponent ( { posts } ) {
 	);
 }
 function constructionUpdateListingBlockEditor ( { className } ) {
-	let { posts } = useSelect( function ( select ) {
+	let { postId, posts } = useSelect( function ( select ) {
 		return {
-			// postId: select( "core/editor" ).getEditedPostAttribute( "id" ),
+			postId: select( "core/editor" ).getEditedPostAttribute( "id" ),
 			posts: select( "core" ).getEntityRecords( "postType", "update", {
 				parent: select( "core/editor" ).getEditedPostAttribute( "id" ),
 				// parent: 187,
@@ -100,14 +100,9 @@ function constructionUpdateListingBlockEditor ( { className } ) {
 	} );
 	return el( "div", { className },
 		el( "h2", { }, "Construction Updates" ),
-		el( PostsComponent, { posts } )
+		el( PostsComponent, { postId, posts } )
 	);
 }
-
-function editFunc ( { className } ) {
-	return el( "h2", { className }, "Construction Updates" );
-}
-// END
 
 
 

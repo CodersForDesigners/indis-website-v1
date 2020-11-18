@@ -75,7 +75,9 @@ function ProjectSelectorComponent ( {
 	postOptions.unshift( { label: "Select a " + postTypeSingularLabel + ".", value: "", disabled: true } );
 
 	useEffect( function () {
-		// let post = pagesTree.find( page => page.id == parent );
+		// Initialize the parent post id (required for when it informed by the URL)
+		setParentPost( parent );
+
 		let post = postOptions.find( post => post.value == parent );
 		if ( post && post.value ) {
 			// let postTitle = post.name;
@@ -104,8 +106,14 @@ const applyWithSelect = withSelect( ( select ) => {
 		_fields: "id,title,parent",
 	};
 
+	// Pull the parent id from the URL (if present)
+	let parent__fromURL = ( new URLSearchParams( location.search ) ).get( "parent" );
+	if ( ! ( typeof parent__fromURL === "string" && /^\d/.test( parent__fromURL ) ) )
+		parent__fromURL = 0;
+	let parent__fromDB = getEditedPostAttribute( "parent" );
+
 	return {
-		parent: getEditedPostAttribute( "parent" ),
+		parent: parent__fromDB || parent__fromURL,
 		items: getEntityRecords( "postType", postType, query ),
 		postType,
 		postTypeSingularLabel,
@@ -230,6 +238,14 @@ function RootContext ( { children } ) {
 	// This is a local cache of the date value (to prevent it from being changed externally)
 	let [ dateString, setDateString ] = useState( dateString__FromDB );
 	let { editPost } = useDispatch( "core/editor" );
+
+	// If the day of the date is not set to the first of the month, do so
+	let dateInISOFormat = dateString + ".000Z";
+	let dateObject = new Date( dateInISOFormat );
+	if ( dateObject.getDate() !== 1 ) {
+		dateObject.setDate( 1 );
+		setDate( dateObject );
+	}
 
 	// If the date from the DB/Environment does not match what's in the local cache, use the value from the cache
 	if ( dateString !== dateString__FromDB )
