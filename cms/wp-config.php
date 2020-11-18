@@ -70,7 +70,7 @@ define( 'WP_CACHE', CMS_CACHE_PAGES );
  */
 // Prevent posts from auto-saving
 define( 'AUTOSAVE_INTERVAL', 60 * 60 * 24 );
-define( 'WP_POST_REVISIONS', false );
+define( 'WP_POST_REVISIONS', 50 );
 if ( ! defined( 'UPLOADS' ) )
 	define( 'UPLOADS', '../content/cms' );	# this one is relative to `ABSPATH`
 
