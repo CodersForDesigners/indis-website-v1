@@ -280,6 +280,26 @@ add_action( 'acf/init', function () {
 	}
 
 
+	// New Kid on the Block block
+	acf_register_block_type( [
+		'name' => 'bfs-new-kid-on-the-block',
+		'title' => __( 'New Kid on the Block' ),
+		'description' => __( 'It\'s new.' ),
+		'category' => 'common',
+		'icon' => 'wordpress',
+		'align' => '',
+		'mode' => 'auto',
+		'supports' => [
+			'multiple' => true,
+			'align' => true,
+			'align_text' => true,
+			'align_content' => true
+		],
+		'render_template' => __DIR__ . '/../template-parts/new-kid-on-the-block.php'
+	] );
+
+
+
 } );
 
 /*
