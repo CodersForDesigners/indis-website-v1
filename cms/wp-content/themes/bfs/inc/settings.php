@@ -280,11 +280,11 @@ add_action( 'acf/init', function () {
 	}
 
 
-	// New Kid on the Block block
+	// For the Geek in you : block
 	acf_register_block_type( [
-		'name' => 'bfs-new-kid-on-the-block',
-		'title' => __( 'New Kid on the Block' ),
-		'description' => __( 'It\'s new.' ),
+		'name' => 'bfs-for-the-geek-in-you',
+		'title' => __( 'For the Geek in you' ),
+		'description' => __( 'Link to associated article' ),
 		'category' => 'common',
 		'icon' => 'wordpress',
 		'align' => '',
@@ -295,7 +295,7 @@ add_action( 'acf/init', function () {
 			'align_text' => true,
 			'align_content' => true
 		],
-		'render_template' => __DIR__ . '/../template-parts/new-kid-on-the-block.php'
+		'render_template' => __DIR__ . '/../template-parts/for-the-geek-in-you.php'
 	] );
 
 

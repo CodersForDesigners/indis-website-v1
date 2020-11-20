@@ -133,3 +133,18 @@
 	.blog-page .blog-content small { font-size: 1.2rem; }
 	.blog-page .blog-content label { font-size: 1.4rem; }
 }
+
+
+
+
+
+/*
+ * Associate Article Block
+ */
+
+.associate-article-block {
+	width: 100vw;
+	margin-left: 50%;
+	transform: translateX(-50%);
+	margin-bottom: var(--space-25);
+}
