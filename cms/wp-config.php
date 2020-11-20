@@ -107,7 +107,8 @@ define( 'DB_PASSWORD', CMS_DB_PASSWORD );
 define( 'DB_HOST', CMS_DB_HOST );
 
 /** Use an SSL connection when connecting to the database */
-// define( 'MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL );
+if ( CMS_DB_SSL )
+	define( 'MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL );
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
