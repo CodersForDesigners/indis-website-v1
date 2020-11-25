@@ -57,8 +57,8 @@
 						<div class="address h4 text-neutral-2 space-min-bottom">Plot No. 825, Road No.44, <br>Jubilee Hills, Hyderabad, <br>Telangana — 500033.</div>
 						<a href="https://goo.gl/maps/jFcbmAJ1rhwwh5Wo6" target="_blank" class="hidden link label strong text-red-2 text-uppercase inline-middle">Open in Google Maps <img class="link-icon inline-middle" src="../media/icon/icon-location-color.svg<?php echo $ver ?>"></a>
 
-						<a href="mailto:cs@indis.co.in" target="_blank" class="label strong text-neutral-4 inline-middle">
-							cs@indis.co.in
+						<a href="mailto:corporateaffairs@indis.co.in" target="_blank" class="label strong text-neutral-4 inline-middle">
+							corporateaffairs@indis.co.in
 							<span class="small strong text-uppercase text-neutral-2">for Corporate Enquiries</span>
 						</a><br>
 						<a href="mailto:ask@indis.co.in" target="_blank" class="label strong text-neutral-4 inline-middle">
