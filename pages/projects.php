@@ -488,7 +488,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 <!-- Engineering Section : Concrete -->
 <?php if( ! empty( $showEngineeringConcrete ) ) : ?>
-<section data-section="Engineering — High-rise" data-id="engineering-high-rise" class="engineering-section concrete space-50-top-bottom">
+<section data-section="Engineering — High-rise" data-id="engineering-high-rise" id="engineering-high-rise" class="engineering-section concrete space-50-top-bottom">
 	<div class="container">
 		<div class="row row-1">
 			<div class="section-label columns small-12 xlarge-10 xlarge-offset-1 space-25-bottom">
