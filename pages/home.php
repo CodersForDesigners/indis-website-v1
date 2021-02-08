@@ -22,13 +22,15 @@ if ( $projectToHighlight1 )
 if ( $projectToHighlight2 )
 	$projectsToHighlight[ $projectToHighlight2[ 'name' ] ] = $projectToHighlight2;
 if ( ! empty( $projectsToHighlight ) )
-	foreach ( $projects as &$project ) {
+	foreach ( $projects as $index => $project ) {
 		if ( ! in_array( $project[ 'ID' ], array_keys( $projectsToHighlight ) ) )
 			continue;
 		$project[ 'highlight' ] = [
 			'label' => $projectsToHighlight[ $project[ 'ID' ] ][ 'label' ],
 			'value' => $projectsToHighlight[ $project[ 'ID' ] ][ 'value' ]
 		];
+		// Overwrite the project with the new data
+		$projects[ $index ] = $project;
 	}
 
 // Consolidate the featured spotlights across all projects
