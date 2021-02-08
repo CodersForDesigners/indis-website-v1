@@ -31,10 +31,15 @@ class CMS {
 
 
 		foreach ( $postsFromDB as &$post ) {
+			if ( isset( self::$cache[ $post->ID ] ) ) {
+				$post = self::$cache[ $post->ID ];
+				continue;
+			}
+
 			$post = get_object_vars( $post );
 			// Reset the var where the ACF data will be stored
 			self::$currentQueriedPostId = $post[ 'ID' ];
-			self::$currentQueriedPostACF = get_fields( $post[ 'ID' ] );
+			self::$currentQueriedPostACF = get_fields( $post[ 'ID' ] ) ?: [ ];
 			$post[ 'post_content' ] = apply_filters( 'the_content', $post[ 'post_content' ] );
 			$post[ 'acf' ] = self::$currentQueriedPostACF;
 			self::$currentQueriedPostId = null;
@@ -51,6 +56,9 @@ class CMS {
 
 	public static function getPostById ( $id ) {
 
+		if ( isset( self::$cache[ $id ] ) )
+			return self::$cache[ $id ];
+
 		$postFromDB = get_post( $id, ARRAY_A ) ?? null;
 
 		if ( ! $postFromDB )
@@ -60,7 +68,7 @@ class CMS {
 		// Reset the var where the ACF data will be stored
 		self::$currentQueriedPostId = $post[ 'ID' ];
 			// 1. Fetch the ACF fields that are not blocks
-		self::$currentQueriedPostACF = get_fields( $post[ 'ID' ] );
+		self::$currentQueriedPostACF = get_fields( $post[ 'ID' ] ) ?: [ ];
 			// 2. Fetch the ACF fields that are blocks
 		$post[ 'post_content' ] = apply_filters( 'the_content', $post[ 'post_content' ] );
 		// Neatly store all the ACF fields in a sub-field
@@ -75,6 +83,9 @@ class CMS {
 
 	public static function getPostBySlug ( $slug ) {
 
+		if ( isset( self::$cache[ $slug ] ) )
+			return self::$cache[ $slug ];
+
 		global $postType;
 
 		$postFromDB = get_page_by_path( $slug, OBJECT, $postType ?: [ 'page', 'attachment' ] ) ?? null;
@@ -85,7 +96,7 @@ class CMS {
 		$post = get_object_vars( $postFromDB );
 		// Reset the var where the ACF data will be stored
 		self::$currentQueriedPostId = $post[ 'ID' ];
-		self::$currentQueriedPostACF = get_fields( $post[ 'ID' ] );
+		self::$currentQueriedPostACF = get_fields( $post[ 'ID' ] ) ?: [ ];
 		$post[ 'post_content' ] = apply_filters( 'the_content', $post[ 'post_content' ] );
 		$post[ 'acf' ] = self::$currentQueriedPostACF;
 		self::$currentQueriedPostId = null;
