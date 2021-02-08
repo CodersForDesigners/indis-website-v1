@@ -318,10 +318,16 @@ $( window ).on( "scroll", controlDisplayAndStickinessOfNavigationBar );
  */
 // The hash was removed but cached in this variable
 if ( window.__BFS.scrollTo ) {
-	if ( window.scrollY < 1 )
-		smoothScrollTo( window.__BFS.scrollTo );
-	var fullURL = location.origin + location.pathname + location.search + window.__BFS.scrollTo;
-	window.history.replaceState( { }, "", fullURL )
+	function scrollToSectionMentionedInURL () {
+		if ( window.scrollY < 1 )
+			smoothScrollTo( window.__BFS.scrollTo );
+		var fullURL = location.origin + location.pathname + location.search + window.__BFS.scrollTo;
+		window.history.replaceState( { }, "", fullURL )
+	}
+	if ( window.__BFS.disclaimerIsDue )
+		$( document ).on( "disclaimer/close", scrollToSectionMentionedInURL );
+	else
+		scrollToSectionMentionedInURL();
 }
 
 
