@@ -109,7 +109,7 @@
 
 	</div><!-- END : Page Wrapper -->
 
-	<?php require_once 'modals.php' ?>
+	<?php require_once __DIR__ . '/modals.php' ?>
 
 	<!--  ☠  MARKUP ENDS HERE  ☠  -->
 
