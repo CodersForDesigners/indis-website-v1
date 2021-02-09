@@ -18,7 +18,7 @@
 		</div><!-- END : Sample Video -->
 
 		<!-- Modal Content : Image Gallery -->
-		<div class="modal-box-content js_modal_box_content js_gallery_modal" data-mod-id="image-gallery">
+		<div class="modal-box-content js_modal_box_content js_gallery_modal js_gallery_lightbox" data-mod-id="image-gallery">
 			<div class="container">
 				<div class="row">
 					<div class="columns small-12">
@@ -31,8 +31,8 @@
 					</div>
 				</div>
 				<div class="no-pointer carousel-controls block clearfix" style="position: fixed; width: var(--container-width); z-index: 2; top: 50vh; transform: translateY(-50%);">
-					<div class="prev float-left" style="pointer-events: all;"><button class="button icon-button js_arrow" data-dir="left" style="background-image: url('../media/icon/icon-left-triangle-dark.svg<?php echo $ver ?>');"></button></div>
-					<div class="next float-right" style="pointer-events: all;"><button class="button icon-button js_arrow" data-dir="right" style="background-image: url('../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>');"></button></div>
+					<div class="prev float-left" style="pointer-events: all;"><button class="button icon-button js_arrow" data-dir="prev" style="background-image: url('../media/icon/icon-left-triangle-dark.svg<?php echo $ver ?>');"></button></div>
+					<div class="next float-right" style="pointer-events: all;"><button class="button icon-button js_arrow" data-dir="next" style="background-image: url('../media/icon/icon-right-triangle-dark.svg<?php echo $ver ?>');"></button></div>
 				</div>
 			</div>
 		</div><!-- END : Image Gallery -->

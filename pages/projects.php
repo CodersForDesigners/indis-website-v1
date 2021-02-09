@@ -93,7 +93,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- Cover Section -->
-<section data-section="Cover" data-id="cover" class="cover-section space-25-top space-50-bottom js_gallery_region" data-set="cover">
+<section data-section="Cover" data-id="cover" class="cover-section space-25-top space-50-bottom" data-gallery="cover">
 	<div class="container">
 		<div class="row">
 			<div class="cover-image-container image-1 columns small-12 large-12">
@@ -112,24 +112,24 @@ require_once __DIR__ . '/../inc/above.php';
 			<div class="cover-image-strip columns small-4 medium-2 large-6">
 				<div class="row">
 					<div class="cover-image-container image-2 columns small-12 large-4">
-						<div class="cover-image fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer" tabindex="-1" data-mod-id="image-gallery">
+						<div class="cover-image fill-neutral-2 js_gallery_item js_modal_trigger cursor-pointer" data-mod-id="image-gallery" tabindex="-1">
 							<img src="<?= $coverImages[ 1 ][ 'image' ][ 'sizes' ][ 'small' ] ?>">
 						</div>
 					</div>
 					<div class="cover-image-container image-3 columns small-12 large-4">
-						<div class="cover-image fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer" tabindex="-1" data-mod-id="image-gallery">
+						<div class="cover-image fill-neutral-2 js_gallery_item js_modal_trigger cursor-pointer" data-mod-id="image-gallery" tabindex="-1">
 							<img src="<?= $coverImages[ 2 ][ 'image' ][ 'sizes' ][ 'small' ] ?>">
 						</div>
 					</div>
 					<div class="cover-image-container image-4 columns small-12 large-4">
-						<div class="cover-image fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer" tabindex="-1" data-mod-id="image-gallery">
+						<div class="cover-image fill-neutral-2 js_gallery_item js_modal_trigger js_trigger_gallery cursor-pointer" data-mod-id="image-gallery" tabindex="-1">
 							<img src="<?= $coverImages[ 3 ][ 'image' ][ 'sizes' ][ 'small' ] ?>">
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="cover-image-container image-5 columns small-12 medium-6 large-4">
-				<div class="cover-image portrait fill-neutral-2 js_modal_trigger js_gallery_item cursor-pointer" tabindex="-1" data-mod-id="image-gallery">
+				<div class="cover-image portrait fill-neutral-2 js_gallery_item js_modal_trigger cursor-pointer" data-mod-id="image-gallery" tabindex="-1">
 					<img src="<?= $coverImages[ 4 ][ 'image' ][ 'sizes' ][ 'medium' ] ?>">
 					<div class="icon-button zoom" style="background-image: url('../media/icon/icon-zoom.svg<?php echo $ver ?>');"></div>
 				</div>
@@ -263,7 +263,7 @@ require_once __DIR__ . '/../inc/above.php';
 			</div>
 		</div>
 		<?php foreach ( $spotlights as $index => $spotlight ) : ?>
-			<div class="carousel-list-item js_carousel_item js_gallery_region qpid_login_site js_spotlight <?php if ( $index >= 3 ) echo 'hidden' ?>" data-set="spotlight<?= $index + 1 ?>">
+			<div class="carousel-list-item js_carousel_item qpid_login_site js_spotlight <?php if ( $index >= 3 ) echo 'hidden' ?>" data-gallery="spotlight<?= $index + 1 ?>">
 				<div class="card-index text-neutral-2">
 					<div class="count h3 inline-bottom"><?= str_pad( $index + 1, 2, '0', STR_PAD_LEFT ) ?></div>
 					<div class="total label strong text-uppercase inline-bottom"><?= $numberOfSpotlight ?></div>
@@ -286,7 +286,7 @@ require_once __DIR__ . '/../inc/above.php';
 				</div>
 				<button id="spotlight-<?= $index + 1 ?>-enquire" class="button fill-neutral-4 text-light button-icon js_spotlight_enquire" data-c="/spotlight/<?= $urlSlug ?>" data-spotlight="<?= 'Spotlight - ' . $spotlight[ 'spotlight_series_id' ] ?>" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">Enquire Now</button>
 				<!-- This button will be shown after verification (if there's a floorplan) -->
-				<button class="button fill-neutral-4 text-light button-icon hidden js_view_spotlight_floorplan js_modal_trigger js_gallery_item" data-mod-id="image-gallery" data-series-id="<?= $spotlight[ 'spotlight_series_id' ] ?>" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">View <?= $spotlight[ 'spotlight_series_id' ] ?> Floorplan</button>
+				<button class="button fill-neutral-4 text-light button-icon hidden js_view_spotlight_floorplan js_gallery_item js_modal_trigger" data-mod-id="image-gallery" data-series-id="<?= $spotlight[ 'spotlight_series_id' ] ?>" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-2);">View <?= $spotlight[ 'spotlight_series_id' ] ?> Floorplan</button>
 				<!-- Phone Trap -->
 				<div class="phone-trap phone-number columns small-12 large-9 xlarge-10">
 					<form class="js_phone_form" style="display: none">
@@ -674,11 +674,11 @@ require_once __DIR__ . '/../inc/above.php';
 	__DATA.galleries = __DATA.galleries || { };
 	__DATA.galleries.amenities = <?php echo json_encode( $amenityImages ) ?>;
 </script>
-<div class="carousel carousel-mini amenities-carousel fill-dark js_carousel_container js_gallery_region" data-set="amenities">
+<div class="carousel carousel-mini amenities-carousel fill-dark js_carousel_container" data-gallery="amenities">
 	<div class="carousel-list js_carousel_content">
 		<?php foreach ( $amenityImages as $image ) : ?>
 			<div class="carousel-list-item js_carousel_item">
-				<div class="carousel-mini-image cursor-pointer js_modal_trigger js_gallery_item" data-mod-id="image-gallery" style="background-image: url( '<?= $image[ 'image' ][ 'sizes' ][ 'small' ] ?>' );"></div>
+				<div class="carousel-mini-image cursor-pointer js_gallery_item js_modal_trigger" data-mod-id="image-gallery" style="background-image: url( '<?= $image[ 'image' ][ 'sizes' ][ 'small' ] ?>' );"></div>
 			</div>
 		<?php endforeach; ?>
 	</div>
@@ -799,7 +799,7 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- NPS Section -->
-<?php require_once __DIR__ . '/../inc/nps.php'; ?>
+<?php //require_once __DIR__ . '/../inc/nps.php'; ?>
 <!-- END: NPS Section -->
 
 
@@ -1013,15 +1013,15 @@ require_once __DIR__ . '/../inc/above.php';
 							__DATA.galleries = __DATA.galleries || { };
 							__DATA.galleries.constructionUpdate_<?= $groupIndex . '_' . $updateIndex ?> = <?php echo json_encode( $update[ 'update_images' ] ) ?>;
 						</script>
-						<div class="row js_tab <?php if ( $updateIndex ) echo 'hidden' ?> js_gallery_region" data-set="constructionUpdate_<?= $groupIndex . '_' . $updateIndex ?>" data-tab="<?= $update[ 'update_name' ] ?>">
+						<div class="row js_tab <?php if ( $updateIndex ) echo 'hidden' ?>" data-gallery="constructionUpdate_<?= $groupIndex . '_' . $updateIndex ?>" data-tab="<?= $update[ 'update_name' ] ?>">
 							<div class="update-featured columns small-12 large-5">
-								<div class="image cursor-pointer js_modal_trigger js_gallery_item <?php if ( $update[ 'update_images' ][ 0 ][ 'image' ][ 'width' ] / $update[ 'update_images' ][ 0 ][ 'image' ][ 'height' ] < 1.25 ) echo 'fit-image' ?>" data-mod-id="image-gallery" style="background-image: url( '<?= $update[ 'update_images' ][ 0 ][ 'image' ][ 'sizes' ][ 'medium' ] ?>' );"></div>
+								<div class="image cursor-pointer js_gallery_item js_modal_trigger <?php if ( $update[ 'update_images' ][ 0 ][ 'image' ][ 'width' ] / $update[ 'update_images' ][ 0 ][ 'image' ][ 'height' ] < 1.25 ) echo 'fit-image' ?>" data-mod-id="image-gallery" style="background-image: url( '<?= $update[ 'update_images' ][ 0 ][ 'image' ][ 'sizes' ][ 'medium' ] ?>' );"></div>
 								<div class="icon-button zoom " style="background-image: url('../media/icon/icon-zoom-white.svg<?php echo $ver ?>');"></div>
 							</div>
 							<div class="update-gallery columns small-12 large-7">
 								<div class="block row position-relative">
 									<?php foreach ( array_slice( $update[ 'update_images' ], 1, 9 ) as $image ) : ?>
-										<div class="image-container columns small-6 medium-4"><div class="image cursor-pointer js_modal_trigger js_gallery_item <?php if ( $image[ 'image' ][ 'width' ] / $image[ 'image' ][ 'height' ] < 1.25 ) echo 'fit-image' ?>" data-mod-id="image-gallery" style="background-image: url( '<?= $image[ 'image' ][ 'sizes' ][ 'small' ] ?>' );"></div></div>
+										<div class="image-container columns small-6 medium-4"><div class="image cursor-pointer js_gallery_item js_modal_trigger <?php if ( $image[ 'image' ][ 'width' ] / $image[ 'image' ][ 'height' ] < 1.25 ) echo 'fit-image' ?>" data-mod-id="image-gallery" style="background-image: url( '<?= $image[ 'image' ][ 'sizes' ][ 'small' ] ?>' );"></div></div>
 									<?php endforeach; ?>
 								</div>
 							</div>
