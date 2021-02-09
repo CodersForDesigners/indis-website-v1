@@ -270,20 +270,10 @@ add_action( 'acf/init', function () {
 		'render_callback' => 'acf_render_callback'
 	] );
 
-
-	function acf_render_callback ( $block, $content, $is_preview, $post_id ) {
-		if ( ! class_exists( '\BFS\CMS' ) )
-			return;
-
-		\BFS\CMS::$currentQueriedPostACF = array_merge( \BFS\CMS::$currentQueriedPostACF, get_fields() ?: [ ] );
-
-	}
-
-
-	// For the Geek in you : block
+	// For the Geek in You block
 	acf_register_block_type( [
 		'name' => 'bfs-for-the-geek-in-you',
-		'title' => __( 'For the Geek in you' ),
+		'title' => __( 'For the Geek in You' ),
 		'description' => __( 'Link to associated article' ),
 		'category' => 'common',
 		'icon' => 'wordpress',
@@ -299,6 +289,14 @@ add_action( 'acf/init', function () {
 	] );
 
 
+
+	function acf_render_callback ( $block, $content, $is_preview, $post_id ) {
+		if ( ! class_exists( '\BFS\CMS' ) )
+			return;
+
+		\BFS\CMS::$currentQueriedPostACF = array_merge( \BFS\CMS::$currentQueriedPostACF, get_fields() ?: [ ] );
+
+	}
 
 } );
 
