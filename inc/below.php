@@ -126,11 +126,11 @@
 	<!-- JS Modules -->
 	<script type="text/javascript" src="/js/modules/utils.js<?= $ver ?>"></script>
 	<!-- <script type="text/javascript" src="/js/modules/device-charge.js<?= $ver ?>"></script> -->
+	<script type="text/javascript" src="/js/modules/disclaimer.js<?= $ver ?>"></script>
 	<script type="text/javascript" src="/js/navigation.js<?= $ver ?>"></script>
 	<script type="text/javascript" src="/js/modules/carousel.js<?= $ver ?>"></script>
 	<script type="text/javascript" src="/js/modules/modal_box.js<?= $ver ?>"></script>
 	<script type="text/javascript" src="/js/modules/form.js<?= $ver ?>"></script>
-	<script type="text/javascript" src="/js/modules/disclaimer.js<?= $ver ?>"></script>
 	<script type="text/javascript" src="/js/modules/phone_country_code.js<?= $ver ?>"></script>
 	<script type="text/javascript" src="/js/modules/gallery.js<?= $ver ?>"></script>
 	<script type="text/javascript" src="/js/modules/tabs.js<?= $ver ?>"></script>
