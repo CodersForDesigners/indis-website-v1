@@ -29,10 +29,10 @@ $postContent = str_replace( ']]>', ']]&gt;', apply_filters( 'the_content', $theP
 	</div>
 	<div class="container">
 		<div class="row">
-			<div class="columns small-12 large-8 large-offset-2">
+			<div class="columns small-12 large-10 xlarge-9">
 				<div class="blog-title h1 strong text-lowercase space-50-top-bottom"><?= $thePost[ 'post_title' ] ?></div>
 			</div>
-			<div class="columns small-12 large-8 large-offset-2">
+			<div class="columns small-12 large-9 xlarge-8">
 				<div class="blog-content"><?= $postContent ?></div>
 			</div>
 		</div>
