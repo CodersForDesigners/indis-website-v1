@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="58px" height="57px" viewBox="0 0 58 57" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/icon-backdoor</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/icon-backdoor" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="leave" stroke="#C0343C" stroke-width="2">
+            <polyline id="Path" points="0 1 0 0 37 0 37 18"></polyline>
+            <polyline id="Path" points="0 0 22 14 22 57 0 45 0 0"></polyline>
+            <polyline id="Path" points="37 30 37 45 22 45"></polyline>
+            <path d="M29,24 L58,24" id="Path"></path>
+            <polyline id="Path" points="47 13 58 24 47 35"></polyline>
+        </g>
+    </g>
+</svg>

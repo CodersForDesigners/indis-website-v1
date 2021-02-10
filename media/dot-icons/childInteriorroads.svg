@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/icon-childInteriorroads</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/icon-childInteriorroads" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="socket-europe-1-copy-2" transform="translate(0.000000, 59.000000)" stroke="#C0343C" stroke-width="2">
+            <path d="M59.5081967,1 L0.491803279,1" id="Path"></path>
+        </g>
+        <circle id="Oval" stroke="#C0343C" stroke-width="2" cx="50.5" cy="5.5" r="1.5"></circle>
+        <path d="M52.9873896,18.2473297 C52.9957291,18.3304208 53,18.4147117 53,18.5 L53,21.5 C53,22.8807119 51.8807119,24 50.5,24 C49.1192881,24 48,22.8807119 48,21.5 L48,18.5 C48,18.4147117 48.0042709,18.3304208 48.0126104,18.2473297 C47.391546,17.6976888 47,16.8945696 47,16 L47,13 C47,11.3431458 48.3431458,10 50,10 L51,10 C52.6568542,10 54,11.3431458 54,13 L54,16 C54,16.8945696 53.608454,17.6976888 52.9873896,18.2473297 Z" id="Combined-Shape" stroke="#C0343C" stroke-width="2"></path>
+        <g id="road-sign-right" transform="translate(5.000000, 22.000000)" stroke="#C0343C" stroke-width="2">
+            <polyline id="Path" points="11 19 11 38 19 38 19 19"></polyline>
+            <polyline id="Path" points="19 6 19 0 11 0 11 6"></polyline>
+            <path d="M15.5,38 L15.5,31" id="Path"></path>
+            <polygon id="Path" points="0 19 28.75 19 35 12.5 28.75 6 0 6"></polygon>
+        </g>
+    </g>
+</svg>

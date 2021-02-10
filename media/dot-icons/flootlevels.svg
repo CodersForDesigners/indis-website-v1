@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="51px" height="57px" viewBox="0 0 51 57" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/icon-ground2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/icon-ground2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2">
+            <path d="M0,56.5 L50.9486093,56.5" id="Line" stroke="#C0343C" stroke-width="2" stroke-linecap="square"></path>
+            <path d="M0,37.5 L50.9486093,37.5" id="Line-Copy" stroke="#C0343C" stroke-width="2" stroke-linecap="square"></path>
+            <path d="M0,19.5 L50.9486093,19.5" id="Line-Copy-2" stroke="#C0343C" stroke-width="2" stroke-linecap="square"></path>
+            <path d="M0,0.5 L50.9486093,0.5" id="Line-Copy-3" stroke="#C0343C" stroke-width="2" stroke-linecap="square"></path>
+            <text id="G" font-family="MuseoSans-900, Museo Sans" font-size="12" font-weight="bold" fill="#C0343C">
+                <tspan x="39.38" y="51">G</tspan>
+            </text>
+            <text id="1" font-family="MuseoSans-900, Museo Sans" font-size="12" font-weight="bold" fill="#C0343C">
+                <tspan x="41.17" y="33">1</tspan>
+            </text>
+            <text id="2" font-family="MuseoSans-900, Museo Sans" font-size="12" font-weight="bold" fill="#C0343C">
+                <tspan x="40.394" y="14">2</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

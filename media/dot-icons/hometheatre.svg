@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/icon-optionalhometheatre</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/icon-optionalhometheatre" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <polyline id="Path-41" stroke="#C0343C" stroke-width="2" points="21 21 10 21 17 60 45 60 52 21 38 21"></polyline>
+        <path d="M42,21 L38,60" id="Path-42" stroke="#C0343C" stroke-width="2"></path>
+        <path d="" id="Path-43" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M21,28 L24,60" id="Path-44" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M59.5081967,60 L0.491803279,60" id="Path" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M31,24 L31,60" id="Path-45" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M18.7504409,20.5644755 C19.2633954,19.8335755 19.5644755,18.9431487 19.5644755,17.982401 C19.5644755,15.4971196 17.5497569,13.482401 15.0644755,13.482401 C13.6237926,13.482401 12.3412357,14.1594188 11.517599,15.21266" id="Oval" stroke="#C0343C" stroke-width="2" transform="translate(15.541037, 17.023438) rotate(270.000000) translate(-15.541037, -17.023438) "></path>
+        <path d="M21.7138455,6.48793917 C21.4136218,6.4040743 21.0971119,6.35923518 20.7701293,6.35923518 C18.8371327,6.35923518 17.2701293,7.92623856 17.2701293,9.85923518" id="Oval-Copy" stroke="#C0343C" stroke-width="2" transform="translate(19.491987, 8.109235) rotate(-10.000000) translate(-19.491987, -8.109235) "></path>
+        <circle id="Oval-Copy-7" stroke="#C0343C" stroke-width="2" cx="38" cy="11" r="2"></circle>
+        <path d="M28.3891309,17.4391587 C28.4616075,17.1379451 28.5,16.8234561 28.5,16.5 C28.5,14.290861 26.709139,12.5 24.5,12.5" id="Oval-Copy-2" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M37,6.5 C37,3.46243388 34.5375661,1 31.5,1 C28.4624339,1 26,3.46243388 26,6.5" id="Oval-Copy-3" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M44,9 C44,6.790861 42.209139,5 40,5" id="Oval-Copy-4" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M48.2421303,21.0001422 C48.7208272,20.285065 49,19.4251347 49,18.5 C49,16.0147186 46.9852814,14 44.5,14 C42.8269587,14 41.3671628,14.9130123 40.5916813,16.2679678" id="Oval-Copy-5" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M34.9169367,24 C34.1380496,22.2514673 32.3850358,21.0324912 30.3473149,21.0324912 C28.7605035,21.0324912 27.3463394,21.7716817 26.4303781,22.924507" id="Oval-Copy-6" stroke="#C0343C" stroke-width="2" transform="translate(30.673657, 22.516246) rotate(180.000000) translate(-30.673657, -22.516246) "></path>
+    </g>
+</svg>

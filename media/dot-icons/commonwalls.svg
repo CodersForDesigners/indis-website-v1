@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/icon-commonWalls</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/icon-commonWalls" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="socket-europe-1" stroke="#C0343C" stroke-width="2">
+            <path d="M14,0 L14,60" id="Path"></path>
+            <path d="M46,0 L46,60" id="Path"></path>
+            <rect id="Rectangle" x="0" y="0" width="60" height="60"></rect>
+            <circle id="Oval" cx="30" cy="30" r="3"></circle>
+            <circle id="Oval" cx="30" cy="14" r="3"></circle>
+            <circle id="Oval" cx="30" cy="46" r="3"></circle>
+        </g>
+    </g>
+</svg>

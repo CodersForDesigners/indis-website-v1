@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/icon-tree</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/icon-tree" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <polyline id="Path-19" stroke="#C0343C" stroke-width="2" points="30 59.5 30 31.5 40.5 21"></polyline>
+        <path d="M22,30 L30,45.5" id="Path-26" stroke="#C0343C" stroke-width="2"></path>
+        <polyline id="Path-27" stroke="#C0343C" stroke-width="2" points="19 15.6439927 22 17.1439927 22 21.1439927"></polyline>
+        <path d="M23.2610876,14 C22.802547,15.118506 22.3440064,16.2370119 21.8854658,17.3555179" id="Path-28" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M30,32 L30,15.6777589" id="Path-29" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M12.1611697,15.1145028 C13.2868949,6.85508483 20.1731208,0.5 28.5,0.5 C36.5429383,0.5 43.2417987,6.42906616 44.7037479,14.2764006 C53.3940452,15.793622 60,23.3753593 60,32.5 C60,42.7172679 51.7172679,51 41.5,51 L18.5,51 C8.28273213,51 1.25125444e-15,42.7172679 0,32.5 C-9.78558367e-16,24.5094645 5.06589079,17.7021313 12.1611697,15.1145028 Z" id="Combined-Shape" stroke="#C0343C" stroke-width="2"></path>
+    </g>
+</svg>

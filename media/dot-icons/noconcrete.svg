@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/icon-noconcrete</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/icon-noconcrete" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <polyline id="Path-11" stroke="#C0343C" stroke-width="2" points="-3.19744231e-14 34 8 34 8 40 15 40 15 47 22 47 22 53 29 53 29 60"></polyline>
+        <path d="M12,34 L60,34" id="Path-16" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M27,29.5 L34,29.5" id="Path-17" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M27,19.5 L34,19.5" id="Path-17-Copy-2" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M27,9.5 L34,9.5" id="Path-17-Copy-4" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M27,24.5 L34,24.5" id="Path-17-Copy" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M27,14.5 L34,14.5" id="Path-17-Copy-3" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M27,4.5 L34,4.5" id="Path-17-Copy-5" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M27,0 L34,0" id="Path-17-Copy-6" stroke="#C0343C" stroke-width="2"></path>
+    </g>
+</svg>

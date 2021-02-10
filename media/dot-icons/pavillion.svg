@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/icons-pavillion</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/icons-pavillion" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="centralize" stroke="#C0343C" stroke-width="2">
+            <path d="M16,16 L0,0" id="Path"></path>
+            <polyline id="Path" points="0 16 16 16 16 0"></polyline>
+            <path d="M44,16 L60,0" id="Path"></path>
+            <polyline id="Path" points="60 16 44 16 44 0"></polyline>
+            <path d="M16,44 L0,60" id="Path"></path>
+            <polyline id="Path" points="0 44 16 44 16 60"></polyline>
+            <path d="M44,44 L60,60" id="Path"></path>
+            <polyline id="Path" points="60 44 44 44 44 60"></polyline>
+            <circle id="Oval" cx="30" cy="30" r="10"></circle>
+        </g>
+    </g>
+</svg>

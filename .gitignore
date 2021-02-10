@@ -5,9 +5,6 @@
 # the environment configuration
 /conf.php
 
-# the media directory
-/media
-
 # the content directory
 /content
 

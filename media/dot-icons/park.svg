@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/icon-woodencentralpark</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/icon-woodencentralpark" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M47.5,8.78258273 L47.5,59.5" id="Line-3" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M51.5,16.75 L47.5,19.5" id="Line-4" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M42,16 L47.5,21.5" id="Line-5" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M41.2071551,8.69717545 C41.0718299,8.15378347 41,7.58528012 41,7 C41,3.13400675 44.1340068,0 48,0 C51.8659932,0 55,3.13400675 55,7 C55,7.7816696 54.8718779,8.53341468 54.6354883,9.23538053 C57.878007,11.4936576 60,15.2490198 60,19.5 C60,26.4035594 54.4035594,32 47.5,32 C40.5964406,32 35,26.4035594 35,19.5 C35,14.890943 37.4945369,10.8645163 41.2071551,8.69717545 Z" id="Combined-Shape" stroke="#C0343C" stroke-width="2"></path>
+        <g id="socket-europe-1-copy-2" transform="translate(0.000000, 59.000000)" stroke="#C0343C" stroke-width="2">
+            <path d="M59.5081967,1 L0.491803279,1" id="Path"></path>
+        </g>
+        <rect id="Rectangle" stroke="#C0343C" stroke-width="2" x="0" y="49" width="41" height="5" rx="2"></rect>
+        <rect id="Rectangle" stroke="#C0343C" stroke-width="2" x="5" y="54" width="5" height="6"></rect>
+        <path d="M1.5,44.5 L38.972437,44.5" id="Line" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M1.5,39.5 L38.972437,39.5" id="Line-Copy" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M6.5,49 L6.5,36.0707918" id="Line-2" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M34.5,49 L34.5,36.0707918" id="Line-2-Copy" stroke="#C0343C" stroke-width="2"></path>
+        <rect id="Rectangle-Copy" stroke="#C0343C" stroke-width="2" x="33" y="54" width="5" height="6"></rect>
+    </g>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/icon-electrifiedboundary</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/icon-electrifiedboundary" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M59.5081967,60 L0.491803279,60" id="Path" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M59.5081967,55 L0.491803279,55" id="Path" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M21.8196721,22 L0.180327869,22" id="Path" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M21.8196721,33 L0.180327869,33" id="Path" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M59.852459,22 L42.147541,22" id="Path" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M59.852459,33 L42.147541,33" id="Path" stroke="#C0343C" stroke-width="2"></path>
+        <polygon id="Path-33" stroke="#C0343C" stroke-width="2" points="34 10 23 29.5 30 29.5 25 43 39 24 30 24"></polygon>
+    </g>
+</svg>

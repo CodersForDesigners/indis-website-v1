@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px" height="64px" viewBox="0 0 64 64"><g stroke-width="2" transform="translate(0, 0)"><line data-color="color-2" fill="none" stroke="#c0343c" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="28" y1="2" x2="28" y2="10" stroke-linejoin="miter"></line>
+<line data-color="color-2" fill="none" stroke="#c0343c" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="17" y1="6" x2="17" y2="14" stroke-linejoin="miter"></line>
+<line data-color="color-2" fill="none" stroke="#c0343c" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="39" y1="6" x2="39" y2="14" stroke-linejoin="miter"></line>
+<path data-cap="butt" fill="none" stroke="#c0343c" stroke-width="2" stroke-miterlimit="10" d="M48,24h8v12c0,2.209-1.791,4-4,4h-4" stroke-linecap="butt" stroke-linejoin="miter"></path>
+<path fill="none" stroke="#c0343c" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M40,54H16
+	c-4.418,0-8-3.582-8-8V20h40v26C48,50.418,44.418,54,40,54z" stroke-linejoin="miter"></path>
+<path fill="none" stroke="#c0343c" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M53,54c0,0-1,6-6,6
+	c-2.079,0-35.921,0-38,0c-5,0-6-6-6-6H53z" stroke-linejoin="miter"></path></g></svg>

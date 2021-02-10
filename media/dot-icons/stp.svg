@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px" height="64px" viewBox="0 0 64 64"><g stroke-width="2" transform="translate(0, 0)"><path data-cap="butt" data-color="color-2" fill="none" stroke="#c0343c" stroke-width="2" stroke-miterlimit="10" d="M28.77371,39.36499
+	L23.5509,49.4375C25.94513,51.0553,28.83154,52,31.93854,52c3.14679,0,6.06421-0.9729,8.4762-2.62872l-5.18844-10.00629" stroke-linejoin="miter" stroke-linecap="butt"></path>
+<path data-cap="butt" data-color="color-2" fill="none" stroke="#c0343c" stroke-width="2" stroke-miterlimit="10" d="M35.66129,38.61156
+	l11.33445-0.51318c0.20394-2.88236-0.42113-5.85442-1.97463-8.54515c-1.57339-2.7252-3.87466-4.76531-6.51464-6.02624
+	L32.435,33.02345" stroke-linejoin="miter" stroke-linecap="butt"></path>
+<path data-cap="butt" data-color="color-2" fill="none" stroke="#c0343c" stroke-width="2" stroke-miterlimit="10" d="M28.33871,38.61156
+	l-11.33445-0.51318c-0.20394-2.88236,0.42113-5.85442,1.97463-8.54515c1.57339-2.7252,3.87466-4.76531,6.51464-6.02624
+	l6.07148,9.49646" stroke-linejoin="miter" stroke-linecap="butt"></path>
+<circle data-color="color-2" fill="none" stroke="#c0343c" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" cx="32" cy="37" r="4" stroke-linejoin="miter"></circle>
+<path data-cap="butt" fill="none" stroke="#c0343c" stroke-width="2" stroke-miterlimit="10" d="M8,8v48c0,3.31372,7.79968,6,24,6
+	s24-2.68628,24-6V8" stroke-linejoin="miter" stroke-linecap="butt"></path>
+<path fill="none" stroke="#c0343c" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M56,8
+	c0,3.31371-7.79965,6-24,6S8,11.31371,8,8s7.79965-6,24-6S56,4.68629,56,8z" stroke-linejoin="miter"></path></g></svg>

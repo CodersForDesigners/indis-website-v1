@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/icons-gym</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/icons-gym" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="pectoral-machine" transform="translate(3.000000, 1.000000)" stroke="#C0343C" stroke-width="2">
+            <path d="M27,47 L27,58" id="Path"></path>
+            <path d="M19,58 L35,58" id="Path"></path>
+            <rect id="Rectangle" x="13" y="41" width="28" height="6" rx="3"></rect>
+            <rect id="Rectangle" x="0" y="18" width="8" height="16"></rect>
+            <path d="M4,34 L4,39" id="Path"></path>
+            <path d="M18,36 L18,17 C18,15.3431458 19.3431458,14 21,14 L33,14 C34.6568542,14 36,15.3431458 36,17 L36,36" id="Path"></path>
+            <rect id="Rectangle" transform="translate(50.000000, 26.000000) rotate(-180.000000) translate(-50.000000, -26.000000) " x="46" y="18" width="8" height="16"></rect>
+            <path d="M50,34 L50,39" id="Path"></path>
+            <path d="M50,18 L50,8 C50,3.581722 46.418278,4.4408921e-16 42,0 L12,0 C7.581722,-4.4408921e-16 4,3.581722 4,8 L4,18" id="Path"></path>
+            <path d="M27,0 L27,8" id="Path"></path>
+        </g>
+    </g>
+</svg>

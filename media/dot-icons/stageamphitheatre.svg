@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/icons-stageamphitheatre</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/icons-stageamphitheatre" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <rect id="Rectangle" stroke="#C0343C" stroke-width="2" x="0" y="26" width="14" height="25"></rect>
+        <rect id="Rectangle-Copy" stroke="#C0343C" stroke-width="2" x="44" y="26" width="14" height="25"></rect>
+        <circle id="Oval" stroke="#C0343C" stroke-width="2" cx="7.5" cy="33.5" r="3.5"></circle>
+        <circle id="Oval-Copy-2" stroke="#C0343C" stroke-width="2" cx="7.5" cy="44" r="2.5"></circle>
+        <circle id="Oval-Copy" stroke="#C0343C" stroke-width="2" cx="51.5" cy="33.5" r="3.5"></circle>
+        <circle id="Oval-Copy-3" stroke="#C0343C" stroke-width="2" cx="51.5" cy="44" r="2.5"></circle>
+        <path d="M0,51 L59.5886718,51" id="Line" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M0,55 L59.5886718,55" id="Line-Copy" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M3.5,60 L56.9075649,60" id="Line-Copy-2" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M6,-1.0658141e-14 C6,3.65579418 6,5.32246084 6,5" id="Path-48" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M54,-1.0658141e-14 C54,3.65579418 54,5.32246084 54,5" id="Path-48-Copy" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M5.5276022,12.9723978 C3.54110162,12.7386772 2,11.0493104 2,9 C2,6.790861 3.790861,5 6,5 C8.04931039,5 9.7386772,6.54110162 9.9723978,8.5276022 L5.5276022,12.9723978 Z" id="Combined-Shape" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M53.5276022,12.9723978 C51.5411016,12.7386772 50,11.0493104 50,9 C50,6.790861 51.790861,5 54,5 C56.0493104,5 57.7386772,6.54110162 57.9723978,8.5276022 L53.5276022,12.9723978 Z" id="Combined-Shape-Copy" stroke="#C0343C" stroke-width="2" transform="translate(53.986199, 8.986199) rotate(90.000000) translate(-53.986199, -8.986199) "></path>
+        <g id="Group" transform="translate(8.750000, 10.500000)" stroke="#C0343C" stroke-width="2">
+            <path d="M4.25,0.5 L8.25,0.5" id="Path-51"></path>
+            <path d="M-3.55271368e-15,5.5 L1.25,8.5" id="Path-52"></path>
+            <path d="M3.25,3.5 L6.25,5.5" id="Path-53"></path>
+        </g>
+        <g id="Group-Copy" transform="translate(46.500000, 15.000000) scale(-1, 1) translate(-46.500000, -15.000000) translate(42.000000, 10.500000)" stroke="#C0343C" stroke-width="2">
+            <path d="M4.25,0.5 L8.25,0.5" id="Path-51"></path>
+            <path d="M-3.55271368e-15,5.5 L1.25,8.5" id="Path-52"></path>
+            <path d="M3.25,3.5 L6.25,5.5" id="Path-53"></path>
+        </g>
+    </g>
+</svg>

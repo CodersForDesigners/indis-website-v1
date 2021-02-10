@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="56px" viewBox="0 0 60 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/Icon-standalone4</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/Icon-standalone4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="home" stroke="#C0343C" stroke-width="2">
+            <polyline id="Path" points="0 24 30 0 60 24"></polyline>
+            <polyline id="Path" points="24 56 24 39 36 39 36 56"></polyline>
+            <polyline id="Path" points="8 26 8 56 52 56 52 26"></polyline>
+        </g>
+    </g>
+</svg>

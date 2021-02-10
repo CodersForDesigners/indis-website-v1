@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/icon-quietstreets</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/icon-quietstreets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <polyline id="Path-38" stroke="#C0343C" stroke-width="2" points="0 52 16 52 11.3452019 60"></polyline>
+        <polyline id="Path-55" stroke="#C0343C" stroke-width="2" points="60 52 32.0527804 52 27.875885 60"></polyline>
+        <polyline id="Path-56" stroke="#C0343C" stroke-width="2" points="0 45.5 8 45.5 11 40"></polyline>
+        <polyline id="Path-57" stroke="#C0343C" stroke-width="2" points="38 41 39 40 40 41"></polyline>
+        <polyline id="Path-57-Copy-8" stroke="#C0343C" stroke-width="2" points="35 36 36 35 37 36"></polyline>
+        <polyline id="Path-57-Copy" stroke="#C0343C" stroke-width="2" points="44 41 45 40 46 41"></polyline>
+        <polyline id="Path-57-Copy-9" stroke="#C0343C" stroke-width="2" points="41 36 42 35 43 36"></polyline>
+        <polyline id="Path-57-Copy-5" stroke="#C0343C" stroke-width="2" points="6 30 7 29 8 30"></polyline>
+        <polyline id="Path-57-Copy-2" stroke="#C0343C" stroke-width="2" points="50 41 51 40 52 41"></polyline>
+        <polyline id="Path-57-Copy-10" stroke="#C0343C" stroke-width="2" points="47 36 48 35 49 36"></polyline>
+        <polyline id="Path-57-Copy-6" stroke="#C0343C" stroke-width="2" points="13 30 14 29 15 30"></polyline>
+        <polyline id="Path-57-Copy-11" stroke="#C0343C" stroke-width="2" points="53 36 54 35 55 36"></polyline>
+        <polyline id="Path-57-Copy-7" stroke="#C0343C" stroke-width="2" points="20 30 21 29 22 30"></polyline>
+        <path d="M60,3.10862447e-15 L51,-3.10862447e-15" id="Path-58" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M49,3.5 L40,3.5" id="Path-58-Copy" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M12.5,1.5 L7,1.5" id="Path-58-Copy-2" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M22.5,9.5 L17,9.5" id="Path-58-Copy-3" stroke="#C0343C" stroke-width="2"></path>
+        <polyline id="Path-59" stroke="#C0343C" stroke-width="2" points="18 40 15 45.5 60 45.5"></polyline>
+    </g>
+</svg>

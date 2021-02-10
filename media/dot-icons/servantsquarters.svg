@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/icons-servantsquarters</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/icons-servantsquarters" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="broom" transform="translate(10.000000, 0.000000)" stroke="#C0343C" stroke-width="2">
+            <path d="M14,26 L26,26" id="Path"></path>
+            <path d="M14,34 L26,34" id="Path"></path>
+            <path d="M20,60 L20,54" id="Path"></path>
+            <path d="M12,60 L12,54" id="Path"></path>
+            <path d="M28,60 L28,54" id="Path"></path>
+            <path d="M26,34 L26,6 C26,2.686 23.314,0 20,0 C16.686,0 14,2.686 14,6 L14,34 L0,60 L40,60 L26,34 Z" id="Path"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/icons-steamsaunaspa</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/icons-steamsaunaspa" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="towel" transform="translate(2.000000, 3.000000)" stroke="#C0343C" stroke-width="2">
+            <path d="M8,48 L8,54 L56,54 L56,6 C56,2.6862915 53.3137085,0 50,0 L46,0" id="Path"></path>
+            <path d="M44,6 C44,2.6862915 46.6862915,0 50,0 L6,0 C2.6862915,0 8.8817842e-16,2.6862915 0,6 L0,42 L44,42 L44,6 Z" id="Path"></path>
+        </g>
+    </g>
+</svg>

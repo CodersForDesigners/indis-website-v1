@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="64px" height="64px" viewBox="0 0 64 64"><g stroke-width="2" transform="translate(0, 0)"><path data-color="color-2" fill="none" stroke="#c0343c" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M30,14
+	c0-6.627,5.373-12,12-12s12,5.373,12,12s-5.373,14-12,14S30,20.627,30,14z" stroke-linejoin="miter"></path>
+<path data-cap="butt" data-color="color-2" fill="none" stroke="#c0343c" stroke-width="2" stroke-miterlimit="10" d="M34,36.86
+	C36.371,36.341,39.05,36,42,36c6.602,0,11.852,1.708,15.314,3.301C60.166,40.614,62,43.447,62,46.587V62H42" stroke-linejoin="miter" stroke-linecap="butt"></path>
+<path fill="none" stroke="#c0343c" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M8,32
+	c0-5.523,4.477-10,10-10s10,4.477,10,10s-4.477,12-10,12S8,37.523,8,32z" stroke-linejoin="miter"></path>
+<path fill="none" stroke="#c0343c" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M34,57.852
+	c0-2.516-1.564-4.754-3.923-5.632C27.21,51.153,22.965,50,18,50s-9.21,1.153-12.077,2.22C3.564,53.098,2,55.336,2,57.852V62h32
+	V57.852z" stroke-linejoin="miter"></path></g></svg>

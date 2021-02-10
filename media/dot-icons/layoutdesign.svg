@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/icon-2yearsdesign</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/icon-2yearsdesign" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <polygon id="Path-23" stroke="#C0343C" stroke-width="2" points="0 -1.77635684e-14 60 -1.77635684e-14 60 34 43 34 43 26.3998615 52 26.3998615 52 7.40246959 0 7.40246959"></polygon>
+        <path d="M4,4 L5,3" id="Path-9" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M8,4 L9,3" id="Path-9-Copy" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M12,4 L13,3" id="Path-9-Copy-2" stroke="#C0343C" stroke-width="2"></path>
+        <polygon id="Path-23-Copy" stroke="#C0343C" stroke-width="2" transform="translate(30.000000, 43.000000) rotate(180.000000) translate(-30.000000, -43.000000) " points="0 26 60 26 60 60 43 60 43 52.3998615 52 52.3998615 52 33.4024696 0 33.4024696"></polygon>
+        <path d="M24,27 L21,33" id="Path-24" stroke="#C0343C" stroke-width="2"></path>
+        <polyline id="Path-10" stroke="#C0343C" stroke-width="2" points="13 30 4 30 4 39"></polyline>
+        <path d="M29,27 L26,33" id="Path-24-Copy" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M34,27 L31,33" id="Path-24-Copy-2" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M39,27 L36,33" id="Path-24-Copy-3" stroke="#C0343C" stroke-width="2"></path>
+    </g>
+</svg>

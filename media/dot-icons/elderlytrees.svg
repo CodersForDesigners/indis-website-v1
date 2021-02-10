@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/icon-elderlytrees</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/icon-elderlytrees" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="socket-europe-1-copy-2" transform="translate(0.000000, 59.000000)" stroke="#C0343C" stroke-width="2">
+            <path d="M59.5081967,1 L0.491803279,1" id="Path"></path>
+        </g>
+        <g id="land" transform="translate(0.000000, 1.000000)" stroke="#C0343C" stroke-width="2">
+            <path d="M20,52 L20,28" id="Path"></path>
+            <path d="M27.032,14.673 C27.6677431,13.1969434 27.9970665,11.6071415 28,10 C28,4.477 24.418,0 20,0 C15.582,0 12,4.477 12,10 C12.0029335,11.6071415 12.3322569,13.1969434 12.968,14.673 C9.73806253,17.5425312 7.92329668,21.6801827 8,26 C8,33.732 13.373,40 20,40 C26.627,40 32,33.732 32,26 C32.0767033,21.6801827 30.2619375,17.5425312 27.032,14.673 L27.032,14.673 Z" id="Path"></path>
+            <path d="M40,52 L40,30" id="Path"></path>
+            <path d="M34.2,38.251 C35.9228192,39.3841122 37.9379666,39.9917833 40,40 C46.627,40 52,33.732 52,26 C52.0767033,21.6801827 50.2619375,17.5425312 47.032,14.673 C47.6677431,13.1969434 47.9970665,11.6071415 48,10 C48,4.477 44.418,0 40,0 C37.124,0 34.623,1.913 33.213,4.761" id="Path"></path>
+            <path d="M5.96,38.484 C3.8750025,39.6862831 1.8827862,41.0427284 -3.55271368e-15,42.542 L-3.55271368e-15,60 L60,60 L60,42.542 C58.1172138,41.0427284 56.1249975,39.6862831 54.04,38.484" id="Path"></path>
+        </g>
+    </g>
+</svg>

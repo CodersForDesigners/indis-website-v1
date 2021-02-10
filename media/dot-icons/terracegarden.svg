@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="60px" viewBox="0 0 48 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/icon-terracegarden</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/icon-terracegarden" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="plant-vase" stroke="#C0343C" stroke-width="2">
+            <path d="M12,4 L14,4 C19.52285,4 24,8.47715 24,14 L24,18 L22,18 C16.47715,18 12,13.52285 12,8 L12,4 Z" id="Path"></path>
+            <path d="M24,36 L24,0" id="Path"></path>
+            <path d="M36,14 L34,14 C28.47715,14 24,18.47715 24,24 L24,28 L26,28 C31.52285,28 36,23.52285 36,18 L36,14 Z" id="Path"></path>
+            <polyline id="Path" points="40 44 40 60 8 60 8 44"></polyline>
+            <rect id="Rectangle" x="0" y="36" width="48" height="8"></rect>
+        </g>
+    </g>
+</svg>

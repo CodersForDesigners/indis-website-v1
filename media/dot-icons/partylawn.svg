@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Icons/icons-partylawn</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="44 31.4175373 21.3349845 9 5 48"></polygon>
+    </defs>
+    <g id="Icons/icons-partylawn" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Group-29" transform="translate(-5.000000, 5.000000)">
+            <polygon id="Stroke-1" stroke="#C0343C" stroke-width="2" points="44 37.9175373 21.3349845 15.5 5 54.5"></polygon>
+            <g id="Group" transform="translate(0.000000, 6.500000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Stroke-1" stroke="#C0343C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xlink:href="#path-1"></use>
+                <path d="M40,34 L37,24" id="Stroke-2" stroke="#C0343C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <path d="M36,42 L22,0" id="Stroke-3" stroke="#C0343C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <path d="M31,47 L17,5" id="Stroke-4" stroke="#C0343C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <path d="M25,51 L11,9" id="Stroke-5" stroke="#C0343C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <path d="M20,56 L6,14" id="Stroke-6" stroke="#C0343C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <path d="M14,60 L0,18" id="Stroke-7" stroke="#C0343C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></path>
+            </g>
+            <path d="M25.0666905,4.33309868 C25.0666905,4.33309868 30.0577986,7.39605921 28.2243257,15.5634934" id="Stroke-20" stroke="#C0343C" stroke-width="2"></path>
+            <path d="M39.2251405,0.657661184 C39.2251405,0.657661184 41.2623838,12.2965428 35.5581946,20.7704572" id="Stroke-22" stroke="#C0343C" stroke-width="2"></path>
+            <path d="M58.8840784,20.2600559 C58.8840784,20.2600559 49.0036324,17.6055822 39.9380378,27.304727" id="Stroke-24" stroke="#C0343C" stroke-width="2"></path>
+            <path d="M57.3560541,35.4723684 C57.3560541,35.4723684 54.9115,30.4696711 44.8275135,32.5116447" id="Stroke-26" stroke="#C0343C" stroke-width="2"></path>
+        </g>
+        <circle id="Oval" stroke="#C0343C" stroke-width="2" cx="7" cy="7" r="1"></circle>
+        <circle id="Oval-Copy" stroke="#C0343C" stroke-width="2" cx="53" cy="19" r="1"></circle>
+        <circle id="Oval-Copy-2" stroke="#C0343C" stroke-width="2" cx="46" cy="56" r="1"></circle>
+        <path d="M27,3 L27,8" id="Path-50" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M43.5,31 L43.5,34" id="Path-50-Copy" stroke="#C0343C" stroke-width="2"></path>
+        <path d="M27,3 L27,8" id="Path-50" stroke="#C0343C" stroke-width="2" transform="translate(27.000000, 5.500000) rotate(-90.000000) translate(-27.000000, -5.500000) "></path>
+        <path d="M43.5,31 L43.5,34" id="Path-50-Copy-2" stroke="#C0343C" stroke-width="2" transform="translate(43.500000, 32.500000) rotate(-90.000000) translate(-43.500000, -32.500000) "></path>
+    </g>
+</svg>
