@@ -14,10 +14,13 @@
 						<div class="title h3 text-lowercase space-25-bottom">More than a decade and <?php echo getContent( '', 'total_units_sold'); ?> happy customers later, we are still obsessed with the engineering of a high-rise building.</div>
 						<div class="description p text-neutral-3 space-25-bottom">
 							<div class="p space-min-bottom">
-								INDIS has a long history. Its roots can be traced to an international partnership in 2006 with the formation of PBEL Property Development Private Limited. This began as a partnership between INCOR, the Indian partner and two Israeli companies, PBC and Electra. The vision was to provide high quality gated community lifestyles to Indian families. PBEL City was the flagship project that kicked off this partnership. They launched PBEL City projects across Hyderabad and Chennai which are successes in their respective geographies.
+								In its journey spanning a decade, from the handover of its first tower in the year 2010, at its maiden and flagship project - PBEL CITY, till now, INDIS has come a long way. Having successfully launched 3 more major projects in the interim – ONE CITY, VB CITY and VIVA CITY, INDIS now has about 4,500 customers on board.
+							</div>
+							<div class="p space-min-bottom">
+								With its continuous efforts in building Engineering capabilities; use of robust technologies, such as the shear wall method of construction; engaging reputed construction partners; collaboration with renowned fund houses; sturdy systems and processes and its unwavering focus on customer service, INDIS has built its reputation of being a progressive; reliable, innovative and a transparent Real Estate Company.
 							</div>
 							<div class="p">
-								With the exit of both Israeli partners in 2016, INCOR became a wholly Indian-owned company. The central vision of providing Indian families with gated community lifestyles expanded to building an engineering capability and team. The high rise engineering experience gained in PBEL City helped standardise materials and establish safety and maintenance protocols. A strong ethos of partnership, assembling a team of reputed architects, engineering consultants, contractors and material suppliers laid the foundation for this engineering capability. INCOR has diversified its businesses over the years and has recently created a brand called INDIS as part of the INCOR Group, which builds engineered gated communities. INDIS scaled to newer heights by adding more projects, ONE CITY, VB City and VIVA CITY.
+								With Excellence in Engineering; Constant Innovation and Learning at its core, INDIS is set to cross many more milestones in the coming years.
 							</div>
 						</div>
 					</div>
