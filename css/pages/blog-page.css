@@ -297,8 +297,47 @@
 /* -- END: Slicks Resets -- */
 
 
+/* -- Group Background Style -- */
 
+.has-background {
+	padding: var(--space-25);
+	padding-bottom: 0;
+	margin-bottom: var(--space-25);
+}
 
+.has-light-background {
+	color: var(--dark);
+	background-color: var(--light); }
+.has-neutral-1-background {
+	color: var(--dark);
+	background-color: var(--neutral-1); }
+.has-neutral-2-background {
+	color: var(--dark);
+	background-color: var(--neutral-2); }
+.has-neutral-3-background {
+	color: var(--dark);
+	background-color: var(--neutral-3); }
+.has-neutral-4-background {
+	color: var(--dark);
+	background-color: var(--neutral-4); }
+.has-neutral-5-background {
+	color: var(--light);
+	background-color: var(--neutral-5); }
+.has-dark-background {
+	color: var(--light);
+	background-color: var(--dark); }
+.has-black-background {
+	color: var(--light);
+	background-color: var(--black); }
+.has-red-1-background {
+	color: var(--dark);
+	background-color: var(--red-1); }
+.has-red-2-background {
+	color: var(--light);
+	background-color: var(--red-2); }
+.has-red-3-background {
+	color: var(--light);
+	background-color: var(--red-3); }
 
 
 
