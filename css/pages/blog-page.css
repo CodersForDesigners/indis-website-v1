@@ -339,7 +339,28 @@
 	color: var(--light);
 	background-color: var(--red-3); }
 
-
+.has-light-color {
+	color: var(--light); }
+.has-neutral-1-color {
+	color: var(--neutral-1); }
+.has-neutral-2-color {
+	color: var(--neutral-2); }
+.has-neutral-3-color {
+	color: var(--neutral-3); }
+.has-neutral-4-color {
+	color: var(--neutral-4); }
+.has-neutral-5-color {
+	color: var(--neutral-5); }
+.has-dark-color {
+	color: var(--dark); }
+.has-black-color {
+	color: var(--black); }
+.has-red-1-color {
+	color: var(--red-1); }
+.has-red-2-color {
+	color: var(--red-2); }
+.has-red-3-color {
+	color: var(--red-3); }
 
 
 
