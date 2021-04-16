@@ -197,6 +197,7 @@ require_once __DIR__ . '/../inc/above.php';
 								<div class="columns small-9">
 									<input id="pt01" class="block" type="text" name="phone-number" required>
 								</div>
+								<span class="block label space-min-top text-neutral-2 no-wrap">I hereby authorise, INDIS to call me on this number.</span>
 							</div>
 						</div>
 						<!-- END: Phone Trap -->
@@ -306,10 +307,11 @@ require_once __DIR__ . '/../inc/above.php';
 								<div class="columns small-6">
 									<input class="block" type="text" name="phone-number">
 								</div>
-								<div class="columns small-3 text-right">
+								<div class="columns small-3" style="padding-left: 5px;">
 									<span class="hidden label strong inline text-neutral-4 text-uppercase">Submit</span><!-- Hidden Because the Fields and button were not Visually Aligning -->
 									<button class="icon-button submit" type="submit" style="background-color: var(--dark); background-size: auto; background-image: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>');"></button>
 								</div>
+								<span class="block label space-min-top text-neutral-2 no-wrap">I hereby authorise, INDIS to call me on this number.</span>
 							</div>
 						</div>
 					</form>
@@ -377,6 +379,7 @@ require_once __DIR__ . '/../inc/above.php';
 										<div class="columns small-9">
 											<input id="pt02" class="block" type="text" name="phone-number" required>
 										</div>
+										<span class="block label space-min-top text-dark no-wrap">I hereby authorise, INDIS to call me on this number.</span>
 									</div>
 								</div>
 								<!-- END: Phone Trap -->
@@ -1153,6 +1156,7 @@ require_once __DIR__ . '/../inc/above.php';
 								<div class="columns small-9">
 									<input id="pt03" class="block input-dark" type="text" name="phone-number" required>
 								</div>
+								<span class="block label space-min-top text-neutral-3 no-wrap" style="position: absolute;">I hereby authorise, INDIS to call me on this number.</span>
 							</div>
 						</div>
 						<!-- END: Phone Trap -->
