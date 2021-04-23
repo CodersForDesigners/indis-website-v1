@@ -815,7 +815,8 @@ require_once __DIR__ . '/../inc/above.php';
 				<div class="label strong text-neutral-2 text-uppercase">Engineering</div>
 			</div>
 			<div class="heading columns small-12 medium-6 large-5 xlarge-4 xlarge-offset-1 space-50-bottom">
-				<div class="h3 strong text-lowercase">4 level redundancy fire fighting infrastructure. <span class="text-red-2">Early warning smoke detectors and triple pump fire sprinkler system.</span></div>
+				<div class="h3 strong text-lowercase space-25-bottom">4 level redundancy fire fighting infrastructure. <span class="text-red-2">Early warning smoke detectors and triple pump fire sprinkler system.</span></div>
+				<a href="https://indis.co.in/fire-protection-in-an-indis-high-rise-home" target="_blank" class="button fill-red-2 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Read More</a>
 			</div>
 			<div class="points points-1 columns small-12 medium-6 large-3 large-offset-1">
 				<div class="title h4 strong space-25-bottom"><span class="text-red-2">Fire Safety</span> <br>Engineering</div>
@@ -899,7 +900,8 @@ require_once __DIR__ . '/../inc/above.php';
 				<div class="label strong text-neutral-2 text-uppercase">Engineering</div>
 			</div>
 			<div class="heading columns small-12 medium-6 large-5 xlarge-4 xlarge-offset-1 space-50-bottom">
-				<div class="h3 strong text-lowercase">4 level redundancy fire fighting infrastructure. <span class="text-red-2">Early warning smoke detectors and triple pump fire sprinkler system.</span></div>
+				<div class="h3 strong text-lowercase space-25-bottom">4 level redundancy fire fighting infrastructure. <span class="text-red-2">Early warning smoke detectors and triple pump fire sprinkler system.</span></div>
+				<a href="https://indis.co.in/fire-protection-in-an-indis-high-rise-home" target="_blank" class="button fill-red-2 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);">Read More</a>
 			</div>
 			<div class="points points-1 columns small-12 medium-6 large-3 large-offset-1">
 				<div class="title h4 strong space-25-bottom"><span class="text-red-2">Fire Safety</span> <br>Engineering</div>
