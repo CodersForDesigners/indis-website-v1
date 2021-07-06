@@ -38,13 +38,17 @@ $showEngineeringRailing = getContent( [ ], 'engineering_section_railing' );
 $showEngineeringFire = getContent( [ ], 'engineering_section_fire' );
 $showEngineeringFire2 = getContent( [ ], 'engineering_section_fire_2' );
 
-$showPricingTrap = getContent( [ ], 'pricing_trap' );
-$pricingTitle = getContent( [ ], 'pricing_title' );
-$pricingButtonText = getContent( [ ], 'pricing_button_text' );
-$pricingVideoLoop = getContent( [ ], 'pricing_video_loop' );
+/*
+ * ----- Pricing Section
+ */
+$showPricingSection = getContent( false, 'pricing_section_display' );
+$pricingTitle = getContent( '', 'pricing_section_title' );
+$pricingButtonText = getContent( '', 'pricing_button_text' );
+$pricingURL = '/projects/' . $urlSlug . '/pricing';
+$pricingVideoLoop = getContent( '', 'pricing_video_url' );
 $pricingVideoFallbackImage = getContent( '', 'pricing_video_fallback_image -> sizes -> medium' );
-$pricingLabelHeading = getContent( [ ], 'pricing_label_heading' );
-$pricingLabelDescription = getContent( [ ], 'pricing_label_description' );
+$pricingLabelHeading = getContent( '', 'pricing_label_heading' );
+$pricingLabelDescription = getContent( '', 'pricing_label_description' );
 
 require_once __DIR__ . '/../inc/above.php';
 
@@ -464,17 +468,17 @@ require_once __DIR__ . '/../inc/above.php';
 
 
 <!-- Pricing Section -->
-<?php if( ! empty( $showPricingTrap ) ) : ?>
+<?php if( ! empty( $showPricingSection ) ) : ?>
 <section class="pricing-section fill-dark space-50-top space-25-bottom">
 	<div class="container">
 		<div class="row">
 			<div class="columns small-12 medium-10 large-5 xlarge-4 xlarge-offset-1 space-25-bottom">
 				<div class="title h3 strong text-lowercase space-25-bottom"><?= $pricingTitle ?></div>
-				<a href="" target="_blank" class="button fill-red-2 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);"><?= $pricingButtonText ?></a>
+				<a href="<?= $pricingURL ?>" target="_blank" class="button fill-red-2 text-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--red-1);"><?= $pricingButtonText ?></a>
 			</div>
 			<div class="columns small-12 medium-10 large-5 large-offset-1 space-25-right space-25-bottom inline-bottom">
 				<!-- Auto-playing version -->
-				<div class="video-embed video-embed-bg js_video_embed js_video_get_player" data-src="<?= $pricingVideoLoop ?>" data-loop="true" data-autoplay="true">
+				<div class="video-embed video-embed-bg js_video_embed js_video_get_player" data-src="<?= $pricingVideoLoop ?>" data-loop="true" data-autoplay="true" id="pricing-demo-video" data-id="pricing-demo-video">
 					<div class="video-embed-placeholder" style="background-image: url( <?= $pricingVideoFallbackImage ?> );"></div>
 				</div>
 			</div>
@@ -1395,5 +1399,25 @@ require_once __DIR__ . '/../inc/above.php';
 		imageSequencer.loop = true;
 		imageSequencer.play();
 	} );
+
+
+
+	/*
+	 *
+	 * Auto-play the pricing video
+	 *
+	 */
+	$( document ).one( "youtube/iframe/ready/pricing-demo-video", function () {
+		var domVideoIframe = $( "#pricing-demo-video iframe" ).get( 0 );
+		if ( ! domVideoIframe )
+			return;
+		$( document ).trigger( "youtube/player/create", domVideoIframe );
+	} );
+	// setTimeout( function () {
+	// 	debugger;
+	// 	// setTimeout( function () {
+	// 	// 	$( document ).trigger( "youtube/player/create", domVideoIframe );
+	// 	// }, 2000 );
+	// }, 1000 );
 
 </script>
