@@ -14,7 +14,7 @@
 						<div class="title h3 text-lowercase space-25-bottom">More than a decade and <?php echo getContent( '', 'total_units_sold'); ?> happy customers later, we are still obsessed with the engineering of a high-rise building.</div>
 						<div class="description p text-neutral-3 space-25-bottom">
 							<div class="p space-min-bottom">
-								In its journey spanning a decade, from the handover of its first tower in the year 2010, at its maiden and flagship project - PBEL CITY, till now, INDIS has come a long way. Having successfully launched 3 more major projects in the interim – ONE CITY, VB CITY and VIVA CITY, INDIS now has about 4,500 customers on board.
+								In its journey spanning a decade, from the handover of its first tower in the year 2011, at its maiden and flagship project - PBEL CITY, till now, INDIS has come a long way. Having successfully launched 3 more major projects in the interim – ONE CITY, VB CITY and VIVA CITY, INDIS now has about 4,500 customers on board.
 							</div>
 							<div class="p space-min-bottom">
 								With its continuous efforts in building Engineering capabilities; use of robust technologies, such as the shear wall method of construction; engaging reputed construction partners; collaboration with renowned fund houses; sturdy systems and processes and its unwavering focus on customer service, INDIS has built its reputation of being a progressive; reliable, innovative and a transparent Real Estate Company.
