@@ -648,7 +648,7 @@ require_once __DIR__ . '/../inc/above.php';
 					<?php foreach ( $group[ 'plan_group' ] as $index => $plan ) : ?>
 						<div class="plan-viewer zoom-tooltip js_tab <?php if ( $index ) echo 'hidden' ?>" data-tab="<?= $plan[ 'plan_name' ] ?>">
 							<iframe class="plan-embed js_plan_embed" src="<?= $plan[ 'plan_image' ] ?>" frameborder="0"></iframe>
-							<?php if ( ! empty( $plan[ 'compass_offset' ] ) or $plan[ 'compass_offset' ] === '0' ) : ?>
+							<?php if ( ! empty( $plan[ 'compass_offset' ] ) ) : ?>
 								<div class="icon-compass" style="transform: rotate(<?= $plan[ 'compass_offset' ] ?>deg);"><img class="block" src="../media/icon/icon-compass.svg<?php echo $ver ?>"></div>
 							<?php endif; ?>
 						</div>
