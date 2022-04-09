@@ -172,10 +172,13 @@ ini_set( 'display_errors', CMS_DEBUG_LOG_TO_FRONTEND ? '1' : '0' );
 
 
 /**
- * WordPress Updates
- *
+ |
+ | Automatic Updates
+ |
+ |
  */
-define( 'WP_AUTO_UPDATE_CORE', CMS_AUTO_UPDATE );
+define( 'AUTOMATIC_UPDATER_DISABLED', false );
+define( 'WP_AUTO_UPDATE_CORE', 'minor' );
 
 
 
