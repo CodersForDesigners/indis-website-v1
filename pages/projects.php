@@ -37,6 +37,7 @@ $showEngineeringConcrete = getContent( [ ], 'engineering_section_concrete' );
 $showEngineeringRailing = getContent( [ ], 'engineering_section_railing' );
 $showEngineeringFire = getContent( [ ], 'engineering_section_fire' );
 $showEngineeringFire2 = getContent( [ ], 'engineering_section_fire_2' );
+$showEngineeringWater = getContent( [ ], 'engineering_section_water' );
 
 /*
  * ----- Pricing Section
@@ -970,6 +971,48 @@ require_once __DIR__ . '/../inc/above.php';
 <?php endif; ?>
 <!-- END: Engineering Section : Fire 2 -->
 
+<!-- Engineering Section : Water -->
+<?php if ( ! empty( $showEngineeringWater ) ) : ?>
+<section data-section="Engineering — Water" data-id="engineering-water" id="engineering-water" class="engineering-section water">
+	<div class="container">
+		<div class="row row-1">
+			<div class="section-label columns small-12 xlarge-10 xlarge-offset-1 space-25-bottom">
+				<div class="label strong text-neutral-2 text-uppercase">Engineering</div>
+			</div>
+			<div class="heading columns small-12 medium-6 large-5 xlarge-4 xlarge-offset-1 space-50-bottom">
+				<div class="h3 strong text-lowercase space-25-bottom">The engineering that ensures <span class="text-red-2">your water comes to you at the right quality and pressure.</span></div>
+				<a href="/the-engineering-that-ensures-there-is-water-when-you-need-it" target="_blank" class="button fill-red-2 text-light button-icon" style="--bg-i: url( '/media/icon/icon-right-triangle-light.svg<?php echo $ver ?>' ); --bg-c: var(--red-1);">Read More</a>
+			</div>
+			<div class="points columns small-12 medium-5 large-3 large-offset-1">
+				<div class="title h4 strong space-25-bottom"><span class="text-red-2">Water</span> <br>Engineering</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Treatment and reuse of Sewage Water drops the overall quantity of water needed by a factor of 40.9%.
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Metered water usage on an apartment level reduces water consumption patterns.
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Low flow, water-efficient fixtures imitate the flow characteristics of regular fixtures while using 30% less water.
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Pneumatic Booster Pumps actively boost water pressure to the upper floors.
+				</div>
+				<div class="point h5 condensed text-neutral-3 space-min-bottom">
+					Pressure Reducing Valves are passive mechanisms that reduce water pressure across lower floors.
+				</div>
+				<div class="pressure-reducing-valve text-center">
+					<img class="block" src="/media/engineering/pressure-reducing-valve.jpg<?= $ver ?>">
+					<div class="label strong text-neutral-2 text-uppercase space-min-top-bottom">Pressure Reducing Valve</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<img src="/media/engineering/water.jpg<?= $ver ?>" srcset="/media/engineering/water-100x28.jpg<?= $ver ?> 100w, /media/engineering/water-400x112.jpg<?= $ver ?> 400w, /media/engineering/water-768x216.jpg<?= $ver ?> 768w, /media/engineering/water-800x225.jpg<?= $ver ?> 800w, /media/engineering/water-1536x432.jpg<?= $ver ?> 1536w, /media/engineering/water-1600x450.jpg<?= $ver ?> 1600w, /media/engineering/water-2048x576.jpg<?= $ver ?> 2048w" sizes="100vw" loading="lazy" class="block">
+	</div>
+</section>
+<?php endif; ?>
+<!-- END: Engineering Section : Water -->
 
 <!-- Updates Section -->
 <?php if ( ! empty( $constructionUpdateGroups ) ) : ?>

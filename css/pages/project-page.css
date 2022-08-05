@@ -684,6 +684,22 @@
 }
 
 
+/* -- Engineering Section - Water Overwrites -- */
+
+.engineering-section.water .row-1 .points  {
+	position: relative;
+}
+@media( min-width: 1040px ) {
+	.engineering-section.water .pressure-reducing-valve {
+		position: absolute;
+		bottom: 0;
+		left: 100%;
+		width: 100%;
+		height: auto;
+	}
+}
+
+
 
 
 
