@@ -270,6 +270,22 @@ add_action( 'acf/init', function () {
 		'render_callback' => 'acf_render_callback'
 	] );
 
+	// Project Pricing block
+	acf_register_block_type( [
+		'name' => 'bfs-project-pricing',
+		'title' => __( 'Project Pricing' ),
+		'description' => __( 'Project Pricing' ),
+		'category' => 'common',
+		'icon' => 'building',
+		'align' => 'wide',
+		'mode' => 'edit',
+		'supports' => [
+			'multiple' => false,
+			'align' => [ 'wide' ]
+		],
+		'render_callback' => 'acf_render_callback'
+	] );
+
 	// For the Geek in You block
 	acf_register_block_type( [
 		'name' => 'bfs-for-the-geek-in-you',
@@ -368,6 +384,7 @@ function bfs_theme_setup () {
 			$args[ 'template' ] = [
 				[ 'acf/bfs-project-essentials' ],
 				[ 'acf/bfs-project-spotlights' ],
+				[ 'acf/bfs-project-pricing' ],
 				[ 'acf/bfs-project-events' ],
 				[ 'acf/bfs-project-engineering' ],
 				[ 'bfs/construction-update-listing' ],
