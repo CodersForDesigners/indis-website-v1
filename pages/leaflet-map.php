@@ -118,9 +118,9 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 			.zoom-tooltip.embedded:before {
 				bottom: 84px;
 			}
-
 			.zoom-tooltip.embedded:after {
 				bottom: 117px;
+			}
 		}
 
 
