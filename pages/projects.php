@@ -1078,11 +1078,14 @@ require_once __DIR__ . '/../inc/above.php';
 								</div>
 							</div>
 							<div class="row">
-								<div class="update-rera columns small-12 large-5">
-									<?php if ( ! empty( $update[ 'rera_number' ] ) ) : ?>
-										<div class="h5 condensed text-red-2 space-min-top">TS RERA Number: <?= $update[ 'rera_number' ] ?></div>
-										<img class="icon-ts-rera" src="../media/construction/icon-ts-rera.png<?php echo $ver ?>">
-									<?php endif; ?>
+								<div class="columns small-12 large-5">
+									<div class="update-rera">
+										<?php if ( ! empty( $update[ 'rera_number' ] ) ) : ?>
+											<div class="h5 condensed text-red-2 space-min-top">TS RERA Number: <?= $update[ 'rera_number' ] ?></div>
+											<img class="icon-ts-rera" src="../media/construction/icon-ts-rera.png<?php echo $ver ?>">
+										<?php endif; ?>
+									</div>
+									<div class="label space-min-top">* These are randomly clicked pictures of work in progress from preceding month. Not to be considered as progress in entirety.</div>
 								</div>
 								<div class="update-status columns small-12 medium-9 large-7">
 									<div class="title h5 condensed space-min-top">
