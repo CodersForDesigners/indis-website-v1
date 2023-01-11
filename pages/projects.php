@@ -50,6 +50,14 @@ $pricingVideoLoop = getContent( '', 'pricing_video_url' );
 $pricingVideoFallbackImage = getContent( '', 'pricing_video_fallback_image -> sizes -> medium' );
 $pricingLabelHeading = getContent( '', 'pricing_label_heading' );
 $pricingLabelDescription = getContent( '', 'pricing_label_description' );
+/*
+ * ----- Linked Projects
+ */
+$showLinkedProjectSection = getContent( false, 'linked_project_display' );
+$linkedProjectSectionTitle = getContent( '', 'linked_project_section_title' );
+$linkedProjectImage = getContent( '', 'linked_project_image' );
+$linkedProjectButtonText = getContent( '', 'linked_project_btn_text' );
+$linkedProjectURL = getContent( '', 'linked_project_url' );
 
 require_once __DIR__ . '/../inc/above.php';
 
@@ -492,6 +500,25 @@ require_once __DIR__ . '/../inc/above.php';
 </section>
 <?php endif; ?>
 <!-- END: Pricing Section -->
+
+
+<!-- Linked Project Section -->
+<?php if( ! empty( $showLinkedProjectSection ) ) : ?>
+<section class="linked-project-section fill-black">
+	<div class="container">
+		<div class="row">
+			<div class="columns small-12 medium-6 inline-bottom">
+				<img src="<?= $linkedProjectImage ?>">
+			</div>
+			<div class="columns small-12 medium-offset-1 medium-5 space-25-bottom">
+				<div class="title h3 strong space-100-top space-50-bottom"><?= $linkedProjectSectionTitle ?></div>
+				<div class="space-100-bottom"><a href="<?= $linkedProjectURL ?>" target="_blank" class="button fill-light button-icon" style="--bg-i: url('../media/icon/icon-right-triangle-light.svg<?php echo $ver ?>'); --bg-c: var(--neutral-4);"><?= $linkedProjectButtonText ?></a></div>
+			</div>
+		</div>
+	</div>
+</section>
+<?php endif; ?>
+<!-- END: Linked Project Section -->
 
 
 <!-- Engineering Section : Concrete -->

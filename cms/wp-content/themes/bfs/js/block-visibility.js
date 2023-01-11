@@ -29,6 +29,7 @@ let blocks = {
 	projectConstructionUpdates: { name: "Construction Updates", _name: "acf/bfs-project-construction-updates" },
 	projectConstructionUpdateListing: { name: "Construction Update Listing", _name: "bfs/construction-update-listing" },
 	projectPricing: { name: "Project Pricing", _name: "bfs/project-pricing" },
+	linkedProject: { name: "Linked Project", _name: "bfs/linked-project" },
 }
 
 

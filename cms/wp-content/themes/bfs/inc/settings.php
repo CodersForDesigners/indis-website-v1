@@ -117,8 +117,15 @@ add_action( 'bfs/backend/on-editing-posts', function ( $postType ) {
 		// Disable custom color picker
 		add_theme_support( 'disable-custom-colors' );
 
-	}
+		// Only allow access to certain types of blocks (for general posts and pages and the like)
+		wp_enqueue_script(
+			'bfs-block-access',
+			get_template_directory_uri() . '/js/block-access.js',
+			[ 'wp-data', 'wp-edit-post' ],
+			filemtime( get_template_directory() . '/js/block-access.js' )
+		);
 
+	}
 
 	// Block Visibility
 	wp_enqueue_script(
@@ -286,6 +293,22 @@ add_action( 'acf/init', function () {
 		'render_callback' => 'acf_render_callback'
 	] );
 
+	// Linked Project block
+	acf_register_block_type( [
+		'name' => 'bfs-linked-project',
+		'title' => __( 'Linked Project' ),
+		'description' => __( 'Linked Project' ),
+		'category' => 'common',
+		'icon' => 'building',
+		'align' => 'wide',
+		'mode' => 'edit',
+		'supports' => [
+			'multiple' => false,
+			'align' => [ 'wide' ]
+		],
+		'render_callback' => 'acf_render_callback'
+	] );
+
 	// For the Geek in You block
 	acf_register_block_type( [
 		'name' => 'bfs-for-the-geek-in-you',
@@ -388,6 +411,7 @@ function bfs_theme_setup () {
 				[ 'acf/bfs-project-events' ],
 				[ 'acf/bfs-project-engineering' ],
 				[ 'bfs/construction-update-listing' ],
+				[ 'acf/bfs-linked-project' ],
 				[ 'acf/bfs-social-media-links' ],
 				[ 'acf/bfs-meta' ]
 			];

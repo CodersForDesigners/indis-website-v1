@@ -440,6 +440,23 @@
 
 
 /*
+ *	Linked Project
+ */
+@media ( max-width: 640px ) {
+	.linked-project-section {
+		padding-top: var(--space-100);
+	}
+
+	.linked-project-section .h3 {
+		padding-top: var(--space-50);
+	}
+}
+
+
+
+
+
+/*
  *	Engineering Section
  */
 
