@@ -1,6 +1,7 @@
 <?php
 
 $mapId = $_GET[ 'id' ];
+$compassNorth = $_GET[ 'north' ];
 $mapTilesPath = $_SERVER[ 'DOCUMENT_ROOT' ] . '/content/plans/' . $mapId;
 $fullSizeMapPath = $mapTilesPath . '/original';
 if ( file_exists( $fullSizeMapPath . '.png' ) )
@@ -124,6 +125,46 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 		}
 
 
+		/*
+		 |
+		 | Compass
+		 |
+		 |
+		 */
+		.icon-compass {
+			--x-offset: 55px;
+			--y-offset: -35px;
+			--width: 30px;
+			bottom: var(--y-offset);
+			left: var(--x-offset);
+			position: absolute;
+			width: var(--width);
+			transform: rotate( 0deg );
+			z-index: 991;
+			pointer-events: none;
+		}
+		@media ( min-width: 640px )  {
+			.icon-compass {
+				--x-offset: 30px;
+				--y-offset: -10px;
+				--width: 80px;
+			}
+		}
+		@media ( min-width: 1040px ) {
+			.icon-compass {
+				--x-offset: 20px;
+				--y-offset: 0px;
+				--width: 100px;
+			}
+		}
+		@media ( min-width: 1480px ) {
+			.icon-compass {
+				--x-offset: 10px;
+				--y-offset: 10px;
+				--width: 120px;
+			}
+		}
+
 	</style>
 	<link rel="stylesheet" type="text/css" href="/plugins/leaflet/leaflet-v1.6.css">
 	<link rel="stylesheet" type="text/css" href="/plugins/leaflet/leaflet-easybutton-v2.4.0.css">
@@ -132,11 +173,24 @@ $readableMapName = implode( ' ', explode( '-', $mapId ) );
 <body>
 
 	<div id="map" class="map"></div>
+	<div class="icon-compass js_compass" style="<?= ( empty( $compassNorth ) and $compassNorth !== '0' ) ? "display: none;" : "" ?> transform: rotate(<?= $compassNorth ?? 0 ?>deg);">
+		<img class="block" src="../media/icon/icon-compass.svg<?= $ver ?>">
+	</div>
 
 	<script type="text/javascript" src="/plugins/leaflet/leaflet-v1.6.js"></script>
 	<script type="text/javascript" src="/plugins/leaflet/leaflet-rastercoords-v1.0.3.js"></script>
 	<script type="text/javascript" src="/plugins/leaflet/leaflet-easybutton-v2.4.0.js"></script>
 	<script type="text/javascript">
+
+		/*
+		 |
+		 | Remove / Hide the compass if page is contained in an iframe
+		 |
+		 |
+		 */
+		if ( window !== window.parent ) {
+			document.getElementsByClassName( "js_compass" )[ 0 ].remove()
+		}
 
 		// Create the map
 		var map = L.map( "map", {
