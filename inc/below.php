@@ -99,6 +99,9 @@
 						<?php endforeach; ?>
 					</div>
 
+					<?php /* fine print disclaimer */ ?>
+					<p class="block mt-min label text-neutral-4">* disclaimer of Terms &amp; Conditions apply</p>
+
 				</div>
 			</div>
 			<!-- End: Footer Menu -->
