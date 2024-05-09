@@ -1154,7 +1154,7 @@ require_once __DIR__ . '/../inc/above.php';
 	<div class="carousel-list js_carousel_content">
 		<div class="carousel-list-item js_carousel_item">
 			<div class="carousel-title h2 strong text-lowercase">
-				Can an <br>Apartment <br><span class="text-red-2">change <br>your life?</span>
+				Keep <br>current <br><span class="text-red-2">with <br>project <br>news</span>
 			</div>
 		</div>
 		<?php foreach ( $events as $index => $event ) : ?>
