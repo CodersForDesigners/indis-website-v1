@@ -451,3 +451,19 @@ function bfs_theme_setup () {
 }
 
 add_action( 'after_setup_theme', 'bfs_theme_setup' );
+
+
+
+/*
+ |
+ | Tile Map Viewer
+ | 	Do not load the admin bar as it conflicts with other code
+ |
+ |
+ */
+add_action( 'wp', function () {
+	if ( $_SERVER[ 'REQUEST_URI' ] !== '/tmv' ) {
+		return;
+	}
+	add_filter( 'show_admin_bar', '__return_false' );
+} );
