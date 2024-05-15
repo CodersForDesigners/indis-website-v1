@@ -11,10 +11,10 @@
 			<div class="row space-50-top space-25-bottom">
 				<div class="container">
 					<div class="footer-info columns small-12 medium-10 large-8">
-						<div class="title h3 text-lowercase space-25-bottom">More than a decade and <?php echo getContent( '', 'total_units_sold'); ?> happy customers later, we are still obsessed with the engineering of a high-rise building.</div>
+						<div class="title h3 text-lowercase space-25-bottom">More than a decade and <?= getContent( '', 'total_units_sold'); ?> customers later, we are still obsessed with building engineered homes.</div>
 						<div class="description p text-neutral-3 space-25-bottom">
 							<div class="p space-min-bottom">
-								In its journey spanning a decade, from the handover of its first tower in the year 2011, at its maiden and flagship project - PBEL CITY, till now, INDIS has come a long way. Having successfully launched 3 more major projects in the interim – ONE CITY, VB CITY and VIVA CITY, INDIS now has about 4,500 customers on board.
+								In its journey spanning a decade, from the handover of its first tower in the year 2011, at its maiden and flagship project - PBEL CITY, till now, INDIS has come a long way. Having successfully launched 5 more projects in the interim - ONE CITY, VB CITY, VIVA CITY, SPRINGDALE and MYRA VILLAS, INDIS now has about <?= getContent( '', 'total_units_sold'); ?> customers on board.
 							</div>
 							<div class="p space-min-bottom">
 								With its continuous efforts in building Engineering capabilities; use of robust technologies, such as the shear wall method of construction; engaging reputed construction partners; collaboration with renowned fund houses; sturdy systems and processes and its unwavering focus on customer service, INDIS has built its reputation of being a progressive; reliable, innovative and a transparent Real Estate Company.
