@@ -9,6 +9,9 @@
 
 RewriteEngine On
 
+# Proxy the Pricing Engine
+RewriteRule ^/?projects/pbel-city/pricing(.*)$ "https://indis.omega.lazaro.in/pricing$1" [P]
+
 # Serve from the cache (if present)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{HTTPS} =on
