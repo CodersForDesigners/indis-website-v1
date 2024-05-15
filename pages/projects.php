@@ -94,9 +94,9 @@ require_once __DIR__ . '/../inc/above.php';
 <!-- END: Gallery data -->
 
 
-<!-- Sticky Call Section -->
+<!-- Sticky Call Section [HIDDEN indefinitely] -->
 <section class="sticky-call-section show-for-small js_sticky_call">
-	<div class="container">
+	<div class="container hidden">
 		<div class="row">
 			<div class="columns small-12 text-center space-50-bottom">
 				<a href="tel:<?= $projectPhoneNumberUnformatted ?>" class="call-button button fill-dark"><span class="material-icons inline-middle">phone_in_talk</span> <span class="call-number inline-middle"><?= $projectPhoneNumberFormatted ?></span></a>
