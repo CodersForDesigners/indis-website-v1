@@ -160,7 +160,7 @@ require_once __DIR__ . '/../inc/above.php';
 	<div class="container">
 		<div class="row">
 			<div class="columns small-12 medium-10 large-6 large-offset-1">
-				<div class="project-logo space-25-bottom"><img class="block" src="<?= getContent( '', 'project_logo -> sizes -> thumbnail' ) ?>"></div>
+				<div class="project-logo space-25-bottom"><?php if ( ! empty( getContent( '', 'project_logo -> sizes -> thumbnail' ) ) ) : ?><img class="block" src="<?= getContent( '', 'project_logo -> sizes -> thumbnail' ) ?>"><?php endif; ?></div>
 				<div class="title h2 strong space-25-bottom"><?= getContent( '', 'intro_title' ) ?></div>
 				<div class="description text-neutral-3 space-25-bottom"><?= getContent( '', 'intro_description' ) ?></div>
 				<div class="points row space-50-bottom">
