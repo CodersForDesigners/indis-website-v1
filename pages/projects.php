@@ -46,11 +46,12 @@ $showEngineeringWaterVariant2 = getContent( [ ], 'engineering_section_water_vari
 $showPricingSection = getContent( false, 'pricing_section_display' );
 $pricingTitle = getContent( '', 'pricing_section_title' );
 $pricingButtonText = getContent( '', 'pricing_button_text' );
-$pricingURL = '/projects/' . $urlSlug . '/pricing';
 $pricingVideoLoop = getContent( '', 'pricing_video_url' );
 $pricingVideoFallbackImage = getContent( '', 'pricing_video_fallback_image -> sizes -> medium' );
 $pricingLabelHeading = getContent( '', 'pricing_label_heading' );
 $pricingLabelDescription = getContent( '', 'pricing_label_description' );
+$pricingURL = getContent( ( '/projects/' . $urlSlug . '/pricing' ), 'pricing_page_url' );
+
 /*
  * ----- Linked Projects
  */
