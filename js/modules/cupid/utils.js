@@ -368,7 +368,7 @@ utils.openPageInIframe = function openPageInIframe ( url, name, options ) {
 				return;
 			var message = event.originalEvent.data;
 			if ( message.status == "ready" )
-				setTimeout( function () { $iframe.remove() }, 19 * 1000 );
+				setTimeout( function () { $iframe.remove() }, 99 * 1000 );
 		} );
 	}
 	else {
@@ -408,7 +408,7 @@ utils.setCookie = function setCookie ( name, data, duration ) {
 	if ( [ "string", "number" ].indexOf( typeof data ) !== -1 )
 		cookieValue = data;
 	else if ( typeof data == "object" )
-		cookieValue = window.btoa( JSON.stringify( data ) );
+		cookieValue = window.Base64.encode( JSON.stringify( data ) );
 	else
 		throw new Error( "Please provide either a Number, String or an Object for the cookie's value." );
 
@@ -463,7 +463,7 @@ utils.getCookie = function getCookie ( name ) {
 	catch ( e ) {}
 
 	try {
-		cookieData = JSON.parse( atob( cookieString ) );
+		cookieData = JSON.parse( window.Base64.decode( cookieString ) );
 	}
 	catch ( e ) {
 		cookieData = cookieString;
@@ -563,7 +563,7 @@ utils.callFunctionIfNotCalledIn = function callFunctionIfNotCalledIn ( fn, secon
 		return fn.apply( this, [ ].slice.call( arguments ) );
 	}
 
-	setTimeout( theFunction, seconds * 1000 );
+	window.setTimeout( theFunction, seconds * 1000 );
 
 	return theFunction;
 

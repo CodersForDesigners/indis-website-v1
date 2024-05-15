@@ -49,7 +49,7 @@ function onOTPVerified () {
 	var loginPrompt = this;
 	// Trigger a page navigation, for GTM
 		// this is distinct from the conversion tracking
-	__.utils.openPageInIframe( "gtm/gads", "", { closeOnLoad: true } );
+	__.utils.openPageInIframe( "thankyou/page", "", { closeOnLoad: true } );
 	// Trigger the login event
 	loginPrompt.trigger( "login", __.Person.get() );
 }

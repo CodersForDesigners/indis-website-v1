@@ -144,6 +144,7 @@
 	<?php if ( $postType === 'projects' ) : ?>
 		<script type="text/javascript" src="/js/modules/image-sequencer.js<?= $ver ?>"></script>
 	<?php endif; ?>
+	<script type="text/javascript" src="/plugins/base64/js-base64-v3.6.0.min.js<?= $ver ?>"></script>
 	<script type="text/javascript" src="/js/modules/cupid/utils.js<?= $ver ?>"></script>
 	<script type="text/javascript" src="/js/modules/cupid/user.js<?= $ver ?>"></script>
 	<script type="text/javascript" src="/js/login-prompts.js<?= $ver ?>"></script>
