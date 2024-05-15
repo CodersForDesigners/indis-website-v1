@@ -120,3 +120,27 @@ function submitPersonActivity ( $data ) {
 	return $response;
 
 }
+
+function submitPersonAnsweredQuestion ( $data ) {
+
+	$endpoint = 'https://docs.google.com/forms/d/e/'
+			. '1FAIpQLSfVK__JWPprbLECCp5clm4v6bTO0UiXZ-nPHJ5IKpnAVLWjQQ'
+			. '/formResponse';
+	$requestBody = [
+		'entry.1506541781' => $data[ 'when' ],
+		'entry.342362498' => $data[ 'questionIndex' ],
+		'entry.1135339879' => $data[ 'question' ],
+		'entry.1751948562' => $data[ 'answer' ],
+		'entry.1540148314' => $data[ 'context' ],
+		'entry.1201779673' => $data[ 'sessionId' ],
+		'entry.1214354694' => $data[ 'personId' ],
+		'entry.869540666' => $data[ 'verified' ],
+		'entry.33178366' => $data[ 'phoneNumber' ],
+		'entry.1401378948' => $data[ 'questionnaireVersion' ]
+	];
+
+	$response = getAPIResponse( $endpoint, 'POST', $requestBody );
+
+	return $response;
+
+}
