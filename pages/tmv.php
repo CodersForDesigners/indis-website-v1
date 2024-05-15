@@ -188,7 +188,8 @@ $maps = array_map( function ( $directoryName ) {
 
 <?php require_once __DIR__ . '/../inc/below.php'; ?>
 
-<script type="text/javascript">
+<!-- Giving this script an id because some third-party scripts are truncating a bunch of our code, including this script block, I think. -->
+<script type="text/javascript" id="tmv_script">
 
 	function getErrorResponse ( jqXHR, textStatus, e ) {
 		var code = -1;
