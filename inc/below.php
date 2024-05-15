@@ -34,6 +34,7 @@
 					<div class="footer-links columns small-12 large-8">
 						<div class="row">
 							<?php foreach ( $allProjectsExcludingCurrent as $project ) : ?>
+								<?php if ( $project[ 'post_name' ] === 'myra-villas' ) { continue; } ?>
 								<div class="project-links columns small-6 medium-3">
 									<a href="<?= $project[ 'permalink' ] ?>" class="title h6 strong text-red-2"><?= $project[ 'post_title' ] ?>
 										<span class="location block label strong text-uppercase text-red-1"><?= getContent( '', 'location', $project[ 'ID' ] ) ?></span>
@@ -214,6 +215,26 @@
 				?>
 			} );
 		} );
+
+		<?php if ( $thePost[ 'post_name' ] === 'myra-villas-hyd' ) : ?>
+		$( ".js_variants_section" ).on( "click", ".js_variant_option", function ( event ) {
+			const $selectedVariantOption = $( event.target ).closest( ".js_variant_option" )
+			const $variantOptions = $selectedVariantOption.parent().children()
+			const selectedVariantOptionIndex = $variantOptions.index( $selectedVariantOption )
+			const $variantsContents = $selectedVariantOption.closest( ".js_variant_subsection" ).find( ".js_variant_content" )
+			const $selectedVariantContent = $( $variantsContents.get( selectedVariantOptionIndex ) )
+
+			// Toggle the selected variant, untoggle the previous one
+			$variantOptions
+				.removeClass( "fill-red-2 text-white" )
+				.addClass( "fill-neutral-3 text-black" )
+			$selectedVariantOption
+				.addClass( "fill-red-2 text-white" )
+				.removeClass( "fill-neutral-3 text-black" )
+			$variantsContents.removeClass( "visible" )
+			$selectedVariantContent.addClass( "visible" )
+		} )
+		<?php endif; ?>
 
 	</script>
 

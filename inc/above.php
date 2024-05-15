@@ -59,6 +59,9 @@ http_response_code( 200 );
 $allProjectsExcludingCurrent = getPostsOf( 'projects', null, $thePost[ 'ID' ] ?? [ ] );
 if ( cmsIsEnabled() ) {
 	foreach ( $allProjectsExcludingCurrent as &$project ) {
+		if ( $project[ 'post_name' ] === 'myra-villas' ) {
+			continue;
+		}
 		$project[ 'permalink' ] = get_permalink( $project[ 'ID' ] );
 	}
 	unset( $project );
@@ -138,6 +141,7 @@ $linkedin_link = getContent( '', 'linkedin_link' );
 												<option disabled selected>&nbsp;&nbsp;&nbsp;Select <?= $item[ 'selectorOf' ] ?>&nbsp;&nbsp;&nbsp;</option>
 											<?php endif; ?>
 											<?php foreach ( $item[ 'posts' ] as $post ) : ?>
+												<?php if ( $post[ 'post_name' ] === 'myra-villas' ) { continue; } ?>
 												<option data-href="<?= get_permalink( $post[ 'ID' ] ) ?>">&nbsp;&nbsp;&nbsp;<?= $post[ 'post_title' ] ?>&nbsp;&nbsp;&nbsp;</option>
 											<?php endforeach; ?>
 										</select>

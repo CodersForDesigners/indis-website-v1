@@ -728,6 +728,11 @@ require_once __DIR__ . '/../inc/above.php';
 <?php endif; ?>
 <!-- END: Carousel Mini: Amenities -->
 
+<?php
+if ( $thePost[ 'post_name' ] === 'myra-villas-hyd' ) {
+	require_once __DIR__ . '/../inc/myra-villas-variants-section.php';
+}
+?>
 
 <!-- Amenities Section -->
 <?php if ( ! empty( $amenities ) ) : ?>
