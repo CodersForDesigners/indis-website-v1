@@ -25,6 +25,9 @@ function initialiseVideoEmbed ( domElement, videoId ) {
 		attributes.src += "&enablejsapi=1&mute=1&controls=0";
 	$iframe.attr( attributes );
 	$( domElement ).append( $iframe );
+	var embedId = ( typeof $( domElement ).data( "id" ) === "string" ) ? $( domElement ).data( "id" ).trim() : null;
+	if ( embedId )
+		$( document ).trigger( "youtube/iframe/ready/" + embedId );
 }
 
 function destroyVideoEmbed ( domElement ) {
@@ -100,6 +103,7 @@ function setupYoutubeIframeAPI () {
 			if ( players[ playerId ] )
 				players[ playerId ].destroy();
 		} );
+		$( document ).trigger( "youtube/api/ready" );
 	};
 
 }
@@ -109,17 +113,35 @@ window.__BFS.setupYoutubeIframeAPI = setupYoutubeIframeAPI;
 /*
  * The first time a YouTube player is created, also set up the YouTube Iframe API
  */
-$( document ).one( "youtube/player/create", function ( event, domVideo ) {
+$( document ).one( "youtube/api/ready", function () {
+	window.__BFS.youtubeIframeAPIIsReady = true;
+} );
+// $( document ).one( "youtube/player/create", function ( event, domVideo ) {
 
-	// Only run this function **once**
-	if ( window.__BFS.setupYoutubeIframeAPI ) {
+// 	// Only run this function **once**
+// 	if ( window.__BFS.setupYoutubeIframeAPI ) {
+// 		window.__BFS.setupYoutubeIframeAPI();
+// 		window.__BFS.setupYoutubeIframeAPI = null;
+// 	}
+
+// 	$( document ).trigger( "youtube/player/create", domVideo );
+
+// } );
+
+function initializeYouTubeIframeAPI ( event, domVideo ) {
+	if ( window.__BFS.youtubeIframeAPIIsReady ) {
+		$( document ).off( "youtube/player/create", initializeYouTubeIframeAPI );
+		return;
+	}
+	if ( window.__BFS.setupYoutubeIframeAPI ) {	// if it's not been called before
 		window.__BFS.setupYoutubeIframeAPI();
 		window.__BFS.setupYoutubeIframeAPI = null;
 	}
-
-	$( document ).trigger( "youtube/player/create", domVideo );
-
-} );
+	$( document ).one( "youtube/api/ready", function () {
+		$( document ).trigger( "youtube/player/create", domVideo );
+	} );
+}
+$( document ).on( "youtube/player/create", initializeYouTubeIframeAPI );
 
 $( function () {
 
