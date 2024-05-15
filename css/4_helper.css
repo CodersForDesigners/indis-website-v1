@@ -1,5 +1,18 @@
 
 /*
+ * Positioning
+ */
+.relative {
+	position: relative;
+}
+.absolute {
+	position: absolute;
+}
+.top-0 {
+	top: 0;
+}
+
+/*
  * Alignment
  */
 
@@ -115,6 +128,9 @@
 	display: inline-block;
 	vertical-align: text-bottom;
 }
+
+.flex { display: flex; }
+	.items-end { align-items: flex-end; }
 
 
 
