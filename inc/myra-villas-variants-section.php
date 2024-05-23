@@ -384,7 +384,6 @@ $imageBanner3 = $uploadDirBaseURL . '/' . wp_get_attachment_metadata( 8049 )[ 'f
 				<div class="row relative js_variant_content absolute top-0">
 					<figure class="column small-12 medium-5 m-0">
 						<img src="/media/isometrics/myra/second-floor/1.png<?= $ver ?>" alt="" loading="lazy">
-						<p class="label text-neutral-1">*Provided as default variant</p>
 					</figure>
 					<div class="copy column small-12 medium-7">
 						<h4 class="copy-heading flex items-end mt-150 md:mt-50">
@@ -420,6 +419,7 @@ $imageBanner3 = $uploadDirBaseURL . '/' . wp_get_attachment_metadata( 8049 )[ 'f
 				<div class="row relative js_variant_content visible">
 					<figure class="column small-12 medium-5 m-0">
 						<img src="/media/isometrics/myra/second-floor/3.png<?= $ver ?>" alt="" loading="lazy">
+						<p class="label text-neutral-1">*Provided as default variant</p>
 					</figure>
 					<div class="copy column small-12 medium-7">
 						<h4 class="copy-heading flex items-end mt-150 md:mt-50">
